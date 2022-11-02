@@ -20,10 +20,10 @@ public class InputControls {
     private static final int QUIT = 7;
     private static final int NUM_OF_INPUTS = 8;
     private static final int NUM_OF_KEYS = 256;
-    private static boolean[] myKeys = new boolean[NUM_OF_KEYS];
-    private static boolean[] myKeysLast = new boolean[NUM_OF_KEYS];
-    private static boolean[] myInputs = new boolean[NUM_OF_INPUTS];
-    private static boolean[] myInputsLast = new boolean[NUM_OF_INPUTS];
+    private static final boolean[] myKeys = new boolean[NUM_OF_KEYS];
+    private static final boolean[] myKeysLast = new boolean[NUM_OF_KEYS];
+    private static final boolean[] myInputs = new boolean[NUM_OF_INPUTS];
+    private static final boolean[] myInputsLast = new boolean[NUM_OF_INPUTS];
 
     public static void update() {
         for (int i = 0; i < NUM_OF_KEYS; i++) {
