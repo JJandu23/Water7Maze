@@ -3,38 +3,40 @@ package Model.Hero;
 import Model.MazeCharacter;
 
 public class Hero extends MazeCharacter {
-    private int myPotion;
-    protected Hero(String theName, int theHealthPoints, int theAttackSpeed, int theMinAttack, int theMaxAttack,
-                   double theHitChance, double theDodgeChance, double theSpecialChance, int thePotion) {
-        super(theName, theHealthPoints, theAttackSpeed, theMinAttack, theMaxAttack, theHitChance, theDodgeChance,
-                theSpecialChance);
-        setPotion(thePotion);
+    private int mySenzuBean;
+    public Hero(String theName, int theHealthPoints, int theOriginalHealthPoints, int theAttackSpeed, int theMinDamage,
+                int theMaxDamage, double theHitChance, double theDodgeChance, double theSpecialChance, int theSenzuBean) {
+        super(theName, theHealthPoints, theOriginalHealthPoints, theAttackSpeed, theMinDamage, theMaxDamage,
+                theHitChance, theDodgeChance, theSpecialChance);
+        setSenzuBean(theSenzuBean);
     }
-    protected final int getPotion() {
-        return myPotion;
-    }
-
-    protected final void setPotion(int thePotion) {
-        myPotion = thePotion;
+    public final int getSenzuBean() {
+        return mySenzuBean;
     }
 
-    protected final void addPotion(int thePotion) {
-        myPotion += thePotion;
-        setPotion(myPotion);
+    protected final void setSenzuBean(int theSenzuBean) {
+        mySenzuBean = theSenzuBean;
     }
 
-    public final void usePotion(int thePotion) {
-        if (myPotion > 0) {
+    protected final void addSenzuBean(int theSenzuBean) {
+        mySenzuBean += theSenzuBean;
+        setSenzuBean(mySenzuBean);
+    }
+
+    public final void useSenzuBean(int mySenzuBean) {
+        if (mySenzuBean > 0) {
             if (getHealthPoints() == getOriginalHealthPoints()) {
                 System.out.println("You are already at full health!");
             } else {
-                myPotion -= thePotion;
-                setPotion(myPotion);
-                addHealth(10);
-                System.out.println(getName() + " used a potion and gained 10 health!");
+                mySenzuBean -= mySenzuBean;
+                setSenzuBean(mySenzuBean);
+                int newHealth = getHealthPoints() + 10;
+                setHealthPoints(newHealth);
+                System.out.println(getName() + " used a senzu bean and gained 10 health!");
+                System.out.println(getName() + " now has " + getHealthPoints() + " health!");
             }
         } else {
-            System.out.println(getName() + " has no potions left!");
+            System.out.println(getName() + " has no senzu beans left!");
         }
     }
 }

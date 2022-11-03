@@ -6,8 +6,8 @@ import java.util.Random;
 
 public class BoatKevin extends Enemy {
     public BoatKevin() {
-        super("Boat Kevin", 40, 4, 10, 20, 0.8,
-                0.2, 0.01);
+        super("BoatKevin", 40, 40, 4,
+                10, 20, 0.8, 0.2, 0.9);
     }
 
     @Override

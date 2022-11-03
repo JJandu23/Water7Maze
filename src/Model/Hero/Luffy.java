@@ -9,8 +9,8 @@ public class Luffy extends Hero {
     private final int myMaxSpecialDamage = 30;
 
     public Luffy() {
-        super("Luffy", 100, 10, 10, 20, 0.8,
-                0.2, 0.1, 1);
+        super("Luffy", 100, 100, 10, 10,
+                20, 0.8, 0.2, 0.1, 1);
     }
 
     @Override
