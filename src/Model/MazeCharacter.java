@@ -1,5 +1,7 @@
 package Model;
 
+import java.util.Random;
+
 public class MazeCharacter {
     private String myName;
     private int myHealthPoints;
@@ -12,56 +14,78 @@ public class MazeCharacter {
     private double mySpecialChance;
 
     protected MazeCharacter(String theName, int theHealthPoints, int theAttackSpeed,
-                            int theMinAttack, int theMaxAttack, double theHitChance, double theDodgeChance,
+                            int theMinDamage, int theMaxDamage, double theHitChance, double theDodgeChance,
                             double theSpecialChance) {
+        setName(theName);
+        setHealthPoints(theHealthPoints);
+        setOriginalHealthPoints(theHealthPoints);
+        setAttackSpeed(theAttackSpeed);
+        setMinDamage(theMinDamage);
+        setMaxDamage(theMaxDamage);
+        setHitChance(theHitChance);
+        setDodgeChance(theDodgeChance);
+        setSpecialChance(theSpecialChance);
+    }
+
+    protected final void setName(String theName) {
         myName = theName;
-        myHealthPoints = theHealthPoints;
-        myAttackSpeed = theAttackSpeed;
-        myMinDamage = theMinAttack;
-        myMaxDamage = theMaxAttack;
-        myHitChance = theHitChance;
-        myDodgeChance = theDodgeChance;
-        mySpecialChance = theSpecialChance;
     }
-    protected final void setName(String theName){
-        myName = theName;
-    }
-    protected final void setHealth(int theHealthPoints){
+
+    protected final void setHealthPoints(int theHealthPoints) {
         myHealthPoints = theHealthPoints;
     }
-    protected final void setAttackSpeed(int theAttackSpeed){
+
+    protected final void setOriginalHealthPoints(int theHealthPoints) {
+        myHealthPoints = theHealthPoints;
+    }
+
+    protected final void setAttackSpeed(int theAttackSpeed) {
         myAttackSpeed = theAttackSpeed;
     }
-    protected final void setMinDamage(int theMinDamage){
+
+    protected final void setMinDamage(int theMinDamage) {
         myMinDamage = theMinDamage;
     }
-    protected final void setMaxDamage(int theMaxDamage){
+
+    protected final void setMaxDamage(int theMaxDamage) {
         myMaxDamage = theMaxDamage;
     }
-    protected final void setHitChance(double theHitChance){
+
+    protected final void setHitChance(double theHitChance) {
         myHitChance = theHitChance;
     }
     protected final void setDodgeChance(double theDodgeChance){
         myDodgeChance = theDodgeChance;
     }
-    protected final void setSpecialChance(double theSpecialChance){
+
+    protected final void setSpecialChance(double theSpecialChance) {
         mySpecialChance = theSpecialChance;
     }
+
     protected final String getName() {
         return myName;
     }
-    protected final int getHealth() {
+
+    protected final int getHealthPoints() {
         return myHealthPoints;
     }
+
+    protected final int getOriginalHealthPoints() {
+        return myHealthPoints;
+    }
+
     protected final int getAttackSpeed() {
         return myAttackSpeed;
     }
+
     protected final int getMinDamage() {
         return myMinDamage;
     }
+
     protected final int getMaxDamage() {
         return myMaxDamage;
     }
+
     protected final double getHitChance() {
         return myHitChance;
     }
@@ -75,25 +99,46 @@ public class MazeCharacter {
         myHealthPoints -= theDamage;
         return myHealthPoints;
     }
+
     public final int addHealth(int theHeal) {
-        myHealthPoints += theHeal;
+        if (myHealthPoints + theHeal > getOriginalHealthPoints()) {
+            myHealthPoints = getOriginalHealthPoints();
+        } else {
+            myHealthPoints += theHeal;
+        }
         return myHealthPoints;
     }
-    public final int attack(final MazeCharacter theEnemy) {
-        int damage = 0;
-        if (Math.random() <= myHitChance) {
-            damage = (int) (Math.random() * (myMaxDamage - myMinDamage + 1)) + myMinDamage;
-            theEnemy.subtractHealth(damage);
-        }
-        return damage;
+
+    public boolean blockAttack() {
+        Random rand = new Random();
+        double chance = rand.nextDouble();
+        return chance < myDodgeChance;
     }
-    public final int specialAttack(final MazeCharacter theEnemy) {
-        int damage = 0;
-        if (Math.random() <= mySpecialChance) {
-            damage = (int) (Math.random() * (myMaxDamage - myMinDamage + 1)) + myMinDamage;
-            theEnemy.subtractHealth(damage);
+
+    public final void attack(final MazeCharacter theEnemy) {
+        if (blockAttack()) {
+            System.out.println("Attack Blocked!");
+        } else {
+            Random rand = new Random();
+            double chance = rand.nextDouble();
+            if (chance < myHitChance) {
+                int damage = rand.nextInt(myMaxDamage - myMinDamage + 1) + myMinDamage;
+                theEnemy.subtractHealth(damage);
+                System.out.println(myName + " hit " + theEnemy.getName() + " for " + damage + " damage!");
+            } else {
+                System.out.println(myName + " missed!");
+            }
         }
-        return damage;
+    }
+
+    public void specialAttack(final MazeCharacter theEnemy) {
+        Random rand = new Random();
+        double chance = rand.nextDouble();
+        if (chance <= mySpecialChance) {
+            int damageDealt = rand.nextInt(myMaxDamage - myMinDamage + 1) + myMinDamage;
+            theEnemy.subtractHealth(damageDealt);
+            System.out.println(myName + " attacks " + theEnemy.getName() + " for " + damageDealt + " damage.");
+        }
     }
 
 }
