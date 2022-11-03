@@ -1,5 +1,7 @@
 package Controller;
 
+import Model.Hero.Hero;
+
 /**
  * This class is used to load the game.
  *
@@ -8,5 +10,7 @@ package Controller;
  */
 
 public class LoadGame {
-
+    public Hero loadHero() {
+        return null;
+    }
 }

@@ -1,5 +1,7 @@
 package Controller;
 
+import Model.Hero.Hero;
+
 /**
  * This class is used to control the input from the user.
  *
@@ -8,5 +10,14 @@ package Controller;
  */
 
 public class GameManager {
+    private static final GameManager gameManager = null;
+    private static final Hero hero = null;
 
+    public static Object getHero() {
+        return null;
+    }
+
+    public static Object getGameManager() {
+        return null;
+    }
 }
