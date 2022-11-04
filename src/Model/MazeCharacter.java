@@ -5,7 +5,6 @@ import java.util.Random;
 public class MazeCharacter {
     private String myName;
     private int myHealthPoints;
-    private int myOriginalHealthPoints;
     private int myAttackSpeed;
     private int myMinDamage;
     private int myMaxDamage;
@@ -13,12 +12,11 @@ public class MazeCharacter {
     private double myDodgeChance;
     private double mySpecialChance;
 
-    protected MazeCharacter(String theName, int theHealthPoints, int theOriginalHealthPoints, int theAttackSpeed,
+    protected MazeCharacter(String theName, int theHealthPoints,  int theAttackSpeed,
                             int theMinDamage, int theMaxDamage, double theHitChance, double theDodgeChance,
                             double theSpecialChance) {
         setName(theName);
         setHealthPoints(theHealthPoints);
-        setOriginalHealthPoints(theOriginalHealthPoints);
         setAttackSpeed(theAttackSpeed);
         setMinDamage(theMinDamage);
         setMaxDamage(theMaxDamage);
@@ -35,9 +33,6 @@ public class MazeCharacter {
         myHealthPoints = theHealthPoints;
     }
 
-    protected final void setOriginalHealthPoints(int theHealthPoints) {
-        myHealthPoints = theHealthPoints;
-    }
 
     protected final void setAttackSpeed(int theAttackSpeed) {
         myAttackSpeed = theAttackSpeed;
@@ -62,39 +57,22 @@ public class MazeCharacter {
         mySpecialChance = theSpecialChance;
     }
 
-    protected final String getName() {
+    public final String getName() {
         return myName;
     }
 
-    protected final int getHealthPoints() {
+    public final int getHealthPoints() {
         return myHealthPoints;
     }
 
-    protected final int getOriginalHealthPoints() {
-        return myOriginalHealthPoints;
-    }
 
-    protected final int getAttackSpeed() {
+    public final int getAttackSpeed() {
         return myAttackSpeed;
-    }
-
-    protected final int getMinDamage() {
-        return myMinDamage;
-    }
-
-    protected final int getMaxDamage() {
-        return myMaxDamage;
-    }
-
-    protected final double getHitChance() {
-        return myHitChance;
-    }
-    protected final double getDodgeChance() {
-        return myDodgeChance;
     }
     protected final double getSpecialChance() {
         return mySpecialChance;
     }
+
     public final int subtractHealth(int theDamage) {
         myHealthPoints -= theDamage;
         if (myHealthPoints < 0){
