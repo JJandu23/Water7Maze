@@ -6,18 +6,14 @@ import java.util.Random;
 
 public class BoatKevin extends Enemy {
     public BoatKevin() {
-        super("BoatKevin", 40, 40, 4,
-                10, 20, 0.8, 0.2, 0.9);
+        super("BoatKevin", 40,  4, 10, 20, 0.8,
+                0.2, 0.05);
     }
 
     @Override
     public void specialAttack(MazeCharacter theEnemy) {
-        Random chance = new Random();
-        if (chance.nextFloat() <= getSpecialChance()) {
-            System.out.println(getName() + " used his special attack!");
-            theEnemy.subtractHealth(99999999);
-        } else {
-            System.out.println(getName() + " failed to use his special attack!");
-        }
+        theEnemy.subtractHealth(99999999);
+        System.out.println(getName() + " used final explosion!");
+        System.out.println(theEnemy.getName() + " has " + theEnemy.getHealthPoints());
     }
 }
