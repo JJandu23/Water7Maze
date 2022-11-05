@@ -1,5 +1,7 @@
 package Controller;
 
+import Model.Hero.Hero;
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -26,5 +28,30 @@ public class SaveGame {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public static Hero loadHero() {
+        File file = new File("save.txt");
+        try {
+            FileInputStream fileInputStream = new FileInputStream(file);
+            ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream);
+            Hero hero = (Hero) objectInputStream.readObject();
+            objectInputStream.close();
+            fileInputStream.close();
+            return hero;
+        } catch (IOException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public static void deleteSave() {
+        File file = new File("save.txt");
+        file.delete();
+    }
+
+    public static boolean saveExists() {
+        File file = new File("save.txt");
+        return file.exists();
     }
 }
