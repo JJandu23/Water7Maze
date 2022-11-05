@@ -97,7 +97,7 @@ public class MazeCharacter {
                 int damage = rand.nextInt(myMaxDamage - myMinDamage + 1) + myMinDamage;
                 theEnemy.subtractHealth(damage);
                 System.out.println(myName + " hit " + theEnemy.getName() + " for " + damage + " damage!");
-                System.out.println(theEnemy.getName() + " has " + theEnemy.getHealthPoints() + " left!");
+                System.out.println(theEnemy.getName() + " has " + theEnemy.getHealthPoints() + " health left!");
             } else {
                 System.out.println(myName + " missed!");
             }
