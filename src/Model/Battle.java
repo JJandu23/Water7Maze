@@ -1,8 +1,6 @@
 package Model;
 
-import Model.Enemy.BoatKevin;
-import Model.Enemy.Enemy;
-import Model.Enemy.SadBoySea;
+import Model.Enemy.*;
 import Model.Hero.Chopper;
 import Model.Hero.Hero;
 import Model.Hero.Luffy;
@@ -13,14 +11,15 @@ import java.util.*;
 public class Battle {
     public static void main(String[] args) {
         Scanner console = new Scanner(System.in);
-        System.out.println("Welcome to the Battle Simulator!");
-        System.out.println();
         gamePlay(console);
     }
 
     public static void gamePlay(Scanner console) {
         Hero hero = chooseHero(console);
+        System.out.println("You have chosen " + hero.getName() + "!");
         Enemy enemy = chooseEnemy(console);
+        System.out.println("You have chosen to fight " + enemy.getName() + "!");
+        System.out.println();
         while(hero.getHealthPoints() > 0 && enemy.getHealthPoints() > 0) {
             battlePhase(hero, enemy, console);
         }
@@ -54,11 +53,30 @@ public class Battle {
         System.out.println("Choose your enemy!");
         System.out.println("1. BoatKevin");
         System.out.println("2. SadBoySea");
-        int choice = console.nextInt();
-        if (choice == 1){
+        System.out.println("3: Nikolai");
+        System.out.println("4: Eli");
+        System.out.println("5: Random");
+        char choice = console.next().charAt(0);
+        if (choice == '1'){
             return new BoatKevin();
-        }else if (choice == 2){
+        }else if (choice == '2') {
             return new SadBoySea();
+        }else if (choice == '3'){
+            return new Nikolai();
+        }else if (choice == '4'){
+            return new Eli();
+        }else if (choice == '5'){
+            Random random = new Random();
+            int randomChoice = random.nextInt(4);
+            if (randomChoice == 0){
+                return new BoatKevin();
+            }else if (randomChoice == 1){
+                return new SadBoySea();
+            }else if (randomChoice == 2){
+                return new Nikolai();
+            }else{
+                return new Eli();
+            }
         } else{
             System.out.println("Invalid choice!");
             System.out.println();
@@ -67,11 +85,11 @@ public class Battle {
     }
     public static void battlePhase(Hero hero, Enemy enemy, Scanner console){
         System.out.println("What would you like to do?");
-        System.out.println("1. Attack");
-        System.out.println("2. Special Attack");
-        System.out.println("3. Use Senzu Bean");
-        int choice = console.nextInt();
-        if (choice != 1 && choice != 2 && choice != 3) {
+        System.out.println("j. Attack");
+        System.out.println("k. Special Attack");
+        System.out.println("p. Use Senzu Bean");
+        char choice = console.next().charAt(0);
+        if (choice != 'j' && choice != 'k' && choice != 'p') {
             System.out.println("Invalid choice!");
             System.out.println();
             battlePhase(hero, enemy, console);
@@ -91,13 +109,17 @@ public class Battle {
         System.out.println(enemy.getName() + " : " + enemy.getHealthPoints());
         System.out.println();
     }
-    public static void heroTurn(int choice, Hero hero, Enemy enemy) {
-        if (choice == 1) {
-            hero.attack(enemy);
-        } else if (choice == 2) {
-            hero.specialAttack(enemy);
-        } else if (choice == 3) {
-            hero.useSenzuBean();
+    public static void heroTurn(char choice, Hero hero, Enemy enemy) {
+        switch (choice){
+            case 'j':
+                hero.attack(enemy);
+                break;
+            case 'k':
+                hero.specialAttack(enemy);
+                break;
+            case 'p':
+                hero.useSenzuBean();
+                break;
         }
     }
 
@@ -122,10 +144,10 @@ public class Battle {
     }
     public static void restart(Scanner console){
         System.out.println("Play again? 0. no or 1. yes");
-        int choice = console.nextInt(); // Initializes the game to start over.
-        if (choice == 1) {
+        char choice = console.next().charAt(0); // Initializes the game to start over.
+        if (choice == '1') {
             gamePlay(console);
-        } else if(choice == 0){
+        } else if(choice == '0'){
             System.out.println("Thanks for playing.");
         } else{
             System.out.println("Invalid choice!");

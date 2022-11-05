@@ -9,5 +9,4 @@ public class Enemy extends MazeCharacter{
         super(theName, theHealthPoints,  theAttackSpeed, theMinAttack, theMaxAttack,
                 theHitChance, theDodgeChance, theSpecialChance);
     }
-
 }
