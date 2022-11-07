@@ -22,7 +22,7 @@ import java.io.*;
  */
 
 public class SaveManager {
-        public static void saveCurrentGame() throws IOException {
+ /*       public static void saveCurrentGame() throws IOException {
             File file = new File("save.ser");
 
             try {
@@ -76,5 +76,5 @@ public class SaveManager {
         } catch (IOException | ClassNotFoundException e) {
             e.printStackTrace();
         }
-    }
+    }*/
 }

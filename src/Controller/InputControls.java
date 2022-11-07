@@ -2,6 +2,8 @@ package Controller;
 
 import Model.Hero.Hero;
 import View.GameView;
+
+import java.awt.event.KeyListener;
 import java.util.*;
 import java.io.*;
 
@@ -15,7 +17,7 @@ import java.io.*;
 
 import java.awt.event.KeyEvent;
 
-public class InputControls {
+public class InputControls  implements KeyListener {
     private final char UP = 'w';
     private final char DOWN = 's';
     private final char LEFT = 'a';
@@ -26,20 +28,22 @@ public class InputControls {
     private final char MENU = 'm';
     private final char POTIONS = 'p';
 
-    public char getUp() {
-        return UP;
+    private boolean upPressed, downPressed, leftPressed, rightPressed;
+
+    public boolean getUp() {
+        return upPressed;
     }
 
-    public char getDown() {
-        return DOWN;
+    public boolean getDown() {
+        return downPressed;
     }
 
-    public char getLeft() {
-        return LEFT;
+    public boolean getLeft() {
+        return leftPressed;
     }
 
-    public char getRight() {
-        return RIGHT;
+    public boolean getRight() {
+        return rightPressed;
     }
 
     public char getAttack() {
@@ -92,7 +96,46 @@ public class InputControls {
         };
     }
 
-    public static void saveGame() {
+    @Override
+    public void keyTyped(KeyEvent e) {
+
+    }
+
+    @Override
+    public void keyPressed(KeyEvent e) {
+        int code = e.getKeyCode();
+        if(code == KeyEvent.VK_W){
+            upPressed = true;
+        }
+        if(code == KeyEvent.VK_S){
+            downPressed = true;
+        }
+        if(code == KeyEvent.VK_A){
+            leftPressed = true;
+        }
+        if(code == KeyEvent.VK_D){
+            rightPressed = true;
+        }
+    }
+
+    @Override
+    public void keyReleased(KeyEvent e) {
+        int code = e.getKeyCode();
+        if(code == KeyEvent.VK_W){
+            upPressed = false;
+        }
+        if(code == KeyEvent.VK_S){
+            downPressed = false;
+        }
+        if(code == KeyEvent.VK_A){
+            leftPressed = false;
+        }
+        if(code == KeyEvent.VK_D){
+            rightPressed = false;
+        }
+    }
+
+/*    public static void saveGame() {
         try {
             FileOutputStream fileOut = new FileOutputStream("save.ser");
             ObjectOutputStream out = new ObjectOutputStream(fileOut);
@@ -121,5 +164,5 @@ public class InputControls {
             c.printStackTrace();
             return;
         }
-    }
+    }*/
 }
