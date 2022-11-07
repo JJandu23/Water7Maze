@@ -1,16 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e4fa422e-bbf5-4b7a-ad89-3212284be1af" name="Changes" comment="Added some more inputs as well some serialization for the load game class">
-      <change afterPath="$PROJECT_DIR$/src/Controller/SaveCurrentState.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Controller/SaveManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Music/SoundsPlay.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/SQL/SQLTables.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/GameManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/GameManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/LoadGame.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/SaveGame.java" beforeDir="false" />
-    </list>
+    <list default="true" id="e4fa422e-bbf5-4b7a-ad89-3212284be1af" name="Changes" comment="Deleted SaveGame and LoadGame and made a SaveManger and SaveState." />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -52,7 +43,7 @@
       <updated>1667347447614</updated>
       <workItem from="1667347450027" duration="329000" />
       <workItem from="1667625190074" duration="166000" />
-      <workItem from="1667763410040" duration="3347000" />
+      <workItem from="1667763410040" duration="4156000" />
     </task>
     <task id="LOCAL-00001" summary="New Project for TCSS 360">
       <created>1667347517038</created>
@@ -75,7 +66,21 @@
       <option name="project" value="LOCAL" />
       <updated>1667791994089</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Deleted SaveGame and LoadGame and made a SaveManger and SaveState.">
+      <created>1667797962004</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1667797962004</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Deleted SaveGame and LoadGame and made a SaveManger and SaveState.">
+      <created>1667797993008</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1667797993008</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -95,6 +100,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="New Project for TCSS 360" />
     <MESSAGE value="Added some more inputs as well some serialization for the load game class" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added some more inputs as well some serialization for the load game class" />
+    <MESSAGE value="Deleted SaveGame and LoadGame and made a SaveManger and SaveState." />
+    <option name="LAST_COMMIT_MESSAGE" value="Deleted SaveGame and LoadGame and made a SaveManger and SaveState." />
   </component>
 </project>
