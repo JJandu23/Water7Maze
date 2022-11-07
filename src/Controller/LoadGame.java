@@ -23,9 +23,9 @@ public class LoadGame {
             Hero hero = (Hero) objectInputStream.readObject();
             objectInputStream.close();
             fileInputStream.close();
-            GameManager.setHero(hero);
+            //GameManager.setHero(hero);
             GameView gameView = new GameView();
-            gameView.startGame();
+           // gameView.startGame();
         } catch (IOException | ClassNotFoundException e) {
             e.printStackTrace();
         }
