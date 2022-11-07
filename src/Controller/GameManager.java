@@ -20,4 +20,7 @@ public class GameManager {
     public static Object getGameManager() {
         return null;
     }
+
+    public static void setHero(Hero hero) {;
+    }
 }
