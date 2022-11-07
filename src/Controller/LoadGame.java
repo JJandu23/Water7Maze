@@ -4,7 +4,6 @@ import Model.Hero.Hero;
 import View.GameView;
 
 import java.io.*;
-import java.util.Scanner;
 
 /**
  * This class is used to load the game.

@@ -91,4 +91,35 @@ public class InputControls {
             default -> "Undefined";
         };
     }
+
+    public static void saveGame() {
+        try {
+            FileOutputStream fileOut = new FileOutputStream("save.ser");
+            ObjectOutputStream out = new ObjectOutputStream(fileOut);
+            out.writeObject(GameView.getHero());
+            out.close();
+            fileOut.close();
+            System.out.printf("Serialized data is saved in save.ser");
+        } catch (IOException i) {
+            i.printStackTrace();
+        }
+    }
+
+    public static void loadGame() {
+        try {
+            FileInputStream fileIn = new FileInputStream("save.ser");
+            ObjectInputStream in = new ObjectInputStream(fileIn);
+            Hero hero = (Hero) in.readObject();
+            GameView.setHero(hero);
+            in.close();
+            fileIn.close();
+        } catch (IOException i) {
+            i.printStackTrace();
+            return;
+        } catch (ClassNotFoundException c) {
+            System.out.println("Hero class not found");
+            c.printStackTrace();
+            return;
+        }
+    }
 }
