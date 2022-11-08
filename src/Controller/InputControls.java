@@ -27,6 +27,8 @@ public class InputControls  implements KeyListener {
     private final char ITEM = 'l';
     private final char MENU = 'm';
     private final char POTIONS = 'p';
+    private final char SAVE = 'o';
+    private final char LOAD = 'i';
 
     private boolean upPressed, downPressed, leftPressed, rightPressed;
 
@@ -64,6 +66,14 @@ public class InputControls  implements KeyListener {
 
     public char getPotions() {
         return POTIONS;
+    }
+
+    public char getSave() {
+        return SAVE;
+    }
+
+    public char getLoad() {
+        return LOAD;
     }
 
     public static int getKeyCode(char key) {
@@ -104,16 +114,16 @@ public class InputControls  implements KeyListener {
     @Override
     public void keyPressed(KeyEvent e) {
         int code = e.getKeyCode();
-        if(code == KeyEvent.VK_W){
+        if (code == KeyEvent.VK_W) {
             upPressed = true;
         }
-        if(code == KeyEvent.VK_S){
+        if (code == KeyEvent.VK_S) {
             downPressed = true;
         }
-        if(code == KeyEvent.VK_A){
+        if (code == KeyEvent.VK_A) {
             leftPressed = true;
         }
-        if(code == KeyEvent.VK_D){
+        if (code == KeyEvent.VK_D) {
             rightPressed = true;
         }
     }
@@ -121,48 +131,17 @@ public class InputControls  implements KeyListener {
     @Override
     public void keyReleased(KeyEvent e) {
         int code = e.getKeyCode();
-        if(code == KeyEvent.VK_W){
+        if (code == KeyEvent.VK_W) {
             upPressed = false;
         }
-        if(code == KeyEvent.VK_S){
+        if (code == KeyEvent.VK_S) {
             downPressed = false;
         }
-        if(code == KeyEvent.VK_A){
+        if (code == KeyEvent.VK_A) {
             leftPressed = false;
         }
-        if(code == KeyEvent.VK_D){
+        if (code == KeyEvent.VK_D) {
             rightPressed = false;
         }
     }
-
-/*    public static void saveGame() {
-        try {
-            FileOutputStream fileOut = new FileOutputStream("save.ser");
-            ObjectOutputStream out = new ObjectOutputStream(fileOut);
-            out.writeObject(GameView.getHero());
-            out.close();
-            fileOut.close();
-            System.out.printf("Serialized data is saved in save.ser");
-        } catch (IOException i) {
-            i.printStackTrace();
-        }
-    }
-
-    public static void loadGame() {
-        try {
-            FileInputStream fileIn = new FileInputStream("save.ser");
-            ObjectInputStream in = new ObjectInputStream(fileIn);
-            Hero hero = (Hero) in.readObject();
-            GameView.setHero(hero);
-            in.close();
-            fileIn.close();
-        } catch (IOException i) {
-            i.printStackTrace();
-            return;
-        } catch (ClassNotFoundException c) {
-            System.out.println("Hero class not found");
-            c.printStackTrace();
-            return;
-        }
-    }*/
 }

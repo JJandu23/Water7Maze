@@ -8,7 +8,7 @@ import javax.swing.plaf.basic.BasicTreeUI;
 import java.awt.*;
 import java.awt.event.KeyListener;
 
-public class GameView extends JPanel implements Runnable{
+public class GameView extends JPanel implements Runnable {
 
     // Settings
     final int originalTileSize = 32;
@@ -32,23 +32,23 @@ public class GameView extends JPanel implements Runnable{
     int playerSpeed = 4;
 
     public GameView() {
-        this.setPreferredSize(new Dimension(screenWidth,screenHeight));
+        this.setPreferredSize(new Dimension(screenWidth, screenHeight));
         this.setBackground(Color.black);
         this.setDoubleBuffered(true);
         this.addKeyListener(inputCon);
         this.setFocusable(true);
     }
 
-    public void startGameThread(){
+    public void startGameThread() {
         gameThread = new Thread(this);
         gameThread.start();
     }
 
     @Override
-    public void run(){
-        while(gameThread != null){
+    public void run() {
+        while (gameThread != null) {
 
-            double drawInterval = 1000000000/FPS;
+            double drawInterval = 1000000000 / FPS;
             double nextDrawTime = System.nanoTime() + drawInterval;
 
             update();
@@ -56,11 +56,10 @@ public class GameView extends JPanel implements Runnable{
             repaint();
 
 
-
             try {
                 double remainingTime = nextDrawTime - System.nanoTime();
-                remainingTime = remainingTime/1000000;
-                if(remainingTime < 0) {
+                remainingTime = remainingTime / 1000000;
+                if (remainingTime < 0) {
                     remainingTime = 0;
                 }
 
@@ -74,26 +73,26 @@ public class GameView extends JPanel implements Runnable{
         }
     }
 
-    public void update(){
-        if(inputCon.getUp()){
+    public void update() {
+        if (inputCon.getUp()) {
             playerY -= playerSpeed;
-        } else if(inputCon.getDown()){
+        } else if (inputCon.getDown()) {
             playerY += playerSpeed;
         }
 
-        if(inputCon.getLeft()){
+        if (inputCon.getLeft()) {
             playerX -= playerSpeed;
-        } else if(inputCon.getRight()){
+        } else if (inputCon.getRight()) {
             playerX += playerSpeed;
         }
 
     }
 
-    public void paintComponent(Graphics g){
+    public void paintComponent(Graphics g) {
         super.paintComponent(g);
         Graphics2D g2 = (Graphics2D) g;
         g2.setColor(Color.white);
-        g2.fillRect(playerX,playerY,tileSize, tileSize);
+        g2.fillRect(playerX, playerY, tileSize, tileSize);
         g2.dispose();
     }
 }

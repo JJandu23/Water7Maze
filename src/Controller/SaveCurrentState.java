@@ -7,7 +7,6 @@ import java.io.Serializable;
 public class SaveCurrentState implements Serializable {
     public Hero hero;
 
-
     public SaveCurrentState(Hero hero) {
         this.hero = hero;
     }
