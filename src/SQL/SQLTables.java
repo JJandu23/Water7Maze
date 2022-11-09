@@ -55,6 +55,7 @@ public class SQLTables {
     }
 
     private void fillEnemyTable(){
+
     }
 
     private void createHeroTable() {
@@ -83,5 +84,6 @@ public class SQLTables {
     }
 
     private void fillHeroTable(){
+
     }
 }
