@@ -37,8 +37,8 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/shepo/Downloads/Pokemon-Mystery-Dungeon-Java-main",
-    "project.structure.last.edited": "Libraries",
+    "last_opened_file_path": "C:/Users/shepo/IdeaProjects/Water7Maze/src/sqlite-jdbc-3.34.0.jar",
+    "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
     "settings.editor.selected.configurable": "reference.settingsdialog.IDE.editor.colors"
@@ -140,7 +140,21 @@
       <option name="project" value="LOCAL" />
       <updated>1668027340958</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="created sqltables">
+      <created>1668027887995</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1668027887995</updated>
+    </task>
+    <task id="LOCAL-00013" summary="created sqltables">
+      <created>1668028110474</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1668028110474</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
