@@ -65,9 +65,11 @@ public class MazeCharacter {
         return myHealthPoints;
     }
 
-
     public final int getAttackSpeed() {
         return myAttackSpeed;
+    }
+    public double getDodgeChance(){
+        return myDodgeChance;
     }
     protected final double getSpecialChance() {
         return mySpecialChance;
