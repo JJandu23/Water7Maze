@@ -34,7 +34,6 @@ public class SQLTables {
         this.myQuery = "CREATE TABLE enemyDB (" +
                 "NAME NAME TEXT PRIMARY KEY," +
                 "HP TEXT NOT NULL," +
-                "MAXHP TEXT NOT NULL," +
                 "ATTACKSPEED TEXT NOT NULL," +
                 "MINATTACK TEXT NOT NULL," +
                 "MAXATTACK TEXT NOT NULL," +
@@ -61,7 +60,7 @@ public class SQLTables {
     private void createHeroTable() {
         this.myHeroTable = new SQLiteDataSource();
 
-        this.myQuery = "CREATE TABLE enemyDB (" +
+        this.myQuery = "CREATE TABLE heroDB (" +
                 "NAME NAME TEXT PRIMARY KEY," +
                 "HP TEXT NOT NULL," +
                 "MAXHP TEXT NOT NULL," +
@@ -70,7 +69,8 @@ public class SQLTables {
                 "MAXATTACK TEXT NOT NULL," +
                 "HITCHANCE TEXT NOT NULL," +
                 "DODGECHANCE TEXT NOT NULL," +
-                "SPECIALCHANCE TEXT NOT NULL);";
+                "SPECIALCHANCE TEXT NOT NULL," +
+                "SENZUBEAN TEXT NOT NULL);";
         try{
             this.myConnection =  myHeroTable.getConnection();
             this.myStatement = myConnection.createStatement();
