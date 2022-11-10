@@ -10,7 +10,7 @@ public class Chopper extends Hero {
 
     public Chopper() {
         super("Chopper", 100, 100, 10, 10,
-                20, 0.5, 0.3, 0.20, 0);
+                20, 0.5, 0.3, 0.20, 0, 3);
     }
 
     @Override

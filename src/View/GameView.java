@@ -1,6 +1,7 @@
 package View;
 
 import Controller.InputControls;
+import Model.Hero.Luffy;
 
 import javax.swing.*;
 import javax.swing.plaf.basic.BasicTableUI;
@@ -16,7 +17,7 @@ public class GameView extends JPanel implements Runnable {
 
     final int tileSize = originalTileSize * scale;
     final int maxScreenCol = 12;
-    final int maxScreenRow = 8;
+    final int maxScreenRow = 10;
     final int screenWidth = tileSize * maxScreenCol;
     final int screenHeight = tileSize * maxScreenRow;
 
@@ -26,10 +27,10 @@ public class GameView extends JPanel implements Runnable {
     Thread gameThread;
 
 
-    //player position
-    int playerX = 100;
-    int playerY = 100;
-    int playerSpeed = 4;
+    //player
+    Luffy player = new Luffy();
+
+
 
     public GameView() {
         this.setPreferredSize(new Dimension(screenWidth, screenHeight));
@@ -74,17 +75,7 @@ public class GameView extends JPanel implements Runnable {
     }
 
     public void update() {
-        if (inputCon.getUp()) {
-            playerY -= playerSpeed;
-        } else if (inputCon.getDown()) {
-            playerY += playerSpeed;
-        }
-
-        if (inputCon.getLeft()) {
-            playerX -= playerSpeed;
-        } else if (inputCon.getRight()) {
-            playerX += playerSpeed;
-        }
+        player.update();
 
     }
 
@@ -92,7 +83,7 @@ public class GameView extends JPanel implements Runnable {
         super.paintComponent(g);
         Graphics2D g2 = (Graphics2D) g;
         g2.setColor(Color.white);
-        g2.fillRect(playerX, playerY, tileSize, tileSize);
+        g2.fillRect(player.getX(), player.getY(), tileSize, tileSize);
         g2.dispose();
     }
 }

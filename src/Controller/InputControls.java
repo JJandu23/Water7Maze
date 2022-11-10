@@ -29,14 +29,16 @@ public class InputControls  implements KeyListener {
     private final char POTIONS = 'p';
     private final char SAVE = 'o';
     private final char LOAD = 'i';
-
-    private boolean upPressed, downPressed, leftPressed, rightPressed;
+    //make static shit idk
+    private static boolean upPressed, downPressed, leftPressed, rightPressed;
 
     public boolean getUp() {
+
         return upPressed;
     }
 
     public boolean getDown() {
+
         return downPressed;
     }
 
@@ -116,15 +118,21 @@ public class InputControls  implements KeyListener {
         int code = e.getKeyCode();
         if (code == KeyEvent.VK_W) {
             upPressed = true;
+
+
+
         }
         if (code == KeyEvent.VK_S) {
             downPressed = true;
+
         }
         if (code == KeyEvent.VK_A) {
             leftPressed = true;
+
         }
         if (code == KeyEvent.VK_D) {
             rightPressed = true;
+
         }
     }
 

@@ -10,7 +10,7 @@ public class Luffy extends Hero {
 
     public Luffy() {
         super("Luffy", 120, 100, 10, 10,
-                20, 0.8, 0.2, 0.20, 0);
+                20, 0.8, 0.2, 0.20, 0, 4);
     }
 
     @Override
