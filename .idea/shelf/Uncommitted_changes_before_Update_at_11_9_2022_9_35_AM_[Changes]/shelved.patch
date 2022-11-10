@@ -1,0 +1,148 @@
+Index: src/Model/Battle.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/Model/Battle.java b/src/Model/Battle.java
+--- a/src/Model/Battle.java	
++++ b/src/Model/Battle.java	
+@@ -1,10 +1,7 @@
+ package Model;
+ 
+ import Model.Enemy.*;
+-import Model.Hero.Chopper;
+-import Model.Hero.Hero;
+-import Model.Hero.Luffy;
+-import Model.Hero.Zoro;
++import Model.Hero.*;
+ 
+ import java.util.*;
+ 
+@@ -36,6 +33,7 @@
+         System.out.println("1. Luffy");
+         System.out.println("2. Zoro");
+         System.out.println("3: Chopper");
++        System.out.println("4: Nami");
+         int choice = console.nextInt();
+         if (choice == 1){
+             return new Luffy();
+@@ -43,6 +41,8 @@
+             return new Zoro();
+         } else if (choice == 3){
+             return new Chopper();
++        } else if (choice == 4){
++            return new Nami();
+         } else{
+             System.out.println("Invalid choice!");
+             System.out.println();
+Index: src/Model/MazeCharacter.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/Model/MazeCharacter.java b/src/Model/MazeCharacter.java
+--- a/src/Model/MazeCharacter.java	
++++ b/src/Model/MazeCharacter.java	
+@@ -65,7 +65,9 @@
+         return myHealthPoints;
+     }
+ 
+-
++    public final double getDodgeChance() {
++        return  myDodgeChance;
++    }
+     public final int getAttackSpeed() {
+         return myAttackSpeed;
+     }
+Index: src/Model/Hero/Nami.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/Model/Hero/Nami.java b/src/Model/Hero/Nami.java
+--- a/src/Model/Hero/Nami.java	
++++ b/src/Model/Hero/Nami.java	
+@@ -1,4 +1,23 @@
+ package Model.Hero;
+ 
+-public class Nami {
++import Model.MazeCharacter;
++
++import java.util.Random;
++
++public class Nami extends Hero {
++    public Nami() {
++        super("Nami", 80, 80, 6, 10, 20, 0.8, 0.2, 0.4, 1);
++    }
++
++    public void specialAttack(MazeCharacter theEnemy) {
++        Random chance = new Random();
++        if (chance.nextFloat() <= getSpecialChance()) {
++            System.out.println(getName() + " used mirage tempo!");
++            double dodge = getDodgeChance() + 0.2;
++            setDodgeChance(dodge);
++            System.out.println(getName() + " evasiveness increased to " +  getDodgeChance() + " dodge!");
++        } else {
++            System.out.println(getName() + " failed to use mirage tempo!");
++        }
++    }
+ }
+Index: src/Controller/SaveManager.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/Controller/SaveManager.java b/src/Controller/SaveManager.java
+--- a/src/Controller/SaveManager.java	
++++ b/src/Controller/SaveManager.java	
+@@ -72,7 +72,7 @@
+             fileInputStream.close();
+             GameManager.setHero(hero);
+             GameView gameView = new GameView();
+-            gameView.startGame();
++            //gameView.startGame();
+         } catch (IOException | ClassNotFoundException e) {
+             e.printStackTrace();
+         }
+Index: .idea/misc.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/misc.xml b/.idea/misc.xml
+--- a/.idea/misc.xml	
++++ b/.idea/misc.xml	
+@@ -1,6 +1,6 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <project version="4">
+-  <component name="ProjectRootManager" version="2" languageLevel="JDK_17" project-jdk-name="openjdk-18" project-jdk-type="JavaSDK">
++  <component name="ProjectRootManager" version="2" languageLevel="JDK_18" default="true" project-jdk-name="corretto-18" project-jdk-type="JavaSDK">
+     <output url="file://$PROJECT_DIR$/out" />
+   </component>
+ </project>
+\ No newline at end of file
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	
++++ b/.idea/workspace.xml	
+@@ -2,11 +2,11 @@
+ <project version="4">
+   <component name="ChangeListManager">
+     <list default="true" id="e4fa422e-bbf5-4b7a-ad89-3212284be1af" name="Changes" comment="Deleted SaveGame and LoadGame and made a SaveManger and SaveState.">
+-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/Controller/GameManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/GameManager.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/Controller/InputControls.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/InputControls.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/Controller/SaveCurrentState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/SaveCurrentState.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/View/GameView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/GameView.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/Controller/SaveManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/SaveManager.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/Model/Battle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Battle.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/Model/Hero/Nami.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Hero/Nami.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/Model/MazeCharacter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/MazeCharacter.java" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />

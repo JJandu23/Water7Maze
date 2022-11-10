@@ -1,28 +1,24 @@
 package Model;
 
-import Model.Enemy.BoatKevin;
-import Model.Enemy.Enemy;
-import Model.Enemy.SadBoySea;
-import Model.Hero.Chopper;
-import Model.Hero.Hero;
-import Model.Hero.Luffy;
-import Model.Hero.Zoro;
+import Model.Enemy.*;
+import Model.Hero.*;
 
 import java.util.*;
 
 public class Battle {
     public static void main(String[] args) {
         Scanner console = new Scanner(System.in);
-        System.out.println("Welcome to the Battle Simulator!");
-        System.out.println();
         gamePlay(console);
     }
 
-    public static void gamePlay(Scanner console) {
-        Hero hero = chooseHero(console);
-        Enemy enemy = chooseEnemy(console);
+    public static void gamePlay(Scanner theConsole) {
+        Hero hero = chooseHero(theConsole);
+        System.out.println("You have chosen " + hero.getName() + "!");
+        Enemy enemy = chooseEnemy(theConsole);
+        System.out.println("You have chosen to fight " + enemy.getName() + "!");
+        System.out.println();
         while(hero.getHealthPoints() > 0 && enemy.getHealthPoints() > 0) {
-            battlePhase(hero, enemy, console);
+            battlePhase(hero, enemy, theConsole);
         }
         if (hero.getHealthPoints() <= 0){
             System.out.println(hero.getName() + " has died!");
@@ -30,74 +26,104 @@ public class Battle {
             System.out.println(enemy.getName() + " has died!");
         }
         System.out.println();
-        winner(console, hero, enemy);
+        winner(theConsole, hero, enemy);
     }
-    public static Hero chooseHero(Scanner console){
+    public static Hero chooseHero(Scanner theConsole){
         System.out.println("Choose your hero!");
         System.out.println("1. Luffy");
         System.out.println("2. Zoro");
         System.out.println("3: Chopper");
-        int choice = console.nextInt();
+        System.out.println("4: Nami");
+        int choice = theConsole.nextInt();
         if (choice == 1){
             return new Luffy();
         }else if (choice == 2){
             return new Zoro();
         } else if (choice == 3){
             return new Chopper();
+        } else if (choice == 4){
+            return new Nami();
         } else{
             System.out.println("Invalid choice!");
             System.out.println();
-            return chooseHero(console);
+            return chooseHero(theConsole);
         }
     }
-    public static Enemy chooseEnemy(Scanner console){
+    public static Enemy chooseEnemy(Scanner theConsole){
         System.out.println("Choose your enemy!");
         System.out.println("1. BoatKevin");
         System.out.println("2. SadBoySea");
-        int choice = console.nextInt();
-        if (choice == 1){
+        System.out.println("3: Nikolai");
+        System.out.println("4: Eli");
+        System.out.println("5: Random");
+        char choice = theConsole.next().charAt(0);
+        if (choice == '1'){
             return new BoatKevin();
-        }else if (choice == 2){
+        }else if (choice == '2') {
             return new SadBoySea();
+        }else if (choice == '3'){
+            return new Nikolai();
+        }else if (choice == '4'){
+            return new Eli();
+        }else if (choice == '5'){
+            Random random = new Random();
+            int randomChoice = random.nextInt(4);
+            if (randomChoice == 0){
+                return new BoatKevin();
+            }else if (randomChoice == 1){
+                return new SadBoySea();
+            }else if (randomChoice == 2){
+                return new Nikolai();
+            }else{
+                return new Eli();
+            }
         } else{
             System.out.println("Invalid choice!");
             System.out.println();
-            return chooseEnemy(console);
+            return chooseEnemy(theConsole);
         }
     }
-    public static void battlePhase(Hero hero, Enemy enemy, Scanner console){
+    public static void battlePhase(Hero theHero, Enemy theEnemy, Scanner theConsole){
         System.out.println("What would you like to do?");
-        System.out.println("1. Attack");
-        System.out.println("2. Special Attack");
-        System.out.println("3. Use Senzu Bean");
-        int choice = console.nextInt();
-        if (choice != 1 && choice != 2 && choice != 3) {
+        System.out.println("j. Attack");
+        System.out.println("k. Special Attack");
+        System.out.println("p. Use Senzu Bean");
+        char choice = theConsole.next().charAt(0);
+        if (choice != 'j' && choice != 'k' && choice != 'p') {
             System.out.println("Invalid choice!");
             System.out.println();
-            battlePhase(hero, enemy, console);
+            battlePhase(theHero, theEnemy, theConsole);
         }
-        if (hero.getAttackSpeed() > enemy.getAttackSpeed()) {
-            heroTurn(choice, hero, enemy);
+        if (theHero.getAttackSpeed() > theEnemy.getAttackSpeed()) {
+            heroTurn(choice, theHero, theEnemy);
             System.out.println();
-            enemyTurn(hero, enemy);
-            System.out.println();
+            if (theEnemy.getHealthPoints() > 0) {
+                enemyTurn(theHero, theEnemy);
+                System.out.println();
+            }
         }else{
-            enemyTurn(hero,enemy);
+            enemyTurn(theHero,theEnemy);
             System.out.println();
-            heroTurn(choice, hero, enemy);
-            System.out.println();
+            if (theHero.getHealthPoints() > 0) {
+                heroTurn(choice, theHero, theEnemy);
+                System.out.println();
+            }
         }
-        System.out.println(hero.getName() + " : " + hero.getHealthPoints());
-        System.out.println(enemy.getName() + " : " + enemy.getHealthPoints());
+        System.out.println(theHero.getName() + " : " + theHero.getHealthPoints());
+        System.out.println(theEnemy.getName() + " : " + theEnemy.getHealthPoints());
         System.out.println();
     }
-    public static void heroTurn(int choice, Hero hero, Enemy enemy) {
-        if (choice == 1) {
-            hero.attack(enemy);
-        } else if (choice == 2) {
-            hero.specialAttack(enemy);
-        } else if (choice == 3) {
-            hero.useSenzuBean();
+    public static void heroTurn(char theChoice, Hero theHero, Enemy theEnemy) {
+        switch (theChoice){
+            case 'j':
+                theHero.attack(theEnemy);
+                break;
+            case 'k':
+                theHero.specialAttack(theEnemy);
+                break;
+            case 'p':
+                theHero.useSenzuBean();
+                break;
         }
     }
 
@@ -110,27 +136,27 @@ public class Battle {
         }
     }
 
-    public static void winner(Scanner console, Hero hero, Enemy enemy) {
-        if (enemy.getHealthPoints() <= 0) {
+    public static void winner(Scanner theConsole, Hero theHero, Enemy theEnemy) {
+        if (theEnemy.getHealthPoints() <= 0) {
             System.out.println("Victory");
         }
-        if (hero.getHealthPoints() <= 0) {
+        if (theHero.getHealthPoints() <= 0) {
             System.out.println("Game Over");
         }
         System.out.println();
-        restart(console);
+        restart(theConsole);
     }
-    public static void restart(Scanner console){
+    public static void restart(Scanner theConsole){
         System.out.println("Play again? 0. no or 1. yes");
-        int choice = console.nextInt(); // Initializes the game to start over.
-        if (choice == 1) {
-            gamePlay(console);
-        } else if(choice == 0){
+        char choice = theConsole.next().charAt(0); // Initializes the game to start over.
+        if (choice == '1') {
+            gamePlay(theConsole);
+        } else if(choice == '0'){
             System.out.println("Thanks for playing.");
         } else{
             System.out.println("Invalid choice!");
             System.out.println();
-            restart(console);
+            restart(theConsole);
         }
     }
 }

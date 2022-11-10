@@ -10,7 +10,7 @@ public class Luffy extends Hero {
 
     public Luffy() {
         super("Luffy", 120, 100, 10, 10,
-                20, 0.8, 0.2, 0.20, 0);
+                20, 0.8, 0.2, 0.20, 0, 4);
     }
 
     @Override
@@ -21,7 +21,7 @@ public class Luffy extends Hero {
             int damageDealt = damage.nextInt(myMaxSpecialDamage + 1 - myMinSpecialDamage) + myMinSpecialDamage;
             theEnemy.subtractHealth(damageDealt);
             System.out.println(getName() + " used Gum Gum Pistol and dealt " + damageDealt + " damage!");
-            System.out.println(theEnemy.getName() + " has " + theEnemy.getHealthPoints() + " left!");
+            System.out.println(theEnemy.getName() + " has " + theEnemy.getHealthPoints() + "health left!");
         } else {
             System.out.println(getName() + " failed to use Gum Gum Pistol!");
         }

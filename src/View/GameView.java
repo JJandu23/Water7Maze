@@ -1,9 +1,13 @@
 package View;
 
 import Controller.InputControls;
+import Model.Hero.Luffy;
 
 import javax.swing.*;
+import javax.swing.plaf.basic.BasicTableUI;
+import javax.swing.plaf.basic.BasicTreeUI;
 import java.awt.*;
+import java.awt.event.KeyListener;
 
 public class GameView extends JPanel implements Runnable {
 
@@ -12,66 +16,74 @@ public class GameView extends JPanel implements Runnable {
     final int scale = 3;
 
     final int tileSize = originalTileSize * scale;
-    final int maxScreenCol = 16;
+    final int maxScreenCol = 12;
     final int maxScreenRow = 10;
     final int screenWidth = tileSize * maxScreenCol;
     final int screenHeight = tileSize * maxScreenRow;
 
-    InputControls keyInput = new InputControls();
+    int FPS = 60;
 
-    //Player
-    int playerX = 100;
-    int playerY = 100;
-    int playerSpeed = 4;
-
+    InputControls inputCon = new InputControls();
     Thread gameThread;
 
+
+    //player
+    Luffy player = new Luffy();
+
+
+
     public GameView() {
-        this.setPreferredSize(new Dimension(screenWidth,screenHeight));
+        this.setPreferredSize(new Dimension(screenWidth, screenHeight));
         this.setBackground(Color.black);
         this.setDoubleBuffered(true);
-        InputControls keyInput = this.keyInput;
-        keyInput.setInputs();
+        this.addKeyListener(inputCon);
+        this.setFocusable(true);
     }
 
-    public void startGameThread(){
-        System.out.println("Thread started");
+    public void startGameThread() {
         gameThread = new Thread(this);
         gameThread.start();
-
     }
 
     @Override
     public void run() {
+        while (gameThread != null) {
 
-        while(gameThread != null){
+            double drawInterval = 1000000000 / FPS;
+            double nextDrawTime = System.nanoTime() + drawInterval;
 
             update();
 
             repaint();
 
-        }
 
+            try {
+                double remainingTime = nextDrawTime - System.nanoTime();
+                remainingTime = remainingTime / 1000000;
+                if (remainingTime < 0) {
+                    remainingTime = 0;
+                }
+
+                Thread.sleep((long) remainingTime);
+
+                nextDrawTime += drawInterval;
+
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     public void update() {
-        /*if(InputControls.isInput(0)){
-            playerY -= playerSpeed;
-            System.out.println("Goin Up");
-        }*/
-
+        player.update();
 
     }
 
-    public void paintComponent(Graphics g){
-
+    public void paintComponent(Graphics g) {
         super.paintComponent(g);
-
         Graphics2D g2 = (Graphics2D) g;
-
         g2.setColor(Color.white);
-        g2.fillRect(playerX,playerY,tileSize, tileSize);
-
+        g2.fillRect(player.getX(), player.getY(), tileSize, tileSize);
         g2.dispose();
-     }
+    }
 }
