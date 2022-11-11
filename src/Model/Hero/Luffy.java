@@ -16,10 +16,10 @@ public class Luffy extends Hero {
 
 
         try{
-            setMyDownIm1(ImageIO.read(getClass().getResourceAsStream("../../View/Sprites/down1.png")));
-            setMyUpIm1(ImageIO.read(getClass().getResourceAsStream("../../View/Sprites/up1.png")));
-            setMyLeftIm1(ImageIO.read(getClass().getResourceAsStream("../../View/Sprites/left1.png")));
-            setMyRightIm1(ImageIO.read(getClass().getResourceAsStream("../../View/Sprites/right1.png")));
+            setMyDownIm1(ImageIO.read(getClass().getResourceAsStream("../../View/Sprites/kevinDown.png")));
+            setMyUpIm1(ImageIO.read(getClass().getResourceAsStream("../../View/Sprites/kevinUp.png")));
+            setMyLeftIm1(ImageIO.read(getClass().getResourceAsStream("../../View/Sprites/kevinLeft.png")));
+            setMyRightIm1(ImageIO.read(getClass().getResourceAsStream("../../View/Sprites/kevinRight.png")));
         }catch (IOException e){
             e.printStackTrace();
         }
