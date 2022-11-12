@@ -11,8 +11,8 @@ public class Luffy extends Hero {
     private final int myMaxSpecialDamage = 35;
 
     public Luffy() {
-        super("Luffy", 120, 100, 10, 10,
-                20, 0.8, 0.2, 0.20, 0, 4);
+        super("Luffy", 120, 10, 10,
+                20, 0.8, 0.2, 0.20, 4 );
 
 
         try{

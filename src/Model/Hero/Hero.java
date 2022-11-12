@@ -3,14 +3,12 @@ package Model.Hero;
 import Controller.InputControls;
 import Model.MazeCharacter;
 
-import javax.imageio.ImageIO;
 import java.awt.*;
-import java.awt.event.KeyListener;
 import java.awt.image.BufferedImage;
-import java.io.IOException;
 
-public class Hero extends MazeCharacter {
+public abstract class Hero extends MazeCharacter {
     private int mySenzuBean;
+    private int myTorch;
     private int myOriginalHealthPoints;
     private int myMoveSpeed;
     private final InputControls inputCon = new InputControls();
@@ -21,35 +19,38 @@ public class Hero extends MazeCharacter {
     private String myDirection = "down";
 
 
-    public Hero(String theName, int theHealthPoints, int theOriginalHealthPoints, int theAttackSpeed, int theMinDamage,
-                int theMaxDamage, double theHitChance, double theDodgeChance, double theSpecialChance, int theSenzuBean, int theMoveSpeed) {
+    public Hero(String theName, int theHealthPoints, int theAttackSpeed, int theMinDamage,
+                 int theMaxDamage, double theHitChance, double theDodgeChance, double theSpecialChance, int theMoveSpeed) {
         super(theName, theHealthPoints,  theAttackSpeed, theMinDamage, theMaxDamage,
                 theHitChance, theDodgeChance, theSpecialChance);
-        setSenzuBean(theSenzuBean);
-        setOriginalHealthPoints(theOriginalHealthPoints);
-        setMoveSpeed(theMoveSpeed);
+        this.myOriginalHealthPoints = theHealthPoints;
+        mySenzuBean = 0;
+        myTorch = 0;
     }
-    protected final int getSenzuBean() {
+    protected  int getSenzuBean() {
         return mySenzuBean;
     }
-    protected final int getOriginalHealthPoints() {
+    protected int getMyTorch(){
+        return myTorch;
+    }
+    protected int getOriginalHealthPoints() {
         return myOriginalHealthPoints;
     }
-    public final int getMoveSpeed(){return myMoveSpeed;}
+    public int getMoveSpeed(){return myMoveSpeed;}
 
-    protected final void setSenzuBean(int theSenzuBean) {
+    protected void setSenzuBean(int theSenzuBean) {
         mySenzuBean = theSenzuBean;
     }
-    protected final void setOriginalHealthPoints(int theOriginalHealthPoints) {
-        myOriginalHealthPoints = theOriginalHealthPoints;
+    protected void setMyTorch(int theTorch){
+        myTorch = theTorch;
     }
-    protected final void setMoveSpeed(int theMoveSpeed){ myMoveSpeed = theMoveSpeed;}
+    protected void setMoveSpeed(int theMoveSpeed){ myMoveSpeed = theMoveSpeed;}
 
-    protected final void addSenzuBean(int theSenzuBean) {
+    protected void addSenzuBean(int theSenzuBean) {
         mySenzuBean += theSenzuBean;
         setSenzuBean(mySenzuBean);
     }
-    public final void useSenzuBean() {
+    public void useSenzuBean() {
         if (getSenzuBean() > 0) {
             if (getHealthPoints() == getOriginalHealthPoints()) {
                 System.out.println("You are already at full health!");

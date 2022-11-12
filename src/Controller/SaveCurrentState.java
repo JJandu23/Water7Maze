@@ -1,7 +1,6 @@
 package Controller;
 
 import Model.Hero.Hero;
-import View.GameView;
 
 import java.io.Serializable;
 

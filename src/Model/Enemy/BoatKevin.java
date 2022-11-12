@@ -2,8 +2,6 @@ package Model.Enemy;
 
 import Model.MazeCharacter;
 
-import java.util.Random;
-
 public class BoatKevin extends Enemy {
     public BoatKevin() {
         super("BoatKevin", 40,  4, 10, 20, 0.8,

@@ -4,10 +4,7 @@ import Controller.InputControls;
 import Model.Hero.Luffy;
 
 import javax.swing.*;
-import javax.swing.plaf.basic.BasicTableUI;
-import javax.swing.plaf.basic.BasicTreeUI;
 import java.awt.*;
-import java.awt.event.KeyListener;
 
 public class GameView extends JPanel implements Runnable {
 

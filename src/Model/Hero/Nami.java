@@ -6,8 +6,8 @@ import java.util.Random;
 
 public class Nami extends Hero{
     public Nami() {
-        super("Nami", 100, 100, 10, 10,
-                20, 0.5, 0.4, 0.20, 0, 3);
+        super("Nami", 100, 10, 10,
+                20, 0.5, 0.4, 0.20, 3);
     }
 
     public void specialAttack(MazeCharacter theEnemy) {

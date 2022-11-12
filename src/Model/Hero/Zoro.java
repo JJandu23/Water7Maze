@@ -8,8 +8,8 @@ public class Zoro extends Hero{
     private final int myMinSpecialDamage = 30;
     private final int myMaxSpecialDamage = 50;
     public Zoro(){
-        super("Zoro", 100, 90, 8, 15, 25,
-                .6, .2, .4, 1, 4);
+        super("Zoro", 100, 8, 15, 25,
+                .6, .2, .4, 4);
     }
     @Override
     public void specialAttack(MazeCharacter theEnemy){
