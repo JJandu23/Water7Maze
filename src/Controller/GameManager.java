@@ -26,7 +26,7 @@ public class GameManager {
         return null;
     }
 
-    public static void setHero(Hero hero) {;
+    public static void setHero(Hero hero) {
     }
 
     public static void setGameManager(GameManager gameManager) {

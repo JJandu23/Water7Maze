@@ -1,23 +1,17 @@
 package Controller;
 
-import Model.Hero.Hero;
-import View.GameView;
-
 import java.awt.event.KeyListener;
-import java.util.*;
-import java.io.*;
-
 
 /**
  * This class is used to control the input from the user.
  *
- * @author  Jashanpreet Jandu, Kevin Nguyen, Nicholas Zhuk
+ * @author Jashanpreet Jandu, Kevin Nguyen, Nicholas Zhuk
  * @version 1.0
  */
 
 import java.awt.event.KeyEvent;
 
-public class InputControls  implements KeyListener {
+public class InputControls implements KeyListener {
     private final char UP = 'w';
     private final char DOWN = 's';
     private final char LEFT = 'a';
@@ -26,9 +20,10 @@ public class InputControls  implements KeyListener {
     private final char SPECIAL = 'k';
     private final char ITEM = 'l';
     private final char MENU = 'm';
-    private final char POTIONS = 'p';
+    private final char SENZU_BEAN = 'p';
     private final char SAVE = 'o';
     private final char LOAD = 'i';
+
     //make static shit idk
     private static boolean upPressed, downPressed, leftPressed, rightPressed;
 
@@ -66,8 +61,8 @@ public class InputControls  implements KeyListener {
         return MENU;
     }
 
-    public char getPotions() {
-        return POTIONS;
+    public char getSenzuBean() {
+        return SENZU_BEAN;
     }
 
     public char getSave() {
@@ -103,14 +98,13 @@ public class InputControls  implements KeyListener {
             case 'k' -> "Special";
             case 'l' -> "Item";
             case 'm' -> "Menu";
-            case 'p' -> "Potions";
+            case 'p' -> "Senzu Bean";
             default -> "Undefined";
         };
     }
 
     @Override
     public void keyTyped(KeyEvent e) {
-
     }
 
     @Override
@@ -118,21 +112,15 @@ public class InputControls  implements KeyListener {
         int code = e.getKeyCode();
         if (code == KeyEvent.VK_W) {
             upPressed = true;
-
-
-
         }
         if (code == KeyEvent.VK_S) {
             downPressed = true;
-
         }
         if (code == KeyEvent.VK_A) {
             leftPressed = true;
-
         }
         if (code == KeyEvent.VK_D) {
             rightPressed = true;
-
         }
     }
 
