@@ -8,6 +8,8 @@ import java.awt.image.BufferedImage;
 
 public abstract class Hero extends MazeCharacter {
     private int mySenzuBean;
+    private int myPowerPowerFruit;
+    private int mySpeedSpeedFruit;
     private int myTorch;
     private int myOriginalHealthPoints;
     private int myMoveSpeed;
@@ -20,36 +22,75 @@ public abstract class Hero extends MazeCharacter {
 
 
     public Hero(String theName, int theHealthPoints, int theAttackSpeed, int theMinDamage,
-                 int theMaxDamage, double theHitChance, double theDodgeChance, double theSpecialChance, int theMoveSpeed) {
-        super(theName, theHealthPoints,  theAttackSpeed, theMinDamage, theMaxDamage,
+                int theMaxDamage, double theHitChance, double theDodgeChance, double theSpecialChance, int theMoveSpeed) {
+        super(theName, theHealthPoints, theAttackSpeed, theMinDamage, theMaxDamage,
                 theHitChance, theDodgeChance, theSpecialChance);
         this.myOriginalHealthPoints = theHealthPoints;
-        mySenzuBean = 0;
+        mySenzuBean = 2;
+        myPowerPowerFruit = 2;
+        mySpeedSpeedFruit = 3;
         myTorch = 0;
     }
-    protected  int getSenzuBean() {
+
+    protected int getSenzuBean() {
         return mySenzuBean;
     }
-    protected int getMyTorch(){
+
+    protected int getPowerPowerFruit() {
+        return myPowerPowerFruit;
+    }
+
+    protected int getSpeedSpeedFruit() {
+        return mySpeedSpeedFruit;
+    }
+
+    protected int getTorch() {
         return myTorch;
     }
+
     protected int getOriginalHealthPoints() {
         return myOriginalHealthPoints;
     }
-    public int getMoveSpeed(){return myMoveSpeed;}
+
+    public int getMoveSpeed() {
+        return myMoveSpeed;
+    }
 
     protected void setSenzuBean(int theSenzuBean) {
         mySenzuBean = theSenzuBean;
     }
-    protected void setMyTorch(int theTorch){
+
+    protected void setPowerPowerFruit(int thePowerPowerFruit) {
+        myPowerPowerFruit = thePowerPowerFruit;
+    }
+
+    protected void setSpeedSpeedFruit(int theSpeedSpeedFruit) {
+        mySpeedSpeedFruit = theSpeedSpeedFruit;
+    }
+
+    protected void setMyTorch(int theTorch) {
         myTorch = theTorch;
     }
-    protected void setMoveSpeed(int theMoveSpeed){ myMoveSpeed = theMoveSpeed;}
 
-    protected void addSenzuBean(int theSenzuBean) {
-        mySenzuBean += theSenzuBean;
+    protected void setMoveSpeed(int theMoveSpeed) {
+        myMoveSpeed = theMoveSpeed;
+    }
+
+    protected void addSenzuBean() {
+        mySenzuBean++;
         setSenzuBean(mySenzuBean);
     }
+
+    protected void addPowerPowerFruit() {
+        myPowerPowerFruit++;
+        setPowerPowerFruit(myPowerPowerFruit);
+    }
+
+    protected void addSpeedSpeedFruit() {
+        mySpeedSpeedFruit++;
+        setSpeedSpeedFruit(mySpeedSpeedFruit);
+    }
+
     public void useSenzuBean() {
         if (getSenzuBean() > 0) {
             if (getHealthPoints() == getOriginalHealthPoints()) {
@@ -57,7 +98,7 @@ public abstract class Hero extends MazeCharacter {
             } else {
                 mySenzuBean--;
                 setSenzuBean(mySenzuBean);
-                if(getHealthPoints() + 20 > getOriginalHealthPoints()) {
+                if (getHealthPoints() + 20 > getOriginalHealthPoints()) {
                     setHealthPoints(getOriginalHealthPoints());
                 } else {
                     setHealthPoints(getHealthPoints() + 20);
@@ -68,6 +109,35 @@ public abstract class Hero extends MazeCharacter {
         } else {
             System.out.println(getName() + " has no senzu beans left!");
         }
+    }
+
+    public void usePowerPowerFruit() {
+        if (getPowerPowerFruit() > 0) {
+            myPowerPowerFruit--;
+            setPowerPowerFruit(myPowerPowerFruit);
+            setMinDamage(getMinDamage() + 10);
+            setMaxDamage(getMaxDamage() + 10);
+            System.out.println(getName() + " used a power power fruit and gained 10 attack!");
+            System.out.println(getName() + " now has " + getMinDamage() + " min damage and " + getMaxDamage() +
+                    " max damage attack!");
+        } else {
+            System.out.println(getName() + " has no power power fruits left!");
+        }
+    }
+
+    public void useSpeedSpeedFruit() {
+        if (getSpeedSpeedFruit() > 0) {
+            mySpeedSpeedFruit--;
+            setSpeedSpeedFruit(mySpeedSpeedFruit);
+            setAttackSpeed(getAttackSpeed() + 1);
+            System.out.println(getName() + " used a speed speed fruit and gained 1 speed!");
+            System.out.println(getName() + " now has " + getAttackSpeed() + " speed!");
+        } else {
+            System.out.println(getName() + " has no speed speed fruits left!");
+        }
+    }
+
+    public void useTorch() {
     }
 
     //controls

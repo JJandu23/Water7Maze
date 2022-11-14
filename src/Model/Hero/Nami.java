@@ -6,7 +6,7 @@ import java.util.Random;
 
 public class Nami extends Hero{
     public Nami() {
-        super("Nami", 100, 10, 10,
+        super("Nami", 90, 10, 10,
                 20, 0.5, 0.4, 0.20, 3);
     }
 

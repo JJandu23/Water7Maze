@@ -1,21 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e4fa422e-bbf5-4b7a-ad89-3212284be1af" name="Changes" comment="Added images to player, moved draw method.">
-      <change afterPath="$PROJECT_DIR$/src/Model/MazeGenerator/FloorGenerator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Model/MazeGenerator/Maze.java" afterDir="false" />
+    <list default="true" id="e4fa422e-bbf5-4b7a-ad89-3212284be1af" name="Changes" comment="Filled in sqlite data tables and worked on the hero class.">
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/identifier.sqlite" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_7_2022_9_45_AM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_7_2022_9_45_AM__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_8_2022_2_21_PM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_8_2022_2_21_PM__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_9_2022_9_35_AM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_9_2022_9_35_AM__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/GameManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/GameManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/InputControls.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/InputControls.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/SaveCurrentState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/SaveCurrentState.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/SaveManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/SaveManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MazeGenerator/FloorGenerator.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MazeGenerator/Maze.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Music/SoundsPlay.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Music/SoundsPlay.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Model/Battle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Battle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Model/Enemy/BoatKevin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Enemy/BoatKevin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Model/Enemy/SadBoySea.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Enemy/SadBoySea.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Model/Hero/Hero.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Hero/Hero.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Model/Hero/Luffy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Hero/Luffy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Model/Hero/Nami.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Hero/Nami.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Model/Hero/Zoro.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Hero/Zoro.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Model/MazeCharacter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/MazeCharacter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/SQL/SQLTables.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SQL/SQLTables.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -50,11 +49,15 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;last_opened_file_path&quot;: &quot;D:/Documents/Water7Maze/src/Music&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "D:/Documents/Water7Maze/src/Music",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\Documents\Water7Maze\src\Music" />
@@ -66,6 +69,19 @@
     </key>
   </component>
   <component name="RunManager">
+    <configuration name="Battle" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Model.Battle" />
+      <module name="Water7Maze" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Model.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="View.Main" />
       <module name="Water7Maze" />
@@ -81,6 +97,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Battle" />
         <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
@@ -97,6 +114,7 @@
       <workItem from="1667625190074" duration="166000" />
       <workItem from="1667763410040" duration="11230000" />
       <workItem from="1667879006638" duration="4695000" />
+      <workItem from="1668372830643" duration="15769000" />
     </task>
     <task id="LOCAL-00001" summary="New Project for TCSS 360">
       <created>1667347517038</created>
@@ -203,7 +221,21 @@
       <option name="project" value="LOCAL" />
       <updated>1668124390482</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Filled in sqlite data tables and worked on the hero class.">
+      <created>1668248177393</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1668248177393</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Filled in sqlite data tables and worked on the hero class.">
+      <created>1668248246306</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1668248246306</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -228,6 +260,22 @@
     <MESSAGE value="created sqltables" />
     <MESSAGE value="Moved player movement update and control to model" />
     <MESSAGE value="Added images to player, moved draw method." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added images to player, moved draw method." />
+    <MESSAGE value="Filled in sqlite data tables and worked on the hero class." />
+    <option name="LAST_COMMIT_MESSAGE" value="Filled in sqlite data tables and worked on the hero class." />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/Model/Battle.java</url>
+          <line>28</line>
+          <properties class="Model.Battle" method="chooseHero">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

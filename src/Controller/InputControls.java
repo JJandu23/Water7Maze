@@ -1,15 +1,7 @@
 package Controller;
 
-import java.awt.event.KeyListener;
-
-/**
- * This class is used to control the input from the user.
- *
- * @author Jashanpreet Jandu, Kevin Nguyen, Nicholas Zhuk
- * @version 1.0
- */
-
 import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 
 public class InputControls implements KeyListener {
     private final char UP = 'w';
@@ -99,6 +91,8 @@ public class InputControls implements KeyListener {
             case 'l' -> "Item";
             case 'm' -> "Menu";
             case 'p' -> "Senzu Bean";
+            case 'o' -> "Power Fruit";
+            case 'i' -> "Speed Fruit";
             default -> "Undefined";
         };
     }
