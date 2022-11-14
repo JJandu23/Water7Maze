@@ -30,6 +30,7 @@ public abstract class Hero extends MazeCharacter {
         myPowerPowerFruit = 2;
         mySpeedSpeedFruit = 3;
         myTorch = 0;
+        setMoveSpeed(theMoveSpeed);
     }
 
     protected int getSenzuBean() {
