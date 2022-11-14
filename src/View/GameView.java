@@ -2,6 +2,7 @@ package View;
 
 import Controller.InputControls;
 import Model.Hero.Luffy;
+import Model.Hero.Zoro;
 
 import javax.swing.*;
 import java.awt.*;
@@ -11,10 +12,9 @@ public class GameView extends JPanel implements Runnable {
     // Settings
     final int originalTileSize = 32;
     final int scale = 3;
-
-    final int tileSize = originalTileSize * scale;
     final int maxScreenCol = 12;
     final int maxScreenRow = 10;
+    final int tileSize = originalTileSize * scale;
     final int screenWidth = tileSize * maxScreenCol;
     final int screenHeight = tileSize * maxScreenRow;
 
@@ -25,7 +25,7 @@ public class GameView extends JPanel implements Runnable {
 
 
     //player
-    Luffy player = new Luffy();
+    Zoro player = new Zoro();
 
 
 

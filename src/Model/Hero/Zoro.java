@@ -2,6 +2,8 @@ package Model.Hero;
 
 import Model.MazeCharacter;
 
+import javax.imageio.ImageIO;
+import java.io.IOException;
 import java.util.Random;
 
 public class Zoro extends Hero {
@@ -11,6 +13,16 @@ public class Zoro extends Hero {
     public Zoro() {
         super("Zoro", 110, 8, 15, 25,
                 .6, .2, .4, 4);
+
+
+        try {
+            setMyDownIm1(ImageIO.read(getClass().getResourceAsStream("../../View/Sprites/Zoro/down1.png")));
+            setMyUpIm1(ImageIO.read(getClass().getResourceAsStream("../../View/Sprites/Zoro/up1.png")));
+            setMyLeftIm1(ImageIO.read(getClass().getResourceAsStream("../../View/Sprites/Zoro/left1.png")));
+            setMyRightIm1(ImageIO.read(getClass().getResourceAsStream("../../View/Sprites/Zoro/right1.png")));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override

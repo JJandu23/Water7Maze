@@ -2,6 +2,8 @@ package Model.Hero;
 
 import Model.MazeCharacter;
 
+import javax.imageio.ImageIO;
+import java.io.IOException;
 import java.util.Random;
 
 public class Chopper extends Hero {
@@ -11,6 +13,15 @@ public class Chopper extends Hero {
     public Chopper() {
         super("Chopper", 100, 10, 10,
                 20, 0.5, 0.3, 0.20, 3);
+
+        try {
+            setMyDownIm1(ImageIO.read(getClass().getResourceAsStream("../../View/Sprites/Chopper/down1.png")));
+            setMyUpIm1(ImageIO.read(getClass().getResourceAsStream("../../View/Sprites/Chopper/up1.png")));
+            setMyLeftIm1(ImageIO.read(getClass().getResourceAsStream("../../View/Sprites/Chopper/left1.png")));
+            setMyRightIm1(ImageIO.read(getClass().getResourceAsStream("../../View/Sprites/Chopper/right1.png")));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
