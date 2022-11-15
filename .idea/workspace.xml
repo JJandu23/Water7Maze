@@ -4,21 +4,24 @@
     <option name="SCOPE_TYPE" value="3" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e4fa422e-bbf5-4b7a-ad89-3212284be1af" name="Changes" comment="kevin can move again">
+    <list default="true" id="e4fa422e-bbf5-4b7a-ad89-3212284be1af" name="Changes" comment="Added file paths for sprites for all characters.">
+      <change afterPath="$PROJECT_DIR$/src/View/Sprites/Chopper/down1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/View/Sprites/Chopper/left1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/View/Sprites/Chopper/right1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/View/Sprites/Chopper/up1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/View/Sprites/Luffy/down1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/View/Sprites/Luffy/left1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/View/Sprites/Luffy/right1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/View/Sprites/Luffy/up1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/View/Sprites/Nami/down1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/View/Sprites/Nami/left1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/View/Sprites/Nami/right1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/View/Sprites/Nami/up1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/View/Sprites/Zoro/down1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/View/Sprites/Zoro/left1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/View/Sprites/Zoro/right1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/View/Sprites/Zoro/up1.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Model/Hero/Chopper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Hero/Chopper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Model/Hero/Luffy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Hero/Luffy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Model/Hero/Nami.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Hero/Nami.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Model/Hero/Zoro.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Hero/Zoro.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/View/GameView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/GameView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/View/Sprites/down1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/View/Sprites/kevinDown.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/View/Sprites/kevinLeft.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/View/Sprites/kevinRight.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/View/Sprites/kevinUp.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/View/Sprites/left1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/View/Sprites/right1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/View/Sprites/up1.png" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -239,7 +242,14 @@
       <option name="project" value="LOCAL" />
       <updated>1668449796185</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="Added file paths for sprites for all characters.">
+      <created>1668465457658</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1668465457658</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -266,7 +276,8 @@
     <MESSAGE value="Added images to player, moved draw method." />
     <MESSAGE value="Filled in sqlite data tables and worked on the hero class." />
     <MESSAGE value="kevin can move again" />
-    <option name="LAST_COMMIT_MESSAGE" value="kevin can move again" />
+    <MESSAGE value="Added file paths for sprites for all characters." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added file paths for sprites for all characters." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
