@@ -25,7 +25,7 @@ public class GameView extends JPanel implements Runnable {
 
 
     //player
-    Zoro player = new Zoro();
+    Luffy player = new Luffy();
 
 
 
@@ -47,27 +47,25 @@ public class GameView extends JPanel implements Runnable {
         while (gameThread != null) {
 
             double drawInterval = 1000000000 / FPS;
-            double nextDrawTime = System.nanoTime() + drawInterval;
+            double delta = 0;
+            long lastTime = System.nanoTime();
+            long currentTime;
 
-            update();
+            while(gameThread != null){
+                currentTime = System.nanoTime();
+                delta += (currentTime - lastTime) / drawInterval;
 
-            repaint();
+                lastTime = currentTime;
 
-
-            try {
-                double remainingTime = nextDrawTime - System.nanoTime();
-                remainingTime = remainingTime / 1000000;
-                if (remainingTime < 0) {
-                    remainingTime = 0;
+                if(delta >= 1) {
+                    update();
+                    repaint();
+                    delta--;
                 }
-
-                Thread.sleep((long) remainingTime);
-
-                nextDrawTime += drawInterval;
-
-            } catch (InterruptedException e) {
-                e.printStackTrace();
             }
+
+
+
         }
     }
 

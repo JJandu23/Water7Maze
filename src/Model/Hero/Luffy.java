@@ -17,9 +17,21 @@ public class Luffy extends Hero {
 
         try {
             setMyDownIm1(ImageIO.read(getClass().getResourceAsStream("../../View/Sprites/Luffy/down1.png")));
+            setMyDownIm2(ImageIO.read(getClass().getResourceAsStream("../../View/Sprites/Luffy/down2.png")));
+            setMyDownIm3(ImageIO.read(getClass().getResourceAsStream("../../View/Sprites/Luffy/down3.png")));
+
             setMyUpIm1(ImageIO.read(getClass().getResourceAsStream("../../View/Sprites/Luffy/up1.png")));
+            setMyUpIm2(ImageIO.read(getClass().getResourceAsStream("../../View/Sprites/Luffy/up2.png")));
+            setMyUpIm3(ImageIO.read(getClass().getResourceAsStream("../../View/Sprites/Luffy/up3.png")));
+
             setMyLeftIm1(ImageIO.read(getClass().getResourceAsStream("../../View/Sprites/Luffy/left1.png")));
+            setMyLeftIm2(ImageIO.read(getClass().getResourceAsStream("../../View/Sprites/Luffy/left2.png")));
+            setMyLeftIm3(ImageIO.read(getClass().getResourceAsStream("../../View/Sprites/Luffy/left3.png")));
+
             setMyRightIm1(ImageIO.read(getClass().getResourceAsStream("../../View/Sprites/Luffy/right1.png")));
+            setMyRightIm2(ImageIO.read(getClass().getResourceAsStream("../../View/Sprites/Luffy/right2.png")));
+            setMyRightIm3(ImageIO.read(getClass().getResourceAsStream("../../View/Sprites/Luffy/right3.png")));
+
         } catch (IOException e) {
             e.printStackTrace();
         }
