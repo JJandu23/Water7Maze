@@ -25,59 +25,69 @@ public class MazeCharacter {
         setSpecialChance(theSpecialChance);
     }
 
-    protected final void setName(String theName) {
+    protected void setName(String theName) {
         myName = theName;
     }
 
-    protected final void setHealthPoints(int theHealthPoints) {
+    protected void setHealthPoints(int theHealthPoints) {
         myHealthPoints = theHealthPoints;
     }
 
-
-    protected final void setAttackSpeed(int theAttackSpeed) {
+    protected void setAttackSpeed(int theAttackSpeed) {
         myAttackSpeed = theAttackSpeed;
     }
 
-    protected final void setMinDamage(int theMinDamage) {
+    protected void setMinDamage(int theMinDamage) {
         myMinDamage = theMinDamage;
     }
 
-    protected final void setMaxDamage(int theMaxDamage) {
+    protected void setMaxDamage(int theMaxDamage) {
         myMaxDamage = theMaxDamage;
     }
 
-    protected final void setHitChance(double theHitChance) {
+    protected void setHitChance(double theHitChance) {
         myHitChance = theHitChance;
     }
-    protected final void setDodgeChance(double theDodgeChance){
+
+    protected void setDodgeChance(double theDodgeChance) {
         myDodgeChance = theDodgeChance;
     }
 
-    protected final void setSpecialChance(double theSpecialChance) {
+    protected void setSpecialChance(double theSpecialChance) {
         mySpecialChance = theSpecialChance;
     }
 
-    public final String getName() {
+    public String getName() {
         return myName;
     }
 
-    public final int getHealthPoints() {
+    public int getHealthPoints() {
         return myHealthPoints;
     }
 
-    public final int getAttackSpeed() {
+    public int getAttackSpeed() {
         return myAttackSpeed;
     }
-    public double getDodgeChance(){
+
+    public int getMinDamage() {
+        return myMinDamage;
+    }
+
+    public int getMaxDamage() {
+        return myMaxDamage;
+    }
+
+    public double getDodgeChance() {
         return myDodgeChance;
     }
-    protected final double getSpecialChance() {
+
+    protected double getSpecialChance() {
         return mySpecialChance;
     }
 
-    public final int subtractHealth(int theDamage) {
+    public int subtractHealth(int theDamage) {
         myHealthPoints -= theDamage;
-        if (myHealthPoints < 0){
+        if (myHealthPoints < 0) {
             myHealthPoints = 0;
         }
         return myHealthPoints;
@@ -89,7 +99,7 @@ public class MazeCharacter {
         return chance < myDodgeChance;
     }
 
-    public final void attack(final MazeCharacter theEnemy) {
+    public void attack(final MazeCharacter theEnemy) {
         if (blockAttack()) {
             System.out.println(theEnemy.getName() + " has blocked the attack!");
         } else {

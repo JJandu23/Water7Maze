@@ -1,20 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AnalysisUIOptions">
+    <option name="SCOPE_TYPE" value="3" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="e4fa422e-bbf5-4b7a-ad89-3212284be1af" name="Changes" comment="Implemented Game Clock, Threading into GameView&#10;Changed InputControls to work with KeyListener&#10;Added key inputs into GameView">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_3_2022_10_35_AM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_3_2022_10_35_AM__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_7_2022_9_45_AM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_7_2022_9_45_AM__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_8_2022_2_21_PM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_8_2022_2_21_PM__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_9_2022_9_35_AM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_9_2022_9_35_AM__Changes_.xml" afterDir="false" />
+    <list default="true" id="e4fa422e-bbf5-4b7a-ad89-3212284be1af" name="Changes" comment="Added file paths for sprites for all characters.">
+      <change afterPath="$PROJECT_DIR$/src/View/Sprites/Chopper/down1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/View/Sprites/Chopper/left1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/View/Sprites/Chopper/right1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/View/Sprites/Chopper/up1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/View/Sprites/Luffy/down1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/View/Sprites/Luffy/left1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/View/Sprites/Luffy/right1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/View/Sprites/Luffy/up1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/View/Sprites/Nami/down1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/View/Sprites/Nami/left1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/View/Sprites/Nami/right1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/View/Sprites/Nami/up1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/View/Sprites/Zoro/down1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/View/Sprites/Zoro/left1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/View/Sprites/Zoro/right1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/View/Sprites/Zoro/up1.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/InputControls.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/InputControls.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Model/Hero/Chopper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Hero/Chopper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Model/Hero/Hero.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Hero/Hero.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Model/Hero/Luffy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Hero/Luffy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Model/Hero/Nami.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Hero/Nami.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Model/Hero/Zoro.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Hero/Zoro.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Model/MazeCharacter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/MazeCharacter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/View/GameView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/GameView.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,18 +48,40 @@
     <option name="version" value="2" />
   </component>
   <component name="ProjectId" id="2Gy4MZ6o4ITOQnDJbnGqEnU9zzO" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
+  <component name="PropertiesComponent">
+    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
+  </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Documents\Water7Maze\src\Music" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Documents\Water7Maze\src\Music" />
       <recent name="C:\Users\shepo\IdeaProjects\Water7Maze" />
       <recent name="D:\Documents\Water7Maze" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.Main">
+    <configuration name="Battle" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Model.Battle" />
+      <module name="Water7Maze" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Model.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="View.Main" />
       <module name="Water7Maze" />
@@ -69,6 +98,7 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.Main" />
+        <item itemvalue="Application.Battle" />
       </list>
     </recent_temporary>
   </component>
@@ -84,6 +114,7 @@
       <workItem from="1667625190074" duration="166000" />
       <workItem from="1667763410040" duration="11230000" />
       <workItem from="1667879006638" duration="4695000" />
+      <workItem from="1668372830643" duration="15769000" />
     </task>
     <task id="LOCAL-00001" summary="New Project for TCSS 360">
       <created>1667347517038</created>
@@ -176,7 +207,49 @@
       <option name="project" value="LOCAL" />
       <updated>1668028110474</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Moved player movement update and control to model">
+      <created>1668049245594</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1668049245594</updated>
+    </task>
+    <task id="LOCAL-00015" summary="Added images to player, moved draw method.">
+      <created>1668124390482</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1668124390482</updated>
+    </task>
+    <task id="LOCAL-00016" summary="Filled in sqlite data tables and worked on the hero class.">
+      <created>1668248177393</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1668248177393</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Filled in sqlite data tables and worked on the hero class.">
+      <created>1668248246306</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1668248246306</updated>
+    </task>
+    <task id="LOCAL-00018" summary="kevin can move again">
+      <created>1668449796185</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1668449796185</updated>
+    </task>
+    <task id="LOCAL-00019" summary="Added file paths for sprites for all characters.">
+      <created>1668465457658</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1668465457658</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -194,10 +267,31 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="New Project for TCSS 360" />
     <MESSAGE value="Added some more inputs as well some serialization for the load game class" />
     <MESSAGE value="Deleted SaveGame and LoadGame and made a SaveManger and SaveState." />
     <MESSAGE value="created sqltables" />
-    <option name="LAST_COMMIT_MESSAGE" value="created sqltables" />
+    <MESSAGE value="Moved player movement update and control to model" />
+    <MESSAGE value="Added images to player, moved draw method." />
+    <MESSAGE value="Filled in sqlite data tables and worked on the hero class." />
+    <MESSAGE value="kevin can move again" />
+    <MESSAGE value="Added file paths for sprites for all characters." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added file paths for sprites for all characters." />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/Model/Battle.java</url>
+          <line>28</line>
+          <properties class="Model.Battle">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

@@ -2,15 +2,30 @@ package Model.Hero;
 
 import Model.MazeCharacter;
 
+import javax.imageio.ImageIO;
+import java.io.IOException;
 import java.util.Random;
 
 public class Luffy extends Hero {
-    private final int myMinSpecialDamage = 25;
-    private final int myMaxSpecialDamage = 35;
+    private final int myMinSpecialDamage = 35;
+    private final int myMaxSpecialDamage = 45;
 
     public Luffy() {
-        super("Luffy", 120, 100, 10, 10,
-                20, 0.8, 0.2, 0.20, 0, 4);
+        super("Luffy", 120, 10, 15,
+                25, 0.8, 0.2, 0.20, 4);
+
+
+        try {
+            setMyDownIm1(ImageIO.read(getClass().getResourceAsStream("../../View/Sprites/Luffy/down1.png")));
+            setMyUpIm1(ImageIO.read(getClass().getResourceAsStream("../../View/Sprites/Luffy/up1.png")));
+            setMyLeftIm1(ImageIO.read(getClass().getResourceAsStream("../../View/Sprites/Luffy/left1.png")));
+            setMyRightIm1(ImageIO.read(getClass().getResourceAsStream("../../View/Sprites/Luffy/right1.png")));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+
+
     }
 
     @Override

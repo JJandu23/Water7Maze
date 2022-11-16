@@ -2,12 +2,24 @@ package Model.Hero;
 
 import Model.MazeCharacter;
 
+import javax.imageio.ImageIO;
+import java.io.IOException;
 import java.util.Random;
 
 public class Nami extends Hero{
     public Nami() {
-        super("Nami", 100, 100, 10, 10,
-                20, 0.5, 0.4, 0.20, 0, 3);
+        super("Nami", 90, 10, 10,
+                20, 0.5, 0.4, 0.20, 3);
+
+
+        try {
+            setMyDownIm1(ImageIO.read(getClass().getResourceAsStream("../../View/Sprites/Nami/down1.png")));
+            setMyUpIm1(ImageIO.read(getClass().getResourceAsStream("../../View/Sprites/Nami/up1.png")));
+            setMyLeftIm1(ImageIO.read(getClass().getResourceAsStream("../../View/Sprites/Nami/left1.png")));
+            setMyRightIm1(ImageIO.read(getClass().getResourceAsStream("../../View/Sprites/Nami/right1.png")));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public void specialAttack(MazeCharacter theEnemy) {

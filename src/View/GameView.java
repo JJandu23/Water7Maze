@@ -2,22 +2,19 @@ package View;
 
 import Controller.InputControls;
 import Model.Hero.Luffy;
+import Model.Hero.Zoro;
 
 import javax.swing.*;
-import javax.swing.plaf.basic.BasicTableUI;
-import javax.swing.plaf.basic.BasicTreeUI;
 import java.awt.*;
-import java.awt.event.KeyListener;
 
 public class GameView extends JPanel implements Runnable {
 
     // Settings
     final int originalTileSize = 32;
     final int scale = 3;
-
-    final int tileSize = originalTileSize * scale;
     final int maxScreenCol = 12;
     final int maxScreenRow = 10;
+    final int tileSize = originalTileSize * scale;
     final int screenWidth = tileSize * maxScreenCol;
     final int screenHeight = tileSize * maxScreenRow;
 
@@ -28,7 +25,7 @@ public class GameView extends JPanel implements Runnable {
 
 
     //player
-    Luffy player = new Luffy();
+    Zoro player = new Zoro();
 
 
 
@@ -82,8 +79,7 @@ public class GameView extends JPanel implements Runnable {
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
         Graphics2D g2 = (Graphics2D) g;
-        g2.setColor(Color.white);
-        g2.fillRect(player.getX(), player.getY(), tileSize, tileSize);
+        player.draw(g2);
         g2.dispose();
     }
 }

@@ -5,7 +5,7 @@ import Model.Hero.Hero;
 import java.io.Serializable;
 
 public class SaveCurrentState implements Serializable {
-    public Hero hero;
+    private Hero hero;
 
     public SaveCurrentState(Hero hero) {
         this.hero = hero;
