@@ -6,6 +6,8 @@ import Model.Hero.*;
 import java.util.Random;
 import java.util.Scanner;
 
+import static Model.Enemy.EnemyFactory.chosenEnemy;
+
 public class Battle {
     public static void main(String[] args) {
         Scanner console = new Scanner(System.in);
@@ -18,7 +20,9 @@ public class Battle {
         Enemy enemy = chooseEnemy(theConsole);
         System.out.println("You have chosen to fight " + enemy.getName() + "!");
         System.out.println();
-        battlePhase(hero, enemy, theConsole);
+        while(hero.getHealthPoints() > 0 && enemy.getHealthPoints() > 0) {
+            battlePhase(hero, enemy, theConsole);
+        }
         if (hero.getHealthPoints() <= 0) {
             System.out.println(hero.getName() + " has died!");
         } else {
@@ -51,62 +55,26 @@ public class Battle {
     }
     public static Enemy chooseEnemy(Scanner theConsole){
         System.out.println("Choose your enemy!");
-        System.out.println("1. BoatKevin");
-        System.out.println("2. SadBoySea");
-        System.out.println("3: Nikolai");
-        System.out.println("4: Eli");
-        System.out.println("5: Random");
         char choice = theConsole.next().charAt(0);
-        if (choice == '1'){
-            return new BoatKevin();
-        }else if (choice == '2') {
-            return new SadBoySea();
-        }else if (choice == '3'){
-            return new Nikolai();
-        }else if (choice == '4'){
-            return new Eli();
-        }else if (choice == '5'){
-            Random random = new Random();
-            int randomChoice = random.nextInt(4);
-            if (randomChoice == 0) {
-                return new BoatKevin();
-            } else if (randomChoice == 1) {
-                return new SadBoySea();
-            } else if (randomChoice == 2) {
-                return new Nikolai();
-            } else {
-                return new Eli();
-            }
-        } else {
-            System.out.println("Invalid choice!");
-            System.out.println();
-            return chooseEnemy(theConsole);
-        }
+        return  chosenEnemy(choice);
     }
 
     public static void battlePhase(Hero theHero, Enemy theEnemy, Scanner theConsole) {
-        boolean heroTurn;
-        if (theHero.getAttackSpeed() >= theEnemy.getAttackSpeed()) {
-            heroTurn = true;
-        } else {
-            heroTurn = false;
-        }
         char choice = getChoice(theConsole);
-        if (heroTurn) {
+        if (theHero.getAttackSpeed() >= theEnemy.getAttackSpeed()) {
             heroTurn(choice, theHero, theEnemy);
             System.out.println();
-            heroTurn = false;
-        } else if (!heroTurn) {
-            enemyTurn(theHero, theEnemy);
+            theEnemy.attack(theHero);
             System.out.println();
-            heroTurn = true;
+        } else {
+            theEnemy.attack(theHero);
+            System.out.println();
+            heroTurn(choice, theHero, theEnemy);
+            System.out.println();
         }
         System.out.println(theHero.getName() + " : " + theHero.getHealthPoints());
         System.out.println(theEnemy.getName() + " : " + theEnemy.getHealthPoints());
         System.out.println();
-        if (theHero.getHealthPoints() > 0 && theEnemy.getHealthPoints() > 0) {
-            battlePhase(theHero, theEnemy, theConsole);
-        }
     }
 
     public static char getChoice(Scanner theConsole) {

@@ -27,11 +27,12 @@ public abstract class Hero extends MazeCharacter {
                 int theMaxDamage, double theHitChance, double theDodgeChance, double theSpecialChance, int theMoveSpeed) {
         super(theName, theHealthPoints, theAttackSpeed, theMinDamage, theMaxDamage,
                 theHitChance, theDodgeChance, theSpecialChance);
-        this.myOriginalHealthPoints = theHealthPoints;
-        mySenzuBean = 2;
-        myPowerPowerFruit = 2;
-        mySpeedSpeedFruit = 3;
-        myTorch = 0;
+
+        setSenzuBean(2);
+        setPowerPowerFruit(2);
+        setSpeedSpeedFruit(2);
+        setTorch(0);
+        setOriginalHealthPoints(theHealthPoints);
         setMoveSpeed(theMoveSpeed);
     }
 
@@ -71,8 +72,11 @@ public abstract class Hero extends MazeCharacter {
         mySpeedSpeedFruit = theSpeedSpeedFruit;
     }
 
-    protected void setMyTorch(int theTorch) {
+    protected void setTorch(int theTorch) {
         myTorch = theTorch;
+    }
+    protected void setOriginalHealthPoints(int theHealthPoints){
+        myOriginalHealthPoints = theHealthPoints;
     }
 
     protected void setMoveSpeed(int theMoveSpeed) {

@@ -24,7 +24,6 @@ public class MazeCharacter {
         setDodgeChance(theDodgeChance);
         setSpecialChance(theSpecialChance);
     }
-
     protected void setName(String theName) {
         myName = theName;
     }

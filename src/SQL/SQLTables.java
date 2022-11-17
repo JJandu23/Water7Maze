@@ -25,6 +25,7 @@ public class SQLTables {
         fillEnemyTable();
         createHeroTable();
         fillHeroTable();
+        createMazeTable();
     }
 
     private void createEnemyTable(){
@@ -53,6 +54,25 @@ public class SQLTables {
 
     }
 
+    private void createMazeTable(){
+        this.myQuery = "CREATE TABLE mazeDB (" +
+                "Maze TEXT PRIMARY KEY," +
+                ");";
+        try{
+            this.myConnection =  myHeroTable.getConnection();
+            this.myStatement = myConnection.createStatement();
+            myReturnValue = myStatement.executeUpdate(myQuery);
+            System.out.println("executeUpdate() returned " + myReturnValue);
+        } catch (SQLException e) {
+            System.out.println("Error creating Maze table");
+            System.exit(0);
+        }
+    }
+
+    private void fillMazeTable(){
+
+    }
+
     private void fillEnemyTable(){
         this.myQuery = "INSERT INTO enemyDB (NAME, HP, ATTACKSPEED, MINATTACK, MAXATTACK, HITCHANCE, DODGECHANCE, SPECIALCHANCE)VALUES" +
                 " ('BoatKevin', '40', '4', '10', '20', '0.80','0.20', '0.05'); +" +
@@ -69,6 +89,98 @@ public class SQLTables {
             System.exit(0);
         }
         System.out.println("Enemy table filled successfully!");
+    }
+    public String extractBoatKevinData(){
+        String result = "";
+        this.myQuery = "SELECT * FROM enemyDB 1 OFFSET 0";
+        try {
+            this.myConnection = myEnemyTable.getConnection();
+            this.myStatement = myConnection.createStatement();
+            this.myResultSet = myStatement.executeQuery(myQuery);
+            while (myResultSet.next()) {
+                result += myResultSet.getString("NAME") + "\n";
+                result += myResultSet.getString("HP") + "\n";
+                result += myResultSet.getString("ATTACKSPEED") + "\n";
+                result += myResultSet.getString("MINATTACK") + "\n";
+                result += myResultSet.getString("MAXATTACK") + "\n";
+                result += myResultSet.getString("HITCHANCE") + "\n";
+                result += myResultSet.getString("DODGECHANCE") + "\n";
+                result += myResultSet.getString("SPECIALCHANCE") + "\n";
+            }
+        } catch (SQLException e) {
+            System.out.println("Error extracting Boat Kevin data");
+            System.exit(0);
+        }
+        return result;
+    }
+    public String extractEliData(){
+        String result = "";
+        this.myQuery = "SELECT * FROM enemyDB 1 OFFSET 1";
+        try {
+            this.myConnection = myEnemyTable.getConnection();
+            this.myStatement = myConnection.createStatement();
+            this.myResultSet = myStatement.executeQuery(myQuery);
+            while (myResultSet.next()) {
+                result += myResultSet.getString("NAME") + "\n";
+                result += myResultSet.getString("HP") + "\n";
+                result += myResultSet.getString("ATTACKSPEED") + "\n";
+                result += myResultSet.getString("MINATTACK") + "\n";
+                result += myResultSet.getString("MAXATTACK") + "\n";
+                result += myResultSet.getString("HITCHANCE") + "\n";
+                result += myResultSet.getString("DODGECHANCE") + "\n";
+                result += myResultSet.getString("SPECIALCHANCE") + "\n";
+            }
+        } catch (SQLException e) {
+            System.out.println("Error extracting Eli data");
+            System.exit(0);
+        }
+        return result;
+    }
+    public String extractNikolaiData(){
+        String result = "";
+        this.myQuery = "SELECT * FROM enemyDB 1 OFFSET 2";
+        try {
+            this.myConnection = myEnemyTable.getConnection();
+            this.myStatement = myConnection.createStatement();
+            this.myResultSet = myStatement.executeQuery(myQuery);
+            while (myResultSet.next()) {
+                result += myResultSet.getString("NAME") + "\n";
+                result += myResultSet.getString("HP") + "\n";
+                result += myResultSet.getString("ATTACKSPEED") + "\n";
+                result += myResultSet.getString("MINATTACK") + "\n";
+                result += myResultSet.getString("MAXATTACK") + "\n";
+                result += myResultSet.getString("HITCHANCE") + "\n";
+                result += myResultSet.getString("DODGECHANCE") + "\n";
+                result += myResultSet.getString("SPECIALCHANCE") + "\n";
+            }
+        } catch (SQLException e) {
+            System.out.println("Error extracting Nikolai data");
+            System.exit(0);
+        }
+        return result;
+    }
+    public String extractSadBoySeaData(){
+        String result = "";
+        this.myQuery = "SELECT * FROM enemyDB 1 OFFSET 3";
+        try {
+            this.myConnection = myEnemyTable.getConnection();
+            this.myStatement = myConnection.createStatement();
+            this.myResultSet = myStatement.executeQuery(myQuery);
+            while (myResultSet.next()) {
+                result += myResultSet.getString("NAME") + "\n";
+                result += myResultSet.getString("HP") + "\n";
+                result += myResultSet.getString("ATTACKSPEED") + "\n";
+                result += myResultSet.getString("MINATTACK") + "\n";
+                result += myResultSet.getString("MAXATTACK") + "\n";
+                result += myResultSet.getString("HITCHANCE") + "\n";
+                result += myResultSet.getString("DODGECHANCE") + "\n";
+                result += myResultSet.getString("SPECIALCHANCE") + "\n";
+            }
+        } catch (SQLException e) {
+            System.out.println("Error extracting Sadboysea data");
+            System.exit(0);
+        }
+        return result;
     }
 
     private void createHeroTable() {
