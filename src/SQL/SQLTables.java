@@ -17,6 +17,7 @@ public class SQLTables {
 
 
     public SQLTables() throws SQLException {
+        System.out.println("SQLTables constructor called");
         createEnemyTable();
         fillEnemyTable();
     }
@@ -25,7 +26,7 @@ public class SQLTables {
         this.myEnemyTable = new SQLiteDataSource();
 
         this.myQuery = "CREATE TABLE IF NOT EXISTS enemyDB (" +
-                "NAME TEXT PRIMARY KEY ," +
+                "NAME TEXT NOT NULL," +
                 "HP TEXT NOT NULL," +
                 "ATTACKSPEED TEXT NOT NULL," +
                 "MINATTACK TEXT NOT NULL," +
@@ -86,7 +87,6 @@ public class SQLTables {
             System.out.println("Error extracting Boat Kevin data");
             System.exit(0);
         }
-        System.out.println(result);
         return result;
     }
 

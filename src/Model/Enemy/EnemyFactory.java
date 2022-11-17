@@ -16,6 +16,7 @@ public class EnemyFactory{
 
     private EnemyFactory() {
         try {
+            System.out.println("EnemyFactory: EnemyFactory()");
             this.myEnemyTable = new SQLTables();
             this.myBoatKevinValues = this.myEnemyTable.extractBoatKevinData();
         } catch (SQLException e) {
@@ -35,26 +36,19 @@ public class EnemyFactory{
                 return null;
         }
     }
-    public static Enemy createEnemy(){
-        Random rand = new Random();
-        int randomNum = rand.nextInt(4);
-        Scanner stats = null;
-        if(randomNum == 0){
-            stats = new Scanner(myBoatKevinValues);
-            Enemy newBoatKevin = new BoatKevin();
-            return newBoatKevin;
-        }
-        return null;
-    }
     public static Enemy setEnemyValues( final Enemy theEnemy, final String theType){
         Enemy temp = theEnemy;
         Scanner valueScan = null;
         switch (theType) {
             case "BK":
-                valueScan = new Scanner(myBoatKevinValues);
-                temp.setEnemyValues(valueScan.nextLine(), valueScan.nextInt(), valueScan.nextInt(),
-                        valueScan.nextInt(), valueScan.nextInt(), valueScan.nextInt(),
-                        valueScan.nextInt(), valueScan.nextInt());
+                if (myBoatKevinValues != null) {
+                    valueScan = new Scanner(myBoatKevinValues);
+                    temp.setEnemyValues(valueScan.nextLine(), valueScan.nextInt(), valueScan.nextInt(),
+                            valueScan.nextInt(), valueScan.nextInt(), valueScan.nextDouble(),
+                            valueScan.nextDouble(), valueScan.nextDouble());
+                }else{
+                    System.out.println("ur stupid");
+                }
             default:
                 break;
         }

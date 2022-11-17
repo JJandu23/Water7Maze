@@ -33,7 +33,6 @@ public class Battle {
     }
 
     public static Hero chooseHero(Scanner theConsole) {
-        System.out.println("Choose your hero!");
         System.out.println("1. Luffy");
         System.out.println("2. Zoro");
         System.out.println("3: Chopper");
@@ -56,6 +55,7 @@ public class Battle {
     public static Enemy chooseEnemy(Scanner theConsole){
         System.out.println("Choose your enemy!");
         char choice = theConsole.next().charAt(0);
+        EnemyFactory.getInstance();
         return  chosenEnemy(choice);
     }
 
