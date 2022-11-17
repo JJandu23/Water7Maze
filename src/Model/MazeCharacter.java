@@ -24,6 +24,28 @@ public class MazeCharacter {
         setDodgeChance(theDodgeChance);
         setSpecialChance(theSpecialChance);
     }
+    protected MazeCharacter(String theName){
+        setName(theName);
+        setHealthPoints(1);
+        setAttackSpeed(1);
+        setMinDamage(1);
+        setMaxDamage(1);
+        setHitChance(1);
+        setDodgeChance(1);
+        setSpecialChance(1);
+    }
+    public void setEnemyValues(String theName, int theHealthPoints,  int theAttackSpeed,
+                               int theMinDamage, int theMaxDamage, double theHitChance, double theDodgeChance,
+                               double theSpecialChance){
+        setHealthPoints(theHealthPoints);
+        setAttackSpeed(theAttackSpeed);
+        setMinDamage(theMinDamage);
+        setMaxDamage(theMaxDamage);
+        setHitChance(theHitChance);
+        setDodgeChance(theDodgeChance);
+        setSpecialChance(theSpecialChance);
+
+    }
     protected void setName(String theName) {
         myName = theName;
     }

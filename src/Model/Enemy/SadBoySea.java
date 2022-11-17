@@ -5,8 +5,7 @@ import Model.MazeCharacter;
 public class SadBoySea extends Enemy {
 
     public SadBoySea() {
-        super("SadBoySea", 300, 12, 10, 20, 0.8,
-                0.2, 0.2);
+        super("SadBoySea");
     }
 
     @Override
