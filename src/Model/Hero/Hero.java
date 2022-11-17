@@ -236,7 +236,7 @@ public abstract class Hero extends MazeCharacter {
         } catch (IOException e){
             e.printStackTrace();
         }*/
-        g.drawImage(image , myX, myY, 32, 32, null);
+        g.drawImage(image , myX, myY, 128, 128, null);
 
     }
 

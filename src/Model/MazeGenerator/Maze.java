@@ -25,15 +25,16 @@ public class Maze {
     public Room[][] getFloor(int theFloorNum){
         return myMaze[theFloorNum-1];
     }
+
     public void goDownFloors(){
         myCurrentFloor++;
     }
 
     public void draw(Graphics2D g){
-        int mazeX = 150;
-        int mazeY = 150;
-        int scale = 40;
-        g.setStroke(new BasicStroke(10));
+        int mazeX = 900;
+        int mazeY = 50;
+        int scale = 20;
+        g.setStroke(new BasicStroke(2));
         for (int i = 0; i < myMaze[myCurrentFloor].length; i++) {
             for (int j = 0; j < myMaze[myCurrentFloor][i].length; j++) {
 
