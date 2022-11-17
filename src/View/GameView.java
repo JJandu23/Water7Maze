@@ -3,6 +3,7 @@ package View;
 import Controller.InputControls;
 import Model.Hero.Luffy;
 import Model.Hero.Zoro;
+import Model.MazeGenerator.Maze;
 
 import javax.swing.*;
 import java.awt.*;
@@ -17,6 +18,7 @@ public class GameView extends JPanel implements Runnable {
     final int tileSize = originalTileSize * scale;
     final int screenWidth = tileSize * maxScreenCol;
     final int screenHeight = tileSize * maxScreenRow;
+    Maze maze = new Maze(5, 20, 20);
 
     int FPS = 60;
 
@@ -78,6 +80,8 @@ public class GameView extends JPanel implements Runnable {
         super.paintComponent(g);
         Graphics2D g2 = (Graphics2D) g;
         player.draw(g2);
+
+        maze.draw(g2);
         g2.dispose();
     }
 }

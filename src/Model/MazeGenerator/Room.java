@@ -3,12 +3,12 @@ package Model.MazeGenerator;
 import java.util.Objects;
 
 public class Room{
-    boolean myDoorNorth;
-    boolean myDoorSouth;
-    boolean myDoorEast;
-    boolean myDoorWest;
+    private boolean myDoorNorth;
+    private boolean myDoorSouth;
+    private boolean myDoorEast;
+    private boolean myDoorWest;
 
-    String myRoomItems;
+    private String myRoomItems;
 
     public Room(boolean doorNorth, boolean doorWest, boolean doorSouth, boolean doorEast){
         this.myDoorNorth = doorNorth;
@@ -33,20 +33,22 @@ public class Room{
     public String toString(){
 
         String str ="";
-        if(myRoomItems != null && myRoomItems.equals("START")){
-            str += "(START)";
-        }
         str += "(";
+        if(myRoomItems != null && myRoomItems.equals("START")){
+            str += "...";
+        }
+
         if(myDoorNorth) str += " north ";
+        if(myDoorWest) str += " west ";
         if(myDoorSouth) str += " south ";
         if(myDoorEast) str += " east ";
-        if(myDoorWest) str += " west ";
-        str += ")";
+
+
 
         if(myRoomItems != null && myRoomItems.equals("FINAL")){
-            return "(FINAL)";
+            str+= "F";
         }
-
+        str += ")";
         return str;
     }
 

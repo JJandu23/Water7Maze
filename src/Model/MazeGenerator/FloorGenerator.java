@@ -1,6 +1,7 @@
 package Model.MazeGenerator;
 
 import javax.swing.*;
+import java.awt.*;
 import java.util.ArrayList;
 import java.util.Stack;
 
@@ -8,7 +9,7 @@ public class FloorGenerator {
     int myWidth = 10;
     int myLength = 10;
     Room[][] floor;
-    private int myCurrentFloor;
+
 
     public FloorGenerator(int theWidth, int theLength) {
         this.myWidth = theWidth;
@@ -49,6 +50,8 @@ public class FloorGenerator {
                 stack.pop();
                 if(stack.isEmpty()) return;
             }
+            x = stack.peek()[0];
+            y = stack.peek()[1];
             switch (findRandEmptyRoom(x, y)) {
                 case "West" -> {
                     floor[x][y].openDoor("West");
@@ -74,9 +77,7 @@ public class FloorGenerator {
 
     }
 
-    public void goDownFloors(){
-        myCurrentFloor--;
-    }
+
 
     private String findRandEmptyRoom( int x, int y){
 
@@ -103,6 +104,10 @@ public class FloorGenerator {
         int rand = (int) ((Math.random() * (cardinalRooms.size())));
         return cardinalRooms.get(rand);
     }
+
+
+
+
 
 
 }
