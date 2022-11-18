@@ -76,6 +76,8 @@ public class InputControls implements KeyListener {
             case 'l' -> KeyEvent.VK_L;
             case 'm' -> KeyEvent.VK_M;
             case 'p' -> KeyEvent.VK_P;
+            case 'o' -> KeyEvent.VK_O;
+            case 'i' -> KeyEvent.VK_I;
             default -> KeyEvent.VK_UNDEFINED;
         };
     }
