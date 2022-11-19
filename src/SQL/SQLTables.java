@@ -36,7 +36,7 @@ public class SQLTables {
                 "SPECIALCHANCE TEXT NOT NULL);";
 
         try {
-            this.myConnection =  myEnemyTable.getConnection();
+            this.myConnection = myEnemyTable.getConnection();
             this.myStatement = myConnection.createStatement();
             myReturnValue = myStatement.executeUpdate(myQuery);
             System.out.println("executeUpdate() returned " + myReturnValue);
@@ -68,7 +68,7 @@ public class SQLTables {
         System.out.println("Values filled into enemy table successfully!");
     }
 
-    public String extractBoatKevinData(){
+    public String extractBoatKevinData() {
         String result = "";
         this.myQuery = "SELECT * FROM enemyDB LIMIT 1 OFFSET 0";
         try {
@@ -90,7 +90,7 @@ public class SQLTables {
         return result;
     }
 
-    public String extractEliData(){
+    public String extractEliData() {
         String result = "";
         this.myQuery = "SELECT * FROM enemyDB LIMIT 1 OFFSET 1";
         try {
@@ -111,7 +111,8 @@ public class SQLTables {
         }
         return result;
     }
-    public String extractNikolaiData(){
+
+    public String extractNikolaiData() {
         String result = "";
         this.myQuery = "SELECT * FROM enemyDB LIMIT 1 OFFSET 2";
         try {
@@ -132,7 +133,8 @@ public class SQLTables {
         }
         return result;
     }
-    public String extractSadBoySeaData(){
+
+    public String extractSadBoySeaData() {
         String result = "";
         this.myQuery = "SELECT * FROM enemyDB LIMIT 1 OFFSET 3";
         try {

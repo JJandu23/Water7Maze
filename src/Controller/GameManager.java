@@ -2,45 +2,90 @@ package Controller;
 
 import Model.Hero.Hero;
 import View.GameView;
+import Music.SoundsPlay;
+import java.io.IOException;
+
 
 /**
  * This class is used to control the input from the user.
  *
- * @author  Jashanpreet Jandu, Kevin Nguyen, Nicholas Zhuk
+ * @author Jashanpreet Jandu, Kevin Nguyen, Nicholas Zhuk
  * @version 1.0
  */
-
 public class GameManager {
-    private static final GameManager gameManager = null;
-    private static final Hero hero = null;
-    private static final GameView gameView = null;
-    private static final InputControls inputControls = null;
-    private static final SaveManager saveManager = null;
-    private static final SaveCurrentState saveCurrentState = null;
 
-    public static Object getHero() {
-        return null;
+    private static Hero myHero;
+    private static GameView myGameView;
+    private static SoundsPlay mySoundsPlay;
+    private static SaveCurrentState mySaveCurrentState;
+    private static SaveManager mySaveManager;
+    private static InputControls myInputControls;
+
+    /**
+     * This is our constructor.
+     *
+     * @param gameView
+     */
+    public static void setGameView(GameView gameView) {
+        GameManager.myGameView = gameView;
     }
 
-    public static Object getGameManager() {
-        return null;
+    /**
+     * This method is used to get the game view.
+     *
+     * @return GameView
+     */
+    public static GameView getGameView() {
+        return myGameView;
+    }
+
+    /**
+     * This method is used to set the sounds play.
+     *
+     * @param soundsPlay
+     */
+    public static void setSoundsPlay(SoundsPlay soundsPlay) {
+        GameManager.mySoundsPlay = soundsPlay;
+    }
+
+    /**
+     * This method is used to get the sounds play.
+     *
+     * @return SoundsPlay
+     */
+    public static SoundsPlay getSoundsPlay() {
+        return mySoundsPlay;
+    }
+
+    public static Object getHero() {
+        return myHero;
     }
 
     public static void setHero(Hero hero) {
-    }
-
-    public static void setGameManager(GameManager gameManager) {
-    }
-
-    public static void setGameView(GameView gameView) {
-    }
-
-    public static void setInputControls(InputControls inputControls) {
-    }
-
-    public static void setSaveManager(SaveManager saveManager) {
+        GameManager.myHero = hero;
     }
 
     public static void setSaveCurrentState(SaveCurrentState saveCurrentState) {
+        GameManager.mySaveCurrentState = saveCurrentState;
+    }
+
+    public static SaveCurrentState getSaveCurrentState() {
+        return mySaveCurrentState;
+    }
+
+    public static void setSaveManager(SaveManager saveManager) {
+        GameManager.mySaveManager = saveManager;
+    }
+
+    public static SaveManager getSaveManager() {
+        return mySaveManager;
+    }
+
+    public static void setInputControls(InputControls inputControls) {
+        GameManager.myInputControls = inputControls;
+    }
+
+    public static InputControls getInputControls() {
+        return myInputControls;
     }
 }

@@ -16,16 +16,13 @@ public class InputControls implements KeyListener {
     private final char SAVE = 'o';
     private final char LOAD = 'i';
 
-    //make static shit idk
     private static boolean upPressed, downPressed, leftPressed, rightPressed;
 
     public boolean getUp() {
-
         return upPressed;
     }
 
     public boolean getDown() {
-
         return downPressed;
     }
 
@@ -103,6 +100,11 @@ public class InputControls implements KeyListener {
     public void keyTyped(KeyEvent e) {
     }
 
+    /**
+     * This method is used to get the key pressed.
+     *
+     * @param e KeyEvent
+     */
     @Override
     public void keyPressed(KeyEvent e) {
         int code = e.getKeyCode();
@@ -120,6 +122,11 @@ public class InputControls implements KeyListener {
         }
     }
 
+    /**
+     * This method is used to get the key released.
+     *
+     * @param e KeyEvent
+     */
     @Override
     public void keyReleased(KeyEvent e) {
         int code = e.getKeyCode();

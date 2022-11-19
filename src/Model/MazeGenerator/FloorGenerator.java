@@ -10,22 +10,16 @@ public class FloorGenerator {
     int myLength = 10;
     Room[][] floor;
 
-
     public FloorGenerator(int theWidth, int theLength) {
         this.myWidth = theWidth;
         this.myLength = theLength;
         floor = new Room[theWidth][theLength];
         createFloor();
-
-
     }
 
-    public Room[][] getFloor(){
+    public Room[][] getFloor() {
         return floor;
     }
-
-
-
 
     private void createFloor() {
         Stack<int[]> stack = new Stack<>();
@@ -34,21 +28,20 @@ public class FloorGenerator {
         floor[0][0].setRoomItems("START");
         for (int i = 0; i < myWidth * myLength; i++) {
 
-            if(stack.isEmpty()){
+            if (stack.isEmpty()) {
                 System.out.println("Something Went Wrong");
             }
 
             int x = stack.peek()[0];
             int y = stack.peek()[1];
-            if(i == (myWidth * myLength-1)){
+            if (i == (myWidth * myLength - 1)) {
                 floor[x][y].setRoomItems("FINAL");
             }
 
-
-            while(findRandEmptyRoom(stack.peek()[0], stack.peek()[1]).equals("None")){
+            while (findRandEmptyRoom(stack.peek()[0], stack.peek()[1]).equals("None")) {
 
                 stack.pop();
-                if(stack.isEmpty()) return;
+                if (stack.isEmpty()) return;
             }
             x = stack.peek()[0];
             y = stack.peek()[1];
@@ -70,45 +63,31 @@ public class FloorGenerator {
                     floor[x][++y] = new Room(true, false, false, false);
                 }
             }
-
-
             stack.push(new int[]{x, y});
         }
-
     }
 
 
-
-    private String findRandEmptyRoom( int x, int y){
-
-
+    private String findRandEmptyRoom(int x, int y) {
         ArrayList<String> cardinalRooms = new ArrayList<>();
 
-
-        if(x != 0 && floor[x-1][y] == null){
+        if (x != 0 && floor[x - 1][y] == null) {
             cardinalRooms.add("West");
         }
-        if(x != floor.length-1 && floor[x+1][y] == null){
+        if (x != floor.length - 1 && floor[x + 1][y] == null) {
             cardinalRooms.add("East");
         }
-        if(y != 0 && floor[x][y-1] == null){
+        if (y != 0 && floor[x][y - 1] == null) {
             cardinalRooms.add("North");
         }
-        if(y != floor[0].length-1 && floor[x][y+1] == null){
+        if (y != floor[0].length - 1 && floor[x][y + 1] == null) {
             cardinalRooms.add("South");
         }
-        if(cardinalRooms.isEmpty()){
+        if (cardinalRooms.isEmpty()) {
             return "None";
         }
-
         int rand = (int) ((Math.random() * (cardinalRooms.size())));
         return cardinalRooms.get(rand);
     }
-
-
-
-
-
-
 }
 

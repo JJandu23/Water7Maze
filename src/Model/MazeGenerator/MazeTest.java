@@ -14,5 +14,4 @@ public class MazeTest {
             System.out.println("");
         }
     }
-
 }

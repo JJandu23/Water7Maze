@@ -37,9 +37,9 @@ public class SaveManager {
     /**
      * This method is used to load the game.
      *
+     * @return Hero object that is loaded
      * @throws IOException
      * @throws ClassNotFoundException
-     * @return Hero
      */
     public static void loadGame() throws IOException, ClassNotFoundException {
         try {

@@ -2,25 +2,25 @@ package Model.MazeGenerator;
 
 import java.util.Objects;
 
-public class Room{
+public class Room {
     private boolean myDoorNorth;
     private boolean myDoorSouth;
     private boolean myDoorEast;
     private boolean myDoorWest;
-
     private String myRoomItems;
 
-    public Room(boolean doorNorth, boolean doorWest, boolean doorSouth, boolean doorEast){
+    public Room(boolean doorNorth, boolean doorWest, boolean doorSouth, boolean doorEast) {
         this.myDoorNorth = doorNorth;
         this.myDoorSouth = doorSouth;
         this.myDoorWest = doorWest;
         this.myDoorEast = doorEast;
     }
-    public void setRoomItems(String roomItems){
+
+    public void setRoomItems(String roomItems) {
         myRoomItems = roomItems;
     }
 
-    public void openDoor(String direction){
+    public void openDoor(String direction) {
         switch (direction) {
             case "North" -> myDoorNorth = true;
             case "South" -> myDoorSouth = true;
@@ -30,33 +30,39 @@ public class Room{
     }
 
     @Override
-    public String toString(){
+    public String toString() {
 
-        String str ="";
+        String str = "";
         str += "(";
-        if(myRoomItems != null && myRoomItems.equals("START")){
+        if (myRoomItems != null && myRoomItems.equals("START")) {
             str += "...";
         }
 
-        if(myDoorNorth) str += " north ";
-        if(myDoorWest) str += " west ";
-        if(myDoorSouth) str += " south ";
-        if(myDoorEast) str += " east ";
+        if (myDoorNorth) str += " north ";
+        if (myDoorWest) str += " west ";
+        if (myDoorSouth) str += " south ";
+        if (myDoorEast) str += " east ";
 
-
-
-        if(myRoomItems != null && myRoomItems.equals("FINAL")){
-            str+= "F";
+        if (myRoomItems != null && myRoomItems.equals("FINAL")) {
+            str += "F";
         }
         str += ")";
         return str;
     }
 
-    public boolean isMyDoorNorth(){return myDoorNorth;}
+    public boolean isMyDoorNorth() {
+        return myDoorNorth;
+    }
 
-    public boolean isMyDoorEast() {return myDoorEast;}
+    public boolean isMyDoorEast() {
+        return myDoorEast;
+    }
 
-    public boolean isMyDoorSouth() {return myDoorSouth;}
+    public boolean isMyDoorSouth() {
+        return myDoorSouth;
+    }
 
-    public boolean isMyDoorWest() {return myDoorWest;}
+    public boolean isMyDoorWest() {
+        return myDoorWest;
+    }
 }
