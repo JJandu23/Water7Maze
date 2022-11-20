@@ -1,0 +1,128 @@
+Index: src/Model/Enemy/EnemyFactory.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package Model.Enemy;\r\n\r\nimport SQL.SQLTables;\r\n\r\nimport java.sql.SQLException;\r\nimport java.util.Random;\r\nimport java.util.Scanner;\r\n\r\npublic class EnemyFactory{\r\n    private static EnemyFactory myInstance;\r\n    private static SQLTables myEnemyTable;\r\n    private static String myBoatKevinValues;\r\n    private static String myEliValues;\r\n    private static String myNikolaiValues;\r\n    private static String mySadBoySeaValues;\r\n\r\n    private EnemyFactory() {\r\n        try {\r\n            System.out.println(\"EnemyFactory: EnemyFactory()\");\r\n            this.myEnemyTable = new SQLTables();\r\n            this.myBoatKevinValues = this.myEnemyTable.extractBoatKevinData();\r\n        } catch (SQLException e) {\r\n        }\r\n    }\r\n    public static EnemyFactory getInstance() {\r\n        if (myInstance == null) return new EnemyFactory();\r\n        return myInstance;\r\n    }\r\n    public static Enemy chosenEnemy(final char theInput){\r\n        switch (theInput) {\r\n            case '1':\r\n                Enemy newBoatKevin = new BoatKevin();\r\n                setEnemyValues(newBoatKevin, \"BK\");\r\n                return newBoatKevin;\r\n            default:\r\n                return null;\r\n        }\r\n    }\r\n    public static Enemy setEnemyValues( final Enemy theEnemy, final String theType){\r\n        Enemy temp = theEnemy;\r\n        Scanner valueScan = null;\r\n        switch (theType) {\r\n            case \"BK\":\r\n                if (myBoatKevinValues != null) {\r\n                    valueScan = new Scanner(myBoatKevinValues);\r\n                    temp.setEnemyValues(valueScan.nextLine(), valueScan.nextInt(), valueScan.nextInt(),\r\n                            valueScan.nextInt(), valueScan.nextInt(), valueScan.nextDouble(),\r\n                            valueScan.nextDouble(), valueScan.nextDouble());\r\n                }else{\r\n                    System.out.println(\"ur stupid\");\r\n                }\r\n            default:\r\n                break;\r\n        }\r\n        return temp;\r\n    }\r\n\r\n\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/Model/Enemy/EnemyFactory.java b/src/Model/Enemy/EnemyFactory.java
+--- a/src/Model/Enemy/EnemyFactory.java	(revision 112919a4afdfaf7a8128e884ba90f320e85c026b)
++++ b/src/Model/Enemy/EnemyFactory.java	(date 1668732226992)
+@@ -16,9 +16,11 @@
+ 
+     private EnemyFactory() {
+         try {
+-            System.out.println("EnemyFactory: EnemyFactory()");
+             this.myEnemyTable = new SQLTables();
+             this.myBoatKevinValues = this.myEnemyTable.extractBoatKevinData();
++            this.myEliValues = this.myEnemyTable.extractEliData();
++            this.myNikolaiValues = this.myEnemyTable.extractNikolaiData();
++            this.mySadBoySeaValues = this.myEnemyTable.extractSadBoySeaData();
+         } catch (SQLException e) {
+         }
+     }
+@@ -32,6 +34,18 @@
+                 Enemy newBoatKevin = new BoatKevin();
+                 setEnemyValues(newBoatKevin, "BK");
+                 return newBoatKevin;
++            case '2':
++                Enemy newEli = new Eli();
++                setEnemyValues(newEli, "E");
++                return newEli;
++            case '3':
++                Enemy newNikolai = new Nikolai();
++                setEnemyValues(newNikolai, "N");
++                return newNikolai;
++            case '4':
++                Enemy newSadBoySea = new SadBoySea();
++                setEnemyValues(newSadBoySea, "SBS");
++                return newSadBoySea;
+             default:
+                 return null;
+         }
+@@ -48,6 +62,33 @@
+                             valueScan.nextDouble(), valueScan.nextDouble());
+                 }else{
+                     System.out.println("ur stupid");
++                }
++            case "E":
++                if (myEliValues != null) {
++                    valueScan = new Scanner(myEliValues);
++                    temp.setEnemyValues(valueScan.nextLine(), valueScan.nextInt(), valueScan.nextInt(),
++                            valueScan.nextInt(), valueScan.nextInt(), valueScan.nextDouble(),
++                            valueScan.nextDouble(), valueScan.nextDouble());
++                }else{
++                    System.out.println("ur stupid");
++                }
++            case "N":
++                if (myNikolaiValues != null) {
++                    valueScan = new Scanner(myNikolaiValues);
++                    temp.setEnemyValues(valueScan.nextLine(), valueScan.nextInt(), valueScan.nextInt(),
++                            valueScan.nextInt(), valueScan.nextInt(), valueScan.nextDouble(),
++                            valueScan.nextDouble(), valueScan.nextDouble());
++                }else{
++                    System.out.println("ur stupid");
++                }
++            case "SBS":
++                if (mySadBoySeaValues != null) {
++                    valueScan = new Scanner(mySadBoySeaValues);
++                    temp.setEnemyValues(valueScan.nextLine(), valueScan.nextInt(), valueScan.nextInt(),
++                            valueScan.nextInt(), valueScan.nextInt(), valueScan.nextDouble(),
++                            valueScan.nextDouble(), valueScan.nextDouble());
++                }else{
++                    System.out.println("ur stupid");
+                 }
+             default:
+                 break;
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AnalysisUIOptions\">\r\n    <option name=\"SCOPE_TYPE\" value=\"3\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"e4fa422e-bbf5-4b7a-ad89-3212284be1af\" name=\"Changes\" comment=\"Added file paths for sprites for all characters.\">\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/dataSources.local.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/dataSources.local.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/Model/Hero/Hero.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/Model/Hero/Hero.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/Model/Hero/Luffy.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/Model/Hero/Luffy.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/Model/MazeGenerator/Maze.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/Model/MazeGenerator/Maze.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/View/GameView.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/View/GameView.java\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"CodeStyleSettingsInfer\">\r\n    <option name=\"done\" value=\"true\" />\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"Class\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"MarkdownSettingsMigration\">\r\n    <option name=\"stateVersion\" value=\"1\" />\r\n  </component>\r\n  <component name=\"ProjectCodeStyleSettingsMigration\">\r\n    <option name=\"version\" value=\"2\" />\r\n  </component>\r\n  <component name=\"ProjectId\" id=\"2Gy4MZ6o4ITOQnDJbnGqEnU9zzO\" />\r\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\">\r\n    <ConfirmationsSetting value=\"2\" id=\"Add\" />\r\n  </component>\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"RecentsManager\">\r\n    <key name=\"CopyFile.RECENT_KEYS\">\r\n      <recent name=\"D:\\Documents\\Water7Maze\\src\\Music\" />\r\n    </key>\r\n    <key name=\"MoveFile.RECENT_KEYS\">\r\n      <recent name=\"D:\\Documents\\Water7Maze\\src\\Music\" />\r\n      <recent name=\"C:\\Users\\shepo\\IdeaProjects\\Water7Maze\" />\r\n      <recent name=\"D:\\Documents\\Water7Maze\" />\r\n    </key>\r\n  </component>\r\n  <component name=\"RunManager\" selected=\"Application.Main\">\r\n    <configuration name=\"Battle\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"Model.Battle\" />\r\n      <module name=\"Water7Maze\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"Model.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"Main\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"View.Main\" />\r\n      <module name=\"Water7Maze\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"View.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"MazeTest\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"Model.MazeGenerator.MazeTest\" />\r\n      <module name=\"Water7Maze\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"Model.MazeGenerator.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <recent_temporary>\r\n      <list>\r\n        <item itemvalue=\"Application.Main\" />\r\n        <item itemvalue=\"Application.Battle\" />\r\n        <item itemvalue=\"Application.MazeTest\" />\r\n      </list>\r\n    </recent_temporary>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"e4fa422e-bbf5-4b7a-ad89-3212284be1af\" name=\"Changes\" comment=\"\" />\r\n      <created>1667347447614</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1667347447614</updated>\r\n      <workItem from=\"1667347450027\" duration=\"329000\" />\r\n      <workItem from=\"1667625190074\" duration=\"166000\" />\r\n      <workItem from=\"1667763410040\" duration=\"11230000\" />\r\n      <workItem from=\"1667879006638\" duration=\"4695000\" />\r\n      <workItem from=\"1668372830643\" duration=\"15769000\" />\r\n      <workItem from=\"1668658965539\" duration=\"1805000\" />\r\n      <workItem from=\"1668660797094\" duration=\"10099000\" />\r\n      <workItem from=\"1668670913205\" duration=\"59000\" />\r\n      <workItem from=\"1668670981088\" duration=\"3351000\" />\r\n    </task>\r\n    <task id=\"LOCAL-00001\" summary=\"New Project for TCSS 360\">\r\n      <created>1667347517038</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1667347517038</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00002\" summary=\"New Project for TCSS 360\">\r\n      <created>1667347659818</created>\r\n      <option name=\"number\" value=\"00002\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1667347659818</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00003\" summary=\"Added some more inputs as well some serialization for the load game class\">\r\n      <created>1667791994089</created>\r\n      <option name=\"number\" value=\"00003\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00003\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1667791994089</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00004\" summary=\"Deleted SaveGame and LoadGame and made a SaveManger and SaveState.\">\r\n      <created>1667797962004</created>\r\n      <option name=\"number\" value=\"00004\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00004\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1667797962004</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00005\" summary=\"Deleted SaveGame and LoadGame and made a SaveManger and SaveState.\">\r\n      <created>1667797993008</created>\r\n      <option name=\"number\" value=\"00005\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00005\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1667797993008</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00006\" summary=\"Deleted SaveGame and LoadGame and made a SaveManger and SaveState.\">\r\n      <created>1667801108167</created>\r\n      <option name=\"number\" value=\"00006\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00006\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1667801108167</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00007\" summary=\"Deleted SaveGame and LoadGame and made a SaveManger and SaveState.\">\r\n      <created>1667857259590</created>\r\n      <option name=\"number\" value=\"00007\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00007\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1667857259590</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00008\" summary=\"created sqltables\">\r\n      <created>1668016032873</created>\r\n      <option name=\"number\" value=\"00008\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00008\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1668016032873</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00009\" summary=\"created sqltables\">\r\n      <created>1668025888840</created>\r\n      <option name=\"number\" value=\"00009\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00009\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1668025888840</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00010\" summary=\"created sqltables\">\r\n      <created>1668026426531</created>\r\n      <option name=\"number\" value=\"00010\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00010\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1668026426531</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00011\" summary=\"created sqltables\">\r\n      <created>1668027340958</created>\r\n      <option name=\"number\" value=\"00011\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00011\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1668027340958</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00012\" summary=\"created sqltables\">\r\n      <created>1668027887995</created>\r\n      <option name=\"number\" value=\"00012\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00012\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1668027887995</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00013\" summary=\"created sqltables\">\r\n      <created>1668028110474</created>\r\n      <option name=\"number\" value=\"00013\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00013\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1668028110474</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00014\" summary=\"Moved player movement update and control to model\">\r\n      <created>1668049245594</created>\r\n      <option name=\"number\" value=\"00014\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00014\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1668049245594</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00015\" summary=\"Added images to player, moved draw method.\">\r\n      <created>1668124390482</created>\r\n      <option name=\"number\" value=\"00015\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00015\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1668124390482</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00016\" summary=\"Filled in sqlite data tables and worked on the hero class.\">\r\n      <created>1668248177393</created>\r\n      <option name=\"number\" value=\"00016\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00016\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1668248177393</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00017\" summary=\"Filled in sqlite data tables and worked on the hero class.\">\r\n      <created>1668248246306</created>\r\n      <option name=\"number\" value=\"00017\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00017\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1668248246306</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00018\" summary=\"kevin can move again\">\r\n      <created>1668449796185</created>\r\n      <option name=\"number\" value=\"00018\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00018\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1668449796185</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00019\" summary=\"Added file paths for sprites for all characters.\">\r\n      <created>1668465457658</created>\r\n      <option name=\"number\" value=\"00019\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00019\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1668465457658</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"20\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"TypeScriptGeneratedFilesManager\">\r\n    <option name=\"version\" value=\"3\" />\r\n  </component>\r\n  <component name=\"Vcs.Log.Tabs.Properties\">\r\n    <option name=\"TAB_STATES\">\r\n      <map>\r\n        <entry key=\"MAIN\">\r\n          <value>\r\n            <State />\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <option name=\"ADD_EXTERNAL_FILES_SILENTLY\" value=\"true\" />\r\n    <MESSAGE value=\"New Project for TCSS 360\" />\r\n    <MESSAGE value=\"Added some more inputs as well some serialization for the load game class\" />\r\n    <MESSAGE value=\"Deleted SaveGame and LoadGame and made a SaveManger and SaveState.\" />\r\n    <MESSAGE value=\"created sqltables\" />\r\n    <MESSAGE value=\"Moved player movement update and control to model\" />\r\n    <MESSAGE value=\"Added images to player, moved draw method.\" />\r\n    <MESSAGE value=\"Filled in sqlite data tables and worked on the hero class.\" />\r\n    <MESSAGE value=\"kevin can move again\" />\r\n    <MESSAGE value=\"Added file paths for sprites for all characters.\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"Added file paths for sprites for all characters.\" />\r\n  </component>\r\n  <component name=\"XDebuggerManager\">\r\n    <breakpoint-manager>\r\n      <breakpoints>\r\n        <line-breakpoint enabled=\"true\" type=\"java-method\">\r\n          <url>file://$PROJECT_DIR$/src/Model/Battle.java</url>\r\n          <line>32</line>\r\n          <properties class=\"Model.Battle\">\r\n            <option name=\"EMULATED\" value=\"true\" />\r\n            <option name=\"WATCH_EXIT\" value=\"false\" />\r\n          </properties>\r\n          <option name=\"timeStamp\" value=\"1\" />\r\n        </line-breakpoint>\r\n        <line-breakpoint enabled=\"true\" type=\"java-line\">\r\n          <url>file://$PROJECT_DIR$/src/Model/MazeGenerator/FloorGenerator.java</url>\r\n          <line>54</line>\r\n          <option name=\"timeStamp\" value=\"13\" />\r\n        </line-breakpoint>\r\n      </breakpoints>\r\n    </breakpoint-manager>\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision 112919a4afdfaf7a8128e884ba90f320e85c026b)
++++ b/.idea/workspace.xml	(date 1668732088685)
+@@ -4,13 +4,9 @@
+     <option name="SCOPE_TYPE" value="3" />
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="e4fa422e-bbf5-4b7a-ad89-3212284be1af" name="Changes" comment="Added file paths for sprites for all characters.">
+-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
++    <list default="true" id="e4fa422e-bbf5-4b7a-ad89-3212284be1af" name="Changes" comment="Got Factory working">
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/Model/Hero/Hero.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Hero/Hero.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/Model/Hero/Luffy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Hero/Luffy.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/Model/MazeGenerator/Maze.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/MazeGenerator/Maze.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/View/GameView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/GameView.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/Model/Enemy/EnemyFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Enemy/EnemyFactory.java" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -253,7 +249,14 @@
+       <option name="project" value="LOCAL" />
+       <updated>1668465457658</updated>
+     </task>
+-    <option name="localTasksCounter" value="20" />
++    <task id="LOCAL-00020" summary="Got Factory working">
++      <created>1668724834871</created>
++      <option name="number" value="00020" />
++      <option name="presentableId" value="LOCAL-00020" />
++      <option name="project" value="LOCAL" />
++      <updated>1668724834871</updated>
++    </task>
++    <option name="localTasksCounter" value="21" />
+     <servers />
+   </component>
+   <component name="TypeScriptGeneratedFilesManager">
+@@ -281,7 +284,8 @@
+     <MESSAGE value="Filled in sqlite data tables and worked on the hero class." />
+     <MESSAGE value="kevin can move again" />
+     <MESSAGE value="Added file paths for sprites for all characters." />
+-    <option name="LAST_COMMIT_MESSAGE" value="Added file paths for sprites for all characters." />
++    <MESSAGE value="Got Factory working" />
++    <option name="LAST_COMMIT_MESSAGE" value="Got Factory working" />
+   </component>
+   <component name="XDebuggerManager">
+     <breakpoint-manager>

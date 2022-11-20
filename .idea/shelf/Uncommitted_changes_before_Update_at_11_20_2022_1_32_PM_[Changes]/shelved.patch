@@ -1,0 +1,1502 @@
+Index: .idea/shelf/Uncommitted_changes_before_Update_at_11_10_2022_11_21_PM__Changes_.xml
+===================================================================
+diff --git a/.idea/shelf/Uncommitted_changes_before_Update_at_11_10_2022_11_21_PM__Changes_.xml b/.idea/shelf/Uncommitted_changes_before_Update_at_11_10_2022_11_21_PM__Changes_.xml
+deleted file mode 100644
+--- a/.idea/shelf/Uncommitted_changes_before_Update_at_11_10_2022_11_21_PM__Changes_.xml	(revision 25fc05705bcfa2b42e3fa943a03681b1e22d9d48)
++++ /dev/null	(revision 25fc05705bcfa2b42e3fa943a03681b1e22d9d48)
+@@ -1,4 +0,0 @@
+-<changelist name="Uncommitted_changes_before_Update_at_11_10_2022_11_21_PM_[Changes]" date="1668151296727" recycled="true" deleted="true">
+-  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_10_2022_11_21_PM_[Changes]/shelved.patch" />
+-  <option name="DESCRIPTION" value="Uncommitted changes before Update at 11/10/2022 11:21 PM [Changes]" />
+-</changelist>
+\ No newline at end of file
+Index: .idea/shelf/Uncommitted_changes_before_Update_at_11_10_2022_11_21_PM_[Changes]/shelved.patch
+===================================================================
+diff --git a/.idea/shelf/Uncommitted_changes_before_Update_at_11_10_2022_11_21_PM_[Changes]/shelved.patch b/.idea/shelf/Uncommitted_changes_before_Update_at_11_10_2022_11_21_PM_[Changes]/shelved.patch
+deleted file mode 100644
+--- a/.idea/shelf/Uncommitted_changes_before_Update_at_11_10_2022_11_21_PM_[Changes]/shelved.patch	(revision 25fc05705bcfa2b42e3fa943a03681b1e22d9d48)
++++ /dev/null	(revision 25fc05705bcfa2b42e3fa943a03681b1e22d9d48)
+@@ -1,195 +0,0 @@
+-Index: .idea/shelf/Uncommitted_changes_before_Update_at_11_3_2022_10_35_AM__Changes_.xml
+-===================================================================
+-diff --git a/.idea/shelf/Uncommitted_changes_before_Update_at_11_3_2022_10_35_AM__Changes_.xml b/.idea/shelf/Uncommitted_changes_before_Update_at_11_3_2022_10_35_AM__Changes_.xml
+-deleted file mode 100644
+---- a/.idea/shelf/Uncommitted_changes_before_Update_at_11_3_2022_10_35_AM__Changes_.xml	(revision b40868649b839b57084da299e9562e55748370fc)
+-+++ /dev/null	(revision b40868649b839b57084da299e9562e55748370fc)
+-@@ -1,4 +0,0 @@
+--<changelist name="Uncommitted_changes_before_Update_at_11_3_2022_10_35_AM_[Changes]" date="1667496948201" recycled="true" deleted="true">
+--  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_3_2022_10_35_AM_[Changes]/shelved.patch" />
+--  <option name="DESCRIPTION" value="Uncommitted changes before Update at 11/3/2022 10:35 AM [Changes]" />
+--</changelist>
+-\ No newline at end of file
+-Index: .idea/shelf/Uncommitted_changes_before_Update_at_11_3_2022_10_35_AM_[Changes]/shelved.patch
+-===================================================================
+-diff --git a/.idea/shelf/Uncommitted_changes_before_Update_at_11_3_2022_10_35_AM_[Changes]/shelved.patch b/.idea/shelf/Uncommitted_changes_before_Update_at_11_3_2022_10_35_AM_[Changes]/shelved.patch
+-deleted file mode 100644
+---- a/.idea/shelf/Uncommitted_changes_before_Update_at_11_3_2022_10_35_AM_[Changes]/shelved.patch	(revision b40868649b839b57084da299e9562e55748370fc)
+-+++ /dev/null	(revision b40868649b839b57084da299e9562e55748370fc)
+-@@ -1,107 +0,0 @@
+--Index: src/Model/Enemy/Enemy.java
+--IDEA additional info:
+--Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+--<+>package Model.Enemy;\r\n\r\nimport Model.MazeCharacter;\r\n\r\npublic class Enemy extends MazeCharacter{\r\n    protected Enemy(String theName, int theHealthPoints, int theAttackSpeed, int theMinAttack, int theMaxAttack,\r\n                   double theHitChance, double theDodgeChance, double theSpecialChance) {\r\n        super(theName, theHealthPoints, theAttackSpeed, theMinAttack, theMaxAttack, theHitChance, theDodgeChance,\r\n                theSpecialChance);\r\n    }\r\n\r\n}\r\n
+--Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+--<+>UTF-8
+--===================================================================
+--diff --git a/src/Model/Enemy/Enemy.java b/src/Model/Enemy/Enemy.java
+----- a/src/Model/Enemy/Enemy.java	(revision e03798c08df30fede9fef53b3c1fae3a9d5f9393)
+--+++ b/src/Model/Enemy/Enemy.java	(date 1667409304739)
+--@@ -3,7 +3,7 @@
+-- import Model.MazeCharacter;
+-- 
+-- public class Enemy extends MazeCharacter{
+---    protected Enemy(String theName, int theHealthPoints, int theAttackSpeed, int theMinAttack, int theMaxAttack,
+--+    public Enemy(String theName, int theHealthPoints, int theAttackSpeed, int theMinAttack, int theMaxAttack,
+--                    double theHitChance, double theDodgeChance, double theSpecialChance) {
+--         super(theName, theHealthPoints, theAttackSpeed, theMinAttack, theMaxAttack, theHitChance, theDodgeChance,
+--                 theSpecialChance);
+--Index: src/Model/Hero/Hero.java
+--IDEA additional info:
+--Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+--<+>package Model.Hero;\r\n\r\nimport Model.MazeCharacter;\r\n\r\npublic class Hero extends MazeCharacter {\r\n    private int myPotion = 0;\r\n    protected Hero(String theName, int theHealthPoints, int theAttackSpeed, int theMinAttack, int theMaxAttack,\r\n                   double theHitChance, double theDodgeChance, double theSpecialChance, int thePotion) {\r\n        super(theName, theHealthPoints, theAttackSpeed, theMinAttack, theMaxAttack, theHitChance, theDodgeChance,\r\n                theSpecialChance);\r\n    }\r\n    protected final int getPotion() {\r\n        return myPotion;\r\n    }\r\n    protected final void setPotion(int thePotion){\r\n        myPotion = thePotion;\r\n    }\r\n    protected final void addPotion(int thePotion){\r\n        myPotion += thePotion;\r\n    }\r\n}\r\n
+--Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+--<+>UTF-8
+--===================================================================
+--diff --git a/src/Model/Hero/Hero.java b/src/Model/Hero/Hero.java
+----- a/src/Model/Hero/Hero.java	(revision e03798c08df30fede9fef53b3c1fae3a9d5f9393)
+--+++ b/src/Model/Hero/Hero.java	(date 1667409304649)
+--@@ -4,7 +4,7 @@
+-- 
+-- public class Hero extends MazeCharacter {
+--     private int myPotion = 0;
+---    protected Hero(String theName, int theHealthPoints, int theAttackSpeed, int theMinAttack, int theMaxAttack,
+--+    public Hero(String theName, int theHealthPoints, int theAttackSpeed, int theMinAttack, int theMaxAttack,
+--                    double theHitChance, double theDodgeChance, double theSpecialChance, int thePotion) {
+--         super(theName, theHealthPoints, theAttackSpeed, theMinAttack, theMaxAttack, theHitChance, theDodgeChance,
+--                 theSpecialChance);
+--Index: .idea/workspace.xml
+--IDEA additional info:
+--Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+--<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"e4fa422e-bbf5-4b7a-ad89-3212284be1af\" name=\"Changes\" comment=\"New Project for TCSS 360\" />\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"Class\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"MarkdownSettingsMigration\">\r\n    <option name=\"stateVersion\" value=\"1\" />\r\n  </component>\r\n  <component name=\"ProjectId\" id=\"2Gy4MZ6o4ITOQnDJbnGqEnU9zzO\" />\r\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\" />\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\"><![CDATA[{\r\n  \"keyToString\": {\r\n    \"RunOnceActivity.OpenProjectViewOnStart\": \"true\",\r\n    \"RunOnceActivity.ShowReadmeOnStart\": \"true\",\r\n    \"WebServerToolWindowFactoryState\": \"false\"\r\n  }\r\n}]]></component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"e4fa422e-bbf5-4b7a-ad89-3212284be1af\" name=\"Changes\" comment=\"\" />\r\n      <created>1667347447614</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1667347447614</updated>\r\n      <workItem from=\"1667347450027\" duration=\"329000\" />\r\n    </task>\r\n    <task id=\"LOCAL-00001\" summary=\"New Project for TCSS 360\">\r\n      <created>1667347517038</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1667347517038</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00002\" summary=\"New Project for TCSS 360\">\r\n      <created>1667347659818</created>\r\n      <option name=\"number\" value=\"00002\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1667347659818</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"3\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"TypeScriptGeneratedFilesManager\">\r\n    <option name=\"version\" value=\"3\" />\r\n  </component>\r\n  <component name=\"Vcs.Log.Tabs.Properties\">\r\n    <option name=\"TAB_STATES\">\r\n      <map>\r\n        <entry key=\"MAIN\">\r\n          <value>\r\n            <State />\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <MESSAGE value=\"New Project for TCSS 360\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"New Project for TCSS 360\" />\r\n  </component>\r\n</project>
+--Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+--<+>UTF-8
+--===================================================================
+--diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+----- a/.idea/workspace.xml	(revision e03798c08df30fede9fef53b3c1fae3a9d5f9393)
+--+++ b/.idea/workspace.xml	(date 1667409306202)
+--@@ -1,7 +1,11 @@
+-- <?xml version="1.0" encoding="UTF-8"?>
+-- <project version="4">
+--   <component name="ChangeListManager">
+---    <list default="true" id="e4fa422e-bbf5-4b7a-ad89-3212284be1af" name="Changes" comment="New Project for TCSS 360" />
+--+    <list default="true" id="e4fa422e-bbf5-4b7a-ad89-3212284be1af" name="Changes" comment="Created maze character">
+--+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+--+      <change beforePath="$PROJECT_DIR$/src/Model/Enemy/Enemy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Enemy/Enemy.java" afterDir="false" />
+--+      <change beforePath="$PROJECT_DIR$/src/Model/Hero/Hero.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Hero/Hero.java" afterDir="false" />
+--+    </list>
+--     <option name="SHOW_DIALOG" value="false" />
+--     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+--     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+--@@ -26,13 +30,13 @@
+--     <option name="hideEmptyMiddlePackages" value="true" />
+--     <option name="showLibraryContents" value="true" />
+--   </component>
+---  <component name="PropertiesComponent"><![CDATA[{
+---  "keyToString": {
+---    "RunOnceActivity.OpenProjectViewOnStart": "true",
+---    "RunOnceActivity.ShowReadmeOnStart": "true",
+---    "WebServerToolWindowFactoryState": "false"
+--+  <component name="PropertiesComponent">{
+--+  &quot;keyToString&quot;: {
+--+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+--+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+--+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;
+--   }
+---}]]></component>
+--+}</component>
+--   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+--   <component name="TaskManager">
+--     <task active="true" id="Default" summary="Default task">
+--@@ -57,7 +61,14 @@
+--       <option name="project" value="LOCAL" />
+--       <updated>1667347659818</updated>
+--     </task>
+---    <option name="localTasksCounter" value="3" />
+--+    <task id="LOCAL-00003" summary="Created maze character">
+--+      <created>1667349583719</created>
+--+      <option name="number" value="00003" />
+--+      <option name="presentableId" value="LOCAL-00003" />
+--+      <option name="project" value="LOCAL" />
+--+      <updated>1667349583719</updated>
+--+    </task>
+--+    <option name="localTasksCounter" value="4" />
+--     <servers />
+--   </component>
+--   <component name="TypeScriptGeneratedFilesManager">
+--@@ -76,6 +87,7 @@
+--   </component>
+--   <component name="VcsManagerConfiguration">
+--     <MESSAGE value="New Project for TCSS 360" />
+---    <option name="LAST_COMMIT_MESSAGE" value="New Project for TCSS 360" />
+--+    <MESSAGE value="Created maze character" />
+--+    <option name="LAST_COMMIT_MESSAGE" value="Created maze character" />
+--   </component>
+-- </project>
+--\ No newline at end of file
+-Index: .idea/workspace.xml
+-IDEA additional info:
+-Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+-<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"e4fa422e-bbf5-4b7a-ad89-3212284be1af\" name=\"Changes\" comment=\"Deleted SaveGame and LoadGame and made a SaveManger and SaveState.\">\r\n      <change afterPath=\"$PROJECT_DIR$/.idea/libraries/sqlite_jdbc_3_34_0.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/misc.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/misc.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/Water7Maze.iml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/Water7Maze.iml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/Model/Battle.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/Model/Battle.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/Model/Hero/Nami.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/Model/Hero/Nami.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/Model/Hero/Zoro.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/Model/Hero/Zoro.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/Model/MazeCharacter.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/Model/MazeCharacter.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/Music/SoundsPlay.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/Music/SoundsPlay.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/SQL/SQLTables.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/SQL/SQLTables.java\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"CodeStyleSettingsInfer\">\r\n    <option name=\"done\" value=\"true\" />\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"Class\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"MarkdownSettingsMigration\">\r\n    <option name=\"stateVersion\" value=\"1\" />\r\n  </component>\r\n  <component name=\"ProjectCodeStyleSettingsMigration\">\r\n    <option name=\"version\" value=\"2\" />\r\n  </component>\r\n  <component name=\"ProjectId\" id=\"2Gy4MZ6o4ITOQnDJbnGqEnU9zzO\" />\r\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\" />\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\"><![CDATA[{\r\n  \"keyToString\": {\r\n    \"RunOnceActivity.OpenProjectViewOnStart\": \"true\",\r\n    \"RunOnceActivity.ShowReadmeOnStart\": \"true\",\r\n    \"SHARE_PROJECT_CONFIGURATION_FILES\": \"true\",\r\n    \"WebServerToolWindowFactoryState\": \"false\",\r\n    \"last_opened_file_path\": \"D:/Downloads/sqlite-jdbc-3.34.0.jar\",\r\n    \"project.structure.last.edited\": \"Libraries\",\r\n    \"project.structure.proportion\": \"0.15\",\r\n    \"project.structure.side.proportion\": \"0.2\",\r\n    \"settings.editor.selected.configurable\": \"reference.settingsdialog.IDE.editor.colors\"\r\n  }\r\n}]]></component>\r\n  <component name=\"RecentsManager\">\r\n    <key name=\"MoveFile.RECENT_KEYS\">\r\n      <recent name=\"D:\\Documents\\Water7Maze\" />\r\n    </key>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"e4fa422e-bbf5-4b7a-ad89-3212284be1af\" name=\"Changes\" comment=\"\" />\r\n      <created>1667347447614</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1667347447614</updated>\r\n      <workItem from=\"1667347450027\" duration=\"329000\" />\r\n      <workItem from=\"1667625190074\" duration=\"166000\" />\r\n      <workItem from=\"1667763410040\" duration=\"11230000\" />\r\n      <workItem from=\"1667879006638\" duration=\"4695000\" />\r\n    </task>\r\n    <task id=\"LOCAL-00001\" summary=\"New Project for TCSS 360\">\r\n      <created>1667347517038</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1667347517038</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00002\" summary=\"New Project for TCSS 360\">\r\n      <created>1667347659818</created>\r\n      <option name=\"number\" value=\"00002\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1667347659818</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00003\" summary=\"Added some more inputs as well some serialization for the load game class\">\r\n      <created>1667791994089</created>\r\n      <option name=\"number\" value=\"00003\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00003\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1667791994089</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00004\" summary=\"Deleted SaveGame and LoadGame and made a SaveManger and SaveState.\">\r\n      <created>1667797962004</created>\r\n      <option name=\"number\" value=\"00004\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00004\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1667797962004</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00005\" summary=\"Deleted SaveGame and LoadGame and made a SaveManger and SaveState.\">\r\n      <created>1667797993008</created>\r\n      <option name=\"number\" value=\"00005\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00005\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1667797993008</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00006\" summary=\"Deleted SaveGame and LoadGame and made a SaveManger and SaveState.\">\r\n      <created>1667801108167</created>\r\n      <option name=\"number\" value=\"00006\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00006\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1667801108167</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00007\" summary=\"Deleted SaveGame and LoadGame and made a SaveManger and SaveState.\">\r\n      <created>1667857259590</created>\r\n      <option name=\"number\" value=\"00007\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00007\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1667857259590</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"8\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"TypeScriptGeneratedFilesManager\">\r\n    <option name=\"version\" value=\"3\" />\r\n  </component>\r\n  <component name=\"Vcs.Log.Tabs.Properties\">\r\n    <option name=\"TAB_STATES\">\r\n      <map>\r\n        <entry key=\"MAIN\">\r\n          <value>\r\n            <State />\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <MESSAGE value=\"New Project for TCSS 360\" />\r\n    <MESSAGE value=\"Added some more inputs as well some serialization for the load game class\" />\r\n    <MESSAGE value=\"Deleted SaveGame and LoadGame and made a SaveManger and SaveState.\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"Deleted SaveGame and LoadGame and made a SaveManger and SaveState.\" />\r\n  </component>\r\n</project>
+-Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+-<+>UTF-8
+-===================================================================
+-diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+---- a/.idea/workspace.xml	(revision b40868649b839b57084da299e9562e55748370fc)
+-+++ b/.idea/workspace.xml	(date 1668151285145)
+-@@ -2,16 +2,8 @@
+- <project version="4">
+-   <component name="ChangeListManager">
+-     <list default="true" id="e4fa422e-bbf5-4b7a-ad89-3212284be1af" name="Changes" comment="Deleted SaveGame and LoadGame and made a SaveManger and SaveState.">
+--      <change afterPath="$PROJECT_DIR$/.idea/libraries/sqlite_jdbc_3_34_0.xml" afterDir="false" />
+--      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+--      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+--      <change beforePath="$PROJECT_DIR$/Water7Maze.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Water7Maze.iml" afterDir="false" />
+--      <change beforePath="$PROJECT_DIR$/src/Model/Battle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Battle.java" afterDir="false" />
+--      <change beforePath="$PROJECT_DIR$/src/Model/Hero/Nami.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Hero/Nami.java" afterDir="false" />
+--      <change beforePath="$PROJECT_DIR$/src/Model/Hero/Zoro.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Hero/Zoro.java" afterDir="false" />
+--      <change beforePath="$PROJECT_DIR$/src/Model/MazeCharacter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/MazeCharacter.java" afterDir="false" />
+--      <change beforePath="$PROJECT_DIR$/src/Music/SoundsPlay.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Music/SoundsPlay.java" afterDir="false" />
+--      <change beforePath="$PROJECT_DIR$/src/SQL/SQLTables.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SQL/SQLTables.java" afterDir="false" />
+-+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_3_2022_10_35_AM_[Changes]/shelved.patch" beforeDir="false" />
+-+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_3_2022_10_35_AM__Changes_.xml" beforeDir="false" />
+-     </list>
+-     <option name="SHOW_DIALOG" value="false" />
+-     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+-@@ -43,19 +35,19 @@
+-     <option name="hideEmptyMiddlePackages" value="true" />
+-     <option name="showLibraryContents" value="true" />
+-   </component>
+--  <component name="PropertiesComponent"><![CDATA[{
+--  "keyToString": {
+--    "RunOnceActivity.OpenProjectViewOnStart": "true",
+--    "RunOnceActivity.ShowReadmeOnStart": "true",
+--    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+--    "WebServerToolWindowFactoryState": "false",
+--    "last_opened_file_path": "D:/Downloads/sqlite-jdbc-3.34.0.jar",
+--    "project.structure.last.edited": "Libraries",
+--    "project.structure.proportion": "0.15",
+--    "project.structure.side.proportion": "0.2",
+--    "settings.editor.selected.configurable": "reference.settingsdialog.IDE.editor.colors"
+-+  <component name="PropertiesComponent">{
+-+  &quot;keyToString&quot;: {
+-+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+-+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+-+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+-+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+-+    &quot;last_opened_file_path&quot;: &quot;D:/Downloads/sqlite-jdbc-3.34.0.jar&quot;,
+-+    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
+-+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+-+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+-+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.IDE.editor.colors&quot;
+-   }
+--}]]></component>
+-+}</component>
+-   <component name="RecentsManager">
+-     <key name="MoveFile.RECENT_KEYS">
+-       <recent name="D:\Documents\Water7Maze" />
+-@@ -73,6 +65,7 @@
+-       <workItem from="1667625190074" duration="166000" />
+-       <workItem from="1667763410040" duration="11230000" />
+-       <workItem from="1667879006638" duration="4695000" />
+-+      <workItem from="1668148933895" duration="635000" />
+-     </task>
+-     <task id="LOCAL-00001" summary="New Project for TCSS 360">
+-       <created>1667347517038</created>
+Index: src/Model/MazeCharacter.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package Model;\r\n\r\nimport java.util.Random;\r\n\r\npublic class MazeCharacter {\r\n    private String myName;\r\n    private int myHealthPoints;\r\n    private int myAttackSpeed;\r\n    private int myMinDamage;\r\n    private int myMaxDamage;\r\n    private double myHitChance;\r\n    private double myDodgeChance;\r\n    private double mySpecialChance;\r\n\r\n    protected MazeCharacter(String theName, int theHealthPoints,  int theAttackSpeed,\r\n                            int theMinDamage, int theMaxDamage, double theHitChance, double theDodgeChance,\r\n                            double theSpecialChance) {\r\n        setName(theName);\r\n        setHealthPoints(theHealthPoints);\r\n        setAttackSpeed(theAttackSpeed);\r\n        setMinDamage(theMinDamage);\r\n        setMaxDamage(theMaxDamage);\r\n        setHitChance(theHitChance);\r\n        setDodgeChance(theDodgeChance);\r\n        setSpecialChance(theSpecialChance);\r\n    }\r\n    protected MazeCharacter(String theName){\r\n        setName(theName);\r\n        setHealthPoints(1);\r\n        setAttackSpeed(1);\r\n        setMinDamage(1);\r\n        setMaxDamage(1);\r\n        setHitChance(1);\r\n        setDodgeChance(1);\r\n        setSpecialChance(1);\r\n    }\r\n    public void setEnemyValues(String theName, int theHealthPoints,  int theAttackSpeed,\r\n                               int theMinDamage, int theMaxDamage, double theHitChance, double theDodgeChance,\r\n                               double theSpecialChance){\r\n        setHealthPoints(theHealthPoints);\r\n        setAttackSpeed(theAttackSpeed);\r\n        setMinDamage(theMinDamage);\r\n        setMaxDamage(theMaxDamage);\r\n        setHitChance(theHitChance);\r\n        setDodgeChance(theDodgeChance);\r\n        setSpecialChance(theSpecialChance);\r\n\r\n    }\r\n    protected void setName(String theName) {\r\n        myName = theName;\r\n    }\r\n\r\n    protected void setHealthPoints(int theHealthPoints) {\r\n        myHealthPoints = theHealthPoints;\r\n    }\r\n\r\n    protected void setAttackSpeed(int theAttackSpeed) {\r\n        myAttackSpeed = theAttackSpeed;\r\n    }\r\n\r\n    protected void setMinDamage(int theMinDamage) {\r\n        myMinDamage = theMinDamage;\r\n    }\r\n\r\n    protected void setMaxDamage(int theMaxDamage) {\r\n        myMaxDamage = theMaxDamage;\r\n    }\r\n\r\n    protected void setHitChance(double theHitChance) {\r\n        myHitChance = theHitChance;\r\n    }\r\n\r\n    protected void setDodgeChance(double theDodgeChance) {\r\n        myDodgeChance = theDodgeChance;\r\n    }\r\n\r\n    protected void setSpecialChance(double theSpecialChance) {\r\n        mySpecialChance = theSpecialChance;\r\n    }\r\n\r\n    public String getName() {\r\n        return myName;\r\n    }\r\n\r\n    public int getHealthPoints() {\r\n        return myHealthPoints;\r\n    }\r\n\r\n    public int getAttackSpeed() {\r\n        return myAttackSpeed;\r\n    }\r\n\r\n    public int getMinDamage() {\r\n        return myMinDamage;\r\n    }\r\n\r\n    public int getMaxDamage() {\r\n        return myMaxDamage;\r\n    }\r\n\r\n    public double getDodgeChance() {\r\n        return myDodgeChance;\r\n    }\r\n\r\n    protected double getSpecialChance() {\r\n        return mySpecialChance;\r\n    }\r\n\r\n    public int subtractHealth(int theDamage) {\r\n        myHealthPoints -= theDamage;\r\n        if (myHealthPoints < 0) {\r\n            myHealthPoints = 0;\r\n        }\r\n        return myHealthPoints;\r\n    }\r\n\r\n    public boolean blockAttack() {\r\n        Random rand = new Random();\r\n        double chance = rand.nextDouble();\r\n        return chance < myDodgeChance;\r\n    }\r\n\r\n    public void attack(final MazeCharacter theEnemy) {\r\n        if (blockAttack()) {\r\n            System.out.println(theEnemy.getName() + \" has blocked the attack!\");\r\n        } else {\r\n            Random rand = new Random();\r\n            double chance = rand.nextDouble();\r\n            if (chance < myHitChance) {\r\n                int damage = rand.nextInt(myMaxDamage - myMinDamage + 1) + myMinDamage;\r\n                theEnemy.subtractHealth(damage);\r\n                System.out.println(myName + \" hit \" + theEnemy.getName() + \" for \" + damage + \" damage!\");\r\n                System.out.println(theEnemy.getName() + \" has \" + theEnemy.getHealthPoints() + \" health left!\");\r\n            } else {\r\n                System.out.println(myName + \" missed!\");\r\n            }\r\n        }\r\n    }\r\n\r\n    public void specialAttack(final MazeCharacter theEnemy) {\r\n        Random rand = new Random();\r\n        double chance = rand.nextDouble();\r\n        if (chance <= mySpecialChance) {\r\n            int damageDealt = rand.nextInt(myMaxDamage - myMinDamage + 1) + myMinDamage;\r\n            theEnemy.subtractHealth(damageDealt);\r\n            System.out.println(myName + \" attacks \" + theEnemy.getName() + \" for \" + damageDealt + \" damage.\");\r\n        }\r\n    }\r\n\r\n\r\n\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/Model/MazeCharacter.java b/src/Model/MazeCharacter.java
+--- a/src/Model/MazeCharacter.java	(revision 25fc05705bcfa2b42e3fa943a03681b1e22d9d48)
++++ b/src/Model/MazeCharacter.java	(date 1668816993970)
+@@ -1,42 +1,60 @@
+ package Model;
+ 
+ import java.util.Random;
+-
++/**
++ * This class is the parent class for all water7 characters.
++ * @author Kevin Nguyen
++ * @version 1.0
++ */
+ public class MazeCharacter {
++    /**
++     * The name of the character.
++     */
+     private String myName;
++    /**
++     * The health points of the character.
++     */
+     private int myHealthPoints;
++    /**
++     * The attack speed of the character.
++     */
+     private int myAttackSpeed;
++    /**
++     * The minimum damage of the character.
++     */
+     private int myMinDamage;
++    /**
++     * The maximum damage of the character.
++     */
+     private int myMaxDamage;
++    /**
++     * The hit chance of the character.
++     */
+     private double myHitChance;
++    /**
++     * The dodge chance of the character.
++     */
+     private double myDodgeChance;
++    /**
++     * The special chance of the character.
++     */
+     private double mySpecialChance;
+ 
+-    protected MazeCharacter(String theName, int theHealthPoints,  int theAttackSpeed,
+-                            int theMinDamage, int theMaxDamage, double theHitChance, double theDodgeChance,
+-                            double theSpecialChance) {
+-        setName(theName);
+-        setHealthPoints(theHealthPoints);
+-        setAttackSpeed(theAttackSpeed);
+-        setMinDamage(theMinDamage);
+-        setMaxDamage(theMaxDamage);
+-        setHitChance(theHitChance);
+-        setDodgeChance(theDodgeChance);
+-        setSpecialChance(theSpecialChance);
+-    }
+-    protected MazeCharacter(String theName){
++    /**
++     * Constructor for MazeCharacter.
++     * @param theName the name of the character
++     * @param theHealthPoints the health points of the character
++     * @param theAttackSpeed the attack speed of the character
++     * @param theMinDamage the minimum damage of the character
++     * @param theMaxDamage the maximum damage of the character
++     * @param theHitChance the hit chance of the character
++     * @param theDodgeChance the dodge chance of the character
++     * @param theSpecialChance the special chance of the character
++     */
++    protected MazeCharacter(final String theName, final int theHealthPoints,  final int theAttackSpeed,
++                            final int theMinDamage, final int theMaxDamage, final double theHitChance, final double theDodgeChance,
++                            final double theSpecialChance) {
+         setName(theName);
+-        setHealthPoints(1);
+-        setAttackSpeed(1);
+-        setMinDamage(1);
+-        setMaxDamage(1);
+-        setHitChance(1);
+-        setDodgeChance(1);
+-        setSpecialChance(1);
+-    }
+-    public void setEnemyValues(String theName, int theHealthPoints,  int theAttackSpeed,
+-                               int theMinDamage, int theMaxDamage, double theHitChance, double theDodgeChance,
+-                               double theSpecialChance){
+         setHealthPoints(theHealthPoints);
+         setAttackSpeed(theAttackSpeed);
+         setMinDamage(theMinDamage);
+@@ -44,82 +62,130 @@
+         setHitChance(theHitChance);
+         setDodgeChance(theDodgeChance);
+         setSpecialChance(theSpecialChance);
+-
+     }
+-    protected void setName(String theName) {
++    /**
++     * This method sets the name of the character.
++     * @param theName the name of the character
++     */
++    protected void setName(final String theName) {
+         myName = theName;
+     }
+-
+-    protected void setHealthPoints(int theHealthPoints) {
++    /**
++     * This method sets the health points of the character.
++     * @param theHealthPoints the health points of the character
++     */
++    protected void setHealthPoints(final int theHealthPoints) {
+         myHealthPoints = theHealthPoints;
+     }
+-
+-    protected void setAttackSpeed(int theAttackSpeed) {
++    /**
++     * This method sets the attack speed of the character.
++     * @param theAttackSpeed the attack speed of the character
++     */
++    protected void setAttackSpeed(final int theAttackSpeed) {
+         myAttackSpeed = theAttackSpeed;
+     }
+-
+-    protected void setMinDamage(int theMinDamage) {
++    /**
++     * This method sets the minimum damage of the character.
++     * @param theMinDamage the minimum damage of the character
++     */
++    protected void setMinDamage(final int theMinDamage) {
+         myMinDamage = theMinDamage;
+     }
+-
+-    protected void setMaxDamage(int theMaxDamage) {
++    /**
++     * This method sets the maximum damage of the character.
++     * @param theMaxDamage the maximum damage of the character
++     */
++    protected void setMaxDamage(final int theMaxDamage) {
+         myMaxDamage = theMaxDamage;
+     }
+-
+-    protected void setHitChance(double theHitChance) {
++    /**
++     * This method sets the hit chance of the character.
++     * @param theHitChance the hit chance of the character
++     */
++    protected void setHitChance(final double theHitChance) {
+         myHitChance = theHitChance;
+     }
+-
+-    protected void setDodgeChance(double theDodgeChance) {
++    /**
++     * This method sets the dodge chance of the character.
++     * @param theDodgeChance the dodge chance of the character
++     */
++    protected void setDodgeChance(final double theDodgeChance) {
+         myDodgeChance = theDodgeChance;
+     }
+-
+-    protected void setSpecialChance(double theSpecialChance) {
++    /**
++     * This method sets the special chance of the character.
++     * @param theSpecialChance the special chance of the character
++     */
++    protected void setSpecialChance(final double theSpecialChance) {
+         mySpecialChance = theSpecialChance;
+     }
+-
++    /**
++     * This method returns the name of the character.
++     */
+     public String getName() {
+         return myName;
+     }
+-
++    /**
++     * This method returns the health points of the character.
++     */
+     public int getHealthPoints() {
+         return myHealthPoints;
+     }
+-
++    /**
++     * This method returns the attack speed of the character.
++     */
+     public int getAttackSpeed() {
+         return myAttackSpeed;
+     }
+-
++    /**
++     * This method returns the minimum damage of the character.
++     */
+     public int getMinDamage() {
+         return myMinDamage;
+     }
+-
++    /**
++     * This method returns the maximum damage of the character.
++     */
+     public int getMaxDamage() {
+         return myMaxDamage;
+     }
+-
++    /**
++     * This method returns the hit chance of the character.
++     */
+     public double getDodgeChance() {
+         return myDodgeChance;
+     }
+-
++    /**
++     * This method returns the special chance of the character.
++     */
+     protected double getSpecialChance() {
+         return mySpecialChance;
+     }
+-
+-    public int subtractHealth(int theDamage) {
++    /**
++     * This method subtracts the health points of the character.
++     * @param theDamage the damage to be subtracted
++     * @return the health points of the character
++     */
++    public int subtractHealth(final int theDamage) {
+         myHealthPoints -= theDamage;
+         if (myHealthPoints < 0) {
+             myHealthPoints = 0;
+         }
+         return myHealthPoints;
+     }
+-
++    /**
++     * This method is used to determine if the opponent blocked the attack.
++     * @return whether the attack was successful or not
++     */
+     public boolean blockAttack() {
+         Random rand = new Random();
+         double chance = rand.nextDouble();
+         return chance < myDodgeChance;
+     }
+-
++    /**
++     * This method is used to attack the enemy.
++     * @param theEnemy the enemy that is being attacked
++     */
+     public void attack(final MazeCharacter theEnemy) {
+         if (blockAttack()) {
+             System.out.println(theEnemy.getName() + " has blocked the attack!");
+@@ -136,7 +202,10 @@
+             }
+         }
+     }
+-
++    /**
++     * This method is used to perform a special attack.
++     * @param theEnemy the enemy that is being attacked
++     */
+     public void specialAttack(final MazeCharacter theEnemy) {
+         Random rand = new Random();
+         double chance = rand.nextDouble();
+@@ -147,6 +216,4 @@
+         }
+     }
+ 
+-
+-
+ }
+Index: src/Model/Enemy/SadBoySea.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package Model.Enemy;\r\n\r\nimport Model.MazeCharacter;\r\n\r\npublic class SadBoySea extends Enemy {\r\n\r\n    public SadBoySea() {\r\n        super(\"SadBoySea\");\r\n    }\r\n\r\n    @Override\r\n    public void specialAttack(MazeCharacter theEnemy) {\r\n        System.out.println(getName() + \" used Santoryu Ougi: Ichidai Sanzen Daisen Sekai!\");\r\n        int damageDealt = theEnemy.getHealthPoints() / 4;\r\n        theEnemy.subtractHealth(damageDealt);\r\n        System.out.println(theEnemy.getName() + \" has \" + theEnemy.getHealthPoints() + \" health left!\");\r\n        theEnemy.subtractHealth(damageDealt);\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/Model/Enemy/SadBoySea.java b/src/Model/Enemy/SadBoySea.java
+--- a/src/Model/Enemy/SadBoySea.java	(revision 25fc05705bcfa2b42e3fa943a03681b1e22d9d48)
++++ b/src/Model/Enemy/SadBoySea.java	(date 1668816993944)
+@@ -2,14 +2,32 @@
+ 
+ import Model.MazeCharacter;
+ 
++/**
++ * This class represents the SadBoySea enemy in the game.
++ * @author Kevin Nguyen
++ * @version 1.0
++ */
+ public class SadBoySea extends Enemy {
+-
+-    public SadBoySea() {
+-        super("SadBoySea");
++    /**
++     * Constructor for the SadBoySea class.
++     */
++    public SadBoySea(final String theName, final int theHealthPoints,  final int theAttackSpeed,
++                     final int theMinDamage, final int theMaxDamage, final double theHitChance, final double theDodgeChance,
++                     final double theSpecialChance) {
++        /**
++         * Calls the constructor of the parent class.
++         */
++        super(theName, theHealthPoints, theAttackSpeed,
++                theMinDamage, theMaxDamage, theHitChance, theDodgeChance,
++                theSpecialChance);
+     }
+-
++    /**
++     * This method represents the special attack of the SadBoySea enemy.
++     * @param theEnemy the enemy to attack
++     * @Override the specialAttack method in the parent class.
++     */
+     @Override
+-    public void specialAttack(MazeCharacter theEnemy) {
++    public void specialAttack(final MazeCharacter theEnemy) {
+         System.out.println(getName() + " used Santoryu Ougi: Ichidai Sanzen Daisen Sekai!");
+         int damageDealt = theEnemy.getHealthPoints() / 4;
+         theEnemy.subtractHealth(damageDealt);
+Index: src/Model/Enemy/Enemy.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package Model.Enemy;\r\n\r\nimport Model.MazeCharacter;\r\n\r\npublic class Enemy extends MazeCharacter{\r\n    public Enemy(String theName) {\r\n        super(theName);\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/Model/Enemy/Enemy.java b/src/Model/Enemy/Enemy.java
+--- a/src/Model/Enemy/Enemy.java	(revision 25fc05705bcfa2b42e3fa943a03681b1e22d9d48)
++++ b/src/Model/Enemy/Enemy.java	(date 1668816993990)
+@@ -1,9 +1,23 @@
+ package Model.Enemy;
+ 
+ import Model.MazeCharacter;
+-
+-public class Enemy extends MazeCharacter{
+-    public Enemy(String theName) {
+-        super(theName);
++/**
++ * This class represents an enemy in the game.
++ * @author Kevin Nguyen
++ * @version 1.0
++ */
++public abstract class Enemy extends MazeCharacter{
++    /**
++     * Contructor for the Enemy class.
++     */
++    public Enemy(final String theName, final int theHealthPoints,  final int theAttackSpeed,
++                 final int theMinDamage, final int theMaxDamage, final double theHitChance, final double theDodgeChance,
++                 final double theSpecialChance) {
++        /**
++         * Calls the constructor of the parent class.
++         */
++        super(theName, theHealthPoints, theAttackSpeed,
++                theMinDamage, theMaxDamage, theHitChance, theDodgeChance,
++                theSpecialChance);
+     }
+ }
+Index: src/Model/Hero/Hero.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package Model.Hero;\r\n\r\nimport Controller.InputControls;\r\nimport Model.MazeCharacter;\r\n\r\nimport java.awt.*;\r\nimport java.awt.image.BufferedImage;\r\n\r\npublic abstract class Hero extends MazeCharacter {\r\n    private int mySenzuBean;\r\n    private int myPowerPowerFruit;\r\n    private int mySpeedSpeedFruit;\r\n    private int myTorch;\r\n    private int myOriginalHealthPoints;\r\n    private int myMoveSpeed;\r\n    private final InputControls inputCon = new InputControls();\r\n    private int myX = 100;\r\n    private int myY = 100;\r\n\r\n    private BufferedImage myUpIm1, myUpIm2, myUpIm3, myDownIm1, myDownIm2, myDownIm3, myLeftIm1, myLeftIm2,myLeftIm3,  myRightIm1, myRightIm2, myRightIm3;\r\n    private String myDirection = \"down\";\r\n    private int spriteNum = 1;\r\n    private int spriteCounter = 0;\r\n\r\n\r\n    public Hero(String theName, int theHealthPoints, int theAttackSpeed, int theMinDamage,\r\n                int theMaxDamage, double theHitChance, double theDodgeChance, double theSpecialChance, int theMoveSpeed) {\r\n        super(theName, theHealthPoints, theAttackSpeed, theMinDamage, theMaxDamage,\r\n                theHitChance, theDodgeChance, theSpecialChance);\r\n\r\n        setSenzuBean(2);\r\n        setPowerPowerFruit(2);\r\n        setSpeedSpeedFruit(2);\r\n        setTorch(0);\r\n        setOriginalHealthPoints(theHealthPoints);\r\n        setMoveSpeed(theMoveSpeed);\r\n    }\r\n\r\n    protected int getSenzuBean() {\r\n        return mySenzuBean;\r\n    }\r\n\r\n    protected int getPowerPowerFruit() {\r\n        return myPowerPowerFruit;\r\n    }\r\n\r\n    protected int getSpeedSpeedFruit() {\r\n        return mySpeedSpeedFruit;\r\n    }\r\n\r\n    protected int getTorch() {\r\n        return myTorch;\r\n    }\r\n\r\n    protected int getOriginalHealthPoints() {\r\n        return myOriginalHealthPoints;\r\n    }\r\n\r\n    public int getMoveSpeed() {\r\n        return myMoveSpeed;\r\n    }\r\n\r\n    protected void setSenzuBean(int theSenzuBean) {\r\n        mySenzuBean = theSenzuBean;\r\n    }\r\n\r\n    protected void setPowerPowerFruit(int thePowerPowerFruit) {\r\n        myPowerPowerFruit = thePowerPowerFruit;\r\n    }\r\n\r\n    protected void setSpeedSpeedFruit(int theSpeedSpeedFruit) {\r\n        mySpeedSpeedFruit = theSpeedSpeedFruit;\r\n    }\r\n\r\n    protected void setTorch(int theTorch) {\r\n        myTorch = theTorch;\r\n    }\r\n    protected void setOriginalHealthPoints(int theHealthPoints){\r\n        myOriginalHealthPoints = theHealthPoints;\r\n    }\r\n\r\n    protected void setMoveSpeed(int theMoveSpeed) {\r\n        myMoveSpeed = theMoveSpeed;\r\n    }\r\n\r\n    protected void addSenzuBean() {\r\n        mySenzuBean++;\r\n        setSenzuBean(mySenzuBean);\r\n    }\r\n\r\n    protected void addPowerPowerFruit() {\r\n        myPowerPowerFruit++;\r\n        setPowerPowerFruit(myPowerPowerFruit);\r\n    }\r\n\r\n    protected void addSpeedSpeedFruit() {\r\n        mySpeedSpeedFruit++;\r\n        setSpeedSpeedFruit(mySpeedSpeedFruit);\r\n    }\r\n\r\n    public void useSenzuBean() {\r\n        if (getSenzuBean() > 0) {\r\n            if (getHealthPoints() == getOriginalHealthPoints()) {\r\n                System.out.println(\"You are already at full health!\");\r\n            } else {\r\n                mySenzuBean--;\r\n                setSenzuBean(mySenzuBean);\r\n                if (getHealthPoints() + 20 > getOriginalHealthPoints()) {\r\n                    setHealthPoints(getOriginalHealthPoints());\r\n                } else {\r\n                    setHealthPoints(getHealthPoints() + 20);\r\n                }\r\n                System.out.println(getName() + \" used a senzu bean and gained 10 health!\");\r\n                System.out.println(getName() + \" now has \" + getHealthPoints() + \" health!\");\r\n            }\r\n        } else {\r\n            System.out.println(getName() + \" has no senzu beans left!\");\r\n        }\r\n    }\r\n\r\n    public void usePowerPowerFruit() {\r\n        if (getPowerPowerFruit() > 0) {\r\n            myPowerPowerFruit--;\r\n            setPowerPowerFruit(myPowerPowerFruit);\r\n            setMinDamage(getMinDamage() + 10);\r\n            setMaxDamage(getMaxDamage() + 10);\r\n            System.out.println(getName() + \" used a power power fruit and gained 10 attack!\");\r\n            System.out.println(getName() + \" now has \" + getMinDamage() + \" min damage and \" + getMaxDamage() +\r\n                    \" max damage attack!\");\r\n        } else {\r\n            System.out.println(getName() + \" has no power power fruits left!\");\r\n        }\r\n    }\r\n\r\n    public void useSpeedSpeedFruit() {\r\n        if (getSpeedSpeedFruit() > 0) {\r\n            mySpeedSpeedFruit--;\r\n            setSpeedSpeedFruit(mySpeedSpeedFruit);\r\n            setAttackSpeed(getAttackSpeed() + 1);\r\n            System.out.println(getName() + \" used a speed speed fruit and gained 1 speed!\");\r\n            System.out.println(getName() + \" now has \" + getAttackSpeed() + \" speed!\");\r\n        } else {\r\n            System.out.println(getName() + \" has no speed speed fruits left!\");\r\n        }\r\n    }\r\n\r\n    public void useTorch() {\r\n    }\r\n\r\n    //controls\r\n    public void update() {\r\n        if(inputCon.getDown() || inputCon.getLeft() || inputCon.getUp() || inputCon.getRight()){\r\n            if (inputCon.getUp()) {\r\n                myDirection = \"up\";\r\n                myY -= myMoveSpeed;\r\n\r\n            } else if (inputCon.getDown()) {\r\n                myDirection = \"down\";\r\n                myY += myMoveSpeed;\r\n            }\r\n\r\n            if (inputCon.getLeft()) {\r\n                myDirection = \"left\";\r\n                myX -= myMoveSpeed;\r\n            } else if (inputCon.getRight()) {\r\n                myDirection = \"right\";\r\n                myX += myMoveSpeed;\r\n            }\r\n\r\n            spriteCounter++;\r\n            if(spriteCounter > 12){\r\n                if(spriteNum == 1){\r\n                    spriteNum = 2;\r\n                } else if(spriteNum == 2){\r\n                    spriteNum = 3;\r\n                } else if(spriteNum == 3){\r\n                    spriteNum = 1;\r\n                }\r\n                spriteCounter = 0;\r\n            }\r\n        } else{\r\n            spriteNum = 2;\r\n        }\r\n\r\n\r\n    }\r\n\r\n    public void draw(Graphics2D g){\r\n        BufferedImage image = null;\r\n        switch (myDirection) {\r\n            case \"up\":\r\n                System.out.println(spriteNum);\r\n                if(spriteNum == 1){\r\n                    image = myUpIm1;\r\n\r\n                } else if(spriteNum == 2){\r\n                    image = myUpIm2;\r\n                } else if(spriteNum == 3){\r\n                    image = myUpIm3;\r\n                }\r\n                break;\r\n\r\n            case \"down\":\r\n                if(spriteNum == 1){\r\n                    image = myDownIm1;\r\n                } else if(spriteNum == 2){\r\n                    image = myDownIm2;\r\n                } else if(spriteNum == 3){\r\n                    image = myDownIm3;\r\n                }\r\n                break;\r\n            case \"left\":\r\n                if(spriteNum == 1){\r\n                    image = myLeftIm1;\r\n                } else if(spriteNum == 2){\r\n                    image = myLeftIm2;\r\n                } else if(spriteNum == 3){\r\n                    image = myLeftIm3;\r\n                }\r\n                break;\r\n            case \"right\":\r\n                if(spriteNum == 1){\r\n                    image = myRightIm1;\r\n                } else if(spriteNum == 2){\r\n                    image = myRightIm2;\r\n                } else if(spriteNum == 3){\r\n                    image = myRightIm3;\r\n                }\r\n                break;\r\n            default:\r\n                image = null;\r\n        };\r\n\r\n        /*try  {\r\n           image = ImageIO.read(getClass().getResourceAsStream(\"../../View/Sprites/unknown.png\"));\r\n        } catch (IOException e){\r\n            e.printStackTrace();\r\n        }*/\r\n        g.drawImage(image , myX, myY, 128, 128, null);\r\n\r\n    }\r\n\r\n\r\n    public int getX(){return myX;}\r\n    public int getY(){return myY;}\r\n\r\n    public void setMyDownIm1(BufferedImage myDownIm1) {\r\n        this.myDownIm1 = myDownIm1;\r\n    }\r\n    public void setMyDownIm2(BufferedImage myDownIm2) {\r\n        this.myDownIm2 = myDownIm2;\r\n    }\r\n    public void setMyDownIm3(BufferedImage myDownIm3) {\r\n        this.myDownIm3 = myDownIm3;\r\n    }\r\n\r\n    public void setMyLeftIm1(BufferedImage myLeftIm1) {\r\n        this.myLeftIm1 = myLeftIm1;\r\n    }\r\n    public void setMyLeftIm2(BufferedImage myLeftIm2) {\r\n        this.myLeftIm2 = myLeftIm2;\r\n    }\r\n    public void setMyLeftIm3(BufferedImage myLeftIm3) {\r\n        this.myLeftIm3 = myLeftIm3;\r\n    }\r\n\r\n    public void setMyRightIm1(BufferedImage myRightIm1) {\r\n        this.myRightIm1 = myRightIm1;\r\n    }\r\n    public void setMyRightIm2(BufferedImage myRightIm2) {\r\n        this.myRightIm2 = myRightIm2;\r\n    }\r\n    public void setMyRightIm3(BufferedImage myRightIm3) {\r\n        this.myRightIm3 = myRightIm3;\r\n    }\r\n\r\n    public void setMyUpIm1(BufferedImage myUpIm1) {\r\n        this.myUpIm1 = myUpIm1;\r\n    }\r\n    public void setMyUpIm2(BufferedImage myUpIm2) {\r\n        this.myUpIm2 = myUpIm2;\r\n    }\r\n    public void setMyUpIm3(BufferedImage myUpIm3) {\r\n        this.myUpIm3 = myUpIm3;\r\n    }\r\n}\r\n\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/Model/Hero/Hero.java b/src/Model/Hero/Hero.java
+--- a/src/Model/Hero/Hero.java	(revision 25fc05705bcfa2b42e3fa943a03681b1e22d9d48)
++++ b/src/Model/Hero/Hero.java	(date 1668817232280)
+@@ -6,28 +6,75 @@
+ import java.awt.*;
+ import java.awt.image.BufferedImage;
+ 
++/**
++ * this class represents a hero in the game.
++ * @author Kevin Nguyen
++ * @version 1.0
++ */
+ public abstract class Hero extends MazeCharacter {
++    /**
++     * The hero's number of senzu bean.
++     */
+     private int mySenzuBean;
++    /**
++     * The hero's number of power power fruit.
++     */
+     private int myPowerPowerFruit;
++    /**
++     * The hero's number of speed speed fruit.
++     */
+     private int mySpeedSpeedFruit;
++    /**
++     * The hero's number of torch.
++     */
+     private int myTorch;
++    /**
++     * The hero's original health points.
++     */
+     private int myOriginalHealthPoints;
++    /**
++     * The hero's movement speed.
++     */
+     private int myMoveSpeed;
++    /**
++     * The hero's input control.
++     */
+     private final InputControls inputCon = new InputControls();
++    /**
++     * The hero's x-coordinate.
++     */
+     private int myX = 100;
++    /**
++     * The hero's y-coordinate.
++     */
+     private int myY = 100;
+-
++    /**
++     * The hero's images.
++     */
+     private BufferedImage myUpIm1, myUpIm2, myUpIm3, myDownIm1, myDownIm2, myDownIm3, myLeftIm1, myLeftIm2,myLeftIm3,  myRightIm1, myRightIm2, myRightIm3;
++    /**
++     * The hero's current image.
++     */
+     private String myDirection = "down";
++    /**
++     * The hero's current image.
++     */
+     private int spriteNum = 1;
++    /**
++     * The hero's current image.
++     */
+     private int spriteCounter = 0;
+ 
+-
+-    public Hero(String theName, int theHealthPoints, int theAttackSpeed, int theMinDamage,
+-                int theMaxDamage, double theHitChance, double theDodgeChance, double theSpecialChance, int theMoveSpeed) {
++    /**
++     * Constructor for the Hero class.
++     */
++    public Hero(final String theName, final int theHealthPoints, final int theAttackSpeed, final int theMinDamage,
++                final int theMaxDamage, final double theHitChance, final double theDodgeChance, final double theSpecialChance, final int theMoveSpeed) {
++        /**
++         * Calls the constructor of the parent class.
++         */
+         super(theName, theHealthPoints, theAttackSpeed, theMinDamage, theMaxDamage,
+                 theHitChance, theDodgeChance, theSpecialChance);
+-
+         setSenzuBean(2);
+         setPowerPowerFruit(2);
+         setSpeedSpeedFruit(2);
+@@ -35,69 +82,122 @@
+         setOriginalHealthPoints(theHealthPoints);
+         setMoveSpeed(theMoveSpeed);
+     }
+-
++    /**
++     * This method gets the hero's number of senzu bean.
++     * @return the hero's input control.
++     */
+     protected int getSenzuBean() {
+         return mySenzuBean;
+     }
+-
++    /**
++     * This method gets the hero's number of power power fruit.
++     * @return the hero's number of power power fruit.
++     */
+     protected int getPowerPowerFruit() {
+         return myPowerPowerFruit;
+     }
+-
++    /**
++     * This method gets the hero's number of speed speed fruit.
++     * @return the hero's number of speed speed fruit.
++     */
+     protected int getSpeedSpeedFruit() {
+         return mySpeedSpeedFruit;
+     }
+-
++    /**
++     * This method gets the hero's number of torch.
++     * @return the hero's number of torch.
++     */
+     protected int getTorch() {
+         return myTorch;
+     }
+-
++    /**
++     * This method gets the hero's original health points.
++     * @return the hero's original health points.
++     */
+     protected int getOriginalHealthPoints() {
+         return myOriginalHealthPoints;
+     }
+-
++     /**
++      * This method gets the hero's movement speed.
++      * @return the hero's movement speed.
++      */
+     public int getMoveSpeed() {
+         return myMoveSpeed;
+     }
+-
+-    protected void setSenzuBean(int theSenzuBean) {
++    /**
++     * This method sets the hero's number senzu bean.
++     * @param theSenzuBean the hero's number of senzu bean.
++     * @return the hero's input control.
++     */
++    protected void setSenzuBean(final int theSenzuBean) {
+         mySenzuBean = theSenzuBean;
+     }
+-
++    /**
++     * This method sets the hero's number of power power fruit.
++     * @param thePowerPowerFruit the hero's number of power power fruit.
++     */
+     protected void setPowerPowerFruit(int thePowerPowerFruit) {
+         myPowerPowerFruit = thePowerPowerFruit;
+     }
+-
++    /**
++     * This method sets the hero's number of speed speed fruit.
++     * @param theSpeedSpeedFruit the hero's number of speed speed fruit.
++     */
+     protected void setSpeedSpeedFruit(int theSpeedSpeedFruit) {
+         mySpeedSpeedFruit = theSpeedSpeedFruit;
+     }
+-
++    /**
++     * This method sets the hero's number of torch.
++     * @param theTorch the hero's number of torch.
++     */
+     protected void setTorch(int theTorch) {
+         myTorch = theTorch;
+     }
++    /**
++     * This method sets the hero's original health points.
++     * @param theHealthPoints the hero's original health points.
++     */
+     protected void setOriginalHealthPoints(int theHealthPoints){
+         myOriginalHealthPoints = theHealthPoints;
+     }
+-
++    /**
++     * This method sets the hero's movement speed.
++     * @param theMoveSpeed the hero's movement speed.
++     */
+     protected void setMoveSpeed(int theMoveSpeed) {
+         myMoveSpeed = theMoveSpeed;
+     }
+-
++    /**
++     * This method increments the number of senzu bean.
++     */
+     protected void addSenzuBean() {
+         mySenzuBean++;
+         setSenzuBean(mySenzuBean);
+     }
+-
++    /**
++     * This method increments the number of power power fruit.
++     */
+     protected void addPowerPowerFruit() {
+         myPowerPowerFruit++;
+         setPowerPowerFruit(myPowerPowerFruit);
+     }
+-
++    /**
++     * This method increments the number of speed speed fruit.
++     */
+     protected void addSpeedSpeedFruit() {
+         mySpeedSpeedFruit++;
+         setSpeedSpeedFruit(mySpeedSpeedFruit);
+     }
+-
++    /**
++     * This method increments the number of torch.
++     */
++    protected void addTorch() {
++        myTorch++;
++        setTorch(myTorch);
++    }
++    /**
++     * This method heals the hero's health.
++     */
+     public void useSenzuBean() {
+         if (getSenzuBean() > 0) {
+             if (getHealthPoints() == getOriginalHealthPoints()) {
+@@ -117,7 +217,9 @@
+             System.out.println(getName() + " has no senzu beans left!");
+         }
+     }
+-
++    /**
++     * This method increases the hero's attack damage.
++     */
+     public void usePowerPowerFruit() {
+         if (getPowerPowerFruit() > 0) {
+             myPowerPowerFruit--;
+@@ -131,7 +233,9 @@
+             System.out.println(getName() + " has no power power fruits left!");
+         }
+     }
+-
++    /**
++     * This method increases the hero's attack speed.
++     */
+     public void useSpeedSpeedFruit() {
+         if (getSpeedSpeedFruit() > 0) {
+             mySpeedSpeedFruit--;
+@@ -143,11 +247,16 @@
+             System.out.println(getName() + " has no speed speed fruits left!");
+         }
+     }
+-
++    /**
++     * This method checks if there is a usuable torch.
++     */
+     public void useTorch() {
+     }
+ 
+     //controls
++    /**
++     * This method updates the hero's movement.
++     */
+     public void update() {
+         if(inputCon.getDown() || inputCon.getLeft() || inputCon.getUp() || inputCon.getRight()){
+             if (inputCon.getUp()) {
+@@ -184,8 +293,11 @@
+ 
+ 
+     }
+-
+-    public void draw(Graphics2D g){
++    /**
++     * This method draws the hero's image.
++     * @param g the graphics object.
++     */
++    public void draw(final Graphics2D g){
+         BufferedImage image = null;
+         switch (myDirection) {
+             case "up":
+@@ -240,47 +352,54 @@
+ 
+     }
+ 
+-
++    /**
++     * This method returns the hero's x-coordinate.
++     * @return the hero's x-coordinate.
++     */
+     public int getX(){return myX;}
++    /**
++     * This method returns the hero's y-coordinate.
++     * @return the hero's y-coordinate.
++     */
+     public int getY(){return myY;}
+ 
+-    public void setMyDownIm1(BufferedImage myDownIm1) {
++    public void setMyDownIm1(final BufferedImage myDownIm1) {
+         this.myDownIm1 = myDownIm1;
+     }
+-    public void setMyDownIm2(BufferedImage myDownIm2) {
++    public void setMyDownIm2(final BufferedImage myDownIm2) {
+         this.myDownIm2 = myDownIm2;
+     }
+-    public void setMyDownIm3(BufferedImage myDownIm3) {
++    public void setMyDownIm3(final BufferedImage myDownIm3) {
+         this.myDownIm3 = myDownIm3;
+     }
+ 
+-    public void setMyLeftIm1(BufferedImage myLeftIm1) {
++    public void setMyLeftIm1(final BufferedImage myLeftIm1) {
+         this.myLeftIm1 = myLeftIm1;
+     }
+-    public void setMyLeftIm2(BufferedImage myLeftIm2) {
++    public void setMyLeftIm2(final BufferedImage myLeftIm2) {
+         this.myLeftIm2 = myLeftIm2;
+     }
+-    public void setMyLeftIm3(BufferedImage myLeftIm3) {
++    public void setMyLeftIm3(final BufferedImage myLeftIm3) {
+         this.myLeftIm3 = myLeftIm3;
+     }
+ 
+-    public void setMyRightIm1(BufferedImage myRightIm1) {
++    public void setMyRightIm1(final BufferedImage myRightIm1) {
+         this.myRightIm1 = myRightIm1;
+     }
+-    public void setMyRightIm2(BufferedImage myRightIm2) {
++    public void setMyRightIm2(final BufferedImage myRightIm2) {
+         this.myRightIm2 = myRightIm2;
+     }
+-    public void setMyRightIm3(BufferedImage myRightIm3) {
++    public void setMyRightIm3(final BufferedImage myRightIm3) {
+         this.myRightIm3 = myRightIm3;
+     }
+ 
+-    public void setMyUpIm1(BufferedImage myUpIm1) {
++    public void setMyUpIm1(final BufferedImage myUpIm1) {
+         this.myUpIm1 = myUpIm1;
+     }
+-    public void setMyUpIm2(BufferedImage myUpIm2) {
++    public void setMyUpIm2(final BufferedImage myUpIm2) {
+         this.myUpIm2 = myUpIm2;
+     }
+-    public void setMyUpIm3(BufferedImage myUpIm3) {
++    public void setMyUpIm3(final BufferedImage myUpIm3) {
+         this.myUpIm3 = myUpIm3;
+     }
+ }
+Index: src/Model/Battle.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package Model;\r\n\r\nimport Model.Enemy.*;\r\nimport Model.Hero.*;\r\n\r\nimport java.util.Random;\r\nimport java.util.Scanner;\r\n\r\nimport static Model.Enemy.EnemyFactory.chosenEnemy;\r\n\r\npublic class Battle {\r\n    public static void main(String[] args) {\r\n        Scanner console = new Scanner(System.in);\r\n        gamePlay(console);\r\n    }\r\n\r\n    public static void gamePlay(Scanner theConsole) {\r\n        Hero hero = chooseHero(theConsole);\r\n        System.out.println(\"You have chosen \" + hero.getName() + \"!\");\r\n        Enemy enemy = chooseEnemy(theConsole);\r\n        System.out.println(\"You have chosen to fight \" + enemy.getName() + \"!\");\r\n        System.out.println();\r\n        while(hero.getHealthPoints() > 0 && enemy.getHealthPoints() > 0) {\r\n            battlePhase(hero, enemy, theConsole);\r\n        }\r\n        if (hero.getHealthPoints() <= 0) {\r\n            System.out.println(hero.getName() + \" has died!\");\r\n        } else {\r\n            System.out.println(enemy.getName() + \" has died!\");\r\n        }\r\n        System.out.println();\r\n        winner(hero, enemy);\r\n    }\r\n\r\n    public static Hero chooseHero(Scanner theConsole) {\r\n        System.out.println(\"1. Luffy\");\r\n        System.out.println(\"2. Zoro\");\r\n        System.out.println(\"3: Chopper\");\r\n        System.out.println(\"4: Nami\");\r\n        char choice = theConsole.next().charAt(0);\r\n        if (choice == '1') {\r\n            return new Luffy();\r\n        } else if (choice == '2') {\r\n            return new Zoro();\r\n        } else if (choice == '3') {\r\n            return new Chopper();\r\n        } else if (choice == '4') {\r\n            return new Nami();\r\n        } else {\r\n            System.out.println(\"Invalid choice!\");\r\n            System.out.println();\r\n            return chooseHero(theConsole);\r\n        }\r\n    }\r\n    public static Enemy chooseEnemy(Scanner theConsole){\r\n        System.out.println(\"Choose your enemy!\");\r\n        char choice = theConsole.next().charAt(0);\r\n        EnemyFactory.getInstance();\r\n        return  chosenEnemy(choice);\r\n    }\r\n\r\n    public static void battlePhase(Hero theHero, Enemy theEnemy, Scanner theConsole) {\r\n        char choice = getChoice(theConsole);\r\n        if (theHero.getAttackSpeed() >= theEnemy.getAttackSpeed()) {\r\n            heroTurn(choice, theHero, theEnemy);\r\n            System.out.println();\r\n            theEnemy.attack(theHero);\r\n            System.out.println();\r\n        } else {\r\n            theEnemy.attack(theHero);\r\n            System.out.println();\r\n            heroTurn(choice, theHero, theEnemy);\r\n            System.out.println();\r\n        }\r\n        System.out.println(theHero.getName() + \" : \" + theHero.getHealthPoints());\r\n        System.out.println(theEnemy.getName() + \" : \" + theEnemy.getHealthPoints());\r\n        System.out.println();\r\n    }\r\n\r\n    public static char getChoice(Scanner theConsole) {\r\n        System.out.println(\"What would you like to do?\");\r\n        System.out.println(\"j. Attack\");\r\n        System.out.println(\"k. Special Attack\");\r\n        System.out.println(\"p. Use Senzu Bean\");\r\n        System.out.println(\"o. Use power power fruit\");\r\n        System.out.println(\"l. Use speed speed fruit\");\r\n        char choice = theConsole.next().charAt(0);\r\n        if (choice != 'j' && choice != 'k' && choice != 'p' && choice != 'o' && choice != 'l') {\r\n            System.out.println(\"Invalid choice!\");\r\n            System.out.println();\r\n            getChoice(theConsole);\r\n        }\r\n        return choice;\r\n    }\r\n\r\n    public static void heroTurn(char theChoice, Hero theHero, Enemy theEnemy) {\r\n        switch (theChoice) {\r\n            case 'j':\r\n                theHero.attack(theEnemy);\r\n                break;\r\n            case 'k':\r\n                theHero.specialAttack(theEnemy);\r\n                break;\r\n            case 'p':\r\n                theHero.useSenzuBean();\r\n                break;\r\n            case 'o':\r\n                theHero.usePowerPowerFruit();\r\n                break;\r\n            case 'l':\r\n                theHero.useSpeedSpeedFruit();\r\n                break;\r\n        }\r\n    }\r\n\r\n    public static void enemyTurn(Hero hero, Enemy enemy){\r\n        Random chance = new Random();\r\n        if (chance.nextFloat() <= enemy.getSpecialChance()) {\r\n            enemy.specialAttack(hero);\r\n        } else {\r\n            enemy.attack(hero);\r\n        }\r\n    }\r\n\r\n    public static void winner(Hero theHero, Enemy theEnemy) {\r\n        if (theEnemy.getHealthPoints() <= 0) {\r\n            System.out.println(\"Victory\");\r\n        }\r\n        if (theHero.getHealthPoints() <= 0) {\r\n            System.out.println(\"Game Over\");\r\n        }\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/Model/Battle.java b/src/Model/Battle.java
+--- a/src/Model/Battle.java	(revision 25fc05705bcfa2b42e3fa943a03681b1e22d9d48)
++++ b/src/Model/Battle.java	(date 1668813789240)
+@@ -6,8 +6,6 @@
+ import java.util.Random;
+ import java.util.Scanner;
+ 
+-import static Model.Enemy.EnemyFactory.chosenEnemy;
+-
+ public class Battle {
+     public static void main(String[] args) {
+         Scanner console = new Scanner(System.in);
+@@ -16,10 +14,9 @@
+ 
+     public static void gamePlay(Scanner theConsole) {
+         Hero hero = chooseHero(theConsole);
+-        System.out.println("You have chosen " + hero.getName() + "!");
++        System.out.println("You have chosen " + hero.getName() + "!" + "\n");
+         Enemy enemy = chooseEnemy(theConsole);
+-        System.out.println("You have chosen to fight " + enemy.getName() + "!");
+-        System.out.println();
++        System.out.println("You have chosen to fight " + enemy.getName() + "!" + "\n");
+         while(hero.getHealthPoints() > 0 && enemy.getHealthPoints() > 0) {
+             battlePhase(hero, enemy, theConsole);
+         }
+@@ -54,9 +51,18 @@
+     }
+     public static Enemy chooseEnemy(Scanner theConsole){
+         System.out.println("Choose your enemy!");
++        System.out.println("1. Boat Kevin");
++        System.out.println("2. Eli");
++        System.out.println("3. Nikolai");
++        System.out.println("4: SadBoySea");
++        System.out.println("5: Random");
+         char choice = theConsole.next().charAt(0);
+         EnemyFactory.getInstance();
+-        return  chosenEnemy(choice);
++        if(choice == '5'){
++            return EnemyFactory.chooseEnemy();
++        } else{
++            return EnemyFactory.chosenEnemy(choice);
++        }
+     }
+ 
+     public static void battlePhase(Hero theHero, Enemy theEnemy, Scanner theConsole) {
+@@ -64,17 +70,16 @@
+         if (theHero.getAttackSpeed() >= theEnemy.getAttackSpeed()) {
+             heroTurn(choice, theHero, theEnemy);
+             System.out.println();
+-            theEnemy.attack(theHero);
++            enemyTurn(theHero, theEnemy);
+             System.out.println();
+         } else {
+-            theEnemy.attack(theHero);
++            enemyTurn(theHero, theEnemy);
+             System.out.println();
+             heroTurn(choice, theHero, theEnemy);
+             System.out.println();
+         }
+         System.out.println(theHero.getName() + " : " + theHero.getHealthPoints());
+-        System.out.println(theEnemy.getName() + " : " + theEnemy.getHealthPoints());
+-        System.out.println();
++        System.out.println(theEnemy.getName() + " : " + theEnemy.getHealthPoints() + "\n");
+     }
+ 
+     public static char getChoice(Scanner theConsole) {
+@@ -86,8 +91,7 @@
+         System.out.println("l. Use speed speed fruit");
+         char choice = theConsole.next().charAt(0);
+         if (choice != 'j' && choice != 'k' && choice != 'p' && choice != 'o' && choice != 'l') {
+-            System.out.println("Invalid choice!");
+-            System.out.println();
++            System.out.println("Invalid choice!" + "\n");
+             getChoice(theConsole);
+         }
+         return choice;
+Index: src/Model/MazeGenerator/FloorGenerator.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package Model.MazeGenerator;\r\n\r\nimport javax.swing.*;\r\nimport java.awt.*;\r\nimport java.util.ArrayList;\r\nimport java.util.Stack;\r\n\r\npublic class FloorGenerator {\r\n    int myWidth = 10;\r\n    int myLength = 10;\r\n    Room[][] floor;\r\n\r\n\r\n    public FloorGenerator(int theWidth, int theLength) {\r\n        this.myWidth = theWidth;\r\n        this.myLength = theLength;\r\n        floor = new Room[theWidth][theLength];\r\n        createFloor();\r\n\r\n\r\n    }\r\n\r\n    public Room[][] getFloor(){\r\n        return floor;\r\n    }\r\n\r\n\r\n\r\n\r\n    private void createFloor() {\r\n        Stack<int[]> stack = new Stack<>();\r\n        stack.push(new int[]{0, 0});\r\n        floor[0][0] = new Room(false, false, false, false);\r\n        floor[0][0].setRoomItems(\"START\");\r\n        for (int i = 0; i < myWidth * myLength; i++) {\r\n\r\n            if(stack.isEmpty()){\r\n                System.out.println(\"Something Went Wrong\");\r\n            }\r\n\r\n            int x = stack.peek()[0];\r\n            int y = stack.peek()[1];\r\n            if(i == (myWidth * myLength-1)){\r\n                floor[x][y].setRoomItems(\"FINAL\");\r\n            }\r\n\r\n\r\n            while(findRandEmptyRoom(stack.peek()[0], stack.peek()[1]).equals(\"None\")){\r\n\r\n                stack.pop();\r\n                if(stack.isEmpty()) return;\r\n            }\r\n            x = stack.peek()[0];\r\n            y = stack.peek()[1];\r\n            switch (findRandEmptyRoom(x, y)) {\r\n                case \"West\" -> {\r\n                    floor[x][y].openDoor(\"West\");\r\n                    floor[--x][y] = new Room(false, false, false, true);\r\n                }\r\n                case \"East\" -> {\r\n                    floor[x][y].openDoor(\"East\");\r\n                    floor[++x][y] = new Room(false, true, false, false);\r\n                }\r\n                case \"North\" -> {\r\n                    floor[x][y].openDoor(\"North\");\r\n                    floor[x][--y] = new Room(false, false, true, false);\r\n                }\r\n                case \"South\" -> {\r\n                    floor[x][y].openDoor(\"South\");\r\n                    floor[x][++y] = new Room(true, false, false, false);\r\n                }\r\n            }\r\n\r\n\r\n            stack.push(new int[]{x, y});\r\n        }\r\n\r\n    }\r\n\r\n\r\n\r\n    private String findRandEmptyRoom( int x, int y){\r\n\r\n\r\n        ArrayList<String> cardinalRooms = new ArrayList<>();\r\n\r\n\r\n        if(x != 0 && floor[x-1][y] == null){\r\n            cardinalRooms.add(\"West\");\r\n        }\r\n        if(x != floor.length-1 && floor[x+1][y] == null){\r\n            cardinalRooms.add(\"East\");\r\n        }\r\n        if(y != 0 && floor[x][y-1] == null){\r\n            cardinalRooms.add(\"North\");\r\n        }\r\n        if(y != floor[0].length-1 && floor[x][y+1] == null){\r\n            cardinalRooms.add(\"South\");\r\n        }\r\n        if(cardinalRooms.isEmpty()){\r\n            return \"None\";\r\n        }\r\n\r\n        int rand = (int) ((Math.random() * (cardinalRooms.size())));\r\n        return cardinalRooms.get(rand);\r\n    }\r\n\r\n\r\n\r\n\r\n\r\n\r\n}\r\n\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/Model/MazeGenerator/FloorGenerator.java b/src/Model/MazeGenerator/FloorGenerator.java
+--- a/src/Model/MazeGenerator/FloorGenerator.java	(revision 25fc05705bcfa2b42e3fa943a03681b1e22d9d48)
++++ b/src/Model/MazeGenerator/FloorGenerator.java	(date 1668800171286)
+@@ -16,8 +16,6 @@
+         this.myLength = theLength;
+         floor = new Room[theWidth][theLength];
+         createFloor();
+-
+-
+     }
+ 
+     public Room[][] getFloor(){
+Index: src/Model/Enemy/Eli.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package Model.Enemy;\r\n\r\nimport Model.MazeCharacter;\r\n\r\nimport java.util.Random;\r\n\r\npublic class Eli extends Enemy{\r\n    public Eli() {\r\n        super(\"Eli\");\r\n    }\r\n\r\n    @Override\r\n    public void specialAttack(MazeCharacter theEnemy) {\r\n        System.out.println(getName() + \" hit the nae nae!\");\r\n        System.out.println(theEnemy.getName() + \" has been stunned!\");\r\n        Random chance = new Random();\r\n        if (chance.nextFloat() <= getSpecialChance()) {\r\n            specialAttack(theEnemy);\r\n        } else {\r\n            attack(theEnemy);\r\n        }\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/Model/Enemy/Eli.java b/src/Model/Enemy/Eli.java
+--- a/src/Model/Enemy/Eli.java	(revision 25fc05705bcfa2b42e3fa943a03681b1e22d9d48)
++++ b/src/Model/Enemy/Eli.java	(date 1668816994044)
+@@ -3,14 +3,32 @@
+ import Model.MazeCharacter;
+ 
+ import java.util.Random;
+-
++/**
++ * This class represents the Eli enemy in the game.
++ * @author Kevin Nguyen
++ * @version 1.0
++ */
+ public class Eli extends Enemy{
+-    public Eli() {
+-        super("Eli");
++    /**
++     * Constructor for the Eli class.
++     */
++    public Eli(final String theName, final int theHealthPoints, final int theAttackSpeed,
++               final int theMinDamage, final int theMaxDamage, final double theHitChance, final double theDodgeChance,
++               final double theSpecialChance) {
++        /**
++         * Calls the constructor of the parent class.
++         */
++        super(theName, theHealthPoints, theAttackSpeed,
++                theMinDamage, theMaxDamage, theHitChance, theDodgeChance,
++                theSpecialChance);
+     }
+-
++    /**
++     * This method represents the special attack of the Eli enemy.
++     * @param theEnemy the enemy to attack
++     * @Override the specialAttack method in the parent class.
++     */
+     @Override
+-    public void specialAttack(MazeCharacter theEnemy) {
++    public void specialAttack(final MazeCharacter theEnemy) {
+         System.out.println(getName() + " hit the nae nae!");
+         System.out.println(theEnemy.getName() + " has been stunned!");
+         Random chance = new Random();
+Index: .idea/dataSources.local.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"dataSourceStorageLocal\" created-in=\"IU-222.4345.14\">\r\n    <data-source name=\"enemyDB.sqlite\" uuid=\"c30685d4-9f5c-46a2-a017-9fe398f31ca1\">\r\n      <database-info product=\"SQLite\" version=\"3.39.2\" jdbc-version=\"2.1\" driver-name=\"SQLite JDBC\" driver-version=\"3.39.2.0\" dbms=\"SQLITE\" exact-version=\"3.39.2\" exact-driver-version=\"3.39\">\r\n        <identifier-quote-string>&quot;</identifier-quote-string>\r\n      </database-info>\r\n      <case-sensitivity plain-identifiers=\"mixed\" quoted-identifiers=\"mixed\" />\r\n      <secret-storage>master_key</secret-storage>\r\n      <auth-provider>no-auth</auth-provider>\r\n      <schema-mapping>\r\n        <introspection-scope>\r\n          <node kind=\"schema\" qname=\"@\" />\r\n        </introspection-scope>\r\n      </schema-mapping>\r\n    </data-source>\r\n    <data-source name=\"EnemyDB\" uuid=\"3142b134-89e1-48df-a52e-a9921c218f94\">\r\n      <database-info product=\"\" version=\"\" jdbc-version=\"\" driver-name=\"\" driver-version=\"\" dbms=\"SQLITE\" exact-version=\"0\" />\r\n      <schema-mapping />\r\n    </data-source>\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/dataSources.local.xml b/.idea/dataSources.local.xml
+--- a/.idea/dataSources.local.xml	(revision 25fc05705bcfa2b42e3fa943a03681b1e22d9d48)
++++ b/.idea/dataSources.local.xml	(date 1668812863775)
+@@ -16,6 +16,7 @@
+     </data-source>
+     <data-source name="EnemyDB" uuid="3142b134-89e1-48df-a52e-a9921c218f94">
+       <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" dbms="SQLITE" exact-version="0" />
++      <auth-provider>no-auth</auth-provider>
+       <schema-mapping />
+     </data-source>
+   </component>
+Index: src/Model/Enemy/EnemyFactory.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package Model.Enemy;\r\n\r\nimport SQL.SQLTables;\r\n\r\nimport java.sql.SQLException;\r\nimport java.util.Random;\r\nimport java.util.Scanner;\r\n\r\npublic class EnemyFactory{\r\n    private static EnemyFactory myInstance;\r\n    private static SQLTables myEnemyTable;\r\n    private static String myBoatKevinValues;\r\n    private static String myEliValues;\r\n    private static String myNikolaiValues;\r\n    private static String mySadBoySeaValues;\r\n\r\n    private EnemyFactory() {\r\n        try {\r\n            System.out.println(\"EnemyFactory: EnemyFactory()\");\r\n            this.myEnemyTable = new SQLTables();\r\n            this.myBoatKevinValues = this.myEnemyTable.extractBoatKevinData();\r\n        } catch (SQLException e) {\r\n        }\r\n    }\r\n    public static EnemyFactory getInstance() {\r\n        if (myInstance == null) return new EnemyFactory();\r\n        return myInstance;\r\n    }\r\n    public static Enemy chosenEnemy(final char theInput){\r\n        switch (theInput) {\r\n            case '1':\r\n                Enemy newBoatKevin = new BoatKevin();\r\n                setEnemyValues(newBoatKevin, \"BK\");\r\n                return newBoatKevin;\r\n            default:\r\n                return null;\r\n        }\r\n    }\r\n    public static Enemy setEnemyValues( final Enemy theEnemy, final String theType){\r\n        Enemy temp = theEnemy;\r\n        Scanner valueScan = null;\r\n        switch (theType) {\r\n            case \"BK\":\r\n                if (myBoatKevinValues != null) {\r\n                    valueScan = new Scanner(myBoatKevinValues);\r\n                    temp.setEnemyValues(valueScan.nextLine(), valueScan.nextInt(), valueScan.nextInt(),\r\n                            valueScan.nextInt(), valueScan.nextInt(), valueScan.nextDouble(),\r\n                            valueScan.nextDouble(), valueScan.nextDouble());\r\n                }else{\r\n                    System.out.println(\"ur stupid\");\r\n                }\r\n            default:\r\n                break;\r\n        }\r\n        return temp;\r\n    }\r\n\r\n\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/Model/Enemy/EnemyFactory.java b/src/Model/Enemy/EnemyFactory.java
+--- a/src/Model/Enemy/EnemyFactory.java	(revision 25fc05705bcfa2b42e3fa943a03681b1e22d9d48)
++++ b/src/Model/Enemy/EnemyFactory.java	(date 1668815872077)
+@@ -5,55 +5,130 @@
+ import java.sql.SQLException;
+ import java.util.Random;
+ import java.util.Scanner;
+-
++/**
++ * This class is the factory for the enemies.
++ * @author Kevin Nguyen
++ */
+ public class EnemyFactory{
++    /**
++     * The instance of the enemy factory.
++     */
+     private static EnemyFactory myInstance;
++    /**
++     * the SQL table for the enemies.
++     */
+     private static SQLTables myEnemyTable;
+-    private static String myBoatKevinValues;
+-    private static String myEliValues;
+-    private static String myNikolaiValues;
+-    private static String mySadBoySeaValues;
++    /**
++     * String of Boat Kevin data
++     */
++    private static String myBoatKevinData;
++    /**
++     * String of Eli data
++     */
++    private static String myEliData;
++    /**
++     * String of Nikolai data
++     */
++    private static String myNikolaiData;
++    /**
++     * String of the boss data
++     */
++    private static String mySadBoySeaData;
+ 
++    /**
++     * Constructor for the EnemyFactory class.
++     * @throws SQLException if the SQL table is not found.
++     */
+     private EnemyFactory() {
+         try {
+-            System.out.println("EnemyFactory: EnemyFactory()");
+             this.myEnemyTable = new SQLTables();
+-            this.myBoatKevinValues = this.myEnemyTable.extractBoatKevinData();
++            this.myBoatKevinData = this.myEnemyTable.extractBoatKevinData();
++            this.myEliData = this.myEnemyTable.extractEliData();
++            this.myNikolaiData = this.myEnemyTable.extractNikolaiData();
++            this.mySadBoySeaData = this.myEnemyTable.extractSadBoySeaData();
+         } catch (SQLException e) {
+         }
+     }
++
++    /**
++     * Returns the instance of the EnemyFactory class.
++     * @return the instance of the EnemyFactory class.
++     */
+     public static EnemyFactory getInstance() {
+         if (myInstance == null) return new EnemyFactory();
+         return myInstance;
+     }
++    /**
++     * Selects the chosen enemy.
++     * @return the selected enemy.
++     */
+     public static Enemy chosenEnemy(final char theInput){
++        Enemy enemy = null;
++        Scanner scan = null;
+         switch (theInput) {
+             case '1':
+-                Enemy newBoatKevin = new BoatKevin();
+-                setEnemyValues(newBoatKevin, "BK");
++                scan = new Scanner(myBoatKevinData);
++                enemy = new BoatKevin(scan.nextLine(), scan.nextInt(), scan.nextInt(),
++                        scan.nextInt(), scan.nextInt(), scan.nextDouble(),
++                        scan.nextDouble(), scan.nextDouble());
++                return enemy;
++            case '2':
++                scan = new Scanner(myEliData);
++                enemy = new Eli(scan.nextLine(), scan.nextInt(), scan.nextInt(),
++                        scan.nextInt(), scan.nextInt(), scan.nextDouble(),
++                        scan.nextDouble(), scan.nextDouble());
++                return enemy;
++            case '3':
++                scan = new Scanner(myNikolaiData);
++                enemy = new Nikolai(scan.nextLine(), scan.nextInt(), scan.nextInt(),
++                        scan.nextInt(), scan.nextInt(), scan.nextDouble(),
++                        scan.nextDouble(), scan.nextDouble());
++                return enemy;
++            case '4':
++                scan = new Scanner(mySadBoySeaData);
++                enemy = new SadBoySea(scan.nextLine(), scan.nextInt(), scan.nextInt(),
++                        scan.nextInt(), scan.nextInt(), scan.nextDouble(),
++                        scan.nextDouble(), scan.nextDouble());
++                return enemy;
++            default:
++                return null;
++        }
++    }
++    /**
++     * Selects a random enemy.
++     * @return the selected enemy.
++     */
++    public static Enemy chooseEnemy(){
++        Random rand = new Random();
++        int randomNum = rand.nextInt(4) + 1;
++        Scanner scan = null;
++        switch (randomNum) {
++            case 1:
++                scan = new Scanner(myBoatKevinData);
++                Enemy newBoatKevin = new BoatKevin(scan.nextLine(), scan.nextInt(), scan.nextInt(),
++                        scan.nextInt(), scan.nextInt(), scan.nextDouble(),
++                        scan.nextDouble(), scan.nextDouble());
+                 return newBoatKevin;
++            case 2:
++                scan = new Scanner(myEliData);
++                Enemy newEli = new Eli(scan.nextLine(), scan.nextInt(), scan.nextInt(),
++                        scan.nextInt(), scan.nextInt(), scan.nextDouble(),
++                        scan.nextDouble(), scan.nextDouble());
++                return newEli;
++            case 3:
++                scan = new Scanner(myNikolaiData);
++                Enemy newNikolai = new Nikolai(scan.nextLine(), scan.nextInt(), scan.nextInt(),
++                        scan.nextInt(), scan.nextInt(), scan.nextDouble(),
++                        scan.nextDouble(), scan.nextDouble());
++                return newNikolai;
++            case 4:
++                scan = new Scanner(mySadBoySeaData);
++                Enemy newSadBoySea = new SadBoySea(scan.nextLine(), scan.nextInt(), scan.nextInt(),
++                        scan.nextInt(), scan.nextInt(), scan.nextDouble(),
++                        scan.nextDouble(), scan.nextDouble());
++                return newSadBoySea;
+             default:
+                 return null;
+         }
+     }
+-    public static Enemy setEnemyValues( final Enemy theEnemy, final String theType){
+-        Enemy temp = theEnemy;
+-        Scanner valueScan = null;
+-        switch (theType) {
+-            case "BK":
+-                if (myBoatKevinValues != null) {
+-                    valueScan = new Scanner(myBoatKevinValues);
+-                    temp.setEnemyValues(valueScan.nextLine(), valueScan.nextInt(), valueScan.nextInt(),
+-                            valueScan.nextInt(), valueScan.nextInt(), valueScan.nextDouble(),
+-                            valueScan.nextDouble(), valueScan.nextDouble());
+-                }else{
+-                    System.out.println("ur stupid");
+-                }
+-            default:
+-                break;
+-        }
+-        return temp;
+-    }
+-
+-
+ }
+Index: src/Model/Enemy/BoatKevin.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package Model.Enemy;\r\n\r\nimport Model.MazeCharacter;\r\n\r\npublic class BoatKevin extends Enemy {\r\n    public BoatKevin() {\r\n        super(\"Boat Kevin\");\r\n    }\r\n\r\n    @Override\r\n    public void specialAttack(MazeCharacter theEnemy) {\r\n        theEnemy.subtractHealth(99999999);\r\n        System.out.println(getName() + \" went sicko mode and dealt 99999999 damage!\");\r\n        System.out.println(theEnemy.getName() + \" has \" + theEnemy.getHealthPoints() + \" health left!\");\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/Model/Enemy/BoatKevin.java b/src/Model/Enemy/BoatKevin.java
+--- a/src/Model/Enemy/BoatKevin.java	(revision 25fc05705bcfa2b42e3fa943a03681b1e22d9d48)
++++ b/src/Model/Enemy/BoatKevin.java	(date 1668816994025)
+@@ -1,14 +1,32 @@
+ package Model.Enemy;
+ 
+ import Model.MazeCharacter;
+-
++/**
++ * This class represents the Boat Kevin enemy in the game.
++ * @author Kevin Nguyen
++ * @version 1.0
++ */
+ public class BoatKevin extends Enemy {
+-    public BoatKevin() {
+-        super("Boat Kevin");
++    /**
++     * Constructor for the BoatKevin class.
++     */
++    public BoatKevin(final String theName, final int theHealthPoints,  final int theAttackSpeed,
++                     final int theMinDamage, final int theMaxDamage, final double theHitChance, final double theDodgeChance,
++                     final double theSpecialChance) {
++        /**
++         * Calls the constructor of the parent class.
++         */
++        super(theName, theHealthPoints, theAttackSpeed,
++        theMinDamage, theMaxDamage, theHitChance, theDodgeChance,
++        theSpecialChance);
+     }
+-
++    /**
++     * This method represents the special attack of the Boat Kevin enemy.
++     * @param theEnemy the enemy to attack
++     * @Override the specialAttack method in the parent class.
++     */
+     @Override
+-    public void specialAttack(MazeCharacter theEnemy) {
++    public void specialAttack(final MazeCharacter theEnemy) {
+         theEnemy.subtractHealth(99999999);
+         System.out.println(getName() + " went sicko mode and dealt 99999999 damage!");
+         System.out.println(theEnemy.getName() + " has " + theEnemy.getHealthPoints() + " health left!");
+Index: src/Model/Enemy/Nikolai.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package Model.Enemy;\r\n\r\nimport Model.MazeCharacter;\r\n\r\npublic class Nikolai extends Enemy {\r\n    public Nikolai() {\r\n        super(\"Nikolai\");\r\n    }\r\n\r\n    @Override\r\n    public void specialAttack(MazeCharacter theEnemy) {\r\n        theEnemy.subtractHealth(60);\r\n        System.out.println(getName() + \" used his Berserker Armor and dealt 60 damage!\");\r\n        System.out.println(theEnemy.getName() + \" has \" + theEnemy.getHealthPoints());\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/Model/Enemy/Nikolai.java b/src/Model/Enemy/Nikolai.java
+--- a/src/Model/Enemy/Nikolai.java	(revision 25fc05705bcfa2b42e3fa943a03681b1e22d9d48)
++++ b/src/Model/Enemy/Nikolai.java	(date 1668816994006)
+@@ -2,13 +2,32 @@
+ 
+ import Model.MazeCharacter;
+ 
++/**
++ * This class represents the Nikolai enemy in the game.
++ * @author Kevin Nguyen
++ * @version 1.0
++ */
+ public class Nikolai extends Enemy {
+-    public Nikolai() {
+-        super("Nikolai");
++    /**
++     * Constructor for the Nikolai class.
++     */
++    public Nikolai(final String theName, final int theHealthPoints, final int theAttackSpeed,
++                   final int theMinDamage, final int theMaxDamage, final double theHitChance, final double theDodgeChance,
++                   final double theSpecialChance) {
++        /**
++         * Calls the constructor of the parent class.
++         */
++        super(theName, theHealthPoints, theAttackSpeed,
++                theMinDamage, theMaxDamage, theHitChance, theDodgeChance,
++                theSpecialChance);
+     }
+-
++    /**
++     * This method represents the special attack of the Nikolai enemy.
++     * @param theEnemy the enemy to attack
++     * @Override the specialAttack method in the parent class.
++     */
+     @Override
+-    public void specialAttack(MazeCharacter theEnemy) {
++    public void specialAttack(final MazeCharacter theEnemy) {
+         theEnemy.subtractHealth(60);
+         System.out.println(getName() + " used his Berserker Armor and dealt 60 damage!");
+         System.out.println(theEnemy.getName() + " has " + theEnemy.getHealthPoints());
+Index: src/Model/Hero/Chopper.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package Model.Hero;\r\n\r\nimport Model.MazeCharacter;\r\n\r\nimport javax.imageio.ImageIO;\r\nimport java.io.IOException;\r\nimport java.util.Random;\r\n\r\npublic class Chopper extends Hero {\r\n    private final int myMinSpecialHeal = 20;\r\n    private final int myMaxSpecialHeal = 30;\r\n\r\n    public Chopper() {\r\n        super(\"Chopper\", 100, 10, 10,\r\n                20, 0.5, 0.3, 0.20, 3);\r\n\r\n        try {\r\n            setMyDownIm1(ImageIO.read(getClass().getResourceAsStream(\"../../View/Sprites/Chopper/down1.png\")));\r\n            setMyUpIm1(ImageIO.read(getClass().getResourceAsStream(\"../../View/Sprites/Chopper/up1.png\")));\r\n            setMyLeftIm1(ImageIO.read(getClass().getResourceAsStream(\"../../View/Sprites/Chopper/left1.png\")));\r\n            setMyRightIm1(ImageIO.read(getClass().getResourceAsStream(\"../../View/Sprites/Chopper/right1.png\")));\r\n        } catch (IOException e) {\r\n            e.printStackTrace();\r\n        }\r\n    }\r\n\r\n    @Override\r\n    public void specialAttack(MazeCharacter theEnemy) {\r\n        Random chance = new Random();\r\n        Random heal = new Random();\r\n        if (chance.nextFloat() <= getSpecialChance()) {\r\n            int healthGained = heal.nextInt(myMaxSpecialHeal + 1 - myMinSpecialHeal) + myMinSpecialHeal;\r\n            if(getHealthPoints() + healthGained > getOriginalHealthPoints()) {\r\n                healthGained = getOriginalHealthPoints() - getHealthPoints();\r\n                setHealthPoints(getOriginalHealthPoints());\r\n            } else {\r\n                setHealthPoints(getHealthPoints() + healthGained);\r\n            }\r\n            System.out.println(getName() + \" healed and gained \" + healthGained + \" health!\");\r\n            System.out.println(getName() + \" now has \" + getHealthPoints() + \" health!\");\r\n        } else {\r\n            System.out.println(getName() + \" failed to heal!\");\r\n        }\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/Model/Hero/Chopper.java b/src/Model/Hero/Chopper.java
+--- a/src/Model/Hero/Chopper.java	(revision 25fc05705bcfa2b42e3fa943a03681b1e22d9d48)
++++ b/src/Model/Hero/Chopper.java	(date 1668817232309)
+@@ -5,7 +5,9 @@
+ import javax.imageio.ImageIO;
+ import java.io.IOException;
+ import java.util.Random;
+-
++/**
++ * Created by 204g07 on 07.06.2016.
++ */
+ public class Chopper extends Hero {
+     private final int myMinSpecialHeal = 20;
+     private final int myMaxSpecialHeal = 30;
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AnalysisUIOptions\">\r\n    <option name=\"SCOPE_TYPE\" value=\"3\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"e4fa422e-bbf5-4b7a-ad89-3212284be1af\" name=\"Changes\" comment=\"Added file paths for sprites for all characters.\">\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/dataSources.local.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/dataSources.local.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/misc.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/misc.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_10_2022_11_21_PM__Changes_.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_10_2022_11_21_PM__Changes_.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/Controller/GameManager.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/Controller/GameManager.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/Controller/InputControls.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/Controller/InputControls.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/Controller/SaveCurrentState.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/Controller/SaveCurrentState.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/Controller/SaveManager.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/Controller/SaveManager.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/SQL/SQLTests.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/SQL/SQLTests.java\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"CodeStyleSettingsInfer\">\r\n    <option name=\"done\" value=\"true\" />\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"Class\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"MarkdownSettingsMigration\">\r\n    <option name=\"stateVersion\" value=\"1\" />\r\n  </component>\r\n  <component name=\"ProjectCodeStyleSettingsMigration\">\r\n    <option name=\"version\" value=\"2\" />\r\n  </component>\r\n  <component name=\"ProjectId\" id=\"2Gy4MZ6o4ITOQnDJbnGqEnU9zzO\" />\r\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\">\r\n    <ConfirmationsSetting value=\"2\" id=\"Add\" />\r\n  </component>\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"RecentsManager\">\r\n    <key name=\"CopyFile.RECENT_KEYS\">\r\n      <recent name=\"D:\\Documents\\Water7Maze\\src\\Music\" />\r\n    </key>\r\n    <key name=\"MoveFile.RECENT_KEYS\">\r\n      <recent name=\"D:\\Documents\\Water7Maze\\src\\Music\" />\r\n      <recent name=\"C:\\Users\\shepo\\IdeaProjects\\Water7Maze\" />\r\n      <recent name=\"D:\\Documents\\Water7Maze\" />\r\n    </key>\r\n  </component>\r\n  <component name=\"RunManager\" selected=\"Application.Main\">\r\n    <configuration name=\"Battle\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"Model.Battle\" />\r\n      <module name=\"Water7Maze\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"Model.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"Main\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"View.Main\" />\r\n      <module name=\"Water7Maze\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"View.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"MazeTest\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"Model.MazeGenerator.MazeTest\" />\r\n      <module name=\"Water7Maze\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"Model.MazeGenerator.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <recent_temporary>\r\n      <list>\r\n        <item itemvalue=\"Application.Main\" />\r\n        <item itemvalue=\"Application.Battle\" />\r\n        <item itemvalue=\"Application.MazeTest\" />\r\n      </list>\r\n    </recent_temporary>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"e4fa422e-bbf5-4b7a-ad89-3212284be1af\" name=\"Changes\" comment=\"\" />\r\n      <created>1667347447614</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1667347447614</updated>\r\n      <workItem from=\"1667347450027\" duration=\"329000\" />\r\n      <workItem from=\"1667625190074\" duration=\"166000\" />\r\n      <workItem from=\"1667763410040\" duration=\"11230000\" />\r\n      <workItem from=\"1667879006638\" duration=\"4695000\" />\r\n      <workItem from=\"1668372830643\" duration=\"15769000\" />\r\n      <workItem from=\"1668658965539\" duration=\"1805000\" />\r\n      <workItem from=\"1668660797094\" duration=\"10099000\" />\r\n      <workItem from=\"1668670913205\" duration=\"59000\" />\r\n      <workItem from=\"1668670981088\" duration=\"3351000\" />\r\n    </task>\r\n    <task id=\"LOCAL-00001\" summary=\"New Project for TCSS 360\">\r\n      <created>1667347517038</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1667347517038</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00002\" summary=\"New Project for TCSS 360\">\r\n      <created>1667347659818</created>\r\n      <option name=\"number\" value=\"00002\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1667347659818</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00003\" summary=\"Added some more inputs as well some serialization for the load game class\">\r\n      <created>1667791994089</created>\r\n      <option name=\"number\" value=\"00003\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00003\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1667791994089</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00004\" summary=\"Deleted SaveGame and LoadGame and made a SaveManger and SaveState.\">\r\n      <created>1667797962004</created>\r\n      <option name=\"number\" value=\"00004\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00004\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1667797962004</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00005\" summary=\"Deleted SaveGame and LoadGame and made a SaveManger and SaveState.\">\r\n      <created>1667797993008</created>\r\n      <option name=\"number\" value=\"00005\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00005\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1667797993008</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00006\" summary=\"Deleted SaveGame and LoadGame and made a SaveManger and SaveState.\">\r\n      <created>1667801108167</created>\r\n      <option name=\"number\" value=\"00006\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00006\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1667801108167</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00007\" summary=\"Deleted SaveGame and LoadGame and made a SaveManger and SaveState.\">\r\n      <created>1667857259590</created>\r\n      <option name=\"number\" value=\"00007\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00007\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1667857259590</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00008\" summary=\"created sqltables\">\r\n      <created>1668016032873</created>\r\n      <option name=\"number\" value=\"00008\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00008\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1668016032873</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00009\" summary=\"created sqltables\">\r\n      <created>1668025888840</created>\r\n      <option name=\"number\" value=\"00009\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00009\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1668025888840</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00010\" summary=\"created sqltables\">\r\n      <created>1668026426531</created>\r\n      <option name=\"number\" value=\"00010\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00010\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1668026426531</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00011\" summary=\"created sqltables\">\r\n      <created>1668027340958</created>\r\n      <option name=\"number\" value=\"00011\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00011\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1668027340958</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00012\" summary=\"created sqltables\">\r\n      <created>1668027887995</created>\r\n      <option name=\"number\" value=\"00012\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00012\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1668027887995</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00013\" summary=\"created sqltables\">\r\n      <created>1668028110474</created>\r\n      <option name=\"number\" value=\"00013\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00013\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1668028110474</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00014\" summary=\"Moved player movement update and control to model\">\r\n      <created>1668049245594</created>\r\n      <option name=\"number\" value=\"00014\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00014\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1668049245594</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00015\" summary=\"Added images to player, moved draw method.\">\r\n      <created>1668124390482</created>\r\n      <option name=\"number\" value=\"00015\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00015\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1668124390482</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00016\" summary=\"Filled in sqlite data tables and worked on the hero class.\">\r\n      <created>1668248177393</created>\r\n      <option name=\"number\" value=\"00016\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00016\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1668248177393</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00017\" summary=\"Filled in sqlite data tables and worked on the hero class.\">\r\n      <created>1668248246306</created>\r\n      <option name=\"number\" value=\"00017\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00017\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1668248246306</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00018\" summary=\"kevin can move again\">\r\n      <created>1668449796185</created>\r\n      <option name=\"number\" value=\"00018\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00018\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1668449796185</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00019\" summary=\"Added file paths for sprites for all characters.\">\r\n      <created>1668465457658</created>\r\n      <option name=\"number\" value=\"00019\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00019\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1668465457658</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"20\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"TypeScriptGeneratedFilesManager\">\r\n    <option name=\"version\" value=\"3\" />\r\n  </component>\r\n  <component name=\"Vcs.Log.Tabs.Properties\">\r\n    <option name=\"TAB_STATES\">\r\n      <map>\r\n        <entry key=\"MAIN\">\r\n          <value>\r\n            <State />\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <option name=\"ADD_EXTERNAL_FILES_SILENTLY\" value=\"true\" />\r\n    <MESSAGE value=\"New Project for TCSS 360\" />\r\n    <MESSAGE value=\"Added some more inputs as well some serialization for the load game class\" />\r\n    <MESSAGE value=\"Deleted SaveGame and LoadGame and made a SaveManger and SaveState.\" />\r\n    <MESSAGE value=\"created sqltables\" />\r\n    <MESSAGE value=\"Moved player movement update and control to model\" />\r\n    <MESSAGE value=\"Added images to player, moved draw method.\" />\r\n    <MESSAGE value=\"Filled in sqlite data tables and worked on the hero class.\" />\r\n    <MESSAGE value=\"kevin can move again\" />\r\n    <MESSAGE value=\"Added file paths for sprites for all characters.\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"Added file paths for sprites for all characters.\" />\r\n  </component>\r\n  <component name=\"XDebuggerManager\">\r\n    <breakpoint-manager>\r\n      <breakpoints>\r\n        <line-breakpoint enabled=\"true\" type=\"java-method\">\r\n          <url>file://$PROJECT_DIR$/src/Model/Battle.java</url>\r\n          <line>32</line>\r\n          <properties class=\"Model.Battle\">\r\n            <option name=\"EMULATED\" value=\"true\" />\r\n            <option name=\"WATCH_EXIT\" value=\"false\" />\r\n          </properties>\r\n          <option name=\"timeStamp\" value=\"1\" />\r\n        </line-breakpoint>\r\n        <line-breakpoint enabled=\"true\" type=\"java-line\">\r\n          <url>file://$PROJECT_DIR$/src/Model/MazeGenerator/FloorGenerator.java</url>\r\n          <line>54</line>\r\n          <option name=\"timeStamp\" value=\"13\" />\r\n        </line-breakpoint>\r\n      </breakpoints>\r\n    </breakpoint-manager>\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision 25fc05705bcfa2b42e3fa943a03681b1e22d9d48)
++++ b/.idea/workspace.xml	(date 1668979918667)
+@@ -4,16 +4,23 @@
+     <option name="SCOPE_TYPE" value="3" />
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="e4fa422e-bbf5-4b7a-ad89-3212284be1af" name="Changes" comment="Added file paths for sprites for all characters.">
++    <list default="true" id="e4fa422e-bbf5-4b7a-ad89-3212284be1af" name="Changes" comment="Got Factory working">
+       <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_10_2022_11_21_PM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_10_2022_11_21_PM__Changes_.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_10_2022_11_21_PM_[Changes]/shelved.patch" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_10_2022_11_21_PM__Changes_.xml" beforeDir="false" />
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/Controller/GameManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/GameManager.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/Controller/InputControls.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/InputControls.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/Controller/SaveCurrentState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/SaveCurrentState.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/Controller/SaveManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/SaveManager.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/SQL/SQLTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SQL/SQLTests.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/Model/Battle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Battle.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/Model/Enemy/BoatKevin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Enemy/BoatKevin.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/Model/Enemy/Eli.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Enemy/Eli.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/Model/Enemy/Enemy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Enemy/Enemy.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/Model/Enemy/EnemyFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Enemy/EnemyFactory.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/Model/Enemy/Nikolai.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Enemy/Nikolai.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/Model/Enemy/SadBoySea.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Enemy/SadBoySea.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/Model/Hero/Chopper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Hero/Chopper.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/Model/Hero/Hero.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Hero/Hero.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/Model/MazeCharacter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/MazeCharacter.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/Model/MazeGenerator/FloorGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/MazeGenerator/FloorGenerator.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/SQL/SQLTables.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SQL/SQLTables.java" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -47,6 +54,11 @@
+     <option name="hideEmptyMiddlePackages" value="true" />
+     <option name="showLibraryContents" value="true" />
+   </component>
++  <component name="PropertiesComponent">{
++  &quot;keyToString&quot;: {
++    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;
++  }
++}</component>
+   <component name="RecentsManager">
+     <key name="CopyFile.RECENT_KEYS">
+       <recent name="D:\Documents\Water7Maze\src\Music" />
+@@ -122,6 +134,8 @@
+       <workItem from="1668660797094" duration="10099000" />
+       <workItem from="1668670913205" duration="59000" />
+       <workItem from="1668670981088" duration="3351000" />
++      <workItem from="1668806955169" duration="38000" />
++      <workItem from="1668812575193" duration="4670000" />
+     </task>
+     <task id="LOCAL-00001" summary="New Project for TCSS 360">
+       <created>1667347517038</created>
+@@ -286,24 +300,4 @@
+     <MESSAGE value="Added file paths for sprites for all characters." />
+     <option name="LAST_COMMIT_MESSAGE" value="Added file paths for sprites for all characters." />
+   </component>
+-  <component name="XDebuggerManager">
+-    <breakpoint-manager>
+-      <breakpoints>
+-        <line-breakpoint enabled="true" type="java-method">
+-          <url>file://$PROJECT_DIR$/src/Model/Battle.java</url>
+-          <line>32</line>
+-          <properties class="Model.Battle">
+-            <option name="EMULATED" value="true" />
+-            <option name="WATCH_EXIT" value="false" />
+-          </properties>
+-          <option name="timeStamp" value="1" />
+-        </line-breakpoint>
+-        <line-breakpoint enabled="true" type="java-line">
+-          <url>file://$PROJECT_DIR$/src/Model/MazeGenerator/FloorGenerator.java</url>
+-          <line>54</line>
+-          <option name="timeStamp" value="13" />
+-        </line-breakpoint>
+-      </breakpoints>
+-    </breakpoint-manager>
+-  </component>
+ </project>
+\ No newline at end of file
+Index: src/SQL/SQLTables.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package SQL;\r\n\r\nimport org.sqlite.SQLiteDataSource;\r\n\r\nimport java.sql.Connection;\r\nimport java.sql.ResultSet;\r\nimport java.sql.SQLException;\r\nimport java.sql.Statement;\r\n\r\npublic class SQLTables {\r\n    private SQLiteDataSource myEnemyTable;\r\n    private Connection myConnection;\r\n    private Statement myStatement;\r\n    private String myQuery;\r\n    private int myReturnValue;\r\n    private ResultSet myResultSet;\r\n\r\n\r\n    public SQLTables() throws SQLException {\r\n        System.out.println(\"SQLTables constructor called\");\r\n        createEnemyTable();\r\n        fillEnemyTable();\r\n    }\r\n\r\n    private void createEnemyTable() {\r\n        this.myEnemyTable = new SQLiteDataSource();\r\n\r\n        this.myQuery = \"CREATE TABLE IF NOT EXISTS enemyDB (\" +\r\n                \"NAME TEXT NOT NULL,\" +\r\n                \"HP TEXT NOT NULL,\" +\r\n                \"ATTACKSPEED TEXT NOT NULL,\" +\r\n                \"MINATTACK TEXT NOT NULL,\" +\r\n                \"MAXATTACK TEXT NOT NULL,\" +\r\n                \"HITCHANCE TEXT NOT NULL,\" +\r\n                \"DODGECHANCE TEXT NOT NULL,\" +\r\n                \"SPECIALCHANCE TEXT NOT NULL);\";\r\n\r\n        try {\r\n            this.myConnection =  myEnemyTable.getConnection();\r\n            this.myStatement = myConnection.createStatement();\r\n            myReturnValue = myStatement.executeUpdate(myQuery);\r\n            System.out.println(\"executeUpdate() returned \" + myReturnValue);\r\n        } catch (SQLException e) {\r\n            System.out.println(\"Error creating enemy table\");\r\n            System.exit(0);\r\n        }\r\n        System.out.println(\"Enemy table created successfully!\");\r\n\r\n    }\r\n\r\n    private void fillEnemyTable() {\r\n\r\n        this.myQuery = \"INSERT INTO enemyDB \" +\r\n                \"('NAME','HP','ATTACKSPEED','MINATTACK','MAXATTACK','HITCHANCE','DODGECHANCE','SPECIALCHANCE') VALUES\" +\r\n                \"('Boat Kevin', '40', '4', '10', '20', '0.80','0.20', '0.05'),\" +\r\n                \"('Eli', '100', '11', '20', '30', '0.40','0.20', '0.20'),\" +\r\n                \"('Nikolai', '100', '11', '20', '30', '0.40','0.20', '0.20'),\" +\r\n                \"('SadBoySea', '40', '4', '10', '20', '0.8','0.2', '0.05');\";\r\n\r\n        try {\r\n            myReturnValue = myStatement.executeUpdate(myQuery);\r\n            System.out.println(\"executeUpdate() returned \" + myReturnValue);\r\n        } catch (SQLException e) {\r\n            System.out.println(\"Error filling values into enemy table\");\r\n            System.out.println(e.getMessage());\r\n            System.exit(0);\r\n        }\r\n        System.out.println(\"Values filled into enemy table successfully!\");\r\n    }\r\n\r\n    public String extractBoatKevinData(){\r\n        String result = \"\";\r\n        this.myQuery = \"SELECT * FROM enemyDB LIMIT 1 OFFSET 0\";\r\n        try {\r\n            this.myResultSet = this.myStatement.executeQuery(this.myQuery);\r\n            while (this.myResultSet.next()) {\r\n                result += this.myResultSet.getString(\"NAME\") + \"\\n\";\r\n                result += this.myResultSet.getString(\"HP\") + \"\\n\";\r\n                result += this.myResultSet.getString(\"ATTACKSPEED\") + \"\\n\";\r\n                result += this.myResultSet.getString(\"MINATTACK\") + \"\\n\";\r\n                result += this.myResultSet.getString(\"MAXATTACK\") + \"\\n\";\r\n                result += this.myResultSet.getString(\"HITCHANCE\") + \"\\n\";\r\n                result += this.myResultSet.getString(\"DODGECHANCE\") + \"\\n\";\r\n                result += this.myResultSet.getString(\"SPECIALCHANCE\") + \"\\n\";\r\n            }\r\n        } catch (SQLException e) {\r\n            System.out.println(\"Error extracting Boat Kevin data\");\r\n            System.exit(0);\r\n        }\r\n        return result;\r\n    }\r\n\r\n    public String extractEliData(){\r\n        String result = \"\";\r\n        this.myQuery = \"SELECT * FROM enemyDB LIMIT 1 OFFSET 1\";\r\n        try {\r\n            this.myResultSet = myStatement.executeQuery(myQuery);\r\n            while (myResultSet.next()) {\r\n                result += myResultSet.getString(\"NAME\") + \"\\n\";\r\n                result += myResultSet.getString(\"HP\") + \"\\n\";\r\n                result += myResultSet.getString(\"ATTACKSPEED\") + \"\\n\";\r\n                result += myResultSet.getString(\"MINATTACK\") + \"\\n\";\r\n                result += myResultSet.getString(\"MAXATTACK\") + \"\\n\";\r\n                result += myResultSet.getString(\"HITCHANCE\") + \"\\n\";\r\n                result += myResultSet.getString(\"DODGECHANCE\") + \"\\n\";\r\n                result += myResultSet.getString(\"SPECIALCHANCE\") + \"\\n\";\r\n            }\r\n        } catch (SQLException e) {\r\n            System.out.println(\"Error extracting Eli data\");\r\n            System.exit(0);\r\n        }\r\n        return result;\r\n    }\r\n    public String extractNikolaiData(){\r\n        String result = \"\";\r\n        this.myQuery = \"SELECT * FROM enemyDB LIMIT 1 OFFSET 2\";\r\n        try {\r\n            this.myResultSet = myStatement.executeQuery(myQuery);\r\n            while (myResultSet.next()) {\r\n                result += myResultSet.getString(\"NAME\") + \"\\n\";\r\n                result += myResultSet.getString(\"HP\") + \"\\n\";\r\n                result += myResultSet.getString(\"ATTACKSPEED\") + \"\\n\";\r\n                result += myResultSet.getString(\"MINATTACK\") + \"\\n\";\r\n                result += myResultSet.getString(\"MAXATTACK\") + \"\\n\";\r\n                result += myResultSet.getString(\"HITCHANCE\") + \"\\n\";\r\n                result += myResultSet.getString(\"DODGECHANCE\") + \"\\n\";\r\n                result += myResultSet.getString(\"SPECIALCHANCE\") + \"\\n\";\r\n            }\r\n        } catch (SQLException e) {\r\n            System.out.println(\"Error extracting Nikolai data\");\r\n            System.exit(0);\r\n        }\r\n        return result;\r\n    }\r\n    public String extractSadBoySeaData(){\r\n        String result = \"\";\r\n        this.myQuery = \"SELECT * FROM enemyDB LIMIT 1 OFFSET 3\";\r\n        try {\r\n            this.myResultSet = myStatement.executeQuery(myQuery);\r\n            while (myResultSet.next()) {\r\n                result += myResultSet.getString(\"NAME\") + \"\\n\";\r\n                result += myResultSet.getString(\"HP\") + \"\\n\";\r\n                result += myResultSet.getString(\"ATTACKSPEED\") + \"\\n\";\r\n                result += myResultSet.getString(\"MINATTACK\") + \"\\n\";\r\n                result += myResultSet.getString(\"MAXATTACK\") + \"\\n\";\r\n                result += myResultSet.getString(\"HITCHANCE\") + \"\\n\";\r\n                result += myResultSet.getString(\"DODGECHANCE\") + \"\\n\";\r\n                result += myResultSet.getString(\"SPECIALCHANCE\") + \"\\n\";\r\n            }\r\n        } catch (SQLException e) {\r\n            System.out.println(\"Error extracting SadBoySea data\");\r\n            System.exit(0);\r\n        }\r\n        return result;\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/SQL/SQLTables.java b/src/SQL/SQLTables.java
+--- a/src/SQL/SQLTables.java	(revision 25fc05705bcfa2b42e3fa943a03681b1e22d9d48)
++++ b/src/SQL/SQLTables.java	(date 1668813355425)
+@@ -52,10 +52,10 @@
+ 
+         this.myQuery = "INSERT INTO enemyDB " +
+                 "('NAME','HP','ATTACKSPEED','MINATTACK','MAXATTACK','HITCHANCE','DODGECHANCE','SPECIALCHANCE') VALUES" +
+-                "('Boat Kevin', '40', '4', '10', '20', '0.80','0.20', '0.05')," +
+-                "('Eli', '100', '11', '20', '30', '0.40','0.20', '0.20')," +
+-                "('Nikolai', '100', '11', '20', '30', '0.40','0.20', '0.20')," +
+-                "('SadBoySea', '40', '4', '10', '20', '0.8','0.2', '0.05');";
++                "('Boat Kevin', '40', '13', '10', '20', '0.80','0.20', '0.05')," +
++                "('Eli', '90', '12', '15', '20', '0.40','0.20', '0.20')," +
++                "('Nikolai', '110', '11', '20', '30', '0.40','0.20', '0.25')," +
++                "('SadBoySea', '300', '12', '10', '20', '0.8','0.2', '0.10');";
+ 
+         try {
+             myReturnValue = myStatement.executeUpdate(myQuery);
+@@ -65,7 +65,7 @@
+             System.out.println(e.getMessage());
+             System.exit(0);
+         }
+-        System.out.println("Values filled into enemy table successfully!");
++        System.out.println("Values filled into enemy table successfully!" + "\n");
+     }
+ 
+     public String extractBoatKevinData(){

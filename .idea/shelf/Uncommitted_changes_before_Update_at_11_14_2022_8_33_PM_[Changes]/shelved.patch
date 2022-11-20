@@ -1,0 +1,225 @@
+Index: src/Model/Battle.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package Model;\r\n\r\nimport Model.Enemy.*;\r\nimport Model.Hero.*;\r\n\r\nimport java.util.Random;\r\nimport java.util.Scanner;\r\n\r\npublic class Battle {\r\n    public static void main(String[] args) {\r\n        Scanner console = new Scanner(System.in);\r\n        gamePlay(console);\r\n    }\r\n\r\n    public static void gamePlay(Scanner theConsole) {\r\n        Hero hero = chooseHero(theConsole);\r\n        System.out.println(\"You have chosen \" + hero.getName() + \"!\");\r\n        Enemy enemy = chooseEnemy(theConsole);\r\n        System.out.println(\"You have chosen to fight \" + enemy.getName() + \"!\");\r\n        System.out.println();\r\n        battlePhase(hero, enemy, theConsole);\r\n        if (hero.getHealthPoints() <= 0) {\r\n            System.out.println(hero.getName() + \" has died!\");\r\n        } else {\r\n            System.out.println(enemy.getName() + \" has died!\");\r\n        }\r\n        System.out.println();\r\n        winner(hero, enemy);\r\n    }\r\n\r\n    public static Hero chooseHero(Scanner theConsole) {\r\n        System.out.println(\"Choose your hero!\");\r\n        System.out.println(\"1. Luffy\");\r\n        System.out.println(\"2. Zoro\");\r\n        System.out.println(\"3: Chopper\");\r\n        System.out.println(\"4: Nami\");\r\n        char choice = theConsole.next().charAt(0);\r\n        if (choice == '1') {\r\n            return new Luffy();\r\n        } else if (choice == '2') {\r\n            return new Zoro();\r\n        } else if (choice == '3') {\r\n            return new Chopper();\r\n        } else if (choice == '4') {\r\n            return new Nami();\r\n        } else {\r\n            System.out.println(\"Invalid choice!\");\r\n            System.out.println();\r\n            return chooseHero(theConsole);\r\n        }\r\n    }\r\n    public static Enemy chooseEnemy(Scanner theConsole){\r\n        System.out.println(\"Choose your enemy!\");\r\n        System.out.println(\"1. BoatKevin\");\r\n        System.out.println(\"2. SadBoySea\");\r\n        System.out.println(\"3: Nikolai\");\r\n        System.out.println(\"4: Eli\");\r\n        System.out.println(\"5: Random\");\r\n        char choice = theConsole.next().charAt(0);\r\n        if (choice == '1'){\r\n            return new BoatKevin();\r\n        }else if (choice == '2') {\r\n            return new SadBoySea();\r\n        }else if (choice == '3'){\r\n            return new Nikolai();\r\n        }else if (choice == '4'){\r\n            return new Eli();\r\n        }else if (choice == '5'){\r\n            Random random = new Random();\r\n            int randomChoice = random.nextInt(4);\r\n            if (randomChoice == 0) {\r\n                return new BoatKevin();\r\n            } else if (randomChoice == 1) {\r\n                return new SadBoySea();\r\n            } else if (randomChoice == 2) {\r\n                return new Nikolai();\r\n            } else {\r\n                return new Eli();\r\n            }\r\n        } else {\r\n            System.out.println(\"Invalid choice!\");\r\n            System.out.println();\r\n            return chooseEnemy(theConsole);\r\n        }\r\n    }\r\n\r\n    public static void battlePhase(Hero theHero, Enemy theEnemy, Scanner theConsole) {\r\n        boolean heroTurn;\r\n        if (theHero.getAttackSpeed() >= theEnemy.getAttackSpeed()) {\r\n            heroTurn = true;\r\n        } else {\r\n            heroTurn = false;\r\n        }\r\n        char choice = getChoice(theConsole);\r\n        if (heroTurn) {\r\n            heroTurn(choice, theHero, theEnemy);\r\n            System.out.println();\r\n            heroTurn = false;\r\n        } else if (!heroTurn) {\r\n            enemyTurn(theHero, theEnemy);\r\n            System.out.println();\r\n            heroTurn = true;\r\n        }\r\n        System.out.println(theHero.getName() + \" : \" + theHero.getHealthPoints());\r\n        System.out.println(theEnemy.getName() + \" : \" + theEnemy.getHealthPoints());\r\n        System.out.println();\r\n        if (theHero.getHealthPoints() > 0 && theEnemy.getHealthPoints() > 0) {\r\n            battlePhase(theHero, theEnemy, theConsole);\r\n        }\r\n    }\r\n\r\n    public static char getChoice(Scanner theConsole) {\r\n        System.out.println(\"What would you like to do?\");\r\n        System.out.println(\"j. Attack\");\r\n        System.out.println(\"k. Special Attack\");\r\n        System.out.println(\"p. Use Senzu Bean\");\r\n        System.out.println(\"o. Use power power fruit\");\r\n        System.out.println(\"l. Use speed speed fruit\");\r\n        char choice = theConsole.next().charAt(0);\r\n        if (choice != 'j' && choice != 'k' && choice != 'p' && choice != 'o' && choice != 'l') {\r\n            System.out.println(\"Invalid choice!\");\r\n            System.out.println();\r\n            getChoice(theConsole);\r\n        }\r\n        return choice;\r\n    }\r\n\r\n    public static void heroTurn(char theChoice, Hero theHero, Enemy theEnemy) {\r\n        switch (theChoice) {\r\n            case 'j':\r\n                theHero.attack(theEnemy);\r\n                break;\r\n            case 'k':\r\n                theHero.specialAttack(theEnemy);\r\n                break;\r\n            case 'p':\r\n                theHero.useSenzuBean();\r\n                break;\r\n            case 'o':\r\n                theHero.usePowerPowerFruit();\r\n                break;\r\n            case 'l':\r\n                theHero.useSpeedSpeedFruit();\r\n                break;\r\n        }\r\n    }\r\n\r\n    public static void enemyTurn(Hero hero, Enemy enemy){\r\n        Random chance = new Random();\r\n        if (chance.nextFloat() <= enemy.getSpecialChance()) {\r\n            enemy.specialAttack(hero);\r\n        } else {\r\n            enemy.attack(hero);\r\n        }\r\n    }\r\n\r\n    public static void winner(Hero theHero, Enemy theEnemy) {\r\n        if (theEnemy.getHealthPoints() <= 0) {\r\n            System.out.println(\"Victory\");\r\n        }\r\n        if (theHero.getHealthPoints() <= 0) {\r\n            System.out.println(\"Game Over\");\r\n        }\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/Model/Battle.java b/src/Model/Battle.java
+--- a/src/Model/Battle.java	(revision 95c5e66d731a202af81fb2505845bc54338bfb14)
++++ b/src/Model/Battle.java	(date 1668465532532)
+@@ -18,7 +18,9 @@
+         Enemy enemy = chooseEnemy(theConsole);
+         System.out.println("You have chosen to fight " + enemy.getName() + "!");
+         System.out.println();
+-        battlePhase(hero, enemy, theConsole);
++        while(hero.getHealthPoints() > 0 && enemy.getHealthPoints() > 0) {
++            battlePhase(hero, enemy, theConsole);
++        }
+         if (hero.getHealthPoints() <= 0) {
+             System.out.println(hero.getName() + " has died!");
+         } else {
+@@ -85,28 +87,21 @@
+     }
+ 
+     public static void battlePhase(Hero theHero, Enemy theEnemy, Scanner theConsole) {
+-        boolean heroTurn;
++        char choice = getChoice(theConsole);
+         if (theHero.getAttackSpeed() >= theEnemy.getAttackSpeed()) {
+-            heroTurn = true;
++            heroTurn(choice, theHero, theEnemy);
++            System.out.println();
++            theEnemy.attack(theHero);
++            System.out.println();
+         } else {
+-            heroTurn = false;
+-        }
+-        char choice = getChoice(theConsole);
+-        if (heroTurn) {
++            theEnemy.attack(theHero);
++            System.out.println();
+             heroTurn(choice, theHero, theEnemy);
+             System.out.println();
+-            heroTurn = false;
+-        } else if (!heroTurn) {
+-            enemyTurn(theHero, theEnemy);
+-            System.out.println();
+-            heroTurn = true;
+         }
+         System.out.println(theHero.getName() + " : " + theHero.getHealthPoints());
+         System.out.println(theEnemy.getName() + " : " + theEnemy.getHealthPoints());
+         System.out.println();
+-        if (theHero.getHealthPoints() > 0 && theEnemy.getHealthPoints() > 0) {
+-            battlePhase(theHero, theEnemy, theConsole);
+-        }
+     }
+ 
+     public static char getChoice(Scanner theConsole) {
+Index: src/Model/Hero/Hero.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package Model.Hero;\r\n\r\nimport Controller.InputControls;\r\nimport Model.MazeCharacter;\r\n\r\nimport java.awt.*;\r\nimport java.awt.image.BufferedImage;\r\n\r\npublic abstract class Hero extends MazeCharacter {\r\n    private int mySenzuBean;\r\n    private int myPowerPowerFruit;\r\n    private int mySpeedSpeedFruit;\r\n    private int myTorch;\r\n    private int myOriginalHealthPoints;\r\n    private int myMoveSpeed;\r\n    private final InputControls inputCon = new InputControls();\r\n    private int myX = 100;\r\n    private int myY = 100;\r\n\r\n    private BufferedImage myUpIm1, myUpIm2, myDownIm1, myDownIm2, myLeftIm1, myLeftIm2, myRightIm1, myRightIm2;\r\n    private String myDirection = \"down\";\r\n\r\n\r\n    public Hero(String theName, int theHealthPoints, int theAttackSpeed, int theMinDamage,\r\n                int theMaxDamage, double theHitChance, double theDodgeChance, double theSpecialChance, int theMoveSpeed) {\r\n        super(theName, theHealthPoints, theAttackSpeed, theMinDamage, theMaxDamage,\r\n                theHitChance, theDodgeChance, theSpecialChance);\r\n        this.myOriginalHealthPoints = theHealthPoints;\r\n        mySenzuBean = 2;\r\n        myPowerPowerFruit = 2;\r\n        mySpeedSpeedFruit = 3;\r\n        myTorch = 0;\r\n        setMoveSpeed(theMoveSpeed);\r\n    }\r\n\r\n    protected int getSenzuBean() {\r\n        return mySenzuBean;\r\n    }\r\n\r\n    protected int getPowerPowerFruit() {\r\n        return myPowerPowerFruit;\r\n    }\r\n\r\n    protected int getSpeedSpeedFruit() {\r\n        return mySpeedSpeedFruit;\r\n    }\r\n\r\n    protected int getTorch() {\r\n        return myTorch;\r\n    }\r\n\r\n    protected int getOriginalHealthPoints() {\r\n        return myOriginalHealthPoints;\r\n    }\r\n\r\n    public int getMoveSpeed() {\r\n        return myMoveSpeed;\r\n    }\r\n\r\n    protected void setSenzuBean(int theSenzuBean) {\r\n        mySenzuBean = theSenzuBean;\r\n    }\r\n\r\n    protected void setPowerPowerFruit(int thePowerPowerFruit) {\r\n        myPowerPowerFruit = thePowerPowerFruit;\r\n    }\r\n\r\n    protected void setSpeedSpeedFruit(int theSpeedSpeedFruit) {\r\n        mySpeedSpeedFruit = theSpeedSpeedFruit;\r\n    }\r\n\r\n    protected void setMyTorch(int theTorch) {\r\n        myTorch = theTorch;\r\n    }\r\n\r\n    protected void setMoveSpeed(int theMoveSpeed) {\r\n        myMoveSpeed = theMoveSpeed;\r\n    }\r\n\r\n    protected void addSenzuBean() {\r\n        mySenzuBean++;\r\n        setSenzuBean(mySenzuBean);\r\n    }\r\n\r\n    protected void addPowerPowerFruit() {\r\n        myPowerPowerFruit++;\r\n        setPowerPowerFruit(myPowerPowerFruit);\r\n    }\r\n\r\n    protected void addSpeedSpeedFruit() {\r\n        mySpeedSpeedFruit++;\r\n        setSpeedSpeedFruit(mySpeedSpeedFruit);\r\n    }\r\n\r\n    public void useSenzuBean() {\r\n        if (getSenzuBean() > 0) {\r\n            if (getHealthPoints() == getOriginalHealthPoints()) {\r\n                System.out.println(\"You are already at full health!\");\r\n            } else {\r\n                mySenzuBean--;\r\n                setSenzuBean(mySenzuBean);\r\n                if (getHealthPoints() + 20 > getOriginalHealthPoints()) {\r\n                    setHealthPoints(getOriginalHealthPoints());\r\n                } else {\r\n                    setHealthPoints(getHealthPoints() + 20);\r\n                }\r\n                System.out.println(getName() + \" used a senzu bean and gained 10 health!\");\r\n                System.out.println(getName() + \" now has \" + getHealthPoints() + \" health!\");\r\n            }\r\n        } else {\r\n            System.out.println(getName() + \" has no senzu beans left!\");\r\n        }\r\n    }\r\n\r\n    public void usePowerPowerFruit() {\r\n        if (getPowerPowerFruit() > 0) {\r\n            myPowerPowerFruit--;\r\n            setPowerPowerFruit(myPowerPowerFruit);\r\n            setMinDamage(getMinDamage() + 10);\r\n            setMaxDamage(getMaxDamage() + 10);\r\n            System.out.println(getName() + \" used a power power fruit and gained 10 attack!\");\r\n            System.out.println(getName() + \" now has \" + getMinDamage() + \" min damage and \" + getMaxDamage() +\r\n                    \" max damage attack!\");\r\n        } else {\r\n            System.out.println(getName() + \" has no power power fruits left!\");\r\n        }\r\n    }\r\n\r\n    public void useSpeedSpeedFruit() {\r\n        if (getSpeedSpeedFruit() > 0) {\r\n            mySpeedSpeedFruit--;\r\n            setSpeedSpeedFruit(mySpeedSpeedFruit);\r\n            setAttackSpeed(getAttackSpeed() + 1);\r\n            System.out.println(getName() + \" used a speed speed fruit and gained 1 speed!\");\r\n            System.out.println(getName() + \" now has \" + getAttackSpeed() + \" speed!\");\r\n        } else {\r\n            System.out.println(getName() + \" has no speed speed fruits left!\");\r\n        }\r\n    }\r\n\r\n    public void useTorch() {\r\n    }\r\n\r\n    //controls\r\n    public void update() {\r\n\r\n        if (inputCon.getUp()) {\r\n            myDirection = \"up\";\r\n            myY -= myMoveSpeed;\r\n\r\n        } else if (inputCon.getDown()) {\r\n            myDirection = \"down\";\r\n            myY += myMoveSpeed;\r\n        }\r\n\r\n        if (inputCon.getLeft()) {\r\n            myDirection = \"left\";\r\n            myX -= myMoveSpeed;\r\n        } else if (inputCon.getRight()) {\r\n            myDirection = \"right\";\r\n            myX += myMoveSpeed;\r\n        }\r\n\r\n    }\r\n\r\n    public void draw(Graphics2D g){\r\n        BufferedImage image = switch (myDirection) {\r\n            case \"up\" -> myUpIm1;\r\n            case \"down\" -> myDownIm1;\r\n            case \"left\" -> myLeftIm1;\r\n            case \"right\" -> myRightIm1;\r\n            default -> null;\r\n        };\r\n\r\n        /*try  {\r\n           image = ImageIO.read(getClass().getResourceAsStream(\"../../View/Sprites/unknown.png\"));\r\n        } catch (IOException e){\r\n            e.printStackTrace();\r\n        }*/\r\n        g.drawImage(image , myX, myY, 128, 128, null);\r\n\r\n    }\r\n\r\n\r\n    public int getX(){return myX;}\r\n    public int getY(){return myY;}\r\n\r\n    public void setMyDownIm1(BufferedImage myDownIm1) {\r\n        this.myDownIm1 = myDownIm1;\r\n    }\r\n    public void setMyDownIm2(BufferedImage myDownIm2) {\r\n        this.myDownIm2 = myDownIm2;\r\n    }\r\n\r\n    public void setMyLeftIm1(BufferedImage myLeftIm1) {\r\n        this.myLeftIm1 = myLeftIm1;\r\n    }\r\n\r\n    public void setMyLeftIm2(BufferedImage myLeftIm2) {\r\n        this.myLeftIm2 = myLeftIm2;\r\n    }\r\n\r\n    public void setMyRightIm1(BufferedImage myRightIm1) {\r\n        this.myRightIm1 = myRightIm1;\r\n    }\r\n\r\n    public void setMyRightIm2(BufferedImage myRightIm2) {\r\n        this.myRightIm2 = myRightIm2;\r\n    }\r\n\r\n    public void setMyUpIm1(BufferedImage myUpIm1) {\r\n        this.myUpIm1 = myUpIm1;\r\n    }\r\n\r\n    public void setMyUpIm2(BufferedImage myUpIm2) {\r\n        this.myUpIm2 = myUpIm2;\r\n    }\r\n}\r\n\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/Model/Hero/Hero.java b/src/Model/Hero/Hero.java
+--- a/src/Model/Hero/Hero.java	(revision 95c5e66d731a202af81fb2505845bc54338bfb14)
++++ b/src/Model/Hero/Hero.java	(date 1668464776845)
+@@ -25,11 +25,12 @@
+                 int theMaxDamage, double theHitChance, double theDodgeChance, double theSpecialChance, int theMoveSpeed) {
+         super(theName, theHealthPoints, theAttackSpeed, theMinDamage, theMaxDamage,
+                 theHitChance, theDodgeChance, theSpecialChance);
+-        this.myOriginalHealthPoints = theHealthPoints;
+-        mySenzuBean = 2;
+-        myPowerPowerFruit = 2;
+-        mySpeedSpeedFruit = 3;
+-        myTorch = 0;
++
++        setSenzuBean(2);
++        setPowerPowerFruit(2);
++        setSpeedSpeedFruit(2);
++        setTorch(0);
++        setOriginalHealthPoints(theHealthPoints);
+         setMoveSpeed(theMoveSpeed);
+     }
+ 
+@@ -69,9 +70,12 @@
+         mySpeedSpeedFruit = theSpeedSpeedFruit;
+     }
+ 
+-    protected void setMyTorch(int theTorch) {
++    protected void setTorch(int theTorch) {
+         myTorch = theTorch;
+     }
++    protected void setOriginalHealthPoints(int theHealthPoints){
++        myOriginalHealthPoints = theHealthPoints;
++    }
+ 
+     protected void setMoveSpeed(int theMoveSpeed) {
+         myMoveSpeed = theMoveSpeed;
+Index: src/SQL/SQLTables.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package SQL;\r\n\r\nimport org.sqlite.SQLiteDataSource;\r\n\r\nimport java.sql.Connection;\r\nimport java.sql.ResultSet;\r\nimport java.sql.SQLException;\r\nimport java.sql.Statement;\r\n\r\npublic class SQLTables {\r\n    private SQLiteDataSource myEnemyTable;\r\n    private SQLiteDataSource myHeroTable;\r\n    private Connection myConnection;\r\n    private Statement myStatement;\r\n    private ResultSet myResultSet;\r\n    private String myQuery;\r\n    private int myReturnValue;\r\n\r\n    /**\r\n     * Constructor for objects of class SQLTables\r\n     * @throws SQLException if there is an error with the SQL construction\r\n     */\r\n    public SQLTables() throws SQLException {\r\n        createEnemyTable();\r\n        fillEnemyTable();\r\n        createHeroTable();\r\n        fillHeroTable();\r\n    }\r\n\r\n    private void createEnemyTable(){\r\n        this.myEnemyTable = new SQLiteDataSource();\r\n\r\n        this.myQuery = \"CREATE TABLE enemyDB (\" +\r\n                \"NAME NAME TEXT PRIMARY KEY,\" +\r\n                \"HP TEXT NOT NULL,\" +\r\n                \"ATTACKSPEED TEXT NOT NULL,\" +\r\n                \"MINATTACK TEXT NOT NULL,\" +\r\n                \"MAXATTACK TEXT NOT NULL,\" +\r\n                \"HITCHANCE TEXT NOT NULL,\" +\r\n                \"DODGECHANCE TEXT NOT NULL,\" +\r\n                \"SPECIALCHANCE TEXT NOT NULL);\";\r\n\r\n        try {\r\n            this.myConnection =  myEnemyTable.getConnection();\r\n            this.myStatement = myConnection.createStatement();\r\n            myReturnValue = myStatement.executeUpdate(myQuery);\r\n            System.out.println(\"executeUpdate() returned \" + myReturnValue);\r\n        } catch (SQLException e) {\r\n            System.out.println(\"Error creating enemy table\");\r\n            System.exit(0);\r\n        }\r\n        System.out.println(\"Enemy table created successfully!\");\r\n\r\n    }\r\n\r\n    private void fillEnemyTable(){\r\n        this.myQuery = \"INSERT INTO enemyDB (NAME, HP, ATTACKSPEED, MINATTACK, MAXATTACK, HITCHANCE, DODGECHANCE, SPECIALCHANCE)VALUES\" +\r\n                \" ('BoatKevin', '40', '4', '10', '20', '0.80','0.20', '0.05'); +\" +\r\n                \"('Eli', '100', '11', '20', '30', '0.40','0.20', '0.20'); +\" +\r\n                \"('Nikolai', '100', '11', '20', '30', '0.40','0.20', '0.20'); +\" +\r\n                \"('SadBoySea', '40', '4', '10', '20', '0.8','0.2', '0.05');\";\r\n        try {\r\n            this.myConnection = myEnemyTable.getConnection();\r\n            this.myStatement = myConnection.createStatement();\r\n            myReturnValue = myStatement.executeUpdate(myQuery);\r\n            System.out.println(\"executeUpdate() returned \" + myReturnValue);\r\n        } catch (SQLException e) {\r\n            System.out.println(\"Error filling enemy table\");\r\n            System.exit(0);\r\n        }\r\n        System.out.println(\"Enemy table filled successfully!\");\r\n    }\r\n\r\n    private void createHeroTable() {\r\n        this.myHeroTable = new SQLiteDataSource();\r\n\r\n        this.myQuery = \"CREATE TABLE heroDB (\" +\r\n                \"NAME NAME TEXT PRIMARY KEY,\" +\r\n                \"HP TEXT NOT NULL,\" +\r\n                \"ATTACKSPEED TEXT NOT NULL,\" +\r\n                \"MINATTACK TEXT NOT NULL,\" +\r\n                \"MAXATTACK TEXT NOT NULL,\" +\r\n                \"HITCHANCE TEXT NOT NULL,\" +\r\n                \"DODGECHANCE TEXT NOT NULL,\" +\r\n                \"SPECIALCHANCE TEXT NOT NULL,\" +\r\n                \"MOVESPEED TEXT NOT NULL);\";\r\n        try{\r\n            this.myConnection = myHeroTable.getConnection();\r\n            this.myStatement = myConnection.createStatement();\r\n            myReturnValue = myStatement.executeUpdate(myQuery);\r\n            System.out.println(\"executeUpdate() returned \" + myReturnValue);\r\n        } catch (SQLException e) {\r\n            System.out.println(\"Error creating hero table\");\r\n            System.exit(0);\r\n        }\r\n    }\r\n\r\n    private void fillHeroTable() {\r\n        this.myQuery = \"INSERT INTO heroDB (NAME, HP, ATTACKSPEED, MINATTACK, MAXATTACK, HITCHANCE, DODGECHANCE, SPECIALCHANCE, MOVESPEED)VALUES\" +\r\n                \" ('Luffy', '120', '10', '15', '25', '0.80','0.20', '0.20', '4'); +\" +\r\n                \"('Nami', '90', '10', '10', '20', '0.50','0.40', '0.20', '3'); +\" +\r\n                \"('Chopper', '100', '10', '10', '20', '0.50','0.30', '0.20', '3'); +\" +\r\n                \"('Zoro', '110', '8', '15', '25', '0.60','0.20', '0.40', '4');\";\r\n        try {\r\n            this.myConnection = myHeroTable.getConnection();\r\n            this.myStatement = myConnection.createStatement();\r\n            myReturnValue = myStatement.executeUpdate(myQuery);\r\n            System.out.println(\"executeUpdate() returned \" + myReturnValue);\r\n        } catch (SQLException e) {\r\n            System.out.println(\"Error filling hero table\");\r\n            System.exit(0);\r\n        }\r\n        System.out.println(\"Hero table filled successfully!\");\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/SQL/SQLTables.java b/src/SQL/SQLTables.java
+--- a/src/SQL/SQLTables.java	(revision 95c5e66d731a202af81fb2505845bc54338bfb14)
++++ b/src/SQL/SQLTables.java	(date 1668449850177)
+@@ -25,6 +25,7 @@
+         fillEnemyTable();
+         createHeroTable();
+         fillHeroTable();
++        createMazeTable();
+     }
+ 
+     private void createEnemyTable(){
+@@ -53,6 +54,25 @@
+ 
+     }
+ 
++    private void createMazeTable(){
++        this.myQuery = "CREATE TABLE mazeDB (" +
++                "Maze TEXT PRIMARY KEY," +
++                ");";
++        try{
++            this.myConnection =  myHeroTable.getConnection();
++            this.myStatement = myConnection.createStatement();
++            myReturnValue = myStatement.executeUpdate(myQuery);
++            System.out.println("executeUpdate() returned " + myReturnValue);
++        } catch (SQLException e) {
++            System.out.println("Error creating Maze table");
++            System.exit(0);
++        }
++    }
++
++    private void fillMazeTable(){
++
++    }
++
+     private void fillEnemyTable(){
+         this.myQuery = "INSERT INTO enemyDB (NAME, HP, ATTACKSPEED, MINATTACK, MAXATTACK, HITCHANCE, DODGECHANCE, SPECIALCHANCE)VALUES" +
+                 " ('BoatKevin', '40', '4', '10', '20', '0.80','0.20', '0.05'); +" +
+Index: .idea/misc.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"ProjectRootManager\" version=\"2\" languageLevel=\"JDK_18\" project-jdk-name=\"18 (2)\" project-jdk-type=\"JavaSDK\">\r\n    <output url=\"file://$PROJECT_DIR$/out\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/misc.xml b/.idea/misc.xml
+--- a/.idea/misc.xml	(revision 95c5e66d731a202af81fb2505845bc54338bfb14)
++++ b/.idea/misc.xml	(date 1668449850196)
+@@ -1,6 +1,6 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <project version="4">
+-  <component name="ProjectRootManager" version="2" languageLevel="JDK_18" project-jdk-name="18 (2)" project-jdk-type="JavaSDK">
++  <component name="ProjectRootManager" version="2" languageLevel="JDK_18" default="true" project-jdk-name="18" project-jdk-type="JavaSDK">
+     <output url="file://$PROJECT_DIR$/out" />
+   </component>
+ </project>
+\ No newline at end of file
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"e4fa422e-bbf5-4b7a-ad89-3212284be1af\" name=\"Changes\" comment=\"Filled in sqlite data tables and worked on the hero class.\">\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/dataSources/c30685d4-9f5c-46a2-a017-9fe398f31ca1.xml\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_10_2022_11_21_PM__Changes_.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_10_2022_11_21_PM__Changes_.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_12_2022_2_13_AM__Changes_.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_12_2022_2_13_AM__Changes_.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_6_2022_7_44_PM__Changes_.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_6_2022_7_44_PM__Changes_.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_7_2022_10_37_PM__Changes_.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_7_2022_10_37_PM__Changes_.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_7_2022_9_45_AM_[Changes]/shelved.patch\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_7_2022_9_45_AM__Changes_.xml\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/Model/Hero/Hero.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/Model/Hero/Hero.java\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"CodeStyleSettingsInfer\">\r\n    <option name=\"done\" value=\"true\" />\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"Class\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"MarkdownSettingsMigration\">\r\n    <option name=\"stateVersion\" value=\"1\" />\r\n  </component>\r\n  <component name=\"ProjectCodeStyleSettingsMigration\">\r\n    <option name=\"version\" value=\"2\" />\r\n  </component>\r\n  <component name=\"ProjectId\" id=\"2Gy4MZ6o4ITOQnDJbnGqEnU9zzO\" />\r\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\">\r\n    <ConfirmationsSetting value=\"2\" id=\"Add\" />\r\n  </component>\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"RecentsManager\">\r\n    <key name=\"CopyFile.RECENT_KEYS\">\r\n      <recent name=\"D:\\Documents\\Water7Maze\\src\\Music\" />\r\n    </key>\r\n    <key name=\"MoveFile.RECENT_KEYS\">\r\n      <recent name=\"D:\\Documents\\Water7Maze\\src\\Music\" />\r\n      <recent name=\"C:\\Users\\shepo\\IdeaProjects\\Water7Maze\" />\r\n      <recent name=\"D:\\Documents\\Water7Maze\" />\r\n    </key>\r\n  </component>\r\n  <component name=\"RunManager\" selected=\"Application.Main\">\r\n    <configuration name=\"Battle\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"Model.Battle\" />\r\n      <module name=\"Water7Maze\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"Model.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"Main\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"View.Main\" />\r\n      <module name=\"Water7Maze\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"View.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <recent_temporary>\r\n      <list>\r\n        <item itemvalue=\"Application.Main\" />\r\n        <item itemvalue=\"Application.Battle\" />\r\n      </list>\r\n    </recent_temporary>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"e4fa422e-bbf5-4b7a-ad89-3212284be1af\" name=\"Changes\" comment=\"\" />\r\n      <created>1667347447614</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1667347447614</updated>\r\n      <workItem from=\"1667347450027\" duration=\"329000\" />\r\n      <workItem from=\"1667625190074\" duration=\"166000\" />\r\n      <workItem from=\"1667763410040\" duration=\"11230000\" />\r\n      <workItem from=\"1667879006638\" duration=\"4695000\" />\r\n      <workItem from=\"1668372830643\" duration=\"15769000\" />\r\n    </task>\r\n    <task id=\"LOCAL-00001\" summary=\"New Project for TCSS 360\">\r\n      <created>1667347517038</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1667347517038</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00002\" summary=\"New Project for TCSS 360\">\r\n      <created>1667347659818</created>\r\n      <option name=\"number\" value=\"00002\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1667347659818</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00003\" summary=\"Added some more inputs as well some serialization for the load game class\">\r\n      <created>1667791994089</created>\r\n      <option name=\"number\" value=\"00003\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00003\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1667791994089</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00004\" summary=\"Deleted SaveGame and LoadGame and made a SaveManger and SaveState.\">\r\n      <created>1667797962004</created>\r\n      <option name=\"number\" value=\"00004\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00004\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1667797962004</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00005\" summary=\"Deleted SaveGame and LoadGame and made a SaveManger and SaveState.\">\r\n      <created>1667797993008</created>\r\n      <option name=\"number\" value=\"00005\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00005\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1667797993008</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00006\" summary=\"Deleted SaveGame and LoadGame and made a SaveManger and SaveState.\">\r\n      <created>1667801108167</created>\r\n      <option name=\"number\" value=\"00006\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00006\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1667801108167</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00007\" summary=\"Deleted SaveGame and LoadGame and made a SaveManger and SaveState.\">\r\n      <created>1667857259590</created>\r\n      <option name=\"number\" value=\"00007\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00007\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1667857259590</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00008\" summary=\"created sqltables\">\r\n      <created>1668016032873</created>\r\n      <option name=\"number\" value=\"00008\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00008\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1668016032873</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00009\" summary=\"created sqltables\">\r\n      <created>1668025888840</created>\r\n      <option name=\"number\" value=\"00009\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00009\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1668025888840</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00010\" summary=\"created sqltables\">\r\n      <created>1668026426531</created>\r\n      <option name=\"number\" value=\"00010\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00010\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1668026426531</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00011\" summary=\"created sqltables\">\r\n      <created>1668027340958</created>\r\n      <option name=\"number\" value=\"00011\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00011\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1668027340958</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00012\" summary=\"created sqltables\">\r\n      <created>1668027887995</created>\r\n      <option name=\"number\" value=\"00012\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00012\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1668027887995</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00013\" summary=\"created sqltables\">\r\n      <created>1668028110474</created>\r\n      <option name=\"number\" value=\"00013\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00013\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1668028110474</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00014\" summary=\"Moved player movement update and control to model\">\r\n      <created>1668049245594</created>\r\n      <option name=\"number\" value=\"00014\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00014\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1668049245594</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00015\" summary=\"Added images to player, moved draw method.\">\r\n      <created>1668124390482</created>\r\n      <option name=\"number\" value=\"00015\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00015\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1668124390482</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00016\" summary=\"Filled in sqlite data tables and worked on the hero class.\">\r\n      <created>1668248177393</created>\r\n      <option name=\"number\" value=\"00016\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00016\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1668248177393</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00017\" summary=\"Filled in sqlite data tables and worked on the hero class.\">\r\n      <created>1668248246306</created>\r\n      <option name=\"number\" value=\"00017\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00017\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1668248246306</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"18\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"TypeScriptGeneratedFilesManager\">\r\n    <option name=\"version\" value=\"3\" />\r\n  </component>\r\n  <component name=\"Vcs.Log.Tabs.Properties\">\r\n    <option name=\"TAB_STATES\">\r\n      <map>\r\n        <entry key=\"MAIN\">\r\n          <value>\r\n            <State />\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <option name=\"ADD_EXTERNAL_FILES_SILENTLY\" value=\"true\" />\r\n    <MESSAGE value=\"New Project for TCSS 360\" />\r\n    <MESSAGE value=\"Added some more inputs as well some serialization for the load game class\" />\r\n    <MESSAGE value=\"Deleted SaveGame and LoadGame and made a SaveManger and SaveState.\" />\r\n    <MESSAGE value=\"created sqltables\" />\r\n    <MESSAGE value=\"Moved player movement update and control to model\" />\r\n    <MESSAGE value=\"Added images to player, moved draw method.\" />\r\n    <MESSAGE value=\"Filled in sqlite data tables and worked on the hero class.\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"Filled in sqlite data tables and worked on the hero class.\" />\r\n  </component>\r\n  <component name=\"XDebuggerManager\">\r\n    <breakpoint-manager>\r\n      <breakpoints>\r\n        <line-breakpoint enabled=\"true\" type=\"java-method\">\r\n          <url>file://$PROJECT_DIR$/src/Model/Battle.java</url>\r\n          <line>28</line>\r\n          <properties class=\"Model.Battle\">\r\n            <option name=\"EMULATED\" value=\"true\" />\r\n            <option name=\"WATCH_EXIT\" value=\"false\" />\r\n          </properties>\r\n          <option name=\"timeStamp\" value=\"1\" />\r\n        </line-breakpoint>\r\n      </breakpoints>\r\n    </breakpoint-manager>\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision 95c5e66d731a202af81fb2505845bc54338bfb14)
++++ b/.idea/workspace.xml	(date 1668465533034)
+@@ -1,16 +1,16 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <project version="4">
+   <component name="ChangeListManager">
+-    <list default="true" id="e4fa422e-bbf5-4b7a-ad89-3212284be1af" name="Changes" comment="Filled in sqlite data tables and worked on the hero class.">
+-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/c30685d4-9f5c-46a2-a017-9fe398f31ca1.xml" beforeDir="false" />
++    <list default="true" id="e4fa422e-bbf5-4b7a-ad89-3212284be1af" name="Changes" comment="Added SQLite jar">
++      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_10_2022_11_21_PM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_10_2022_11_21_PM__Changes_.xml" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_12_2022_2_13_AM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_12_2022_2_13_AM__Changes_.xml" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_6_2022_7_44_PM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_6_2022_7_44_PM__Changes_.xml" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_7_2022_10_37_PM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_7_2022_10_37_PM__Changes_.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_7_2022_9_45_AM_[Changes]/shelved.patch" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_7_2022_9_45_AM__Changes_.xml" beforeDir="false" />
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/Model/Battle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Battle.java" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/src/Model/Hero/Hero.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Hero/Hero.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/SQL/SQLTables.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SQL/SQLTables.java" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -44,6 +44,13 @@
+     <option name="hideEmptyMiddlePackages" value="true" />
+     <option name="showLibraryContents" value="true" />
+   </component>
++  <component name="PropertiesComponent"><![CDATA[{
++  "keyToString": {
++    "project.structure.last.edited": "Project",
++    "project.structure.proportion": "0.15",
++    "project.structure.side.proportion": "0.2"
++  }
++}]]></component>
+   <component name="RecentsManager">
+     <key name="CopyFile.RECENT_KEYS">
+       <recent name="D:\Documents\Water7Maze\src\Music" />
+@@ -54,7 +61,7 @@
+       <recent name="D:\Documents\Water7Maze" />
+     </key>
+   </component>
+-  <component name="RunManager" selected="Application.Main">
++  <component name="RunManager">
+     <configuration name="Battle" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+       <option name="MAIN_CLASS_NAME" value="Model.Battle" />
+       <module name="Water7Maze" />
+@@ -254,7 +261,7 @@
+       <breakpoints>
+         <line-breakpoint enabled="true" type="java-method">
+           <url>file://$PROJECT_DIR$/src/Model/Battle.java</url>
+-          <line>28</line>
++          <line>30</line>
+           <properties class="Model.Battle">
+             <option name="EMULATED" value="true" />
+             <option name="WATCH_EXIT" value="false" />
