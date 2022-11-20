@@ -6,8 +6,6 @@ import Model.Hero.*;
 import java.util.Random;
 import java.util.Scanner;
 
-import static Model.Enemy.EnemyFactory.chosenEnemy;
-
 public class Battle {
     public static void main(String[] args) {
         Scanner console = new Scanner(System.in);
@@ -16,10 +14,9 @@ public class Battle {
 
     public static void gamePlay(Scanner theConsole) {
         Hero hero = chooseHero(theConsole);
-        System.out.println("You have chosen " + hero.getName() + "!");
+        System.out.println("You have chosen " + hero.getName() + "!" + "\n");
         Enemy enemy = chooseEnemy(theConsole);
-        System.out.println("You have chosen to fight " + enemy.getName() + "!");
-        System.out.println();
+        System.out.println("You have chosen to fight " + enemy.getName() + "!" + "\n");
         while(hero.getHealthPoints() > 0 && enemy.getHealthPoints() > 0) {
             battlePhase(hero, enemy, theConsole);
         }
@@ -54,9 +51,18 @@ public class Battle {
     }
     public static Enemy chooseEnemy(Scanner theConsole){
         System.out.println("Choose your enemy!");
+        System.out.println("1. Boat Kevin");
+        System.out.println("2. Eli");
+        System.out.println("3. Nikolai");
+        System.out.println("4: SadBoySea");
+        System.out.println("5: Random");
         char choice = theConsole.next().charAt(0);
         EnemyFactory.getInstance();
-        return  chosenEnemy(choice);
+        if(choice == '5'){
+            return EnemyFactory.chooseEnemy();
+        } else{
+            return EnemyFactory.chosenEnemy(choice);
+        }
     }
 
     public static void battlePhase(Hero theHero, Enemy theEnemy, Scanner theConsole) {
@@ -64,17 +70,16 @@ public class Battle {
         if (theHero.getAttackSpeed() >= theEnemy.getAttackSpeed()) {
             heroTurn(choice, theHero, theEnemy);
             System.out.println();
-            theEnemy.attack(theHero);
+            enemyTurn(theHero, theEnemy);
             System.out.println();
         } else {
-            theEnemy.attack(theHero);
+            enemyTurn(theHero, theEnemy);
             System.out.println();
             heroTurn(choice, theHero, theEnemy);
             System.out.println();
         }
         System.out.println(theHero.getName() + " : " + theHero.getHealthPoints());
-        System.out.println(theEnemy.getName() + " : " + theEnemy.getHealthPoints());
-        System.out.println();
+        System.out.println(theEnemy.getName() + " : " + theEnemy.getHealthPoints() + "\n");
     }
 
     public static char getChoice(Scanner theConsole) {
@@ -86,8 +91,7 @@ public class Battle {
         System.out.println("l. Use speed speed fruit");
         char choice = theConsole.next().charAt(0);
         if (choice != 'j' && choice != 'k' && choice != 'p' && choice != 'o' && choice != 'l') {
-            System.out.println("Invalid choice!");
-            System.out.println();
+            System.out.println("Invalid choice!" + "\n");
             getChoice(theConsole);
         }
         return choice;

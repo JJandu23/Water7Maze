@@ -52,10 +52,10 @@ public class SQLTables {
 
         this.myQuery = "INSERT INTO enemyDB " +
                 "('NAME','HP','ATTACKSPEED','MINATTACK','MAXATTACK','HITCHANCE','DODGECHANCE','SPECIALCHANCE') VALUES" +
-                "('Boat Kevin', '40', '4', '10', '20', '0.80','0.20', '0.05')," +
-                "('Eli', '100', '11', '20', '30', '0.40','0.20', '0.20')," +
-                "('Nikolai', '100', '11', '20', '30', '0.40','0.20', '0.20')," +
-                "('SadBoySea', '40', '4', '10', '20', '0.8','0.2', '0.05');";
+                "('Boat Kevin', '40', '13', '10', '20', '0.80','0.20', '0.05')," +
+                "('Eli', '90', '12', '15', '20', '0.40','0.20', '0.20')," +
+                "('Nikolai', '110', '11', '20', '30', '0.40','0.20', '0.25')," +
+                "('SadBoySea', '300', '12', '10', '20', '0.8','0.2', '0.10');";
 
         try {
             myReturnValue = myStatement.executeUpdate(myQuery);
@@ -65,7 +65,7 @@ public class SQLTables {
             System.out.println(e.getMessage());
             System.exit(0);
         }
-        System.out.println("Values filled into enemy table successfully!");
+        System.out.println("Values filled into enemy table successfully!" + "\n");
     }
 
     public String extractBoatKevinData() {

@@ -16,6 +16,7 @@
     </data-source>
     <data-source name="EnemyDB" uuid="3142b134-89e1-48df-a52e-a9921c218f94">
       <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" dbms="SQLITE" exact-version="0" />
+      <auth-provider>no-auth</auth-provider>
       <schema-mapping />
     </data-source>
   </component>
