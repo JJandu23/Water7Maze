@@ -69,90 +69,90 @@ public class SQLTables {
     }
 
     public String extractBoatKevinData() {
-        String result = "";
+        String Data = "";
         this.myQuery = "SELECT * FROM enemyDB LIMIT 1 OFFSET 0";
         try {
             this.myResultSet = this.myStatement.executeQuery(this.myQuery);
             while (this.myResultSet.next()) {
-                result += this.myResultSet.getString("NAME") + "\n";
-                result += this.myResultSet.getString("HP") + "\n";
-                result += this.myResultSet.getString("ATTACKSPEED") + "\n";
-                result += this.myResultSet.getString("MINATTACK") + "\n";
-                result += this.myResultSet.getString("MAXATTACK") + "\n";
-                result += this.myResultSet.getString("HITCHANCE") + "\n";
-                result += this.myResultSet.getString("DODGECHANCE") + "\n";
-                result += this.myResultSet.getString("SPECIALCHANCE") + "\n";
+                Data += this.myResultSet.getString("NAME") + "\n";
+                Data += this.myResultSet.getString("HP") + "\n";
+                Data += this.myResultSet.getString("ATTACKSPEED") + "\n";
+                Data += this.myResultSet.getString("MINATTACK") + "\n";
+                Data += this.myResultSet.getString("MAXATTACK") + "\n";
+                Data += this.myResultSet.getString("HITCHANCE") + "\n";
+                Data += this.myResultSet.getString("DODGECHANCE") + "\n";
+                Data += this.myResultSet.getString("SPECIALCHANCE") + "\n";
             }
         } catch (SQLException e) {
             System.out.println("Error extracting Boat Kevin data");
             System.exit(0);
         }
-        return result;
+        return Data;
     }
 
     public String extractEliData() {
-        String result = "";
+        String data = "";
         this.myQuery = "SELECT * FROM enemyDB LIMIT 1 OFFSET 1";
         try {
             this.myResultSet = myStatement.executeQuery(myQuery);
             while (myResultSet.next()) {
-                result += myResultSet.getString("NAME") + "\n";
-                result += myResultSet.getString("HP") + "\n";
-                result += myResultSet.getString("ATTACKSPEED") + "\n";
-                result += myResultSet.getString("MINATTACK") + "\n";
-                result += myResultSet.getString("MAXATTACK") + "\n";
-                result += myResultSet.getString("HITCHANCE") + "\n";
-                result += myResultSet.getString("DODGECHANCE") + "\n";
-                result += myResultSet.getString("SPECIALCHANCE") + "\n";
+                data += myResultSet.getString("NAME") + "\n";
+                data += myResultSet.getString("HP") + "\n";
+                data += myResultSet.getString("ATTACKSPEED") + "\n";
+                data += myResultSet.getString("MINATTACK") + "\n";
+                data += myResultSet.getString("MAXATTACK") + "\n";
+                data += myResultSet.getString("HITCHANCE") + "\n";
+                data += myResultSet.getString("DODGECHANCE") + "\n";
+                data += myResultSet.getString("SPECIALCHANCE") + "\n";
             }
         } catch (SQLException e) {
             System.out.println("Error extracting Eli data");
             System.exit(0);
         }
-        return result;
+        return data;
     }
 
     public String extractNikolaiData() {
-        String result = "";
+        String data = "";
         this.myQuery = "SELECT * FROM enemyDB LIMIT 1 OFFSET 2";
         try {
             this.myResultSet = myStatement.executeQuery(myQuery);
             while (myResultSet.next()) {
-                result += myResultSet.getString("NAME") + "\n";
-                result += myResultSet.getString("HP") + "\n";
-                result += myResultSet.getString("ATTACKSPEED") + "\n";
-                result += myResultSet.getString("MINATTACK") + "\n";
-                result += myResultSet.getString("MAXATTACK") + "\n";
-                result += myResultSet.getString("HITCHANCE") + "\n";
-                result += myResultSet.getString("DODGECHANCE") + "\n";
-                result += myResultSet.getString("SPECIALCHANCE") + "\n";
+                data += myResultSet.getString("NAME") + "\n";
+                data += myResultSet.getString("HP") + "\n";
+                data += myResultSet.getString("ATTACKSPEED") + "\n";
+                data += myResultSet.getString("MINATTACK") + "\n";
+                data += myResultSet.getString("MAXATTACK") + "\n";
+                data += myResultSet.getString("HITCHANCE") + "\n";
+                data += myResultSet.getString("DODGECHANCE") + "\n";
+                data += myResultSet.getString("SPECIALCHANCE") + "\n";
             }
         } catch (SQLException e) {
             System.out.println("Error extracting Nikolai data");
             System.exit(0);
         }
-        return result;
+        return data;
     }
 
     public String extractSadBoySeaData() {
-        String result = "";
+        String data = "";
         this.myQuery = "SELECT * FROM enemyDB LIMIT 1 OFFSET 3";
         try {
             this.myResultSet = myStatement.executeQuery(myQuery);
             while (myResultSet.next()) {
-                result += myResultSet.getString("NAME") + "\n";
-                result += myResultSet.getString("HP") + "\n";
-                result += myResultSet.getString("ATTACKSPEED") + "\n";
-                result += myResultSet.getString("MINATTACK") + "\n";
-                result += myResultSet.getString("MAXATTACK") + "\n";
-                result += myResultSet.getString("HITCHANCE") + "\n";
-                result += myResultSet.getString("DODGECHANCE") + "\n";
-                result += myResultSet.getString("SPECIALCHANCE") + "\n";
+                data += myResultSet.getString("NAME") + "\n";
+                data += myResultSet.getString("HP") + "\n";
+                data += myResultSet.getString("ATTACKSPEED") + "\n";
+                data += myResultSet.getString("MINATTACK") + "\n";
+                data += myResultSet.getString("MAXATTACK") + "\n";
+                data += myResultSet.getString("HITCHANCE") + "\n";
+                data += myResultSet.getString("DODGECHANCE") + "\n";
+                data += myResultSet.getString("SPECIALCHANCE") + "\n";
             }
         } catch (SQLException e) {
             System.out.println("Error extracting SadBoySea data");
             System.exit(0);
         }
-        return result;
+        return data;
     }
 }
