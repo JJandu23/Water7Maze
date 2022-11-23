@@ -1,8 +1,11 @@
 package Controller;
 
 import Model.Hero.Hero;
+import Model.MazeGenerator.Maze;
 import View.GameView;
 import Music.SoundsPlay;
+
+import java.awt.*;
 import java.io.IOException;
 
 
@@ -87,5 +90,15 @@ public class GameManager {
 
     public static InputControls getInputControls() {
         return myInputControls;
+    }
+
+    public static void draw(Graphics2D g){
+        Maze.drawMiniMap(g);
+        Maze.drawMaze(g);
+        Hero.draw(g);
+    }
+
+    public static void update(){
+        Hero.update();
     }
 }

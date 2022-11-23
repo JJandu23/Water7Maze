@@ -1,5 +1,6 @@
 package View;
 
+import Controller.GameManager;
 import Controller.InputControls;
 import Model.Hero.Luffy;
 import Model.Hero.Zoro;
@@ -65,23 +66,22 @@ public class GameView extends JPanel implements Runnable {
                     delta--;
                 }
             }
-
-
-
         }
     }
 
     public void update() {
-        player.update();
+        GameManager.update();
 
     }
 
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
         Graphics2D g2 = (Graphics2D) g;
-        player.draw(g2);
+        GameManager.draw(g2);
 
-        maze.draw(g2);
         g2.dispose();
     }
+
+
+
 }

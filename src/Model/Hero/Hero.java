@@ -1,8 +1,12 @@
 package Model.Hero;
 
 import Controller.InputControls;
+import Model.Entities;
 import Model.MazeCharacter;
+import Model.MazeGenerator.Maze;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 
@@ -35,35 +39,39 @@ public abstract class Hero extends MazeCharacter {
     /**
      * The hero's movement speed.
      */
-    private int myMoveSpeed;
+    private static int myMoveSpeed;
     /**
      * The hero's input control.
      */
-    private final InputControls inputCon = new InputControls();
+    private static final InputControls inputCon = new InputControls();
     /**
      * The hero's x-coordinate.
      */
-    private int myX = 100;
+    private static int myX = 100;
     /**
      * The hero's y-coordinate.
      */
-    private int myY = 100;
+    private static int myY = 100;
     /**
      * The hero's images.
      */
-    private BufferedImage myUpIm1, myUpIm2, myUpIm3, myDownIm1, myDownIm2, myDownIm3, myLeftIm1, myLeftIm2,myLeftIm3,  myRightIm1, myRightIm2, myRightIm3;
+    private static BufferedImage myUpIm1, myUpIm2, myUpIm3, myDownIm1, myDownIm2, myDownIm3, myLeftIm1, myLeftIm2,myLeftIm3,  myRightIm1, myRightIm2, myRightIm3;
     /**
      * The hero's current image.
      */
-    private String myDirection = "down";
+    private static String myDirection = "down";
     /**
      * The hero's current image.
      */
-    private int spriteNum = 1;
+    private static int spriteNum = 1;
     /**
      * The hero's current image.
      */
-    private int spriteCounter = 0;
+    private static int spriteCounter = 0;
+
+    private static int myRoomX = 0;
+    private static int myRoomY = 0;
+
 
     /**
      * Constructor for the Hero class.
@@ -257,23 +265,42 @@ public abstract class Hero extends MazeCharacter {
     /**
      * This method updates the hero's movement.
      */
-    public void update() {
+    public static void update() {
+        Entities potentialCollision = isTouchingAny(Maze.getEntityList());
         if(inputCon.getDown() || inputCon.getLeft() || inputCon.getUp() || inputCon.getRight()){
             if (inputCon.getUp()) {
                 myDirection = "up";
-                myY -= myMoveSpeed;
+                if(potentialCollision == null){
+                    myY -= myMoveSpeed;
+                } else if(!sideTouching(potentialCollision).equals("South")){
+                    myY -= myMoveSpeed;
+                }
+
 
             } else if (inputCon.getDown()) {
                 myDirection = "down";
-                myY += myMoveSpeed;
+                if(potentialCollision == null) {
+                    myY += myMoveSpeed;
+                } else if(!sideTouching(potentialCollision).equals("North")){
+                    myY += myMoveSpeed;
+                }
             }
 
             if (inputCon.getLeft()) {
                 myDirection = "left";
-                myX -= myMoveSpeed;
+                if(potentialCollision == null) {
+                    myX -= myMoveSpeed;
+                }else if(!sideTouching(potentialCollision).equals("East")){
+                    myX -= myMoveSpeed;
+                }
             } else if (inputCon.getRight()) {
                 myDirection = "right";
-                myX += myMoveSpeed;
+                if(potentialCollision == null){
+                    myX += myMoveSpeed;
+                } else if(!sideTouching(potentialCollision).equals("West")){
+                    myX += myMoveSpeed;
+                }
+
             }
 
             spriteCounter++;
@@ -297,7 +324,7 @@ public abstract class Hero extends MazeCharacter {
      * This method draws the hero's image.
      * @param g the graphics object.
      */
-    public void draw(final Graphics2D g){
+    public static void draw(final Graphics2D g){
         BufferedImage image = null;
         switch (myDirection) {
             case "up":
@@ -343,11 +370,7 @@ public abstract class Hero extends MazeCharacter {
                 image = null;
         };
 
-        /*try  {
-           image = ImageIO.read(getClass().getResourceAsStream("../../View/Sprites/unknown.png"));
-        } catch (IOException e){
-            e.printStackTrace();
-        }*/
+
         g.drawImage(image , myX, myY, 128, 128, null);
 
     }
@@ -402,5 +425,62 @@ public abstract class Hero extends MazeCharacter {
     public void setMyUpIm3(final BufferedImage myUpIm3) {
         this.myUpIm3 = myUpIm3;
     }
+
+    public static boolean isTouching(Entities entity){
+        int[] theCoords = entity.getCoords();
+        boolean touching = false;
+        int theX1 = theCoords[0];
+        int theY1 = theCoords[1];
+        int theX2 = theCoords[2];
+        int theY2 = theCoords[3];
+
+        if(myX > theX1 && myX < theX2 && myY > theY1 && myY < theY2  ){
+            touching = true;
+        }
+        return touching;
+    }
+
+    private static Entities isTouchingAny(List<Entities> theEntitiesList){
+        for (Entities entity:theEntitiesList) {
+            if(isTouching(entity)){
+                return entity;
+            }
+        }
+        return null;
+    }
+
+    public static String sideTouching(Entities entity){
+        int[] theCoords = entity.getCoords();
+        String side = "";
+
+        int theX1 = theCoords[0];
+        int theY1 = theCoords[1];
+        int theX2 = theCoords[2];
+        int theY2 = theCoords[3];
+
+        //touching south side of object
+        if((myY > (theY2 - 15) && myY < theY2 ) && myX > theX1 && myX < theX2){
+            side = "South";
+        }
+
+        //touching north side of object
+        if((myY < (theY1 + 15) && myY > theY1 ) && myX > theX1 && myX < theX2){
+            side = "North";
+        }
+
+        //touching west side of object
+        if((myX < (theX1 + 15) && myX > theX1 ) && myY > theY1 && myY < theY2){
+            side = "West";
+        }
+
+        //touching east side of object
+        if((myX > (theX2 - 15) && myX < theX2 ) && myY > theY1 && myY < theY2){
+            side = "East";
+        }
+
+
+        return side;
+    }
+
 }
 
