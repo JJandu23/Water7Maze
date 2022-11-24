@@ -1,5 +1,8 @@
 package View;
 
+import Controller.GameManager;
+import Model.Hero.Luffy;
+
 import javax.swing.*;
 
 public class Main {
@@ -10,7 +13,7 @@ public class Main {
         window.setResizable(false);
         window.setTitle("Water 7 Maze");
 
-
+        GameManager.setHero(new Luffy());
         GameView gameView = new GameView();
         window.add(gameView);
 

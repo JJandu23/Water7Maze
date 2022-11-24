@@ -27,8 +27,7 @@ public class GameView extends JPanel implements Runnable {
     Thread gameThread;
 
 
-    //player
-    Luffy player = new Luffy();
+
 
 
 

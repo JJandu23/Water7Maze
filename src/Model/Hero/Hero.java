@@ -6,6 +6,7 @@ import Model.MazeCharacter;
 import Model.MazeGenerator.Maze;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.awt.*;
 import java.awt.image.BufferedImage;
@@ -71,6 +72,10 @@ public abstract class Hero extends MazeCharacter {
 
     private static int myRoomX = 0;
     private static int myRoomY = 0;
+
+
+    private static int myCenterX;
+    private static int myCenterY;
 
 
     /**
@@ -267,38 +272,59 @@ public abstract class Hero extends MazeCharacter {
      */
     public static void update() {
         Entities potentialCollision = isTouchingAny(Maze.getEntityList());
+        if(myY > 900){
+            Maze.switchRoom("South");
+            myX = 300;
+            myY = 50;
+        }
+        if(myY < -50){
+            Maze.switchRoom("North");
+            myX = 300;
+            myY = 900;
+        }
+        if(myX > 1150){
+            Maze.switchRoom("East");
+            myX = 0;
+            myY = 400;
+        }
+        if(myX < -50){
+            Maze.switchRoom("West");
+            myX = 1150;
+            myY = 400;
+        }
         if(inputCon.getDown() || inputCon.getLeft() || inputCon.getUp() || inputCon.getRight()){
             if (inputCon.getUp()) {
                 myDirection = "up";
                 if(potentialCollision == null){
-                    myY -= myMoveSpeed;
+                    moveY(-myMoveSpeed);
+
                 } else if(!sideTouching(potentialCollision).equals("South")){
-                    myY -= myMoveSpeed;
+                    moveY(-myMoveSpeed);
                 }
 
 
             } else if (inputCon.getDown()) {
                 myDirection = "down";
                 if(potentialCollision == null) {
-                    myY += myMoveSpeed;
+                    moveY(myMoveSpeed);
                 } else if(!sideTouching(potentialCollision).equals("North")){
-                    myY += myMoveSpeed;
+                    moveY(myMoveSpeed);
                 }
             }
 
             if (inputCon.getLeft()) {
                 myDirection = "left";
                 if(potentialCollision == null) {
-                    myX -= myMoveSpeed;
+                    moveX(-myMoveSpeed);
                 }else if(!sideTouching(potentialCollision).equals("East")){
-                    myX -= myMoveSpeed;
+                    moveX(-myMoveSpeed);
                 }
             } else if (inputCon.getRight()) {
                 myDirection = "right";
                 if(potentialCollision == null){
-                    myX += myMoveSpeed;
+                    moveX(myMoveSpeed);
                 } else if(!sideTouching(potentialCollision).equals("West")){
-                    myX += myMoveSpeed;
+                    moveX(myMoveSpeed);
                 }
 
             }
@@ -320,6 +346,18 @@ public abstract class Hero extends MazeCharacter {
 
 
     }
+
+    private static void moveX(int theDistance){
+
+        myX += theDistance;
+        myCenterX = myX + 64;
+    }
+    private static void moveY(int theDistance){
+        myY += theDistance;
+        myCenterY = myY + 64;
+    }
+
+
     /**
      * This method draws the hero's image.
      * @param g the graphics object.
@@ -328,7 +366,7 @@ public abstract class Hero extends MazeCharacter {
         BufferedImage image = null;
         switch (myDirection) {
             case "up":
-                System.out.println(spriteNum);
+
                 if(spriteNum == 1){
                     image = myUpIm1;
 
@@ -368,9 +406,11 @@ public abstract class Hero extends MazeCharacter {
                 break;
             default:
                 image = null;
-        };
+        }
 
+        /*System.out.println("My X "+myCenterX+ " My Y: " + myCenterY);*/
 
+        g.drawPolygon(new int[]{myX,myX+128, myX+128, myX}, new int[]{myY, myY, myY+128, myY+128}, 4);
         g.drawImage(image , myX, myY, 128, 128, null);
 
     }
@@ -434,16 +474,20 @@ public abstract class Hero extends MazeCharacter {
         int theX2 = theCoords[2];
         int theY2 = theCoords[3];
 
-        if(myX > theX1 && myX < theX2 && myY > theY1 && myY < theY2  ){
+
+        if(myCenterX > theX1 && myCenterX < theX2 && myCenterY > theY1 && myCenterY < theY2  ){
             touching = true;
         }
+
+
+
         return touching;
     }
 
-    private static Entities isTouchingAny(List<Entities> theEntitiesList){
-        for (Entities entity:theEntitiesList) {
-            if(isTouching(entity)){
-                return entity;
+    private static Entities isTouchingAny(HashMap<String, Entities> theEntitiesList){
+        for (String name:theEntitiesList.keySet()) {
+            if(isTouching(theEntitiesList.get(name))){
+                return theEntitiesList.get(name);
             }
         }
         return null;
@@ -459,25 +503,24 @@ public abstract class Hero extends MazeCharacter {
         int theY2 = theCoords[3];
 
         //touching south side of object
-        if((myY > (theY2 - 15) && myY < theY2 ) && myX > theX1 && myX < theX2){
+        if((myCenterY > (theY2 - 15) && myCenterY < theY2 ) && myCenterX > theX1 && myCenterX < theX2){
             side = "South";
         }
 
         //touching north side of object
-        if((myY < (theY1 + 15) && myY > theY1 ) && myX > theX1 && myX < theX2){
+        if((myCenterY < (theY1 + 15) && myCenterY > theY1 ) && myCenterX > theX1 && myCenterX < theX2){
             side = "North";
         }
 
         //touching west side of object
-        if((myX < (theX1 + 15) && myX > theX1 ) && myY > theY1 && myY < theY2){
+        if((myCenterX < (theX1 + 15) && myCenterX > theX1 ) && myCenterY > theY1 && myCenterY < theY2){
             side = "West";
         }
 
         //touching east side of object
-        if((myX > (theX2 - 15) && myX < theX2 ) && myY > theY1 && myY < theY2){
+        if((myCenterX > (theX2 - 15) && myCenterX < theX2 ) && myCenterY > theY1 && myCenterY < theY2){
             side = "East";
         }
-
 
         return side;
     }

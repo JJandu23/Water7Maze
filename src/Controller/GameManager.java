@@ -93,9 +93,11 @@ public class GameManager {
     }
 
     public static void draw(Graphics2D g){
-        Maze.drawMiniMap(g);
-        Maze.drawMaze(g);
+
+
+        Maze.drawRoom(g);
         Hero.draw(g);
+        Maze.drawMiniMap(g);
     }
 
     public static void update(){
