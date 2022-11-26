@@ -16,7 +16,6 @@ import View.GameView;
  * @author Jashanpreet Jandu, Kevin Nguyen, Nicholas Zhuk
  * @version 1.0
  */
-
 public class SaveManager {
 
     /**
@@ -29,6 +28,7 @@ public class SaveManager {
         File file = new File("save.ser");
         FileOutputStream fileOutputStream = new FileOutputStream(file);
         ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream);
+        objectOutputStream.writeObject(GameManager.getGameView());
         objectOutputStream.writeObject(GameManager.getHero());
         objectOutputStream.close();
         fileOutputStream.close();
@@ -41,13 +41,13 @@ public class SaveManager {
      * @throws IOException
      * @throws ClassNotFoundException
      */
-    public static void loadGame() throws IOException, ClassNotFoundException {
+    public static void getLoadGame() throws IOException, ClassNotFoundException {
         try {
             File file = new File("save.ser");
             FileInputStream fileInputStream = new FileInputStream(file);
             ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream);
-            Hero hero = (Hero) objectInputStream.readObject();
-            GameManager.setHero(hero);
+            GameManager.setGameView((GameView) objectInputStream.readObject());
+            GameManager.setHero((Hero) objectInputStream.readObject());
             objectInputStream.close();
             fileInputStream.close();
         } catch (IOException e) {

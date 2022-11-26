@@ -7,6 +7,12 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+/**
+ * This class is used to create the SQL tables.
+ *
+ * @author Jashanpreet Jandu, Kevin Nguyen, Nicholas Zhuk
+ * @version 1.0
+ */
 public class SQLTables {
     private SQLiteDataSource myEnemyTable;
     private Connection myConnection;
@@ -14,7 +20,6 @@ public class SQLTables {
     private String myQuery;
     private int myReturnValue;
     private ResultSet myResultSet;
-
 
     public SQLTables() throws SQLException {
         System.out.println("SQLTables constructor called");
@@ -71,6 +76,7 @@ public class SQLTables {
     public String extractBoatKevinData() {
         String Data = "";
         this.myQuery = "SELECT * FROM enemyDB LIMIT 1 OFFSET 0";
+
         try {
             this.myResultSet = this.myStatement.executeQuery(this.myQuery);
             while (this.myResultSet.next()) {
@@ -93,6 +99,7 @@ public class SQLTables {
     public String extractEliData() {
         String data = "";
         this.myQuery = "SELECT * FROM enemyDB LIMIT 1 OFFSET 1";
+
         try {
             this.myResultSet = myStatement.executeQuery(myQuery);
             while (myResultSet.next()) {
@@ -115,6 +122,7 @@ public class SQLTables {
     public String extractNikolaiData() {
         String data = "";
         this.myQuery = "SELECT * FROM enemyDB LIMIT 1 OFFSET 2";
+
         try {
             this.myResultSet = myStatement.executeQuery(myQuery);
             while (myResultSet.next()) {
@@ -137,6 +145,7 @@ public class SQLTables {
     public String extractSadBoySeaData() {
         String data = "";
         this.myQuery = "SELECT * FROM enemyDB LIMIT 1 OFFSET 3";
+
         try {
             this.myResultSet = myStatement.executeQuery(myQuery);
             while (myResultSet.next()) {

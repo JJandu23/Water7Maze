@@ -6,8 +6,6 @@ import View.GameView;
 import Music.SoundsPlay;
 
 import java.awt.*;
-import java.io.IOException;
-
 
 /**
  * This class is used to control the input from the user.
@@ -30,7 +28,7 @@ public class GameManager {
      * @param gameView
      */
     public static void setGameView(GameView gameView) {
-        GameManager.myGameView = gameView;
+        myGameView = gameView;
     }
 
     /**
@@ -48,7 +46,7 @@ public class GameManager {
      * @param soundsPlay
      */
     public static void setSoundsPlay(SoundsPlay soundsPlay) {
-        GameManager.mySoundsPlay = soundsPlay;
+        mySoundsPlay = soundsPlay;
     }
 
     /**
@@ -65,11 +63,11 @@ public class GameManager {
     }
 
     public static void setHero(Hero hero) {
-        GameManager.myHero = hero;
+        myHero = hero;
     }
 
     public static void setSaveCurrentState(SaveCurrentState saveCurrentState) {
-        GameManager.mySaveCurrentState = saveCurrentState;
+        mySaveCurrentState = saveCurrentState;
     }
 
     public static SaveCurrentState getSaveCurrentState() {
@@ -77,7 +75,7 @@ public class GameManager {
     }
 
     public static void setSaveManager(SaveManager saveManager) {
-        GameManager.mySaveManager = saveManager;
+        mySaveManager = saveManager;
     }
 
     public static SaveManager getSaveManager() {
@@ -85,22 +83,20 @@ public class GameManager {
     }
 
     public static void setInputControls(InputControls inputControls) {
-        GameManager.myInputControls = inputControls;
+        myInputControls = inputControls;
     }
 
     public static InputControls getInputControls() {
         return myInputControls;
     }
 
-    public static void draw(Graphics2D g){
-
-
+    public static void draw(Graphics2D g) {
         Maze.drawRoom(g);
         Hero.draw(g);
         Maze.drawMiniMap(g);
     }
 
-    public static void update(){
+    public static void update() {
         Hero.update();
     }
 }

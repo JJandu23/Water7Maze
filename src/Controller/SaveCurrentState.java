@@ -16,6 +16,7 @@ public class SaveCurrentState implements Serializable {
 
     /**
      * This method is used to save the current state of the hero.
+     *
      * @param hero
      */
     public SaveCurrentState(Hero hero) {
@@ -24,6 +25,7 @@ public class SaveCurrentState implements Serializable {
 
     /**
      * This method is used to save the current state of the game view.
+     *
      * @param gameView
      */
     public SaveCurrentState(GameView gameView) {

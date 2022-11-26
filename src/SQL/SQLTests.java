@@ -2,6 +2,13 @@ package SQL;
 
 import org.junit.jupiter.api.Test;
 import java .sql.SQLException;
+
+/**
+ * This class is used to test the SQL.
+ *
+ * @author Jashanpreet Jandu, Kevin Nguyen, Nicholas Zhuk
+ * @version 1.0
+ */
 public class SQLTests {
     @Test
     void extractBoatKevinData() throws SQLException {
