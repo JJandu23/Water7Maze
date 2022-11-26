@@ -271,7 +271,11 @@ public abstract class Hero extends MazeCharacter {
      * This method updates the hero's movement.
      */
     public static void update() {
-        Entities potentialCollision = isTouchingAny(Maze.getEntityList());
+        List<Entities> potentialCollisionList = isTouchingAny(Maze.getEntityList());
+        List<String> sides = new ArrayList<>();
+        for (Entities potentialCollision:potentialCollisionList) {
+            sides.add(sideTouching(potentialCollision));
+        }
         if(myY > 900){
             Maze.switchRoom("South");
             myX = 300;
@@ -295,35 +299,26 @@ public abstract class Hero extends MazeCharacter {
         if(inputCon.getDown() || inputCon.getLeft() || inputCon.getUp() || inputCon.getRight()){
             if (inputCon.getUp()) {
                 myDirection = "up";
-                if(potentialCollision == null){
-                    moveY(-myMoveSpeed);
-
-                } else if(!sideTouching(potentialCollision).equals("South")){
+                if(!sides.contains("South")){
                     moveY(-myMoveSpeed);
                 }
 
 
             } else if (inputCon.getDown()) {
                 myDirection = "down";
-                if(potentialCollision == null) {
-                    moveY(myMoveSpeed);
-                } else if(!sideTouching(potentialCollision).equals("North")){
+                if(!sides.contains("North")){
                     moveY(myMoveSpeed);
                 }
             }
 
             if (inputCon.getLeft()) {
                 myDirection = "left";
-                if(potentialCollision == null) {
-                    moveX(-myMoveSpeed);
-                }else if(!sideTouching(potentialCollision).equals("East")){
+                if(!sides.contains("East")){
                     moveX(-myMoveSpeed);
                 }
             } else if (inputCon.getRight()) {
                 myDirection = "right";
-                if(potentialCollision == null){
-                    moveX(myMoveSpeed);
-                } else if(!sideTouching(potentialCollision).equals("West")){
+                if(!sides.contains("West")){
                     moveX(myMoveSpeed);
                 }
 
@@ -484,13 +479,14 @@ public abstract class Hero extends MazeCharacter {
         return touching;
     }
 
-    private static Entities isTouchingAny(HashMap<String, Entities> theEntitiesList){
+    private static List<Entities> isTouchingAny(HashMap<String, Entities> theEntitiesList){
+        List<Entities> theTouchingList = new ArrayList<>();
         for (String name:theEntitiesList.keySet()) {
             if(isTouching(theEntitiesList.get(name))){
-                return theEntitiesList.get(name);
+                theTouchingList.add(theEntitiesList.get(name));
             }
         }
-        return null;
+        return theTouchingList;
     }
 
     public static String sideTouching(Entities entity){
