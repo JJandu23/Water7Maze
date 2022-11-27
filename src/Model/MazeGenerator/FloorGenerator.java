@@ -5,6 +5,10 @@ import java.awt.*;
 import java.util.ArrayList;
 import java.util.Stack;
 
+/**
+ * @author Jashanpreet Jandu, Kevin Nguyen, Nicholas Zhuk
+ * @version 1.0
+ */
 public class FloorGenerator {
     int myWidth = 10;
     int myLength = 10;
@@ -27,19 +31,15 @@ public class FloorGenerator {
         floor[0][0] = new Room(false, false, false, false);
         floor[0][0].setRoomItems("START");
         for (int i = 0; i < myWidth * myLength; i++) {
-
             if (stack.isEmpty()) {
                 System.out.println("Something Went Wrong");
             }
-
             int x = stack.peek()[0];
             int y = stack.peek()[1];
             if (i == (myWidth * myLength - 1)) {
                 floor[x][y].setRoomItems("FINAL");
             }
-
             while (findRandEmptyRoom(stack.peek()[0], stack.peek()[1]).equals("None")) {
-
                 stack.pop();
                 if (stack.isEmpty()) return;
             }
@@ -66,7 +66,6 @@ public class FloorGenerator {
             stack.push(new int[]{x, y});
         }
     }
-
 
     private String findRandEmptyRoom(int x, int y) {
         ArrayList<String> cardinalRooms = new ArrayList<>();

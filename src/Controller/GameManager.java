@@ -21,6 +21,7 @@ public class GameManager {
     private static SaveCurrentState mySaveCurrentState;
     private static SaveManager mySaveManager;
     private static InputControls myInputControls;
+    private static Maze myMaze;
 
     /**
      * This is our constructor.
@@ -98,5 +99,13 @@ public class GameManager {
 
     public static void update() {
         Hero.update();
+    }
+
+    public static void setMaze(Maze maze) {
+        myMaze = maze;
+    }
+
+    public static Maze getMaze() {
+        return myMaze;
     }
 }

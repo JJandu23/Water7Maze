@@ -6,6 +6,12 @@ import Model.Hero.*;
 import java.util.Random;
 import java.util.Scanner;
 
+/**
+ * This class is used to control the battle between the hero and the enemy.
+ *
+ * @author Jashanpreet Jandu, Kevin Nguyen, Nicholas Zhuk
+ * @version 1.0
+ */
 public class Battle {
     public static void main(String[] args) {
         Scanner console = new Scanner(System.in);
@@ -17,7 +23,7 @@ public class Battle {
         System.out.println("You have chosen " + hero.getName() + "!" + "\n");
         Enemy enemy = chooseEnemy(theConsole);
         System.out.println("You have chosen to fight " + enemy.getName() + "!" + "\n");
-        while(hero.getHealthPoints() > 0 && enemy.getHealthPoints() > 0) {
+        while (hero.getHealthPoints() > 0 && enemy.getHealthPoints() > 0) {
             battlePhase(hero, enemy, theConsole);
         }
         if (hero.getHealthPoints() <= 0) {
@@ -49,7 +55,8 @@ public class Battle {
             return chooseHero(theConsole);
         }
     }
-    public static Enemy chooseEnemy(Scanner theConsole){
+
+    public static Enemy chooseEnemy(Scanner theConsole) {
         System.out.println("Choose your enemy!");
         System.out.println("1. Boat Kevin");
         System.out.println("2. Eli");
@@ -58,9 +65,9 @@ public class Battle {
         System.out.println("5: Random");
         char choice = theConsole.next().charAt(0);
         EnemyFactory.getInstance();
-        if(choice == '5'){
+        if (choice == '5') {
             return EnemyFactory.chooseEnemy();
-        } else{
+        } else {
             return EnemyFactory.chosenEnemy(choice);
         }
     }
@@ -99,25 +106,15 @@ public class Battle {
 
     public static void heroTurn(char theChoice, Hero theHero, Enemy theEnemy) {
         switch (theChoice) {
-            case 'j':
-                theHero.attack(theEnemy);
-                break;
-            case 'k':
-                theHero.specialAttack(theEnemy);
-                break;
-            case 'p':
-                theHero.useSenzuBean();
-                break;
-            case 'o':
-                theHero.usePowerPowerFruit();
-                break;
-            case 'l':
-                theHero.useSpeedSpeedFruit();
-                break;
+            case 'j' -> theHero.attack(theEnemy);
+            case 'k' -> theHero.specialAttack(theEnemy);
+            case 'p' -> theHero.useSenzuBean();
+            case 'o' -> theHero.usePowerPowerFruit();
+            case 'l' -> theHero.useSpeedSpeedFruit();
         }
     }
 
-    public static void enemyTurn(Hero hero, Enemy enemy){
+    public static void enemyTurn(Hero hero, Enemy enemy) {
         Random chance = new Random();
         if (chance.nextFloat() <= enemy.getSpecialChance()) {
             enemy.specialAttack(hero);

@@ -1,8 +1,18 @@
 package Controller;
 
+import javax.swing.text.View;
+import java.io.IOException;
+
+
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
+/**
+ * This class is used to control the input from the user.
+ *
+ * @author Jashanpreet Jandu, Kevin Nguyen, Nicholas Zhuk
+ * @version 1.0
+ */
 public class InputControls implements KeyListener {
     private final char UP = 'w';
     private final char DOWN = 's';
@@ -62,6 +72,11 @@ public class InputControls implements KeyListener {
         return LOAD;
     }
 
+    /**
+     * This method is used to get the key pressed.
+     *
+     * @param key
+     */
     public static int getKeyCode(char key) {
         return switch (key) {
             case 'w' -> KeyEvent.VK_UP;
@@ -79,6 +94,12 @@ public class InputControls implements KeyListener {
         };
     }
 
+    /**
+     * This method is used to get the key code.
+     *
+     * @param key
+     * @return int
+     */
     public static String getKeyText(char key) {
         return switch (key) {
             case 'w' -> "Up";

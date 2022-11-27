@@ -1,7 +1,8 @@
 package SQL;
 
 import org.junit.jupiter.api.Test;
-import java .sql.SQLException;
+
+import java.sql.SQLException;
 
 /**
  * This class is used to test the SQL.

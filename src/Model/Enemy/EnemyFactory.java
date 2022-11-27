@@ -5,38 +5,47 @@ import SQL.SQLTables;
 import java.sql.SQLException;
 import java.util.Random;
 import java.util.Scanner;
+
 /**
  * This class is the factory for the enemies.
- * @author Kevin Nguyen
+ *
+ * @author Kevin Nguyen, Jashanpreet Jandu, Nicholas Zhuk
  */
-public class EnemyFactory{
+public class EnemyFactory {
+
     /**
      * The instance of the enemy factory.
      */
     private static EnemyFactory myInstance;
+
     /**
      * the SQL table for the enemies.
      */
     private static SQLTables myEnemyTable;
+
     /**
      * String of Boat Kevin data
      */
     private static String myBoatKevinData;
+
     /**
      * String of Eli data
      */
     private static String myEliData;
+
     /**
      * String of Nikolai data
      */
     private static String myNikolaiData;
+
     /**
      * String of the boss data
      */
     private static String mySadBoySeaData;
-
+    
     /**
      * Constructor for the EnemyFactory class.
+     *
      * @throws SQLException if the SQL table is not found.
      */
     private EnemyFactory() {
@@ -52,17 +61,20 @@ public class EnemyFactory{
 
     /**
      * Returns the instance of the EnemyFactory class.
+     *
      * @return the instance of the EnemyFactory class.
      */
     public static EnemyFactory getInstance() {
         if (myInstance == null) return new EnemyFactory();
         return myInstance;
     }
+
     /**
      * Selects the chosen enemy.
+     *
      * @return the selected enemy.
      */
-    public static Enemy chosenEnemy(final char theInput){
+    public static Enemy chosenEnemy(final char theInput) {
         Enemy enemy = null;
         Scanner scan = null;
         switch (theInput) {
@@ -94,11 +106,13 @@ public class EnemyFactory{
                 return null;
         }
     }
+
     /**
      * Selects a random enemy.
+     *
      * @return the selected enemy.
      */
-    public static Enemy chooseEnemy(){
+    public static Enemy chooseEnemy() {
         Random rand = new Random();
         int randomNum = rand.nextInt(4) + 1;
         Scanner scan = null;

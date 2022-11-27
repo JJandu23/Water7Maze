@@ -4,25 +4,27 @@ import Model.MazeCharacter;
 
 /**
  * This class represents the SadBoySea enemy in the game.
- * @author Kevin Nguyen
+ *
+ * @author Kevin Nguyen, Jashanpreet Jandu, Nicholas Zhuk
  * @version 1.0
  */
 public class SadBoySea extends Enemy {
     /**
      * Constructor for the SadBoySea class.
      */
-    public SadBoySea(final String theName, final int theHealthPoints,  final int theAttackSpeed,
+    public SadBoySea(final String theName, final int theHealthPoints, final int theAttackSpeed,
                      final int theMinDamage, final int theMaxDamage, final double theHitChance, final double theDodgeChance,
                      final double theSpecialChance) {
-        /**
-         * Calls the constructor of the parent class.
-         */
+
+        /* Call the super constructor of the parent class */
         super(theName, theHealthPoints, theAttackSpeed,
                 theMinDamage, theMaxDamage, theHitChance, theDodgeChance,
                 theSpecialChance);
     }
+
     /**
      * This method represents the special attack of the SadBoySea enemy.
+     *
      * @param theEnemy the enemy to attack
      * @Override the specialAttack method in the parent class.
      */

@@ -14,7 +14,6 @@ public class Zoro extends Hero {
         super("Zoro", 110, 8, 15, 25,
                 .6, .2, .4, 4);
 
-
         try {
             setMyDownIm1(ImageIO.read(getClass().getResourceAsStream("../../View/Sprites/Zoro/down1.png")));
             setMyUpIm1(ImageIO.read(getClass().getResourceAsStream("../../View/Sprites/Zoro/up1.png")));

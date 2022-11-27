@@ -4,9 +4,19 @@ import javax.sound.sampled.*;
 import java.io.File;
 import java.io.IOException;
 
+/**
+ * This class is used to play sounds in the game.
+ * It uses the javax.sound.sampled package to play sounds.
+ * The sounds are stored as .wav files.
+ * The class has a method to play a sound and a method to stop a sound.
+ *
+ * @author Jashanpreet Jandu, Kevin Nguyen, Nicholas Zhuk
+ * @version 1.0
+ */
 public class SoundsPlay {
 
     private static Clip myClip;
+
     private SoundsPlay() {
         // Exists only to defeat instantiation.
     }
@@ -17,6 +27,7 @@ public class SoundsPlay {
 
     /**
      * This method is used to play the music.
+     *
      * @param theSong
      * @throws IOException
      * @throws UnsupportedAudioFileException

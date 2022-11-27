@@ -8,6 +8,17 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.util.Objects;
 
+/**
+ * This class is used to represent a room in the maze.
+ * Each room has 4 doors, one for each cardinal direction.
+ * The doors are either open or closed.
+ * The room also has a floor and a ceiling.
+ * The room is represented by a 2D array of characters.
+ * The room is printed to the console by printing each row of the 2D array.
+ *
+ * @author Jashanpreet Jandu, Kevin Nguyen, Nicholas Zhuk
+ * @version 1.0
+ */
 public class Room {
     private boolean myDoorNorth;
     private boolean myDoorSouth;
@@ -20,7 +31,6 @@ public class Room {
     private final int[] eastDoorCoords = new int[]{1000, -50, 1150, 1050};
     private final int[] westDoorCoords = new int[]{-50, -50, 100, 1050};
     private final Color background;
-
 
     public Room(boolean doorNorth, boolean doorWest, boolean doorSouth, boolean doorEast) {
         double hue = Math.random();
@@ -47,18 +57,15 @@ public class Room {
 
     @Override
     public String toString() {
-
         String str = "";
         str += "(";
         if (myRoomItems != null && myRoomItems.equals("START")) {
             str += "...";
         }
-
         if (myDoorNorth) str += " north ";
         if (myDoorWest) str += " west ";
         if (myDoorSouth) str += " south ";
         if (myDoorEast) str += " east ";
-
         if (myRoomItems != null && myRoomItems.equals("FINAL")) {
             str += "F";
         }
@@ -82,16 +89,26 @@ public class Room {
         return myDoorWest;
     }
 
-    public Entities northDoorEntity() {return northDoorEnt;}
-    public Entities southDoorEntity() {return southDoorEnt;}
-    public Entities westDoorEntity() {return westDoorEnt;}
-    public Entities eastDoorEntity() {return eastDoorEnt;}
+    public Entities northDoorEntity() {
+        return northDoorEnt;
+    }
 
+    public Entities southDoorEntity() {
+        return southDoorEnt;
+    }
+
+    public Entities westDoorEntity() {
+        return westDoorEnt;
+    }
+
+    public Entities eastDoorEntity() {
+        return eastDoorEnt;
+    }
 
     public void setDoors(String doorDirection, String path){
         BufferedImage img = null;
         try {
-            img = ImageIO.read(Maze.class.getResourceAsStream("../../View/Sprites/unknown.png"));
+            img = ImageIO.read(Maze.class.getResourceAsStream("../../View/Sprites/WallText.png"));
 
         } catch (IOException e) {
             e.printStackTrace();
@@ -110,10 +127,9 @@ public class Room {
                 eastDoorEnt = new Entities(eastDoorCoords[0], eastDoorCoords[1], eastDoorCoords[2], eastDoorCoords[3]);
                 eastDoorEnt.setSprite(img);
         }
-
     }
+
     public Color getBackground(){
         return background;
     }
-
 }

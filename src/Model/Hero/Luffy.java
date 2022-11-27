@@ -6,6 +6,11 @@ import javax.imageio.ImageIO;
 import java.io.IOException;
 import java.util.Random;
 
+/**
+ *
+ * @author Kevin Nguyen, Nicholas Zhuk and Jashanpreet Jandu
+ * @version 1.0
+ */
 public class Luffy extends Hero {
     private final int myMinSpecialDamage = 35;
     private final int myMaxSpecialDamage = 45;
@@ -13,7 +18,6 @@ public class Luffy extends Hero {
     public Luffy() {
         super("Luffy", 120, 10, 15,
                 25, 0.8, 0.2, 0.20, 5);
-
 
         try {
             setMyDownIm1(ImageIO.read(getClass().getResourceAsStream("../../View/Sprites/Luffy/down1.png")));
@@ -35,9 +39,6 @@ public class Luffy extends Hero {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
-
-
     }
 
     @Override

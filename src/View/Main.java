@@ -5,6 +5,12 @@ import Model.Hero.Luffy;
 
 import javax.swing.*;
 
+/**
+ * This class is used to create the game view.
+ *
+ * @author Jashanpreet Jandu, Kevin Nguyen, Nicholas Zhuk
+ * @version 1.0
+ */
 public class Main {
     public static void main(String[] args) {
         JFrame window = new JFrame();

@@ -1,27 +1,31 @@
 package Model.Enemy;
 
 import Model.MazeCharacter;
+
 /**
  * This class represents the Boat Kevin enemy in the game.
- * @author Kevin Nguyen
+ *
+ * @author Kevin Nguyen, Jashanpreet Jandu, Nicholas Zhuk
  * @version 1.0
  */
 public class BoatKevin extends Enemy {
+
     /**
      * Constructor for the BoatKevin class.
      */
-    public BoatKevin(final String theName, final int theHealthPoints,  final int theAttackSpeed,
+    public BoatKevin(final String theName, final int theHealthPoints, final int theAttackSpeed,
                      final int theMinDamage, final int theMaxDamage, final double theHitChance, final double theDodgeChance,
                      final double theSpecialChance) {
-        /**
-         * Calls the constructor of the parent class.
-         */
+
+        /* Call the super constructor of the parent class */
         super(theName, theHealthPoints, theAttackSpeed,
-        theMinDamage, theMaxDamage, theHitChance, theDodgeChance,
-        theSpecialChance);
+                theMinDamage, theMaxDamage, theHitChance, theDodgeChance,
+                theSpecialChance);
     }
+
     /**
      * This method represents the special attack of the Boat Kevin enemy.
+     *
      * @param theEnemy the enemy to attack
      * @Override the specialAttack method in the parent class.
      */

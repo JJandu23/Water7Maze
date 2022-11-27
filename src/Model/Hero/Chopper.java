@@ -5,6 +5,7 @@ import Model.MazeCharacter;
 import javax.imageio.ImageIO;
 import java.io.IOException;
 import java.util.Random;
+
 /**
  * Created by 204g07 on 07.06.2016.
  */
@@ -32,7 +33,7 @@ public class Chopper extends Hero {
         Random heal = new Random();
         if (chance.nextFloat() <= getSpecialChance()) {
             int healthGained = heal.nextInt(myMaxSpecialHeal + 1 - myMinSpecialHeal) + myMinSpecialHeal;
-            if(getHealthPoints() + healthGained > getOriginalHealthPoints()) {
+            if (getHealthPoints() + healthGained > getOriginalHealthPoints()) {
                 healthGained = getOriginalHealthPoints() - getHealthPoints();
                 setHealthPoints(getOriginalHealthPoints());
             } else {

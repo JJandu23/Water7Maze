@@ -6,11 +6,10 @@ import javax.imageio.ImageIO;
 import java.io.IOException;
 import java.util.Random;
 
-public class Nami extends Hero{
+public class Nami extends Hero {
     public Nami() {
         super("Nami", 90, 10, 10,
                 20, 0.5, 0.4, 0.20, 3);
-
 
         try {
             setMyDownIm1(ImageIO.read(getClass().getResourceAsStream("../../View/Sprites/Nami/down1.png")));
@@ -36,5 +35,4 @@ public class Nami extends Hero{
             System.out.println(getName() + " failed to use mirage tempo!");
         }
     }
-
 }
