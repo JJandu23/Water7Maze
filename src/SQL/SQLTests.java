@@ -11,6 +11,10 @@ import java.sql.SQLException;
  * @version 1.0
  */
 public class SQLTests {
+    /**
+     * This method is used to test if the sql can extract Boat Kevin data.
+     * @throws SQLException if the Boat Kevin data is not found.
+     */
     @Test
     void extractBoatKevinData() throws SQLException {
         SQLTables test = new SQLTables();
@@ -19,14 +23,22 @@ public class SQLTests {
         System.out.println();
     }
 
+    /**
+     * This method is used to test if the sql can extract Eli data.
+     * @throws SQLException if the Eli data is not found.
+     */
     @Test
-    void extractEliInfo() throws SQLException {
+    void extractEliData() throws SQLException {
         SQLTables test = new SQLTables();
         String result = test.extractEliData();
         System.out.println(result);
         System.out.println();
     }
 
+    /**
+     * This method is used to test if the sql can extract Nikolai data.
+     * @throws SQLException if the Nikolai data is not found.
+     */
     @Test
     void extractNikolaiData() throws SQLException {
         SQLTables test = new SQLTables();
@@ -35,6 +47,10 @@ public class SQLTests {
         System.out.println();
     }
 
+    /**
+     * This method is used to test if the sql can extract SadBoySea data.
+     * @throws SQLException if the SadBoySea data is not found.
+     */
     @Test
     void extractSadBoySeaData() throws SQLException {
         SQLTables test = new SQLTables();

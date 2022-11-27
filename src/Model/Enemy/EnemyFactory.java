@@ -70,7 +70,7 @@ public class EnemyFactory {
     }
 
     /**
-     * Selects the chosen enemy.
+     * Selects the chosen enemy from the database.
      *
      * @return the selected enemy.
      */
@@ -108,7 +108,7 @@ public class EnemyFactory {
     }
 
     /**
-     * Selects a random enemy.
+     * Selects a random enemy from the database.
      *
      * @return the selected enemy.
      */

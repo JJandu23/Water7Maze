@@ -7,14 +7,24 @@ import java.io.IOException;
 import java.util.Random;
 
 /**
+ * This class represents the Luffy hero.
  *
  * @author Kevin Nguyen, Nicholas Zhuk and Jashanpreet Jandu
  * @version 1.0
  */
 public class Luffy extends Hero {
+    /**
+     * The minimum special attack damage.
+     */
     private final int myMinSpecialDamage = 35;
+    /**
+     * The maximum special attack damage.
+     */
     private final int myMaxSpecialDamage = 45;
 
+    /**
+     * Luffy constructor
+     */
     public Luffy() {
         super("Luffy", 120, 10, 15,
                 25, 0.8, 0.2, 0.20, 5);
@@ -41,8 +51,13 @@ public class Luffy extends Hero {
         }
     }
 
+    /**
+     * This method represents the special attack of the hero.
+     * @param theEnemy the enemy that is being attacked
+     * @Override the specialAttack method in the MazeCharacter class.
+     */
     @Override
-    public void specialAttack(MazeCharacter theEnemy) {
+    public void specialAttack(final MazeCharacter theEnemy) {
         Random chance = new Random();
         Random damage = new Random();
         if (chance.nextFloat() <= getSpecialChance()) {

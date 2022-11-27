@@ -7,12 +7,24 @@ import java.io.IOException;
 import java.util.Random;
 
 /**
- * Created by 204g07 on 07.06.2016.
+ * This class represents the Chopper hero.
+ *
+ * @author Kevin Nguyen
+ * @version 1.0
  */
 public class Chopper extends Hero {
+    /**
+     * The minimum special heal.
+     */
     private final int myMinSpecialHeal = 20;
+    /**
+     * The maximum special heal.
+     */
     private final int myMaxSpecialHeal = 30;
 
+    /**
+     * Chopper constructor
+     */
     public Chopper() {
         super("Chopper", 100, 10, 10,
                 20, 0.5, 0.3, 0.20, 3);
@@ -26,9 +38,13 @@ public class Chopper extends Hero {
             e.printStackTrace();
         }
     }
-
+    /**
+     * This method represents the special attack of the hero.
+     * @param theEnemy the enemy to attack
+     * @Override the specialAttack method in the MazeCharacter class.
+     */
     @Override
-    public void specialAttack(MazeCharacter theEnemy) {
+    public void specialAttack(final MazeCharacter theEnemy) {
         Random chance = new Random();
         Random heal = new Random();
         if (chance.nextFloat() <= getSpecialChance()) {

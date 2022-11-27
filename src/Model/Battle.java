@@ -13,12 +13,19 @@ import java.util.Scanner;
  * @version 1.0
  */
 public class Battle {
-    public static void main(String[] args) {
+    /**
+     * The battle controller.
+     */
+    public static void main(final String[] theArgs) {
         Scanner console = new Scanner(System.in);
         gamePlay(console);
     }
 
-    public static void gamePlay(Scanner theConsole) {
+    /**
+     * This method controls the gameplay of the battle .
+     * @param theConsole the console to read from.
+     */
+    public static void gamePlay(final Scanner theConsole) {
         Hero hero = chooseHero(theConsole);
         System.out.println("You have chosen " + hero.getName() + "!" + "\n");
         Enemy enemy = chooseEnemy(theConsole);
@@ -35,7 +42,12 @@ public class Battle {
         winner(hero, enemy);
     }
 
-    public static Hero chooseHero(Scanner theConsole) {
+    /**
+     * This method selects the chosen hero.
+     * @param theConsole the console to read from.
+     * @return the hero chosen by the user.
+     */
+    public static Hero chooseHero(final Scanner theConsole) {
         System.out.println("1. Luffy");
         System.out.println("2. Zoro");
         System.out.println("3: Chopper");
@@ -56,7 +68,12 @@ public class Battle {
         }
     }
 
-    public static Enemy chooseEnemy(Scanner theConsole) {
+    /**
+     * This method selects the chosen enemy.
+     * @param theConsole the console to read from.
+     * @return the enemy chosen by the user.
+     */
+    public static Enemy chooseEnemy(final Scanner theConsole) {
         System.out.println("Choose your enemy!");
         System.out.println("1. Boat Kevin");
         System.out.println("2. Eli");
@@ -72,7 +89,13 @@ public class Battle {
         }
     }
 
-    public static void battlePhase(Hero theHero, Enemy theEnemy, Scanner theConsole) {
+    /**
+     * This method represents the battle phase.
+     * @param theHero the hero in the battle.
+     * @param theEnemy the enemy in the battle.
+     * @param theConsole the console to read from.
+     */
+    public static void battlePhase(final Hero theHero, final  Enemy theEnemy,final Scanner theConsole) {
         char choice = getChoice(theConsole);
         if (theHero.getAttackSpeed() >= theEnemy.getAttackSpeed()) {
             heroTurn(choice, theHero, theEnemy);
@@ -89,7 +112,12 @@ public class Battle {
         System.out.println(theEnemy.getName() + " : " + theEnemy.getHealthPoints() + "\n");
     }
 
-    public static char getChoice(Scanner theConsole) {
+    /**
+     * This method takes in the user's turn choice.
+     * @param theConsole the console to read from.
+     * @return the choice of the user.
+     */
+    public static char getChoice(final Scanner theConsole) {
         System.out.println("What would you like to do?");
         System.out.println("j. Attack");
         System.out.println("k. Special Attack");
@@ -104,7 +132,13 @@ public class Battle {
         return choice;
     }
 
-    public static void heroTurn(char theChoice, Hero theHero, Enemy theEnemy) {
+    /**
+     * This method represents the hero's turn.
+     * @param theChoice the choice of the user.
+     * @param theHero the hero in the battle.
+     * @param theEnemy the enemy in the battle.
+     */
+    public static void heroTurn(final char theChoice, final  Hero theHero, final Enemy theEnemy) {
         switch (theChoice) {
             case 'j' -> theHero.attack(theEnemy);
             case 'k' -> theHero.specialAttack(theEnemy);
@@ -114,16 +148,25 @@ public class Battle {
         }
     }
 
-    public static void enemyTurn(Hero hero, Enemy enemy) {
+    /**
+     * This method represents the enemy's turn.
+     * @param theHero the hero in the battle.
+     * @param theEnemy the enemy in the battle.
+     */
+    public static void enemyTurn(final Hero theHero, final Enemy theEnemy) {
         Random chance = new Random();
-        if (chance.nextFloat() <= enemy.getSpecialChance()) {
-            enemy.specialAttack(hero);
+        if (chance.nextFloat() <= theEnemy.getSpecialChance()) {
+            theEnemy.specialAttack(theHero);
         } else {
-            enemy.attack(hero);
+            theEnemy.attack(theHero);
         }
     }
-
-    public static void winner(Hero theHero, Enemy theEnemy) {
+    /**
+     * This method determines the winner of the battle.
+     * @param theHero the hero.
+     * @param theEnemy the enemy.
+     */
+    public static void winner(final Hero theHero, final Enemy theEnemy) {
         if (theEnemy.getHealthPoints() <= 0) {
             System.out.println("Victory");
         }

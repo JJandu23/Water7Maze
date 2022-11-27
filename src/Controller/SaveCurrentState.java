@@ -12,24 +12,30 @@ import java.io.Serializable;
  * @version 1.0
  */
 public class SaveCurrentState implements Serializable {
+    /**
+     * The hero object.
+     */
     public Hero myHero;
+    /**
+     * The game view object.
+     */
     public GameView myGameView;
 
     /**
      * This method is used to save the current state of the hero.
      *
-     * @param hero
+     * @param theHero is the hero object.
      */
-    public SaveCurrentState(Hero hero) {
-        myHero = hero;
+    public SaveCurrentState(final Hero theHero) {
+        myHero = theHero;
     }
 
     /**
      * This method is used to save the current state of the game view.
      *
-     * @param gameView
+     * @param theGameView is the game view object.
      */
-    public SaveCurrentState(GameView gameView) {
-        myGameView = gameView;
+    public SaveCurrentState(final GameView theGameView) {
+        myGameView = theGameView;
     }
 }

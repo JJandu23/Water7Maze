@@ -75,10 +75,10 @@ public class InputControls implements KeyListener {
     /**
      * This method is used to get the key pressed.
      *
-     * @param key
+     * @param theKey is the key pressed.
      */
-    public static int getKeyCode(char key) {
-        return switch (key) {
+    public static int getKeyCode(final char theKey) {
+        return switch (theKey) {
             case 'w' -> KeyEvent.VK_UP;
             case 's' -> KeyEvent.VK_DOWN;
             case 'a' -> KeyEvent.VK_LEFT;
@@ -97,11 +97,10 @@ public class InputControls implements KeyListener {
     /**
      * This method is used to get the key code.
      *
-     * @param key
-     * @return int
+     * @param theKey is the key pressed.
      */
-    public static String getKeyText(char key) {
-        return switch (key) {
+    public static String getKeyText(final char theKey) {
+        return switch (theKey) {
             case 'w' -> "Up";
             case 's' -> "Down";
             case 'a' -> "Left";
@@ -118,17 +117,17 @@ public class InputControls implements KeyListener {
     }
 
     @Override
-    public void keyTyped(KeyEvent e) {
+    public void keyTyped(final KeyEvent theEvent) {
     }
 
     /**
      * This method is used to get the key pressed.
      *
-     * @param e KeyEvent
+     * @param theEvent KeyEvent
      */
     @Override
-    public void keyPressed(KeyEvent e) {
-        int code = e.getKeyCode();
+    public void keyPressed(final KeyEvent theEvent) {
+        int code = theEvent.getKeyCode();
         if (code == KeyEvent.VK_W) {
             upPressed = true;
         }
@@ -146,11 +145,11 @@ public class InputControls implements KeyListener {
     /**
      * This method is used to get the key released.
      *
-     * @param e KeyEvent
+     * @param theEvent KeyEvent
      */
     @Override
-    public void keyReleased(KeyEvent e) {
-        int code = e.getKeyCode();
+    public void keyReleased(KeyEvent theEvent) {
+        int code = theEvent.getKeyCode();
         if (code == KeyEvent.VK_W) {
             upPressed = false;
         }

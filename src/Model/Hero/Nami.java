@@ -21,7 +21,13 @@ public class Nami extends Hero {
         }
     }
 
-    public void specialAttack(MazeCharacter theEnemy) {
+    /**
+     * This method represents the special attack of the hero.
+     * @param theEnemy the enemy that is being attacked
+     * @Override the specialAttack method in the MazeCharacter class.
+     */
+    @Override
+    public void specialAttack(final MazeCharacter theEnemy) {
         Random chance = new Random();
         if (chance.nextFloat() <= getSpecialChance()) {
             System.out.println(getName() + " used mirage tempo!");

@@ -21,16 +21,23 @@ public class SQLTables {
     private int myReturnValue;
     private ResultSet myResultSet;
 
+    /**
+     * SQLTables constructor
+     * @throws SQLException
+     */
     public SQLTables() throws SQLException {
         System.out.println("SQLTables constructor called");
         createEnemyTable();
         fillEnemyTable();
     }
 
+    /**
+     * This method creates the enemy table.
+     */
     private void createEnemyTable() {
-        this.myEnemyTable = new SQLiteDataSource();
+        myEnemyTable = new SQLiteDataSource();
 
-        this.myQuery = "CREATE TABLE IF NOT EXISTS enemyDB (" +
+        myQuery = "CREATE TABLE IF NOT EXISTS enemyDB (" +
                 "NAME TEXT NOT NULL," +
                 "HP TEXT NOT NULL," +
                 "ATTACKSPEED TEXT NOT NULL," +
@@ -41,8 +48,8 @@ public class SQLTables {
                 "SPECIALCHANCE TEXT NOT NULL);";
 
         try {
-            this.myConnection = myEnemyTable.getConnection();
-            this.myStatement = myConnection.createStatement();
+            myConnection = myEnemyTable.getConnection();
+            myStatement = myConnection.createStatement();
             myReturnValue = myStatement.executeUpdate(myQuery);
             System.out.println("executeUpdate() returned " + myReturnValue);
         } catch (SQLException e) {
@@ -53,9 +60,12 @@ public class SQLTables {
 
     }
 
+    /**
+     * This method fills the enemy table.
+     */
     private void fillEnemyTable() {
 
-        this.myQuery = "INSERT INTO enemyDB " +
+        myQuery = "INSERT INTO enemyDB " +
                 "('NAME','HP','ATTACKSPEED','MINATTACK','MAXATTACK','HITCHANCE','DODGECHANCE','SPECIALCHANCE') VALUES" +
                 "('Boat Kevin', '40', '13', '10', '20', '0.80','0.20', '0.05')," +
                 "('Eli', '90', '12', '15', '20', '0.40','0.20', '0.20')," +
@@ -73,12 +83,16 @@ public class SQLTables {
         System.out.println("Values filled into enemy table successfully!" + "\n");
     }
 
+    /**
+     * This method extracts Boat Kevin from the enemy table.
+     * @return the Boat Kevin data
+     */
     public String extractBoatKevinData() {
         String Data = "";
-        this.myQuery = "SELECT * FROM enemyDB LIMIT 1 OFFSET 0";
+        myQuery = "SELECT * FROM enemyDB LIMIT 1 OFFSET 0";
 
         try {
-            this.myResultSet = this.myStatement.executeQuery(this.myQuery);
+            myResultSet = this.myStatement.executeQuery(this.myQuery);
             while (this.myResultSet.next()) {
                 Data += this.myResultSet.getString("NAME") + "\n";
                 Data += this.myResultSet.getString("HP") + "\n";
@@ -96,12 +110,16 @@ public class SQLTables {
         return Data;
     }
 
+    /**
+     * This method extracts Eli from the enemy table.
+     * @return the Eli data
+     */
     public String extractEliData() {
         String data = "";
-        this.myQuery = "SELECT * FROM enemyDB LIMIT 1 OFFSET 1";
+        myQuery = "SELECT * FROM enemyDB LIMIT 1 OFFSET 1";
 
         try {
-            this.myResultSet = myStatement.executeQuery(myQuery);
+            myResultSet = myStatement.executeQuery(myQuery);
             while (myResultSet.next()) {
                 data += myResultSet.getString("NAME") + "\n";
                 data += myResultSet.getString("HP") + "\n";
@@ -119,12 +137,16 @@ public class SQLTables {
         return data;
     }
 
+    /**
+     * This method extracts Nikolai from the enemy table.
+     * @return the Nikolai data
+     */
     public String extractNikolaiData() {
         String data = "";
-        this.myQuery = "SELECT * FROM enemyDB LIMIT 1 OFFSET 2";
+        myQuery = "SELECT * FROM enemyDB LIMIT 1 OFFSET 2";
 
         try {
-            this.myResultSet = myStatement.executeQuery(myQuery);
+            myResultSet = myStatement.executeQuery(myQuery);
             while (myResultSet.next()) {
                 data += myResultSet.getString("NAME") + "\n";
                 data += myResultSet.getString("HP") + "\n";
@@ -142,12 +164,16 @@ public class SQLTables {
         return data;
     }
 
+    /**
+     * This method extracts SadBoySea from the enemy table.
+     * @return the SadBoySea data
+     */
     public String extractSadBoySeaData() {
         String data = "";
-        this.myQuery = "SELECT * FROM enemyDB LIMIT 1 OFFSET 3";
+        myQuery = "SELECT * FROM enemyDB LIMIT 1 OFFSET 3";
 
         try {
-            this.myResultSet = myStatement.executeQuery(myQuery);
+            myResultSet = myStatement.executeQuery(myQuery);
             while (myResultSet.next()) {
                 data += myResultSet.getString("NAME") + "\n";
                 data += myResultSet.getString("HP") + "\n";

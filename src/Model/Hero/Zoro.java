@@ -6,10 +6,24 @@ import javax.imageio.ImageIO;
 import java.io.IOException;
 import java.util.Random;
 
+/**
+ * This class represents the Zoro hero.
+ *
+ * @author Kevin Nguyen
+ * @version 1.0
+ */
 public class Zoro extends Hero {
+    /**
+     * The minimum special damage.
+     */
     private final int myMinSpecialDamage = 40;
+    /**
+     * The maximum special damage.
+     */
     private final int myMaxSpecialDamage = 60;
-
+    /**
+     * Zoro constructor
+     */
     public Zoro() {
         super("Zoro", 110, 8, 15, 25,
                 .6, .2, .4, 4);
@@ -24,8 +38,13 @@ public class Zoro extends Hero {
         }
     }
 
+    /**
+     * This method represents the special attack of the hero.
+     * @param theEnemy the enemy that is being attacked
+     * @Override the specialAttack method in the MazeCharacter class.
+     */
     @Override
-    public void specialAttack(MazeCharacter theEnemy) {
+    public void specialAttack(final MazeCharacter theEnemy) {
         Random chance = new Random();
         Random damage = new Random();
         if (chance.nextFloat() <= getSpecialChance()) {

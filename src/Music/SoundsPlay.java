@@ -14,7 +14,9 @@ import java.io.IOException;
  * @version 1.0
  */
 public class SoundsPlay {
-
+    /**
+     * The audio file to be played.
+     */
     private static Clip myClip;
 
     private SoundsPlay() {
@@ -28,7 +30,7 @@ public class SoundsPlay {
     /**
      * This method is used to play the music.
      *
-     * @param theSong
+     * @param theSong the song to be played
      * @throws IOException
      * @throws UnsupportedAudioFileException
      * @throws LineUnavailableException

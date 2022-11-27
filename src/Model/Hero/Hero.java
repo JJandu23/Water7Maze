@@ -175,7 +175,7 @@ public abstract class Hero extends MazeCharacter {
      *
      * @param thePowerPowerFruit the hero's number of power power fruit.
      */
-    protected void setPowerPowerFruit(int thePowerPowerFruit) {
+    protected void setPowerPowerFruit(final int thePowerPowerFruit) {
         myPowerPowerFruit = thePowerPowerFruit;
     }
 
@@ -184,7 +184,7 @@ public abstract class Hero extends MazeCharacter {
      *
      * @param theSpeedSpeedFruit the hero's number of speed speed fruit.
      */
-    protected void setSpeedSpeedFruit(int theSpeedSpeedFruit) {
+    protected void setSpeedSpeedFruit(final int theSpeedSpeedFruit) {
         mySpeedSpeedFruit = theSpeedSpeedFruit;
     }
 
@@ -193,7 +193,7 @@ public abstract class Hero extends MazeCharacter {
      *
      * @param theTorch the hero's number of torch.
      */
-    protected void setTorch(int theTorch) {
+    protected void setTorch(final int theTorch) {
         myTorch = theTorch;
     }
 
@@ -202,7 +202,7 @@ public abstract class Hero extends MazeCharacter {
      *
      * @param theHealthPoints the hero's original health points.
      */
-    protected void setOriginalHealthPoints(int theHealthPoints) {
+    protected void setOriginalHealthPoints(final int theHealthPoints) {
         myOriginalHealthPoints = theHealthPoints;
     }
 
@@ -211,7 +211,7 @@ public abstract class Hero extends MazeCharacter {
      *
      * @param theMoveSpeed the hero's movement speed.
      */
-    protected void setMoveSpeed(int theMoveSpeed) {
+    protected void setMoveSpeed(final int theMoveSpeed) {
         myMoveSpeed = theMoveSpeed;
     }
 
@@ -379,12 +379,20 @@ public abstract class Hero extends MazeCharacter {
         }
     }
 
-    private static void moveX(int theDistance) {
+    /**
+     * This method sets the change of the hero's x coordinate.
+     * @param theDistance is the distance moved in the x coordinate.
+     */
+    private static void moveX(final int theDistance) {
         myX += theDistance;
         myCenterX = myX + 64;
     }
 
-    private static void moveY(int theDistance) {
+    /**
+     * This method sets the change of the hero's y coordinate.
+     * @param theDistance is the distance moved in the y coordinate.
+     */
+    private static void moveY(final int theDistance) {
         myY += theDistance;
         myCenterY = myY + 64;
     }
@@ -392,9 +400,9 @@ public abstract class Hero extends MazeCharacter {
     /**
      * This method draws the hero's image.
      *
-     * @param g the graphics object.
+     * @param theGraphics the graphics object.
      */
-    public static void draw(final Graphics2D g) {
+    public static void draw(final Graphics2D theGraphics) {
         BufferedImage image = null;
         switch (myDirection) {
             case "up":
@@ -441,8 +449,8 @@ public abstract class Hero extends MazeCharacter {
         }
         /*System.out.println("My X "+myCenterX+ " My Y: " + myCenterY);*/
 
-        g.drawPolygon(new int[]{myX, myX + 128, myX + 128, myX}, new int[]{myY, myY, myY + 128, myY + 128}, 4);
-        g.drawImage(image, myX, myY, 128, 128, null);
+        theGraphics.drawPolygon(new int[]{myX, myX + 128, myX + 128, myX}, new int[]{myY, myY, myY + 128, myY + 128}, 4);
+        theGraphics.drawImage(image, myX, myY, 128, 128, null);
     }
 
     /**
@@ -463,56 +471,109 @@ public abstract class Hero extends MazeCharacter {
         return myY;
     }
 
-    public void setMyDownIm1(final BufferedImage myDownIm1) {
-        this.myDownIm1 = myDownIm1;
+    /**
+     * This method sets the hero's down image 1.
+     * @param theDownIm1
+     */
+    public void setMyDownIm1(final BufferedImage theDownIm1) {
+        myDownIm1 = theDownIm1;
     }
 
-    public void setMyDownIm2(final BufferedImage myDownIm2) {
-        this.myDownIm2 = myDownIm2;
+    /**
+     * This method sets the hero's down image 2.
+     * @param theDownIm2 is the down image 2.
+     */
+    public void setMyDownIm2(final BufferedImage theDownIm2) {
+        myDownIm2 = theDownIm2;
     }
 
-    public void setMyDownIm3(final BufferedImage myDownIm3) {
-        this.myDownIm3 = myDownIm3;
+    /**
+     * This method sets the hero's down image 3.
+     * @param theDownIm3 is the down image 3.
+     */
+    public void setMyDownIm3(final BufferedImage theDownIm3) {
+        myDownIm3 = theDownIm3;
     }
 
-    public void setMyLeftIm1(final BufferedImage myLeftIm1) {
-        this.myLeftIm1 = myLeftIm1;
+    /**
+     * This method sets the hero's left image 1.
+     * @param theLeftIm1 is the left image 1.
+     */
+    public void setMyLeftIm1(final BufferedImage theLeftIm1) {
+        myLeftIm1 = theLeftIm1;
     }
 
-    public void setMyLeftIm2(final BufferedImage myLeftIm2) {
-        this.myLeftIm2 = myLeftIm2;
+    /**
+     * This method sets the hero's left image 2.
+     * @param theLeftIm2 is the left image 2.
+     */
+    public void setMyLeftIm2(final BufferedImage theLeftIm2) {
+        myLeftIm2 = theLeftIm2;
     }
 
-    public void setMyLeftIm3(final BufferedImage myLeftIm3) {
-        this.myLeftIm3 = myLeftIm3;
+    /**
+     * This method sets the hero's left image 3.
+     * @param theLeftIm3 is the left image 3.
+     */
+    public void setMyLeftIm3(final BufferedImage theLeftIm3) {
+        myLeftIm3 = theLeftIm3;
     }
 
-    public void setMyRightIm1(final BufferedImage myRightIm1) {
-        this.myRightIm1 = myRightIm1;
+    /**
+     * This method sets the hero's right image 1.
+     * @param theRightIm1 is the right image 1.
+     */
+    public void setMyRightIm1(final BufferedImage theRightIm1) {
+        myRightIm1 = theRightIm1;
     }
 
-    public void setMyRightIm2(final BufferedImage myRightIm2) {
-        this.myRightIm2 = myRightIm2;
+    /**
+     * This method sets the hero's right image 2.
+     * @param theRightIm2 is the right image 2.
+     */
+    public void setMyRightIm2(final BufferedImage theRightIm2) {
+        myRightIm2 = theRightIm2;
     }
 
-    public void setMyRightIm3(final BufferedImage myRightIm3) {
-        this.myRightIm3 = myRightIm3;
+    /**
+     * This method sets the hero's right image 3.
+     * @param theRightIm3 is the right image 3.
+     */
+    public void setMyRightIm3(final BufferedImage theRightIm3) {
+        myRightIm3 = theRightIm3;
     }
 
-    public void setMyUpIm1(final BufferedImage myUpIm1) {
-        this.myUpIm1 = myUpIm1;
+    /**
+     * This method sets the hero's up image 1.
+     * @param theUpIm1 is the up image 1.
+     */
+    public void setMyUpIm1(final BufferedImage theUpIm1) {
+        myUpIm1 = theUpIm1;
     }
 
-    public void setMyUpIm2(final BufferedImage myUpIm2) {
-        this.myUpIm2 = myUpIm2;
+    /**
+     * This method sets the hero's up image 2.
+     * @param theUpIm2 is the up image 2.
+     */
+    public void setMyUpIm2(final BufferedImage theUpIm2) {
+        myUpIm2 = theUpIm2;
     }
 
-    public void setMyUpIm3(final BufferedImage myUpIm3) {
-        this.myUpIm3 = myUpIm3;
+    /**
+     * This method sets the hero's up image 3.
+     * @param theUpIm3 is the up image 3.
+     */
+    public void setMyUpIm3(final BufferedImage theUpIm3) {
+        myUpIm3 = theUpIm3;
     }
 
-    public static boolean isTouching(Entities entity) {
-        int[] theCoords = entity.getCoords();
+    /**
+     * This method checks if the hero is touching an object.
+     * @param theEntity is the object the hero is touching.
+     * @return true if the hero is touching the object.
+     */
+    public static boolean isTouching(final Entities theEntity) {
+        int[] theCoords = theEntity.getCoords();
         boolean touching = false;
         int theX1 = theCoords[0];
         int theY1 = theCoords[1];
@@ -524,8 +585,12 @@ public abstract class Hero extends MazeCharacter {
         }
         return touching;
     }
-
-    private static List<Entities> isTouchingAny(HashMap<String, Entities> theEntitiesList) {
+    /**
+     * This method creates a list of objects the hero is touching.
+     * @param theEntitiesList is the object the hero is touching.
+     * @return the list of objects the hero is touching.
+     */
+    private static List<Entities> isTouchingAny(final HashMap<String, Entities> theEntitiesList) {
         List<Entities> theTouchingList = new ArrayList<>();
         for (String name : theEntitiesList.keySet()) {
             if (isTouching(theEntitiesList.get(name))) {
@@ -535,8 +600,13 @@ public abstract class Hero extends MazeCharacter {
         return theTouchingList;
     }
 
-    public static String sideTouching(Entities entity) {
-        int[] theCoords = entity.getCoords();
+    /**
+     * This method determines which side the hero is touching.
+     * @param theEntity is the object the hero is touching.
+     * @return the side the hero is touching.
+     */
+    public static String sideTouching(final Entities theEntity) {
+        int[] theCoords = theEntity.getCoords();
         String side = "";
 
         int theX1 = theCoords[0];
