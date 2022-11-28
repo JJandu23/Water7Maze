@@ -31,6 +31,8 @@ public class Room {
     private final int[] eastDoorCoords = new int[]{1000, -50, 1150, 1050};
     private final int[] westDoorCoords = new int[]{-50, -50, 100, 1050};
     private final Color background;
+    private Entities[][] myRoomHazard = new Entities[10][10];
+    private BufferedImage mySpikeImage;
 
     public Room(boolean doorNorth, boolean doorWest, boolean doorSouth, boolean doorEast) {
         double hue = Math.random();
@@ -40,10 +42,53 @@ public class Room {
         this.myDoorSouth = doorSouth;
         this.myDoorWest = doorWest;
         this.myDoorEast = doorEast;
+        try {
+            mySpikeImage = ImageIO.read(Maze.class.getResourceAsStream("../../View/Sprites/WallText.png"));
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public void setRoomItems(String roomItems) {
         myRoomItems = roomItems;
+    }
+
+
+    public void setRoomType(String theRoomType){
+        String[][] StringRoomHazard = new String[myRoomHazard.length][myRoomHazard[0].length];
+        if(theRoomType.equals("L")){
+            for (int i = 0; i < myRoomHazard[0].length; i++) {
+                StringRoomHazard[0][i] = "X";
+            }
+            for (int i = 1; i < myRoomHazard.length; i++) {
+                StringRoomHazard[i][myRoomHazard[0].length - 1] = "X";
+            }
+        }
+        System.out.println("Created hazard room");
+        setRoomHazard(StringRoomHazard);
+    }
+
+    private void setRoomHazard(String[][] theRoomHazard){
+
+
+        int startX = 250;
+        int startY = 50;
+        int spriteSize = 64;
+
+        for (int i = 0; i < myRoomHazard.length; i++) {
+            for (int j = 0; j < myRoomHazard[i].length; j++) {
+                int x1 = startX + (i*spriteSize);
+                int y1 = startY + (j*spriteSize);
+                int x2 = x1 + spriteSize;
+                int y2 = y1 + spriteSize;
+                if(theRoomHazard[i][j] != null){
+                    myRoomHazard[i][j] = new Entities ( x1, y1, x2 , y2);
+                    myRoomHazard[i][j].setSprite(mySpikeImage);
+                }
+
+            }
+        }
     }
 
     public void openDoor(String direction) {
@@ -128,6 +173,22 @@ public class Room {
                 eastDoorEnt.setSprite(img);
         }
     }
+
+    public void drawHazards(Graphics2D g){
+
+
+        for (int i = 0; i < myRoomHazard.length; i++) {
+            for (int j = 0; j < myRoomHazard[i].length; j++) {
+                if(myRoomHazard[i][j] != null){
+                    System.out.println("Drawing hazards");
+                    myRoomHazard[i][j].draw(g);
+                }
+
+            }
+        }
+    }
+
+
 
     public Color getBackground(){
         return background;

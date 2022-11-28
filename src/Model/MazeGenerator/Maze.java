@@ -55,6 +55,7 @@ public class Maze {
         for (int i = 0; i < theNumOfFloors; i++) {
             myMaze[i] = new FloorGenerator(theRoomWidth, theRoomLength).getFloor();
         }
+        myMaze[0][0][1].setRoomType("L");
     }
 
     public Room[][] getFloor(int theFloorNum) {
@@ -63,6 +64,10 @@ public class Maze {
 
     public void goDownFloors() {
         myCurrentFloor++;
+    }
+
+    public static void drawRoomHazard(){
+
     }
 
     public static void drawMiniMap(Graphics2D g) {
@@ -104,6 +109,7 @@ public class Maze {
             System.out.println("Something wrong");
         }
         Room theRoom = myMaze[myCurrentFloor][myCurrentRoom[0]][myCurrentRoom[1]];
+
         g.setColor(theRoom.getBackground());
         g.fillRect(-50,-50,2000,2000);
         g.setColor(Color.lightGray);
@@ -119,6 +125,7 @@ public class Maze {
         if(!theRoom.isMyDoorWest()){
             theRoom.westDoorEntity().draw(g);
         }
+        theRoom.drawHazards(g);
     }
 
     public static void addEntity(String name, Entities entity, int RoomX, int RoomY){
