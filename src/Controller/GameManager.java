@@ -91,7 +91,6 @@ public class GameManager {
      * This method is used to set the Hero object.
      * @param theHero is the Hero object.
      */
-
     public static void setHero(final Hero theHero) {
         myHero = theHero;
     }

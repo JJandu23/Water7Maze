@@ -7,18 +7,8 @@
     <list default="true" id="e4fa422e-bbf5-4b7a-ad89-3212284be1af" name="Changes" comment="Added more code to the Game Manager and fixed coding standards">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/GameManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/GameManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/InputControls.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/InputControls.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/SaveCurrentState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/SaveCurrentState.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Model/Battle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Battle.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Model/Enemy/EnemyFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Enemy/EnemyFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Model/Hero/Chopper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Hero/Chopper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Model/Hero/Hero.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Hero/Hero.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Model/Hero/Luffy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Hero/Luffy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Model/Hero/Nami.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Hero/Nami.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Model/Hero/Zoro.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Hero/Zoro.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Music/SoundsPlay.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Music/SoundsPlay.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SQL/SQLTables.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SQL/SQLTables.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SQL/SQLTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SQL/SQLTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Model/Entities.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Entities.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,6 +55,11 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "WebServerToolWindowFactoryState": "false"
+  }
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\Documents\Water7Maze\src\Music" />
@@ -75,7 +70,7 @@
       <recent name="D:\Documents\Water7Maze" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager" selected="Application.Battle">
     <configuration name="Battle" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Model.Battle" />
       <module name="Water7Maze" />
@@ -145,10 +140,10 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Battle" />
         <item itemvalue="Application.Main" />
         <item itemvalue="Application.GameManager" />
         <item itemvalue="Application.MazeTest" />
-        <item itemvalue="Application.Battle" />
         <item itemvalue="JUnit.SQLTests" />
       </list>
     </recent_temporary>
@@ -175,6 +170,7 @@
       <workItem from="1669091692852" duration="2812000" />
       <workItem from="1669095558943" duration="1235000" />
       <workItem from="1669430819659" duration="1444000" />
+      <workItem from="1669595754166" duration="3659000" />
     </task>
     <task id="LOCAL-00001" summary="New Project for TCSS 360">
       <created>1667347517038</created>
@@ -352,7 +348,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/Model/Battle.java</url>
-          <line>36</line>
+          <line>46</line>
           <properties class="Model.Battle">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />

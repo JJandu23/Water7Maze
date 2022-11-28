@@ -14,32 +14,58 @@ import java.util.Scanner;
  */
 public class Battle {
     /**
+     * The hero object.
+     */
+    private static Hero myHero;
+    /**
+     * The enemy object.
+     */
+    private static Enemy myEnemy;
+    /**
      * The battle controller.
      */
-    public static void main(final String[] theArgs) {
+    public static void main(String[] args) {
         Scanner console = new Scanner(System.in);
         gamePlay(console);
+    }
+    public Battle(Hero theHero, Enemy theEnemy) {
+        myHero = theHero;
+        myEnemy = theEnemy;
+        Scanner console = new Scanner(System.in);
+        gamePlay(myHero, myEnemy, console);
     }
 
     /**
      * This method controls the gameplay of the battle .
      * @param theConsole the console to read from.
      */
-    public static void gamePlay(final Scanner theConsole) {
-        Hero hero = chooseHero(theConsole);
-        System.out.println("You have chosen " + hero.getName() + "!" + "\n");
-        Enemy enemy = chooseEnemy(theConsole);
-        System.out.println("You have chosen to fight " + enemy.getName() + "!" + "\n");
-        while (hero.getHealthPoints() > 0 && enemy.getHealthPoints() > 0) {
-            battlePhase(hero, enemy, theConsole);
+    public static void gamePlay(final Hero theHero, final Enemy theEnemy, final Scanner theConsole) {
+        while (theHero.getHealthPoints() > 0 && theEnemy.getHealthPoints() > 0) {
+            battlePhase(theHero, theEnemy, theConsole);
         }
-        if (hero.getHealthPoints() <= 0) {
-            System.out.println(hero.getName() + " has died!");
+        if (theHero.getHealthPoints() <= 0) {
+            System.out.println(theHero.getName() + " has died!");
         } else {
-            System.out.println(enemy.getName() + " has died!");
+            System.out.println(theEnemy.getName() + " has died!");
         }
         System.out.println();
-        winner(hero, enemy);
+        winner(theHero, theEnemy);
+    }
+    public static void gamePlay(final Scanner theConsole) {
+        myHero = chooseHero(theConsole);
+        System.out.println("You have chosen " + myHero.getName() + "!" + "\n");
+        myEnemy = chooseEnemy(theConsole);
+        System.out.println("You have chosen to fight " + myEnemy.getName() + "!" + "\n");
+        while (myHero.getHealthPoints() > 0 && myEnemy.getHealthPoints() > 0) {
+            battlePhase(myHero, myEnemy, theConsole);
+        }
+        if (myHero.getHealthPoints() <= 0) {
+            System.out.println(myHero.getName() + " has died!");
+        } else {
+            System.out.println(myEnemy.getName() + " has died!");
+        }
+        System.out.println();
+        winner(myHero, myEnemy);
     }
 
     /**
