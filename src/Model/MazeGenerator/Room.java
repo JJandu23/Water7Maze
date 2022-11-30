@@ -28,7 +28,7 @@ public class Room {
     private String myRoomItems;
     private Entities northDoorEnt, southDoorEnt, westDoorEnt, eastDoorEnt;
     private final int[] northDoorCoords = new int[]{-50, -50, 1300, 100};
-    private final int[] southDoorCoords = new int[]{-50, 750, 1300, 900};
+    private final int[] southDoorCoords = new int[]{-50, 850, 1300, 1050};
     private final int[] eastDoorCoords = new int[]{1000, -50, 1150, 1050};
     private final int[] westDoorCoords = new int[]{-50, -50, 100, 1050};
     private final Color background;

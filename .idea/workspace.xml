@@ -4,17 +4,8 @@
     <option name="SCOPE_TYPE" value="3" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e4fa422e-bbf5-4b7a-ad89-3212284be1af" name="Changes" comment="Fixed collision, fixed entity spawning, added wall generation, added maze traversal.">
-      <change afterPath="$PROJECT_DIR$/src/View/Menus.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/GameManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/GameManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/InputControls.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/InputControls.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Model/Entities.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Entities.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Model/MazeGenerator/Maze.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/MazeGenerator/Maze.java" afterDir="false" />
+    <list default="true" id="e4fa422e-bbf5-4b7a-ad89-3212284be1af" name="Changes" comment="Started menus, fixed lag">
       <change beforePath="$PROJECT_DIR$/src/Model/MazeGenerator/Room.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/MazeGenerator/Room.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/View/GameView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/GameView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/View/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -313,7 +304,14 @@
       <option name="project" value="LOCAL" />
       <updated>1668732147201</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="Started menus, fixed lag">
+      <created>1669802993515</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1669802993515</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -342,7 +340,8 @@
     <MESSAGE value="kevin can move again" />
     <MESSAGE value="Added file paths for sprites for all characters." />
     <MESSAGE value="Fixed Save manager code and save state classes." />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed Save manager code and save state classes." />
+    <MESSAGE value="Started menus, fixed lag" />
+    <option name="LAST_COMMIT_MESSAGE" value="Started menus, fixed lag" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
