@@ -25,7 +25,7 @@ public class GameView extends JPanel implements Runnable {
     final int tileSize = originalTileSize * scale;
     final int screenWidth = tileSize * maxScreenCol;
     final int screenHeight = tileSize * maxScreenRow;
-    Maze maze = new Maze(5, 10, 10);
+
     int FPS = 60;
     InputControls inputCon = new InputControls();
     Thread gameThread;

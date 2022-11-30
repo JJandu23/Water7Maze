@@ -4,6 +4,7 @@ import Model.Hero.Hero;
 import Model.MazeGenerator.Maze;
 import View.GameView;
 import Music.SoundsPlay;
+import View.Menus;
 
 import java.awt.*;
 
@@ -147,16 +148,60 @@ public class GameManager {
      * @param theGraphics is the graphics object.
      */
     public static void draw(final Graphics2D theGraphics) {
-        Maze.drawRoom(theGraphics);
-        Hero.draw(theGraphics);
-        Maze.drawMiniMap(theGraphics);
+
+
+
+        switch(Menus.getGameState()){
+            case "Maze":
+                Maze.drawRoom(theGraphics);
+                Hero.draw(theGraphics);
+                Maze.drawMiniMap(theGraphics);
+
+                break;
+
+            case "Intro":
+
+                break;
+
+            case "Dialogue":
+
+                break;
+
+            case "Ending":
+
+                break;
+
+
+        }
     }
 
     /**
      * This method is used to update the hero.
      */
     public static void update() {
-        Hero.update();
+
+        switch(Menus.getGameState()){
+            case "Maze":
+                Hero.update();
+                Maze.update();
+
+                break;
+
+            case "Intro":
+
+                break;
+
+            case "Dialogue":
+
+                break;
+
+            case "Ending":
+
+                break;
+
+
+        }
+
     }
 
     /**

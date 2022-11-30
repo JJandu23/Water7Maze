@@ -2,6 +2,7 @@ package View;
 
 import Controller.GameManager;
 import Model.Hero.Luffy;
+import Model.MazeGenerator.Maze;
 
 import javax.swing.*;
 
@@ -20,6 +21,7 @@ public class Main {
         window.setTitle("Water 7 Maze");
 
         GameManager.setHero(new Luffy());
+        GameManager.setMaze(new Maze(1,10,10));
         GameView gameView = new GameView();
         window.add(gameView);
 

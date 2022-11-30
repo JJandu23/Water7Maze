@@ -1,9 +1,15 @@
 package Controller;
 
 import javax.swing.text.View;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.io.IOException;
 
 
+import Model.Entities;
+import View.GameView;
+import javax.swing.*;
+import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
@@ -26,7 +32,8 @@ public class InputControls implements KeyListener {
     private final char SAVE = 'o';
     private final char LOAD = 'i';
 
-    private static boolean upPressed, downPressed, leftPressed, rightPressed;
+    private static boolean upPressed, downPressed, leftPressed, rightPressed, oPressed;
+    private static int[] mouseClickedCoords = new int[2];
 
     public boolean getUp() {
         return upPressed;
@@ -43,6 +50,9 @@ public class InputControls implements KeyListener {
     public boolean getRight() {
         return rightPressed;
     }
+
+
+
 
     public char getAttack() {
         return ATTACK;
@@ -139,6 +149,9 @@ public class InputControls implements KeyListener {
         }
         if (code == KeyEvent.VK_D) {
             rightPressed = true;
+        }
+        if (code == KeyEvent.VK_O) {
+            oPressed = true;
         }
     }
 

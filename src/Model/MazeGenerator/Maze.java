@@ -66,9 +66,7 @@ public class Maze {
         myCurrentFloor++;
     }
 
-    public static void drawRoomHazard(){
 
-    }
 
     public static void drawMiniMap(Graphics2D g) {
         int mazeX = 900;
@@ -196,5 +194,9 @@ public class Maze {
 
     public static HashMap<String, Entities> getEntityList(){
         return myEntityList;
+    }
+
+    public static void update(){
+        myMaze[myCurrentFloor][myCurrentRoom[0]][myCurrentRoom[1]].update();
     }
 }

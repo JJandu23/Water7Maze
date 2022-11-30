@@ -1,5 +1,6 @@
 package Model.MazeGenerator;
 
+import Controller.InputControls;
 import Model.Entities;
 
 import javax.imageio.ImageIO;
@@ -83,7 +84,7 @@ public class Room {
                 int x2 = x1 + spriteSize;
                 int y2 = y1 + spriteSize;
                 if(theRoomHazard[i][j] != null){
-                    myRoomHazard[i][j] = new Entities ( x1, y1, x2 , y2);
+                    myRoomHazard[i][j] = new Entities ( x1, y1, x2 , y2, false);
                     myRoomHazard[i][j].setSprite(mySpikeImage);
                 }
 
@@ -160,16 +161,16 @@ public class Room {
         }
         switch (doorDirection) {
             case "North":
-                northDoorEnt = new Entities(northDoorCoords[0], northDoorCoords[1], northDoorCoords[2], northDoorCoords[3]);
+                northDoorEnt = new Entities(northDoorCoords[0], northDoorCoords[1], northDoorCoords[2], northDoorCoords[3], true);
                 northDoorEnt.setSprite(img);
             case "South":
-                southDoorEnt = new Entities(southDoorCoords[0], southDoorCoords[1], southDoorCoords[2], southDoorCoords[3]);
+                southDoorEnt = new Entities(southDoorCoords[0], southDoorCoords[1], southDoorCoords[2], southDoorCoords[3], true);
                 southDoorEnt.setSprite(img);
             case "West":
-                westDoorEnt = new Entities(westDoorCoords[0], westDoorCoords[1], westDoorCoords[2], westDoorCoords[3]);
+                westDoorEnt = new Entities(westDoorCoords[0], westDoorCoords[1], westDoorCoords[2], westDoorCoords[3], true);
                 westDoorEnt.setSprite(img);
             case "East":
-                eastDoorEnt = new Entities(eastDoorCoords[0], eastDoorCoords[1], eastDoorCoords[2], eastDoorCoords[3]);
+                eastDoorEnt = new Entities(eastDoorCoords[0], eastDoorCoords[1], eastDoorCoords[2], eastDoorCoords[3], true);
                 eastDoorEnt.setSprite(img);
         }
     }
@@ -180,12 +181,16 @@ public class Room {
         for (int i = 0; i < myRoomHazard.length; i++) {
             for (int j = 0; j < myRoomHazard[i].length; j++) {
                 if(myRoomHazard[i][j] != null){
-                    System.out.println("Drawing hazards");
+
                     myRoomHazard[i][j].draw(g);
                 }
 
             }
         }
+    }
+
+    public void update(){
+
     }
 
 
