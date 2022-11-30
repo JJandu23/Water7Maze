@@ -32,7 +32,7 @@ public class InputControls implements KeyListener {
     private final char SAVE = 'o';
     private final char LOAD = 'i';
 
-    private static boolean upPressed, downPressed, leftPressed, rightPressed, oPressed;
+    private static boolean upPressed, downPressed, leftPressed, rightPressed, enterPressed;
     private static int[] mouseClickedCoords = new int[2];
 
     public boolean getUp() {
@@ -43,14 +43,14 @@ public class InputControls implements KeyListener {
         return downPressed;
     }
 
-    public boolean getLeft() {
+    public static boolean getLeft() {
         return leftPressed;
     }
 
-    public boolean getRight() {
+    public static boolean getRight() {
         return rightPressed;
     }
-
+    public static boolean getEnter(){return enterPressed;}
 
 
 
@@ -150,8 +150,9 @@ public class InputControls implements KeyListener {
         if (code == KeyEvent.VK_D) {
             rightPressed = true;
         }
-        if (code == KeyEvent.VK_O) {
-            oPressed = true;
+
+        if (code == KeyEvent.VK_ENTER) {
+            enterPressed = true;
         }
     }
 
@@ -163,6 +164,7 @@ public class InputControls implements KeyListener {
     @Override
     public void keyReleased(KeyEvent theEvent) {
         int code = theEvent.getKeyCode();
+
         if (code == KeyEvent.VK_W) {
             upPressed = false;
         }
@@ -174,6 +176,10 @@ public class InputControls implements KeyListener {
         }
         if (code == KeyEvent.VK_D) {
             rightPressed = false;
+        }
+
+        if (code == KeyEvent.VK_ENTER) {
+            enterPressed = false;
         }
     }
 }

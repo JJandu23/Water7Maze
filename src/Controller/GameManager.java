@@ -4,6 +4,7 @@ import Model.Hero.Hero;
 import Model.MazeGenerator.Maze;
 import View.GameView;
 import Music.SoundsPlay;
+import View.Intro;
 import View.Menus;
 
 import java.awt.*;
@@ -15,6 +16,9 @@ import java.awt.*;
  * @version 1.0
  */
 public class GameManager {
+
+
+
     /**
      * The hero object.
      */
@@ -154,12 +158,13 @@ public class GameManager {
         switch(Menus.getGameState()){
             case "Maze":
                 Maze.drawRoom(theGraphics);
-                Hero.draw(theGraphics);
+                myHero.draw(theGraphics);
                 Maze.drawMiniMap(theGraphics);
 
                 break;
 
             case "Intro":
+                Intro.draw(theGraphics);
 
                 break;
 
@@ -182,13 +187,19 @@ public class GameManager {
 
         switch(Menus.getGameState()){
             case "Maze":
-                Hero.update();
+                myHero.update();
                 Maze.update();
 
                 break;
 
             case "Intro":
+                try {
+                    Thread.sleep(50);
+                } catch (Exception e){
+                    e.printStackTrace();
+                }
 
+                Intro.update();
                 break;
 
             case "Dialogue":

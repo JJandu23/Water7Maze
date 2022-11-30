@@ -47,7 +47,7 @@ public abstract class Hero extends MazeCharacter {
     /**
      * The hero's movement speed.
      */
-    private static int myMoveSpeed;
+    private int myMoveSpeed;
 
     /**
      * The hero's input control.
@@ -67,7 +67,7 @@ public abstract class Hero extends MazeCharacter {
     /**
      * The hero's images.
      */
-    private static BufferedImage myUpIm1, myUpIm2, myUpIm3, myDownIm1, myDownIm2, myDownIm3, myLeftIm1, myLeftIm2, myLeftIm3, myRightIm1, myRightIm2, myRightIm3;
+    private BufferedImage myUpIm1, myUpIm2, myUpIm3, myDownIm1, myDownIm2, myDownIm3, myLeftIm1, myLeftIm2, myLeftIm3, myRightIm1, myRightIm2, myRightIm3;
 
     /**
      * The hero's current image.
@@ -313,7 +313,7 @@ public abstract class Hero extends MazeCharacter {
     /**
      * This method updates the hero's movement.
      */
-    public static void update() {
+    public void update() {
         List<Entities> potentialCollisionList = isTouchingAny(Maze.getEntityList());
         List<String> sides = new ArrayList<>();
         for (Entities potentialCollision : potentialCollisionList) {
@@ -339,7 +339,7 @@ public abstract class Hero extends MazeCharacter {
             myX = 1150;
             myY = 400;
         }
-        if (inputCon.getDown() || inputCon.getLeft() || inputCon.getUp() || inputCon.getRight()) {
+        if (inputCon.getDown() || InputControls.getLeft() || inputCon.getUp() || InputControls.getRight()) {
             if (inputCon.getUp()) {
                 myDirection = "up";
                 if (!sides.contains("South")) {
@@ -351,12 +351,12 @@ public abstract class Hero extends MazeCharacter {
                     moveY(myMoveSpeed);
                 }
             }
-            if (inputCon.getLeft()) {
+            if (InputControls.getLeft()) {
                 myDirection = "left";
                 if (!sides.contains("East")) {
                     moveX(-myMoveSpeed);
                 }
-            } else if (inputCon.getRight()) {
+            } else if (InputControls.getRight()) {
                 myDirection = "right";
                 if (!sides.contains("West")) {
                     moveX(myMoveSpeed);
@@ -402,7 +402,7 @@ public abstract class Hero extends MazeCharacter {
      *
      * @param theGraphics the graphics object.
      */
-    public static void draw(final Graphics2D theGraphics) {
+    public void draw(final Graphics2D theGraphics) {
         BufferedImage image = null;
         switch (myDirection) {
             case "up":
@@ -566,6 +566,14 @@ public abstract class Hero extends MazeCharacter {
     public void setMyUpIm3(final BufferedImage theUpIm3) {
         myUpIm3 = theUpIm3;
     }
+
+
+    public BufferedImage getMyDefaultIm(){
+        return myDownIm1;
+    }
+
+
+
 
     /**
      * This method checks if the hero is touching an object.

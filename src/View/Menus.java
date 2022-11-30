@@ -1,7 +1,7 @@
 package View;
 
 public class Menus {
-    private static String myGameState = "Maze";
+    private static String myGameState = "Intro";
 
 
 

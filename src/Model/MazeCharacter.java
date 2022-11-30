@@ -126,7 +126,9 @@ public class MazeCharacter {
      * @param theHitChance the hit chance of the character
      */
     protected void setHitChance(final double theHitChance) {
+
         myHitChance = theHitChance;
+
     }
 
     /**

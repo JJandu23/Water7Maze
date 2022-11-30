@@ -36,6 +36,7 @@ public class GameView extends JPanel implements Runnable {
         this.setDoubleBuffered(true);
         this.addKeyListener(inputCon);
         this.setFocusable(true);
+
     }
 
     public void startGameThread() {
