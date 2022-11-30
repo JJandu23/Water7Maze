@@ -1,5 +1,6 @@
 package Model.Enemy;
 
+import Model.MazeCharacter;
 import SQL.SQLTables;
 
 import java.sql.SQLException;
@@ -65,7 +66,9 @@ public class EnemyFactory {
      * @return the instance of the EnemyFactory class.
      */
     public static EnemyFactory getInstance() {
-        if (myInstance == null) return new EnemyFactory();
+        if (myInstance == null){
+            myInstance = new EnemyFactory();
+        }
         return myInstance;
     }
 
@@ -74,8 +77,8 @@ public class EnemyFactory {
      *
      * @return the selected enemy.
      */
-    public static Enemy chosenEnemy(final char theInput) {
-        Enemy enemy = null;
+    public static MazeCharacter chosenEnemy(final char theInput) {
+        MazeCharacter enemy = null;
         Scanner scan = null;
         switch (theInput) {
             case '1':
@@ -112,32 +115,32 @@ public class EnemyFactory {
      *
      * @return the selected enemy.
      */
-    public static Enemy chooseEnemy() {
+    public static MazeCharacter chooseEnemy() {
         Random rand = new Random();
         int randomNum = rand.nextInt(4) + 1;
         Scanner scan = null;
         switch (randomNum) {
             case 1:
                 scan = new Scanner(myBoatKevinData);
-                Enemy newBoatKevin = new BoatKevin(scan.nextLine(), scan.nextInt(), scan.nextInt(),
+                MazeCharacter newBoatKevin = new BoatKevin(scan.nextLine(), scan.nextInt(), scan.nextInt(),
                         scan.nextInt(), scan.nextInt(), scan.nextDouble(),
                         scan.nextDouble(), scan.nextDouble());
                 return newBoatKevin;
             case 2:
                 scan = new Scanner(myEliData);
-                Enemy newEli = new Eli(scan.nextLine(), scan.nextInt(), scan.nextInt(),
+                MazeCharacter newEli = new Eli(scan.nextLine(), scan.nextInt(), scan.nextInt(),
                         scan.nextInt(), scan.nextInt(), scan.nextDouble(),
                         scan.nextDouble(), scan.nextDouble());
                 return newEli;
             case 3:
                 scan = new Scanner(myNikolaiData);
-                Enemy newNikolai = new Nikolai(scan.nextLine(), scan.nextInt(), scan.nextInt(),
+                MazeCharacter newNikolai = new Nikolai(scan.nextLine(), scan.nextInt(), scan.nextInt(),
                         scan.nextInt(), scan.nextInt(), scan.nextDouble(),
                         scan.nextDouble(), scan.nextDouble());
                 return newNikolai;
             case 4:
                 scan = new Scanner(mySadBoySeaData);
-                Enemy newSadBoySea = new SadBoySea(scan.nextLine(), scan.nextInt(), scan.nextInt(),
+                MazeCharacter newSadBoySea = new SadBoySea(scan.nextLine(), scan.nextInt(), scan.nextInt(),
                         scan.nextInt(), scan.nextInt(), scan.nextDouble(),
                         scan.nextDouble(), scan.nextDouble());
                 return newSadBoySea;

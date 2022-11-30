@@ -176,8 +176,6 @@ public class Room {
     }
 
     public void drawHazards(Graphics2D g){
-
-
         for (int i = 0; i < myRoomHazard.length; i++) {
             for (int j = 0; j < myRoomHazard[i].length; j++) {
                 if(myRoomHazard[i][j] != null){

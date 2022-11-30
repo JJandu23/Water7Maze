@@ -20,7 +20,7 @@ public class Battle {
     /**
      * The enemy object.
      */
-    private static Enemy myEnemy;
+    private static MazeCharacter myEnemy;
     /**
      * The battle controller.
      */
@@ -28,7 +28,13 @@ public class Battle {
         Scanner console = new Scanner(System.in);
         gamePlay(console);
     }
-    public Battle(Hero theHero, Enemy theEnemy) {
+    /**
+     * This method is used to control the battle.
+     *
+     * @param theHero the hero object.
+     * @param theEnemy the enemy object.
+     */
+    public Battle(Hero theHero, MazeCharacter theEnemy) {
         myHero = theHero;
         myEnemy = theEnemy;
         Scanner console = new Scanner(System.in);
@@ -39,7 +45,7 @@ public class Battle {
      * This method controls the gameplay of the battle .
      * @param theConsole the console to read from.
      */
-    public static void gamePlay(final Hero theHero, final Enemy theEnemy, final Scanner theConsole) {
+    public static void gamePlay(final Hero theHero, final MazeCharacter theEnemy, final Scanner theConsole) {
         while (theHero.getHealthPoints() > 0 && theEnemy.getHealthPoints() > 0) {
             battlePhase(theHero, theEnemy, theConsole);
         }
@@ -99,7 +105,7 @@ public class Battle {
      * @param theConsole the console to read from.
      * @return the enemy chosen by the user.
      */
-    public static Enemy chooseEnemy(final Scanner theConsole) {
+    public static MazeCharacter chooseEnemy(final Scanner theConsole) {
         System.out.println("Choose your enemy!");
         System.out.println("1. Boat Kevin");
         System.out.println("2. Eli");
@@ -121,7 +127,7 @@ public class Battle {
      * @param theEnemy the enemy in the battle.
      * @param theConsole the console to read from.
      */
-    public static void battlePhase(final Hero theHero, final  Enemy theEnemy,final Scanner theConsole) {
+    public static void battlePhase(final Hero theHero, final  MazeCharacter theEnemy,final Scanner theConsole) {
         char choice = getChoice(theConsole);
         if (theHero.getAttackSpeed() >= theEnemy.getAttackSpeed()) {
             heroTurn(choice, theHero, theEnemy);
@@ -164,7 +170,7 @@ public class Battle {
      * @param theHero the hero in the battle.
      * @param theEnemy the enemy in the battle.
      */
-    public static void heroTurn(final char theChoice, final  Hero theHero, final Enemy theEnemy) {
+    public static void heroTurn(final char theChoice, final  Hero theHero, final MazeCharacter theEnemy) {
         switch (theChoice) {
             case 'j' -> theHero.attack(theEnemy);
             case 'k' -> theHero.specialAttack(theEnemy);
@@ -179,7 +185,7 @@ public class Battle {
      * @param theHero the hero in the battle.
      * @param theEnemy the enemy in the battle.
      */
-    public static void enemyTurn(final Hero theHero, final Enemy theEnemy) {
+    public static void enemyTurn(final Hero theHero, final MazeCharacter theEnemy) {
         Random chance = new Random();
         if (chance.nextFloat() <= theEnemy.getSpecialChance()) {
             theEnemy.specialAttack(theHero);
@@ -192,7 +198,7 @@ public class Battle {
      * @param theHero the hero.
      * @param theEnemy the enemy.
      */
-    public static void winner(final Hero theHero, final Enemy theEnemy) {
+    public static void winner(final Hero theHero, final MazeCharacter theEnemy) {
         if (theEnemy.getHealthPoints() <= 0) {
             System.out.println("Victory");
         }

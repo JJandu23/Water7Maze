@@ -8,7 +8,7 @@ import Model.MazeCharacter;
  * @author Kevin Nguyen, Jashanpreet Jandu, Nicholas Zhuk
  * @version 1.0
  */
-public class BoatKevin extends Enemy {
+public class BoatKevin extends MazeCharacter {
 
     /**
      * Constructor for the BoatKevin class.
