@@ -18,13 +18,16 @@ import java.awt.*;
 public class GameView extends JPanel implements Runnable {
 
     // Settings
-    final int originalTileSize = 32;
-    final int scale = 3;
-    final int maxScreenCol = 12;
-    final int maxScreenRow = 10;
-    final int tileSize = originalTileSize * scale;
-    final int screenWidth = tileSize * maxScreenCol;
-    final int screenHeight = tileSize * maxScreenRow;
+    static final int originalTileSize = 32;
+    static final int scale = 3;
+    static final int maxScreenCol = 12;
+    static final int maxScreenRow = 10;
+    static final int tileSize = originalTileSize * scale;
+    static final int screenWidth = tileSize * maxScreenCol;
+    static final int screenHeight = tileSize * maxScreenRow;
+
+
+
 
     int FPS = 60;
     InputControls inputCon = new InputControls();
@@ -74,4 +77,13 @@ public class GameView extends JPanel implements Runnable {
         GameManager.draw(g2);
         g2.dispose();
     }
+
+    public static int getScreenWidth(){
+        return screenWidth;
+    }
+
+    public static int getScreenHeight(){
+        return screenHeight;
+    }
+
 }

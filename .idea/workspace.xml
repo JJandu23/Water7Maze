@@ -5,15 +5,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e4fa422e-bbf5-4b7a-ad89-3212284be1af" name="Changes" comment="Started menus, fixed lag">
-      <change afterPath="$PROJECT_DIR$/src/View/Intro.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/View/Sprites/Zoro/down2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/View/Sprites/Zoro/down3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/View/Sprites/Zoro/left2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/View/Sprites/Zoro/left3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/View/Sprites/Zoro/right2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/View/Sprites/Zoro/right3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/View/Sprites/Zoro/up2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/View/Sprites/Zoro/up3.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/GameManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/GameManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/InputControls.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/InputControls.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Model/Hero/Hero.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Hero/Hero.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Model/MazeCharacter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/MazeCharacter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Model/Hero/Zoro.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Hero/Zoro.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/View/GameView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/GameView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/View/Menus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/Menus.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/View/Intro.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/Intro.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/View/Sprites/Zoro/down1.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/Sprites/Zoro/down1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/View/Sprites/Zoro/left1.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/Sprites/Zoro/left1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/View/Sprites/Zoro/right1.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/Sprites/Zoro/right1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/View/Sprites/Zoro/up1.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/Sprites/Zoro/up1.png" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

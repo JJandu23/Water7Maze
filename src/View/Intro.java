@@ -4,7 +4,7 @@ import Controller.GameManager;
 import Controller.InputControls;
 import Model.Hero.*;
 import Model.MazeCharacter;
-
+import View.GameView;
 import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
@@ -19,7 +19,7 @@ public class Intro {
     static double selectedScaleNami = 1;
     static double selectedScaleChopper = 1;
 
-    private static int myX = 70;
+    private static int myX = 60;
     private static int myY = 200;
 
 
@@ -30,6 +30,12 @@ public class Intro {
     public static void update(){
 
         if(InputControls.getRight()){
+            try{
+                Thread.sleep(150);
+            } catch (Exception e){
+                System.out.println(e);
+            }
+
             if(choice == 3){
                 choice = 0;
             } else{
@@ -38,6 +44,11 @@ public class Intro {
 
         }
         if(InputControls.getLeft()){
+            try{
+                Thread.sleep(150);
+            } catch (Exception e){
+                System.out.println(e);
+            }
             if(choice == 0){
                 choice = 3;
             } else{
@@ -60,37 +71,39 @@ public class Intro {
 
 
         bobCharacter();
-        g.setColor(Color.green);
-        g.fillRect(0,0,1000,1000);
+        g.setColor(Color.darkGray);
+        g.fillRect(0,0,GameView.getScreenWidth(),GameView.getScreenHeight());
 
-        g.drawImage(myCharacterChoice[0].getMyDefaultIm(), myX, myY, (int)(128*selectedScaleLuffy), (int)(128*selectedScaleLuffy), null);
-        g.drawImage(myCharacterChoice[1].getMyDefaultIm(), myX+300, myY, (int)(128*selectedScaleZoro), (int)(128*selectedScaleZoro), null);
-        g.drawImage(myCharacterChoice[2].getMyDefaultIm(), myX+600, myY, (int)(128*selectedScaleNami), (int)(128*selectedScaleNami), null);
-        g.drawImage(myCharacterChoice[3].getMyDefaultIm(), myX+900, myY, (int)(128*selectedScaleChopper), (int)(128*selectedScaleChopper), null);
+        g.drawImage(myCharacterChoice[0].getMyDefaultIm(), myX - ((int)(selectedScaleLuffy*64) - 64 ), myY - ((int)(selectedScaleLuffy*64) - 64 ), (int)(128*selectedScaleLuffy), (int)(128*selectedScaleLuffy), null);
+        g.drawImage(myCharacterChoice[1].getMyDefaultIm(), myX+300 - ((int)(selectedScaleZoro*64) - 64 ), myY - ((int)(selectedScaleZoro*64) - 64 ), (int)(128*selectedScaleZoro), (int)(128*selectedScaleZoro), null);
+        g.drawImage(myCharacterChoice[2].getMyDefaultIm(), myX+600 - ((int)(selectedScaleNami*64) - 64 ), myY - ((int)(selectedScaleNami*64) - 64 ), (int)(128*selectedScaleNami), (int)(128*selectedScaleNami), null);
+        g.drawImage(myCharacterChoice[3].getMyDefaultIm(), myX+900 - ((int)(selectedScaleChopper*64) - 64 ), myY - ((int)(selectedScaleChopper*64) - 64 ), (int)(128*selectedScaleChopper), (int)(128*selectedScaleChopper), null);
+
+
 
 
     }
 
     private static void bobCharacter(){
         if(choice == 0){
-            if(selectedScaleLuffy < 1.5)selectedScaleLuffy += 0.05;
-            if(selectedScaleLuffy > 1.5)selectedScaleLuffy = 1;
+            selectedScaleLuffy += 0.01;
+            if(selectedScaleLuffy > 1.25)selectedScaleLuffy = 1;
 
         }else{
             selectedScaleLuffy = 1;
         }if(choice == 1){
-            if(selectedScaleZoro < 1.5)selectedScaleZoro += 0.05;
-            if(selectedScaleZoro > 1.5)selectedScaleZoro = 1;
+            selectedScaleZoro += 0.01;
+            if(selectedScaleZoro > 1.25)selectedScaleZoro = 1;
         }else{
             selectedScaleZoro = 1;
         }if(choice == 2){
-            if(selectedScaleNami < 1.5)selectedScaleNami += 0.05;
-            if(selectedScaleNami > 1.5)selectedScaleNami = 1;
+            selectedScaleNami += 0.01;
+            if(selectedScaleNami > 1.25)selectedScaleNami = 1;
         }else{
             selectedScaleNami = 1;
         }if(choice == 3){
-            if(selectedScaleChopper < 1.5)selectedScaleChopper += 0.05;
-            if(selectedScaleChopper > 1.5)selectedScaleChopper = 1;
+            selectedScaleChopper += 0.01;
+            if(selectedScaleChopper > 1.25)selectedScaleChopper = 1;
         }else{
             selectedScaleChopper = 1;
         }
