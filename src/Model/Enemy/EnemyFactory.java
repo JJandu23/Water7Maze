@@ -4,6 +4,12 @@ import Model.MazeCharacter;
 import SQL.SQLTables;
 import java.sql.SQLException;
 import java.util.Scanner;
+
+/**
+ * This class is used to create the enemy.
+ * @author Kevin Nguyen, Jashanpreet Jandu, Nicholas Zhuk
+ * @version 1.0
+ */
 public class EnemyFactory {
     /**
      * The instance of the enemy factory.
