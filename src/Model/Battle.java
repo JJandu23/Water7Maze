@@ -26,6 +26,7 @@ public class Battle {
      */
     public static void main(String[] args) {
         Scanner console = new Scanner(System.in);
+        EnemyFactory.getInstance();
         gamePlay(console);
     }
     /**
@@ -60,7 +61,7 @@ public class Battle {
     public static void gamePlay(final Scanner theConsole) {
         myHero = chooseHero(theConsole);
         System.out.println("You have chosen " + myHero.getName() + "!" + "\n");
-        myEnemy = chooseEnemy(theConsole);
+        myEnemy = chooseEnemy();
         System.out.println("You have chosen to fight " + myEnemy.getName() + "!" + "\n");
         while (myHero.getHealthPoints() > 0 && myEnemy.getHealthPoints() > 0) {
             battlePhase(myHero, myEnemy, theConsole);
@@ -102,23 +103,13 @@ public class Battle {
 
     /**
      * This method selects the chosen enemy.
-     * @param theConsole the console to read from.
      * @return the enemy chosen by the user.
      */
-    public static MazeCharacter chooseEnemy(final Scanner theConsole) {
-        System.out.println("Choose your enemy!");
-        System.out.println("1. Boat Kevin");
-        System.out.println("2. Eli");
-        System.out.println("3. Nikolai");
-        System.out.println("4: SadBoySea");
-        System.out.println("5: Random");
-        char choice = theConsole.next().charAt(0);
-        EnemyFactory.getInstance();
-        if (choice == '5') {
-            return EnemyFactory.chooseEnemy();
-        } else {
-            return EnemyFactory.chosenEnemy(choice);
-        }
+    public static MazeCharacter chooseEnemy() {
+        Random rand = new Random();
+        int choice = rand.nextInt(4);
+        EnemyFactory.Enemy enemyType = EnemyFactory.Enemy.values()[choice];
+        return EnemyFactory.chosenEnemy(enemyType);
     }
 
     /**
