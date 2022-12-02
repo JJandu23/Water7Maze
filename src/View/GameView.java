@@ -6,8 +6,11 @@ import Model.Hero.Luffy;
 import Model.Hero.Zoro;
 import Model.MazeGenerator.Maze;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
 
 /**
  * This class is used to create the game view.
@@ -23,8 +26,8 @@ public class GameView extends JPanel implements Runnable {
     static final int maxScreenCol = 12;
     static final int maxScreenRow = 10;
     static final int tileSize = originalTileSize * scale;
-    static final int screenWidth = tileSize * maxScreenCol;
-    static final int screenHeight = tileSize * maxScreenRow;
+    static final int screenWidth = tileSize * maxScreenCol; //1152
+    static final int screenHeight = tileSize * maxScreenRow; //960
 
 
 
@@ -32,6 +35,7 @@ public class GameView extends JPanel implements Runnable {
     int FPS = 60;
     InputControls inputCon = new InputControls();
     Thread gameThread;
+    BufferedImage img;
 
     public GameView() {
         this.setPreferredSize(new Dimension(screenWidth, screenHeight));
@@ -39,6 +43,8 @@ public class GameView extends JPanel implements Runnable {
         this.setDoubleBuffered(true);
         this.addKeyListener(inputCon);
         this.setFocusable(true);
+
+
 
     }
 
@@ -75,6 +81,10 @@ public class GameView extends JPanel implements Runnable {
         super.paintComponent(g);
         Graphics2D g2 = (Graphics2D) g;
         GameManager.draw(g2);
+
+
+
+
         g2.dispose();
     }
 

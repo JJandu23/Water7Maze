@@ -14,6 +14,9 @@ public class Intro {
     private static final Hero[] myCharacterChoice = {new Luffy(), new Zoro(), new Nami(), new Chopper()};
     private static int choice = 0;
 
+
+    private static double sinX =0;
+
     static double selectedScaleLuffy = 1;
     static double selectedScaleZoro = 1;
     static double selectedScaleNami = 1;
@@ -21,6 +24,23 @@ public class Intro {
 
     private static int myX = 60;
     private static int myY = 200;
+    private static BufferedImage luffyTxt;
+    private static BufferedImage namiTxt;
+    private static BufferedImage chopperTxt;
+    private static BufferedImage boxTxt;
+    private static BufferedImage zoroTxt;
+    static{
+        try{
+            luffyTxt = ImageIO.read(Intro.class.getResourceAsStream("../View/Sprites/luffytext.png"));
+            zoroTxt = ImageIO.read(Intro.class.getResourceAsStream("../View/Sprites/zorotext.png"));
+            namiTxt = ImageIO.read(Intro.class.getResourceAsStream("../View/Sprites/namitext.png"));
+            chopperTxt = ImageIO.read(Intro.class.getResourceAsStream("../View/Sprites/choppertext.png"));
+            boxTxt = ImageIO.read(Intro.class.getResourceAsStream("../View/Sprites/textbox.png"));
+
+        }  catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
 
 
@@ -30,6 +50,7 @@ public class Intro {
     public static void update(){
 
         if(InputControls.getRight()){
+            sinX = 0;
             try{
                 Thread.sleep(150);
             } catch (Exception e){
@@ -44,6 +65,7 @@ public class Intro {
 
         }
         if(InputControls.getLeft()){
+            sinX = 0;
             try{
                 Thread.sleep(150);
             } catch (Exception e){
@@ -68,11 +90,23 @@ public class Intro {
 
 
     public static void draw(Graphics2D g){
+        BufferedImage img = null;
+
+
+        if(choice == 0) img = luffyTxt;
+        if(choice == 1) img = zoroTxt;
+        if(choice == 2) img = namiTxt;
+        if(choice == 3) img = chopperTxt;
+
+
 
 
         bobCharacter();
         g.setColor(Color.darkGray);
         g.fillRect(0,0,GameView.getScreenWidth(),GameView.getScreenHeight());
+        g.drawImage(boxTxt,0,0,null );
+        g.drawImage(img, 0,0,null);
+
 
         g.drawImage(myCharacterChoice[0].getMyDefaultIm(), myX - ((int)(selectedScaleLuffy*64) - 64 ), myY - ((int)(selectedScaleLuffy*64) - 64 ), (int)(128*selectedScaleLuffy), (int)(128*selectedScaleLuffy), null);
         g.drawImage(myCharacterChoice[1].getMyDefaultIm(), myX+300 - ((int)(selectedScaleZoro*64) - 64 ), myY - ((int)(selectedScaleZoro*64) - 64 ), (int)(128*selectedScaleZoro), (int)(128*selectedScaleZoro), null);
@@ -85,25 +119,25 @@ public class Intro {
     }
 
     private static void bobCharacter(){
+        int size = 6;
         if(choice == 0){
-            selectedScaleLuffy += 0.01;
-            if(selectedScaleLuffy > 1.25)selectedScaleLuffy = 1;
-
+            sinX += 0.2;
+            selectedScaleLuffy = 1 + (Math.sin(sinX))/size;
         }else{
             selectedScaleLuffy = 1;
         }if(choice == 1){
-            selectedScaleZoro += 0.01;
-            if(selectedScaleZoro > 1.25)selectedScaleZoro = 1;
+            sinX += 0.2;
+            selectedScaleZoro = 1 + (Math.sin(sinX))/size;
         }else{
             selectedScaleZoro = 1;
         }if(choice == 2){
-            selectedScaleNami += 0.01;
-            if(selectedScaleNami > 1.25)selectedScaleNami = 1;
+            sinX += 0.2;
+            selectedScaleNami = 1 + (Math.sin(sinX))/size;
         }else{
             selectedScaleNami = 1;
         }if(choice == 3){
-            selectedScaleChopper += 0.01;
-            if(selectedScaleChopper > 1.25)selectedScaleChopper = 1;
+            sinX += 0.2;
+            selectedScaleChopper = 1 + (Math.sin(sinX))/size;
         }else{
             selectedScaleChopper = 1;
         }

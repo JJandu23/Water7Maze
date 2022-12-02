@@ -5,22 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e4fa422e-bbf5-4b7a-ad89-3212284be1af" name="Changes" comment="Started menus, fixed lag">
-      <change afterPath="$PROJECT_DIR$/src/View/Sprites/Zoro/down2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/View/Sprites/Zoro/down3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/View/Sprites/Zoro/left2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/View/Sprites/Zoro/left3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/View/Sprites/Zoro/right2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/View/Sprites/Zoro/right3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/View/Sprites/Zoro/up2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/View/Sprites/Zoro/up3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/View/BattleView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Model/Hero/Zoro.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Hero/Zoro.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/View/GameView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/GameView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/View/Intro.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/Intro.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/View/Sprites/Zoro/down1.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/Sprites/Zoro/down1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/View/Sprites/Zoro/left1.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/Sprites/Zoro/left1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/View/Sprites/Zoro/right1.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/Sprites/Zoro/right1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/View/Sprites/Zoro/up1.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/Sprites/Zoro/up1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/View/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -374,6 +363,11 @@
           <url>file://$PROJECT_DIR$/src/SQL/SQLTables.java</url>
           <line>158</line>
           <option name="timeStamp" value="14" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/View/GameView.java</url>
+          <line>91</line>
+          <option name="timeStamp" value="27" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

@@ -20,7 +20,7 @@ public class Main {
         window.setResizable(false);
         window.setTitle("Water 7 Maze");
 
-        GameManager.setHero(new Luffy());
+
         GameManager.setMaze(new Maze(1,10,10));
         GameView gameView = new GameView();
         window.add(gameView);
