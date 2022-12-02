@@ -27,8 +27,8 @@ public class Room {
     private boolean myDoorWest;
     private String myRoomItems;
     private Entities northDoorEnt, southDoorEnt, westDoorEnt, eastDoorEnt;
-    private final int[] northDoorCoords = new int[]{-50, -50, 1300, 100};
-    private final int[] southDoorCoords = new int[]{-50, 850, 1300, 1050};
+    private final int[] northDoorCoords = new int[]{0, 0, 1232, 148};
+    private final int[] southDoorCoords = new int[]{0, 812, 1232, 960};
     private final int[] eastDoorCoords = new int[]{1000, -50, 1150, 1050};
     private final int[] westDoorCoords = new int[]{-50, -50, 100, 1050};
     private final Color background;
@@ -154,7 +154,7 @@ public class Room {
     public void setDoors(String doorDirection, String path){
         BufferedImage img = null;
         try {
-            img = ImageIO.read(Maze.class.getResourceAsStream("../../View/Sprites/WallText.png"));
+            img = ImageIO.read(Maze.class.getResourceAsStream(path));
 
         } catch (IOException e) {
             e.printStackTrace();

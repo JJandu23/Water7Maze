@@ -134,7 +134,7 @@ public class Maze {
     public static void createRoom(){
         Room theRoom = myMaze[myCurrentFloor][myCurrentRoom[0]][myCurrentRoom[1]];
         if(!theRoom.isMyDoorNorth()){
-            theRoom.setDoors("North","../../View/Sprites/WallText.png");
+            theRoom.setDoors("North","../../View/Sprites/wall.png");
             Entities northDoor = theRoom.northDoorEntity();
 
             addEntity("NorthDoor", northDoor,myCurrentRoom[0],myCurrentRoom[1]);
@@ -143,7 +143,7 @@ public class Maze {
             myEntityList.remove("NorthDoor");
         }
         if(!theRoom.isMyDoorSouth()){
-            theRoom.setDoors("South","../../View/Sprites/WallText.png");
+            theRoom.setDoors("South","../../View/Sprites/wall.png");
             Entities southDoor = theRoom.southDoorEntity();
 
             addEntity("SouthDoor", southDoor,myCurrentRoom[0],myCurrentRoom[1]);

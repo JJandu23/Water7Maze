@@ -449,7 +449,7 @@ public abstract class Hero extends MazeCharacter {
         }
         /*System.out.println("My X "+myCenterX+ " My Y: " + myCenterY);*/
 
-        theGraphics.drawPolygon(new int[]{myX, myX + 128, myX + 128, myX}, new int[]{myY, myY, myY + 128, myY + 128}, 4);
+        /*theGraphics.drawPolygon(new int[]{myX, myX + 128, myX + 128, myX}, new int[]{myY, myY, myY + 128, myY + 128}, 4);*/
         theGraphics.drawImage(image, myX, myY, 128, 128, null);
     }
 
