@@ -12,10 +12,12 @@ import java.io.Serializable;
  * @version 1.0
  */
 public class SaveCurrentState implements Serializable {
+
     /**
      * The hero object.
      */
     public Hero myHero;
+
     /**
      * The game view object.
      */

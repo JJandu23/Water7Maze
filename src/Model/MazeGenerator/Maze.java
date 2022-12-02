@@ -30,7 +30,7 @@ import java.util.List;
 public class Maze {
     static Room[][][] myMaze;
     private static int myCurrentFloor = 0;
-    private static int[] myCurrentRoom = new int[]{0,0};
+    private static int[] myCurrentRoom = new int[]{0, 0};
     private static HashMap<String, Entities> myEntityList = new HashMap<>();
 
     public Maze(int theNumOfFloors, int theRoomWidth, int theRoomLength) {
@@ -66,8 +66,6 @@ public class Maze {
         myCurrentFloor++;
     }
 
-
-
     public static void drawMiniMap(Graphics2D g) {
         int mazeX = 900;
         int mazeY = 50;
@@ -75,11 +73,11 @@ public class Maze {
         g.setColor(Color.black);
         g.setComposite(AlphaComposite.getInstance(
                 AlphaComposite.SRC_OVER, 0.5f));
-        g.fillRect(mazeX,mazeY,scale*myMaze[0].length, scale*myMaze[0].length);
+        g.fillRect(mazeX, mazeY, scale * myMaze[0].length, scale * myMaze[0].length);
         g.setComposite(AlphaComposite.getInstance(
                 AlphaComposite.SRC_OVER, 1.0f));
         g.setColor(Color.red);
-        g.fillRect(mazeX+myCurrentRoom[0]*scale,mazeY+myCurrentRoom[1]*scale,scale,scale);
+        g.fillRect(mazeX + myCurrentRoom[0] * scale, mazeY + myCurrentRoom[1] * scale, scale, scale);
         g.setColor(Color.lightGray);
         g.setStroke(new BasicStroke(2));
         for (int i = 0; i < myMaze[myCurrentFloor].length; i++) {
@@ -101,74 +99,74 @@ public class Maze {
         }
     }
 
-    public static void drawRoom(Graphics2D g){
+    public static void drawRoom(Graphics2D g) {
 
-        if(myCurrentRoom[0] < 0 || myCurrentRoom[1] < 0 || myCurrentRoom[1] > 9 || myCurrentRoom[0] > 9){
+        if (myCurrentRoom[0] < 0 || myCurrentRoom[1] < 0 || myCurrentRoom[1] > 9 || myCurrentRoom[0] > 9) {
             System.out.println("Something wrong");
         }
         Room theRoom = myMaze[myCurrentFloor][myCurrentRoom[0]][myCurrentRoom[1]];
 
         g.setColor(theRoom.getBackground());
-        g.fillRect(-50,-50,2000,2000);
+        g.fillRect(-50, -50, 2000, 2000);
         g.setColor(Color.lightGray);
-        if(!theRoom.isMyDoorNorth()){
+        if (!theRoom.isMyDoorNorth()) {
             theRoom.northDoorEntity().draw(g);
         }
-        if(!theRoom.isMyDoorSouth()){
+        if (!theRoom.isMyDoorSouth()) {
             theRoom.southDoorEntity().draw(g);
         }
-        if(!theRoom.isMyDoorEast()){
+        if (!theRoom.isMyDoorEast()) {
             theRoom.eastDoorEntity().draw(g);
         }
-        if(!theRoom.isMyDoorWest()){
+        if (!theRoom.isMyDoorWest()) {
             theRoom.westDoorEntity().draw(g);
         }
         theRoom.drawHazards(g);
     }
 
-    public static void addEntity(String name, Entities entity, int RoomX, int RoomY){
+    public static void addEntity(String name, Entities entity, int RoomX, int RoomY) {
         entity.setRoomLocation(RoomX, RoomY);
         myEntityList.put(name, entity);
     }
 
-    public static void createRoom(){
+    public static void createRoom() {
         Room theRoom = myMaze[myCurrentFloor][myCurrentRoom[0]][myCurrentRoom[1]];
-        if(!theRoom.isMyDoorNorth()){
-            theRoom.setDoors("North","../../View/Sprites/wall.png");
+        if (!theRoom.isMyDoorNorth()) {
+            theRoom.setDoors("North", "../../View/Sprites/wall.png");
             Entities northDoor = theRoom.northDoorEntity();
 
-            addEntity("NorthDoor", northDoor,myCurrentRoom[0],myCurrentRoom[1]);
+            addEntity("NorthDoor", northDoor, myCurrentRoom[0], myCurrentRoom[1]);
 
-        } else{
+        } else {
             myEntityList.remove("NorthDoor");
         }
-        if(!theRoom.isMyDoorSouth()){
-            theRoom.setDoors("South","../../View/Sprites/wall.png");
+        if (!theRoom.isMyDoorSouth()) {
+            theRoom.setDoors("South", "../../View/Sprites/wall.png");
             Entities southDoor = theRoom.southDoorEntity();
 
-            addEntity("SouthDoor", southDoor,myCurrentRoom[0],myCurrentRoom[1]);
-        } else{
+            addEntity("SouthDoor", southDoor, myCurrentRoom[0], myCurrentRoom[1]);
+        } else {
             myEntityList.remove("SouthDoor");
         }
-        if(!theRoom.isMyDoorEast()){
-            theRoom.setDoors("East","../../View/Sprites/WallText.png");
+        if (!theRoom.isMyDoorEast()) {
+            theRoom.setDoors("East", "../../View/Sprites/WallText.png");
             Entities eastDoor = theRoom.eastDoorEntity();
 
-            addEntity("EastDoor", eastDoor,myCurrentRoom[0],myCurrentRoom[1]);
-        } else{
+            addEntity("EastDoor", eastDoor, myCurrentRoom[0], myCurrentRoom[1]);
+        } else {
             myEntityList.remove("EastDoor");
         }
-        if(!theRoom.isMyDoorWest()){
-            theRoom.setDoors("West","../../View/Sprites/WallText.png");
+        if (!theRoom.isMyDoorWest()) {
+            theRoom.setDoors("West", "../../View/Sprites/WallText.png");
             Entities westDoor = theRoom.westDoorEntity();
 
-            addEntity("WestDoor", westDoor,myCurrentRoom[0],myCurrentRoom[1]);
-        } else{
+            addEntity("WestDoor", westDoor, myCurrentRoom[0], myCurrentRoom[1]);
+        } else {
             myEntityList.remove("WestDoor");
         }
     }
 
-    public static void switchRoom(String direction){
+    public static void switchRoom(String direction) {
 
         switch (direction) {
             case "North" -> {
@@ -188,15 +186,15 @@ public class Maze {
                 myCurrentRoom[0]++;
             }
         }
-        System.out.println("My Room: "+ myCurrentRoom[0] +" - " + myCurrentRoom[1]);
+        System.out.println("My Room: " + myCurrentRoom[0] + " - " + myCurrentRoom[1]);
         createRoom();
     }
 
-    public static HashMap<String, Entities> getEntityList(){
+    public static HashMap<String, Entities> getEntityList() {
         return myEntityList;
     }
 
-    public static void update(){
+    public static void update() {
         myMaze[myCurrentFloor][myCurrentRoom[0]][myCurrentRoom[1]].update();
     }
 }

@@ -55,10 +55,9 @@ public class Room {
         myRoomItems = roomItems;
     }
 
-
-    public void setRoomType(String theRoomType){
+    public void setRoomType(String theRoomType) {
         String[][] StringRoomHazard = new String[myRoomHazard.length][myRoomHazard[0].length];
-        if(theRoomType.equals("L")){
+        if (theRoomType.equals("L")) {
             for (int i = 0; i < myRoomHazard[0].length; i++) {
                 StringRoomHazard[0][i] = "X";
             }
@@ -70,21 +69,19 @@ public class Room {
         setRoomHazard(StringRoomHazard);
     }
 
-    private void setRoomHazard(String[][] theRoomHazard){
-
-
+    private void setRoomHazard(String[][] theRoomHazard) {
         int startX = 250;
         int startY = 50;
         int spriteSize = 64;
 
         for (int i = 0; i < myRoomHazard.length; i++) {
             for (int j = 0; j < myRoomHazard[i].length; j++) {
-                int x1 = startX + (i*spriteSize);
-                int y1 = startY + (j*spriteSize);
+                int x1 = startX + (i * spriteSize);
+                int y1 = startY + (j * spriteSize);
                 int x2 = x1 + spriteSize;
                 int y2 = y1 + spriteSize;
-                if(theRoomHazard[i][j] != null){
-                    myRoomHazard[i][j] = new Entities ( x1, y1, x2 , y2, false);
+                if (theRoomHazard[i][j] != null) {
+                    myRoomHazard[i][j] = new Entities(x1, y1, x2, y2, false);
                     myRoomHazard[i][j].setSprite(mySpikeImage);
                 }
 
@@ -151,7 +148,7 @@ public class Room {
         return eastDoorEnt;
     }
 
-    public void setDoors(String doorDirection, String path){
+    public void setDoors(String doorDirection, String path) {
         BufferedImage img = null;
         try {
             img = ImageIO.read(Maze.class.getResourceAsStream(path));
@@ -175,25 +172,20 @@ public class Room {
         }
     }
 
-    public void drawHazards(Graphics2D g){
+    public void drawHazards(Graphics2D g) {
         for (int i = 0; i < myRoomHazard.length; i++) {
             for (int j = 0; j < myRoomHazard[i].length; j++) {
-                if(myRoomHazard[i][j] != null){
-
+                if (myRoomHazard[i][j] != null) {
                     myRoomHazard[i][j].draw(g);
                 }
-
             }
         }
     }
 
-    public void update(){
-
+    public void update() {
     }
 
-
-
-    public Color getBackground(){
+    public Color getBackground() {
         return background;
     }
 }

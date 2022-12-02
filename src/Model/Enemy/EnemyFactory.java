@@ -11,6 +11,7 @@ import java.util.Scanner;
  * @version 1.0
  */
 public class EnemyFactory {
+
     /**
      * The instance of the enemy factory.
      */

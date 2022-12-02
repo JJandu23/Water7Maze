@@ -13,10 +13,12 @@ import java.util.Random;
  * @version 1.0
  */
 public class Chopper extends Hero {
+
     /**
      * The minimum special heal.
      */
     private final int myMinSpecialHeal = 20;
+
     /**
      * The maximum special heal.
      */
@@ -28,7 +30,6 @@ public class Chopper extends Hero {
     public Chopper() {
         super("Chopper", 100, 10, 10,
                 20, 0.5, 0.3, 0.20, 3);
-
         try {
             setMyDownIm1(ImageIO.read(getClass().getResourceAsStream("../../View/Sprites/Chopper/down1.png")));
             setMyUpIm1(ImageIO.read(getClass().getResourceAsStream("../../View/Sprites/Chopper/up1.png")));
@@ -38,6 +39,7 @@ public class Chopper extends Hero {
             e.printStackTrace();
         }
     }
+
     /**
      * This method represents the special attack of the hero.
      * @param theEnemy the enemy to attack

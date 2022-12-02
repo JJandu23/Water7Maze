@@ -9,6 +9,7 @@ import Model.MazeCharacter;
  * @version 1.0
  */
 public class SadBoySea extends MazeCharacter {
+
     /**
      * Constructor for the SadBoySea class.
      */

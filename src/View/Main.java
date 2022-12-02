@@ -7,7 +7,7 @@ import Model.MazeGenerator.Maze;
 import javax.swing.*;
 
 /**
- * This class is used to create the game view.
+ * This class is used to start the game.
  *
  * @author Jashanpreet Jandu, Kevin Nguyen, Nicholas Zhuk
  * @version 1.0
@@ -20,8 +20,7 @@ public class Main {
         window.setResizable(false);
         window.setTitle("Water 7 Maze");
 
-
-        GameManager.setMaze(new Maze(1,10,10));
+        GameManager.setMaze(new Maze(1, 10, 10));
         GameView gameView = new GameView();
         window.add(gameView);
 

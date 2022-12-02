@@ -8,7 +8,7 @@ import java.util.Random;
  * @author Kevin Nguyen, Jashanpreet Jandu, Nicholas Zhuk
  * @version 1.0
  */
-public class MazeCharacter {
+public abstract class MazeCharacter {
 
     /**
      * The name of the character.
@@ -126,9 +126,7 @@ public class MazeCharacter {
      * @param theHitChance the hit chance of the character
      */
     protected void setHitChance(final double theHitChance) {
-
         myHitChance = theHitChance;
-
     }
 
     /**

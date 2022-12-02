@@ -13,10 +13,12 @@ import java.util.Random;
  * @version 1.0
  */
 public class Luffy extends Hero {
+
     /**
      * The minimum special attack damage.
      */
     private final int myMinSpecialDamage = 35;
+
     /**
      * The maximum special attack damage.
      */
@@ -28,7 +30,6 @@ public class Luffy extends Hero {
     public Luffy() {
         super("Luffy", 120, 10, 15,
                 25, 0.8, 0.2, 0.20, 10);
-
         try {
             setMyDownIm1(ImageIO.read(getClass().getResourceAsStream("../../View/Sprites/Luffy/down1.png")));
             setMyDownIm2(ImageIO.read(getClass().getResourceAsStream("../../View/Sprites/Luffy/down2.png")));

@@ -30,7 +30,6 @@ public class FloorGenerator {
         stack.push(new int[]{0, 0});
         floor[0][0] = new Room(false, false, false, false);
         floor[0][0].setRoomItems("START");
-
         for (int i = 0; i < myWidth * myLength; i++) {
             if (stack.isEmpty()) {
                 System.out.println("Something Went Wrong");
@@ -64,7 +63,6 @@ public class FloorGenerator {
                     floor[x][++y] = new Room(true, false, false, false);
                 }
             }
-
             stack.push(new int[]{x, y});
         }
     }

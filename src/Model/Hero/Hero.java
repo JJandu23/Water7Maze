@@ -67,7 +67,8 @@ public abstract class Hero extends MazeCharacter {
     /**
      * The hero's images.
      */
-    private BufferedImage myUpIm1, myUpIm2, myUpIm3, myDownIm1, myDownIm2, myDownIm3, myLeftIm1, myLeftIm2, myLeftIm3, myRightIm1, myRightIm2, myRightIm3;
+    private BufferedImage myUpIm1, myUpIm2, myUpIm3, myDownIm1, myDownIm2,
+            myDownIm3, myLeftIm1, myLeftIm2, myLeftIm3, myRightIm1, myRightIm2, myRightIm3;
 
     /**
      * The hero's current image.
@@ -93,7 +94,7 @@ public abstract class Hero extends MazeCharacter {
      */
     public Hero(final String theName, final int theHealthPoints, final int theAttackSpeed, final int theMinDamage,
                 final int theMaxDamage, final double theHitChance, final double theDodgeChance, final double theSpecialChance, final int theMoveSpeed) {
-        /**
+        /*
          * Calls the constructor of the parent class.
          */
         super(theName, theHealthPoints, theAttackSpeed, theMinDamage, theMaxDamage,
@@ -572,9 +573,6 @@ public abstract class Hero extends MazeCharacter {
         return myDownIm1;
     }
 
-
-
-
     /**
      * This method checks if the hero is touching an object.
      * @param theEntity is the object the hero is touching.
@@ -593,6 +591,7 @@ public abstract class Hero extends MazeCharacter {
         }
         return touching;
     }
+
     /**
      * This method creates a list of objects the hero is touching.
      * @param theEntitiesList is the object the hero is touching.
@@ -644,4 +643,3 @@ public abstract class Hero extends MazeCharacter {
         return side;
     }
 }
-

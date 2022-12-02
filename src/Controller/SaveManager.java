@@ -22,7 +22,6 @@ public class SaveManager {
      * This method is used to save the game.
      *
      * @throws IOException
-     * @throws ClassNotFoundException
      */
     public static void saveGame() throws IOException, ClassNotFoundException {
         File file = new File("save.ser");
@@ -38,10 +37,9 @@ public class SaveManager {
      * This method is used to load the game.
      *
      * @return Hero object that is loaded
-     * @throws IOException
      * @throws ClassNotFoundException
      */
-    public static void getLoadGame() throws IOException, ClassNotFoundException {
+    public static void getLoadGame() throws ClassNotFoundException, IOException {
         try {
             File file = new File("save.ser");
             FileInputStream fileInputStream = new FileInputStream(file);

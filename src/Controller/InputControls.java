@@ -1,15 +1,5 @@
 package Controller;
 
-import javax.swing.text.View;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
-import java.io.IOException;
-
-
-import Model.Entities;
-import View.GameView;
-import javax.swing.*;
-import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
@@ -20,20 +10,9 @@ import java.awt.event.KeyListener;
  * @version 1.0
  */
 public class InputControls implements KeyListener {
-    private final char UP = 'w';
-    private final char DOWN = 's';
-    private final char LEFT = 'a';
-    private final char RIGHT = 'd';
-    private final char ATTACK = 'j';
-    private final char SPECIAL = 'k';
-    private final char ITEM = 'l';
-    private final char MENU = 'm';
-    private final char SENZU_BEAN = 'p';
-    private final char SAVE = 'o';
-    private final char LOAD = 'i';
 
     private static boolean upPressed, downPressed, leftPressed, rightPressed, enterPressed;
-    private static int[] mouseClickedCoords = new int[2];
+    private static final int[] mouseClickedCoords = new int[2];
 
     public boolean getUp() {
         return upPressed;
@@ -50,36 +29,37 @@ public class InputControls implements KeyListener {
     public static boolean getRight() {
         return rightPressed;
     }
-    public static boolean getEnter(){return enterPressed;}
 
-
+    public static boolean getEnter() {
+        return enterPressed;
+    }
 
     public char getAttack() {
-        return ATTACK;
+        return 'j';
     }
 
     public char getSpecial() {
-        return SPECIAL;
+        return 'k';
     }
 
     public char getItem() {
-        return ITEM;
+        return 'l';
     }
 
     public char getMenu() {
-        return MENU;
+        return 'm';
     }
 
     public char getSenzuBean() {
-        return SENZU_BEAN;
+        return 'p';
     }
 
     public char getSave() {
-        return SAVE;
+        return 'o';
     }
 
     public char getLoad() {
-        return LOAD;
+        return 'i';
     }
 
     /**
@@ -150,7 +130,6 @@ public class InputControls implements KeyListener {
         if (code == KeyEvent.VK_D) {
             rightPressed = true;
         }
-
         if (code == KeyEvent.VK_ENTER) {
             enterPressed = true;
         }
@@ -164,7 +143,6 @@ public class InputControls implements KeyListener {
     @Override
     public void keyReleased(KeyEvent theEvent) {
         int code = theEvent.getKeyCode();
-
         if (code == KeyEvent.VK_W) {
             upPressed = false;
         }
@@ -177,7 +155,6 @@ public class InputControls implements KeyListener {
         if (code == KeyEvent.VK_D) {
             rightPressed = false;
         }
-
         if (code == KeyEvent.VK_ENTER) {
             enterPressed = false;
         }

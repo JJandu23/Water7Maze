@@ -29,9 +29,6 @@ public class GameView extends JPanel implements Runnable {
     static final int screenWidth = tileSize * maxScreenCol; //1152
     static final int screenHeight = tileSize * maxScreenRow; //960
 
-
-
-
     int FPS = 60;
     InputControls inputCon = new InputControls();
     Thread gameThread;
@@ -43,9 +40,6 @@ public class GameView extends JPanel implements Runnable {
         this.setDoubleBuffered(true);
         this.addKeyListener(inputCon);
         this.setFocusable(true);
-
-
-
     }
 
     public void startGameThread() {
@@ -81,19 +75,14 @@ public class GameView extends JPanel implements Runnable {
         super.paintComponent(g);
         Graphics2D g2 = (Graphics2D) g;
         GameManager.draw(g2);
-
-
-
-
         g2.dispose();
     }
 
-    public static int getScreenWidth(){
+    public static int getScreenWidth() {
         return screenWidth;
     }
 
-    public static int getScreenHeight(){
+    public static int getScreenHeight() {
         return screenHeight;
     }
-
 }

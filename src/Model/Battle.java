@@ -13,14 +13,17 @@ import java.util.Scanner;
  * @version 1.0
  */
 public class Battle {
+
     /**
      * The hero object.
      */
     private static Hero myHero;
+
     /**
      * The enemy object.
      */
     private static MazeCharacter myEnemy;
+
     /**
      * The battle controller.
      */
@@ -29,10 +32,11 @@ public class Battle {
         EnemyFactory.getInstance();
         gamePlay(console);
     }
+
     /**
      * This method is used to control the battle.
      *
-     * @param theHero the hero object.
+     * @param theHero  the hero object.
      * @param theEnemy the enemy object.
      */
     public Battle(Hero theHero, MazeCharacter theEnemy) {
@@ -44,6 +48,7 @@ public class Battle {
 
     /**
      * This method controls the gameplay of the battle .
+     *
      * @param theConsole the console to read from.
      */
     public static void gamePlay(final Hero theHero, final MazeCharacter theEnemy, final Scanner theConsole) {
@@ -58,6 +63,7 @@ public class Battle {
         System.out.println();
         winner(theHero, theEnemy);
     }
+
     public static void gamePlay(final Scanner theConsole) {
         myHero = chooseHero(theConsole);
         System.out.println("You have chosen " + myHero.getName() + "!" + "\n");
@@ -77,6 +83,7 @@ public class Battle {
 
     /**
      * This method selects the chosen hero.
+     *
      * @param theConsole the console to read from.
      * @return the hero chosen by the user.
      */
@@ -103,6 +110,7 @@ public class Battle {
 
     /**
      * This method selects the chosen enemy.
+     *
      * @return the enemy chosen by the user.
      */
     public static MazeCharacter chooseEnemy() {
@@ -114,11 +122,12 @@ public class Battle {
 
     /**
      * This method represents the battle phase.
-     * @param theHero the hero in the battle.
-     * @param theEnemy the enemy in the battle.
+     *
+     * @param theHero    the hero in the battle.
+     * @param theEnemy   the enemy in the battle.
      * @param theConsole the console to read from.
      */
-    public static void battlePhase(final Hero theHero, final  MazeCharacter theEnemy,final Scanner theConsole) {
+    public static void battlePhase(final Hero theHero, final MazeCharacter theEnemy, final Scanner theConsole) {
         char choice = getChoice(theConsole);
         if (theHero.getAttackSpeed() >= theEnemy.getAttackSpeed()) {
             heroTurn(choice, theHero, theEnemy);
@@ -137,6 +146,7 @@ public class Battle {
 
     /**
      * This method takes in the user's turn choice.
+     *
      * @param theConsole the console to read from.
      * @return the choice of the user.
      */
@@ -157,11 +167,12 @@ public class Battle {
 
     /**
      * This method represents the hero's turn.
+     *
      * @param theChoice the choice of the user.
-     * @param theHero the hero in the battle.
-     * @param theEnemy the enemy in the battle.
+     * @param theHero   the hero in the battle.
+     * @param theEnemy  the enemy in the battle.
      */
-    public static void heroTurn(final char theChoice, final  Hero theHero, final MazeCharacter theEnemy) {
+    public static void heroTurn(final char theChoice, final Hero theHero, final MazeCharacter theEnemy) {
         switch (theChoice) {
             case 'j' -> theHero.attack(theEnemy);
             case 'k' -> theHero.specialAttack(theEnemy);
@@ -173,7 +184,8 @@ public class Battle {
 
     /**
      * This method represents the enemy's turn.
-     * @param theHero the hero in the battle.
+     *
+     * @param theHero  the hero in the battle.
      * @param theEnemy the enemy in the battle.
      */
     public static void enemyTurn(final Hero theHero, final MazeCharacter theEnemy) {
@@ -184,9 +196,11 @@ public class Battle {
             theEnemy.attack(theHero);
         }
     }
+
     /**
      * This method determines the winner of the battle.
-     * @param theHero the hero.
+     *
+     * @param theHero  the hero.
      * @param theEnemy the enemy.
      */
     public static void winner(final Hero theHero, final MazeCharacter theEnemy) {

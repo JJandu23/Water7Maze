@@ -17,17 +17,18 @@ public class Zoro extends Hero {
      * The minimum special damage.
      */
     private final int myMinSpecialDamage = 40;
+
     /**
      * The maximum special damage.
      */
     private final int myMaxSpecialDamage = 60;
+
     /**
      * Zoro constructor
      */
     public Zoro() {
         super("Zoro", 110, 8, 15, 25,
                 .6, .2, .4, 7);
-
         try {
             setMyDownIm1(ImageIO.read(getClass().getResourceAsStream("../../View/Sprites/Zoro/down1.png")));
             setMyDownIm2(ImageIO.read(getClass().getResourceAsStream("../../View/Sprites/Zoro/down2.png")));
