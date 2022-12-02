@@ -2,18 +2,9 @@ package Model.Enemy;
 
 import Model.MazeCharacter;
 import SQL.SQLTables;
-
 import java.sql.SQLException;
-import java.util.Random;
 import java.util.Scanner;
-
-/**
- * This class is the factory for the enemies.
- *
- * @author Kevin Nguyen, Jashanpreet Jandu, Nicholas Zhuk
- */
 public class EnemyFactory {
-
     /**
      * The instance of the enemy factory.
      */
@@ -43,19 +34,18 @@ public class EnemyFactory {
      * String of the boss data
      */
     private static String mySadBoySeaData;
-    
     /**
      * Constructor for the EnemyFactory class.
      *
      * @throws SQLException if the SQL table is not found.
      */
-    private EnemyFactory() {
+    protected EnemyFactory() {
         try {
-            this.myEnemyTable = new SQLTables();
-            this.myBoatKevinData = this.myEnemyTable.extractBoatKevinData();
-            this.myEliData = this.myEnemyTable.extractEliData();
-            this.myNikolaiData = this.myEnemyTable.extractNikolaiData();
-            this.mySadBoySeaData = this.myEnemyTable.extractSadBoySeaData();
+            myEnemyTable = new SQLTables();
+            myBoatKevinData = myEnemyTable.extractBoatKevinData();
+            myEliData = myEnemyTable.extractEliData();
+            myNikolaiData = myEnemyTable.extractNikolaiData();
+            mySadBoySeaData = myEnemyTable.extractSadBoySeaData();
         } catch (SQLException e) {
         }
     }
@@ -77,29 +67,29 @@ public class EnemyFactory {
      *
      * @return the selected enemy.
      */
-    public static MazeCharacter chosenEnemy(final char theInput) {
+    public static MazeCharacter chosenEnemy(final Enemy theEnemy) {
         MazeCharacter enemy = null;
         Scanner scan = null;
-        switch (theInput) {
-            case '1':
+        switch (theEnemy) {
+            case BOATKEVIN:
                 scan = new Scanner(myBoatKevinData);
                 enemy = new BoatKevin(scan.nextLine(), scan.nextInt(), scan.nextInt(),
                         scan.nextInt(), scan.nextInt(), scan.nextDouble(),
                         scan.nextDouble(), scan.nextDouble());
                 return enemy;
-            case '2':
+            case ELI:
                 scan = new Scanner(myEliData);
                 enemy = new Eli(scan.nextLine(), scan.nextInt(), scan.nextInt(),
                         scan.nextInt(), scan.nextInt(), scan.nextDouble(),
                         scan.nextDouble(), scan.nextDouble());
                 return enemy;
-            case '3':
+            case NIKOLAI:
                 scan = new Scanner(myNikolaiData);
                 enemy = new Nikolai(scan.nextLine(), scan.nextInt(), scan.nextInt(),
                         scan.nextInt(), scan.nextInt(), scan.nextDouble(),
                         scan.nextDouble(), scan.nextDouble());
                 return enemy;
-            case '4':
+            case SADBOYSEA:
                 scan = new Scanner(mySadBoySeaData);
                 enemy = new SadBoySea(scan.nextLine(), scan.nextInt(), scan.nextInt(),
                         scan.nextInt(), scan.nextInt(), scan.nextDouble(),
@@ -110,42 +100,8 @@ public class EnemyFactory {
         }
     }
 
-    /**
-     * Selects a random enemy from the database.
-     *
-     * @return the selected enemy.
-     */
-    public static MazeCharacter chooseEnemy() {
-        Random rand = new Random();
-        int randomNum = rand.nextInt(4) + 1;
-        Scanner scan = null;
-        switch (randomNum) {
-            case 1:
-                scan = new Scanner(myBoatKevinData);
-                MazeCharacter newBoatKevin = new BoatKevin(scan.nextLine(), scan.nextInt(), scan.nextInt(),
-                        scan.nextInt(), scan.nextInt(), scan.nextDouble(),
-                        scan.nextDouble(), scan.nextDouble());
-                return newBoatKevin;
-            case 2:
-                scan = new Scanner(myEliData);
-                MazeCharacter newEli = new Eli(scan.nextLine(), scan.nextInt(), scan.nextInt(),
-                        scan.nextInt(), scan.nextInt(), scan.nextDouble(),
-                        scan.nextDouble(), scan.nextDouble());
-                return newEli;
-            case 3:
-                scan = new Scanner(myNikolaiData);
-                MazeCharacter newNikolai = new Nikolai(scan.nextLine(), scan.nextInt(), scan.nextInt(),
-                        scan.nextInt(), scan.nextInt(), scan.nextDouble(),
-                        scan.nextDouble(), scan.nextDouble());
-                return newNikolai;
-            case 4:
-                scan = new Scanner(mySadBoySeaData);
-                MazeCharacter newSadBoySea = new SadBoySea(scan.nextLine(), scan.nextInt(), scan.nextInt(),
-                        scan.nextInt(), scan.nextInt(), scan.nextDouble(),
-                        scan.nextDouble(), scan.nextDouble());
-                return newSadBoySea;
-            default:
-                return null;
-        }
+    public enum Enemy {
+        // Enum for the enemies
+        BOATKEVIN, ELI, NIKOLAI, SADBOYSEA
     }
 }
