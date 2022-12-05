@@ -25,15 +25,6 @@ public class Battle {
     private static MazeCharacter myEnemy;
 
     /**
-     * The battle controller.
-     */
-    public static void main(String[] args) {
-        Scanner console = new Scanner(System.in);
-        EnemyFactory.getInstance();
-        gamePlay(console);
-    }
-
-    /**
      * This method is used to control the battle.
      *
      * @param theHero  the hero object.

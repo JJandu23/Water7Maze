@@ -80,7 +80,7 @@ public abstract class MazeCharacter {
      *
      * @param theName the name of the character
      */
-    protected void setName(final String theName) {
+    public void setName(final String theName) {
         myName = theName;
     }
 

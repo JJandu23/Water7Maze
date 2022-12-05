@@ -3,36 +3,21 @@
   <component name="AnalysisUIOptions">
     <option name="SCOPE_TYPE" value="3" />
   </component>
-  <component name="AutoImportSettings">
-    <option name="autoReloadType" value="SELECTIVE" />
-  </component>
   <component name="ChangeListManager">
-    <list default="true" id="e4fa422e-bbf5-4b7a-ad89-3212284be1af" name="Changes" comment="Started menus, fixed lag">
-      <change afterPath="$PROJECT_DIR$/src/Controller/SaveManagerTest.java" afterDir="false" />
+    <list default="true" id="e4fa422e-bbf5-4b7a-ad89-3212284be1af" name="Changes" comment="added images">
+      <change afterPath="$PROJECT_DIR$/src/View/Sprites/EnemySprites/Boat Kevin.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/View/Sprites/EnemySprites/Eli.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/View/Sprites/EnemySprites/Nikolai.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/View/Sprites/EnemySprites/SadBoySea.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/GameManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/GameManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/InputControls.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/InputControls.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/SaveCurrentState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/SaveCurrentState.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/SaveManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/SaveManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Model/Battle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Battle.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Model/Enemy/EnemyFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Enemy/EnemyFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Model/Enemy/SadBoySea.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Enemy/SadBoySea.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Model/Entities.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Entities.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Model/Hero/Chopper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Hero/Chopper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Model/Hero/Hero.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Hero/Hero.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Model/Hero/Luffy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Hero/Luffy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Model/Hero/Nami.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Hero/Nami.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Model/Hero/Zoro.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Hero/Zoro.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Model/MazeCharacter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/MazeCharacter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Model/MazeGenerator/FloorGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/MazeGenerator/FloorGenerator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Model/MazeGenerator/Maze.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/MazeGenerator/Maze.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Model/MazeGenerator/Room.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/MazeGenerator/Room.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/View/GameView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/GameView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/View/Intro.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/Intro.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/View/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/View/Menus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/Menus.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/View/Sprites/WallText.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/Sprites/WallText.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/View/BattleView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/BattleView.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,7 +31,6 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
-        <option value="JUnit5 Test Class" />
       </list>
     </option>
   </component>
@@ -80,17 +64,6 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
-    "create.test.in.the.same.root": "true",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)"
-  }
-}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\Documents\Water7Maze\src\Music" />
@@ -99,12 +72,6 @@
       <recent name="D:\Documents\Water7Maze\src\Music" />
       <recent name="C:\Users\shepo\IdeaProjects\Water7Maze" />
       <recent name="D:\Documents\Water7Maze" />
-    </key>
-    <key name="CreateTestDialog.Recents.Supers">
-      <recent name="" />
-    </key>
-    <key name="CreateTestDialog.RecentsKey">
-      <recent name="Controller" />
     </key>
   </component>
   <component name="RunManager" selected="Application.Main">
@@ -387,5 +354,30 @@
     <MESSAGE value="Fixed Save manager code and save state classes." />
     <MESSAGE value="Started menus, fixed lag" />
     <option name="LAST_COMMIT_MESSAGE" value="Started menus, fixed lag" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/Model/Battle.java</url>
+          <line>49</line>
+          <properties class="Model.Battle">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/SQL/SQLTables.java</url>
+          <line>158</line>
+          <option name="timeStamp" value="14" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/View/GameView.java</url>
+          <line>85</line>
+          <option name="timeStamp" value="30" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

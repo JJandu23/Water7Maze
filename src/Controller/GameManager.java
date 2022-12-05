@@ -1,7 +1,9 @@
 package Controller;
 
+import Model.Battle;
 import Model.Hero.Hero;
 import Model.MazeGenerator.Maze;
+import View.BattleView;
 import View.GameView;
 import Music.SoundsPlay;
 import View.Intro;
@@ -169,6 +171,8 @@ public class GameManager {
             case "Intro":
                 Intro.draw(theGraphics);
                 break;
+            case "Battle":
+                BattleView.draw(theGraphics);
             case "Dialogue", "Ending":
                 break;
         }
@@ -191,6 +195,10 @@ public class GameManager {
                 }
                 Intro.update();
                 break;
+
+            case "Battle":
+
+
             case "Dialogue", "Ending":
                 break;
         }
