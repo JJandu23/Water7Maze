@@ -30,7 +30,7 @@ public class Nami extends Hero {
         Random chance = new Random();
         if (chance.nextFloat() <= getSpecialChance()) {
             System.out.println(getName() + " used mirage tempo!");
-            if (getDodgeChance() < 0.9) {
+            if (getDodgeChance() < 1.0) {
                 setDodgeChance(getDodgeChance() + 0.1);
                 System.out.println(getName() + "'s dodge is now " + getDodgeChance() + "!");
             } else {

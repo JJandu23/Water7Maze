@@ -24,7 +24,7 @@ public class SoundsPlay {
     }
 
     public enum Song {
-        Opening, In_Game, Death
+        OPENING, IN_GAME, DEATH, THE_ONE_PIECE
     }
 
     /**
@@ -37,9 +37,10 @@ public class SoundsPlay {
      */
     public static void playSongs(final Song theSong) throws UnsupportedAudioFileException, IOException, LineUnavailableException {
         AudioInputStream audioInputStream = switch (theSong) {
-            case Opening -> AudioSystem.getAudioInputStream(new File("src/Music/Opening.wav").getAbsoluteFile());
-            case In_Game -> AudioSystem.getAudioInputStream(new File("src/Music/In_Game.wav").getAbsoluteFile());
-            case Death -> AudioSystem.getAudioInputStream(new File("src/Music/Death.wav").getAbsoluteFile());
+            case OPENING -> AudioSystem.getAudioInputStream(new File("src/Music/Opening.wav").getAbsoluteFile());
+            case IN_GAME -> AudioSystem.getAudioInputStream(new File("src/Music/In_Game.wav").getAbsoluteFile());
+            case DEATH -> AudioSystem.getAudioInputStream(new File("src/Music/Death.wav").getAbsoluteFile());
+            case THE_ONE_PIECE -> AudioSystem.getAudioInputStream(new File("src/Music/TheOnePiece.wav").getAbsoluteFile());
         };
         if (audioInputStream != null) {
             myClip = AudioSystem.getClip();

@@ -38,17 +38,17 @@ public abstract class MazeCharacter {
     /**
      * The hit chance of the character.
      */
-    private double myHitChance;
+    private static double myHitChance;
 
     /**
      * The dodge chance of the character.
      */
-    private double myDodgeChance;
+    private static double myDodgeChance;
 
     /**
      * The special chance of the character.
      */
-    private double mySpecialChance;
+    private static double mySpecialChance;
 
     /**
      * Constructor for MazeCharacter.
@@ -75,12 +75,26 @@ public abstract class MazeCharacter {
         setSpecialChance(theSpecialChance);
     }
 
+    protected MazeCharacter(final String theName) {
+        setName(theName);
+        setHealthPoints(1);
+        setAttackSpeed(1);
+        setMinDamage(1);
+        setMaxDamage(1);
+        setHitChance(1);
+        setDodgeChance(1);
+        setSpecialChance(1);
+    }
+
     /**
      * This method sets the name of the character.
      *
      * @param theName the name of the character
      */
     protected void setName(final String theName) {
+        if(theName == null || theName.isEmpty()) {
+            throw new IllegalArgumentException("Name cannot be null or empty.");
+        }
         myName = theName;
     }
 
@@ -90,6 +104,9 @@ public abstract class MazeCharacter {
      * @param theHealthPoints the health points of the character
      */
     protected void setHealthPoints(final int theHealthPoints) {
+        if(theHealthPoints < 0) {
+            throw new IllegalArgumentException("Health points cannot be negative.");
+        }
         myHealthPoints = theHealthPoints;
     }
 
@@ -99,6 +116,9 @@ public abstract class MazeCharacter {
      * @param theAttackSpeed the attack speed of the character
      */
     protected void setAttackSpeed(final int theAttackSpeed) {
+        if(theAttackSpeed < 0) {
+            throw new IllegalArgumentException("Attack speed cannot be negative.");
+        }
         myAttackSpeed = theAttackSpeed;
     }
 
@@ -108,6 +128,9 @@ public abstract class MazeCharacter {
      * @param theMinDamage the minimum damage of the character
      */
     protected void setMinDamage(final int theMinDamage) {
+        if(theMinDamage < 0) {
+            throw new IllegalArgumentException("Minimum damage cannot be negative.");
+        }
         myMinDamage = theMinDamage;
     }
 
@@ -117,6 +140,9 @@ public abstract class MazeCharacter {
      * @param theMaxDamage the maximum damage of the character
      */
     protected void setMaxDamage(final int theMaxDamage) {
+        if(theMaxDamage < 0) {
+            throw new IllegalArgumentException("Maximum damage cannot be negative.");
+        }
         myMaxDamage = theMaxDamage;
     }
 
@@ -125,7 +151,10 @@ public abstract class MazeCharacter {
      *
      * @param theHitChance the hit chance of the character
      */
-    protected void setHitChance(final double theHitChance) {
+    protected static void setHitChance(final double theHitChance) {
+        if(theHitChance < 0 || theHitChance > 1) {
+            throw new IllegalArgumentException("Hit chance must be between 0 and 1.");
+        }
         myHitChance = theHitChance;
     }
 
@@ -134,7 +163,10 @@ public abstract class MazeCharacter {
      *
      * @param theDodgeChance the dodge chance of the character
      */
-    protected void setDodgeChance(final double theDodgeChance) {
+    public static void setDodgeChance(final double theDodgeChance) {
+        if(theDodgeChance < 0 || theDodgeChance > 1) {
+            throw new IllegalArgumentException("Dodge chance must be between 0 and 1.");
+        }
         myDodgeChance = theDodgeChance;
     }
 
@@ -143,12 +175,16 @@ public abstract class MazeCharacter {
      *
      * @param theSpecialChance the special chance of the character
      */
-    protected void setSpecialChance(final double theSpecialChance) {
+    public static void setSpecialChance(final double theSpecialChance) {
+        if(theSpecialChance < 0 || theSpecialChance > 1) {
+            throw new IllegalArgumentException("Special chance must be between 0 and 1.");
+        }
         mySpecialChance = theSpecialChance;
     }
 
     /**
      * This method returns the name of the character.
+     * @return the name of the character
      */
     public String getName() {
         return myName;
@@ -156,6 +192,7 @@ public abstract class MazeCharacter {
 
     /**
      * This method returns the health points of the character.
+     * @return the health points of the character
      */
     public int getHealthPoints() {
         return myHealthPoints;
@@ -163,6 +200,7 @@ public abstract class MazeCharacter {
 
     /**
      * This method returns the attack speed of the character.
+     * @return the attack speed of the character
      */
     public int getAttackSpeed() {
         return myAttackSpeed;
@@ -170,6 +208,7 @@ public abstract class MazeCharacter {
 
     /**
      * This method returns the minimum damage of the character.
+     * @return the minimum damage of the character
      */
     public int getMinDamage() {
         return myMinDamage;
@@ -177,6 +216,7 @@ public abstract class MazeCharacter {
 
     /**
      * This method returns the maximum damage of the character.
+     * @return the maximum damage of the character
      */
     public int getMaxDamage() {
         return myMaxDamage;
@@ -184,6 +224,14 @@ public abstract class MazeCharacter {
 
     /**
      * This method returns the hit chance of the character.
+     * @return the hit chance of the character
+     */
+    public double getHitChance() {
+        return myHitChance;
+    }
+    /**
+     * This method returns the hit chance of the character.
+     * @return the hit chance of the character
      */
     public double getDodgeChance() {
         return myDodgeChance;
@@ -191,8 +239,9 @@ public abstract class MazeCharacter {
 
     /**
      * This method returns the special chance of the character.
+     * @return the special chance of the character
      */
-    protected double getSpecialChance() {
+    public double getSpecialChance() {
         return mySpecialChance;
     }
 
@@ -215,7 +264,7 @@ public abstract class MazeCharacter {
      *
      * @return whether the attack was successful or not
      */
-    public boolean blockAttack() {
+    private boolean blockAttack() {
         Random rand = new Random();
         double chance = rand.nextDouble();
         return chance < myDodgeChance;
@@ -256,5 +305,8 @@ public abstract class MazeCharacter {
             theEnemy.subtractHealth(damageDealt);
             System.out.println(myName + " attacks " + theEnemy.getName() + " for " + damageDealt + " damage.");
         }
+    }
+    public Boolean isAlive() {
+        return myHealthPoints > 0;
     }
 }

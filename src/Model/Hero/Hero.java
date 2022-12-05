@@ -99,9 +99,9 @@ public abstract class Hero extends MazeCharacter {
          */
         super(theName, theHealthPoints, theAttackSpeed, theMinDamage, theMaxDamage,
                 theHitChance, theDodgeChance, theSpecialChance);
-        setSenzuBean(2);
-        setPowerPowerFruit(2);
-        setSpeedSpeedFruit(2);
+        setSenzuBean(0);
+        setPowerPowerFruit(0);
+        setSpeedSpeedFruit(0);
         setTorch(0);
         setOriginalHealthPoints(theHealthPoints);
         setMoveSpeed(theMoveSpeed);
@@ -168,7 +168,9 @@ public abstract class Hero extends MazeCharacter {
      * @return the hero's input control.
      */
     protected void setSenzuBean(final int theSenzuBean) {
-        mySenzuBean = theSenzuBean;
+        if(theSenzuBean >= 0) {
+            mySenzuBean = theSenzuBean;
+        }
     }
 
     /**
@@ -177,7 +179,9 @@ public abstract class Hero extends MazeCharacter {
      * @param thePowerPowerFruit the hero's number of power power fruit.
      */
     protected void setPowerPowerFruit(final int thePowerPowerFruit) {
-        myPowerPowerFruit = thePowerPowerFruit;
+        if (thePowerPowerFruit >= 0) {
+            myPowerPowerFruit = thePowerPowerFruit;
+        }
     }
 
     /**
@@ -186,7 +190,9 @@ public abstract class Hero extends MazeCharacter {
      * @param theSpeedSpeedFruit the hero's number of speed speed fruit.
      */
     protected void setSpeedSpeedFruit(final int theSpeedSpeedFruit) {
-        mySpeedSpeedFruit = theSpeedSpeedFruit;
+        if (theSpeedSpeedFruit >= 0) {
+            mySpeedSpeedFruit = theSpeedSpeedFruit;
+        }
     }
 
     /**
@@ -195,7 +201,9 @@ public abstract class Hero extends MazeCharacter {
      * @param theTorch the hero's number of torch.
      */
     protected void setTorch(final int theTorch) {
-        myTorch = theTorch;
+        if(theTorch >= 0) {
+            myTorch = theTorch;
+        }
     }
 
     /**
@@ -204,6 +212,9 @@ public abstract class Hero extends MazeCharacter {
      * @param theHealthPoints the hero's original health points.
      */
     protected void setOriginalHealthPoints(final int theHealthPoints) {
+        if(theHealthPoints >= 0) {
+            myOriginalHealthPoints = theHealthPoints;
+        }
         myOriginalHealthPoints = theHealthPoints;
     }
 
@@ -213,6 +224,9 @@ public abstract class Hero extends MazeCharacter {
      * @param theMoveSpeed the hero's movement speed.
      */
     protected void setMoveSpeed(final int theMoveSpeed) {
+        if(theMoveSpeed >= 0) {
+            myMoveSpeed = theMoveSpeed;
+        }
         myMoveSpeed = theMoveSpeed;
     }
 

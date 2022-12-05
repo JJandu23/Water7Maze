@@ -25,15 +25,6 @@ public class Battle {
     private static MazeCharacter myEnemy;
 
     /**
-     * The battle controller.
-     */
-    public static void main(String[] args) {
-        Scanner console = new Scanner(System.in);
-        EnemyFactory.getInstance();
-        gamePlay(console);
-    }
-
-    /**
      * This method is used to control the battle.
      *
      * @param theHero  the hero object.
@@ -52,72 +43,10 @@ public class Battle {
      * @param theConsole the console to read from.
      */
     public static void gamePlay(final Hero theHero, final MazeCharacter theEnemy, final Scanner theConsole) {
-        while (theHero.getHealthPoints() > 0 && theEnemy.getHealthPoints() > 0) {
+        while (theHero.isAlive() && theEnemy.isAlive()) {
             battlePhase(theHero, theEnemy, theConsole);
         }
-        if (theHero.getHealthPoints() <= 0) {
-            System.out.println(theHero.getName() + " has died!");
-        } else {
-            System.out.println(theEnemy.getName() + " has died!");
-        }
-        System.out.println();
         winner(theHero, theEnemy);
-    }
-
-    public static void gamePlay(final Scanner theConsole) {
-        myHero = chooseHero(theConsole);
-        System.out.println("You have chosen " + myHero.getName() + "!" + "\n");
-        myEnemy = chooseEnemy();
-        System.out.println("You have chosen to fight " + myEnemy.getName() + "!" + "\n");
-        while (myHero.getHealthPoints() > 0 && myEnemy.getHealthPoints() > 0) {
-            battlePhase(myHero, myEnemy, theConsole);
-        }
-        if (myHero.getHealthPoints() <= 0) {
-            System.out.println(myHero.getName() + " has died!");
-        } else {
-            System.out.println(myEnemy.getName() + " has died!");
-        }
-        System.out.println();
-        winner(myHero, myEnemy);
-    }
-
-    /**
-     * This method selects the chosen hero.
-     *
-     * @param theConsole the console to read from.
-     * @return the hero chosen by the user.
-     */
-    public static Hero chooseHero(final Scanner theConsole) {
-        System.out.println("1. Luffy");
-        System.out.println("2. Zoro");
-        System.out.println("3: Chopper");
-        System.out.println("4: Nami");
-        char choice = theConsole.next().charAt(0);
-        if (choice == '1') {
-            return new Luffy();
-        } else if (choice == '2') {
-            return new Zoro();
-        } else if (choice == '3') {
-            return new Chopper();
-        } else if (choice == '4') {
-            return new Nami();
-        } else {
-            System.out.println("Invalid choice!");
-            System.out.println();
-            return chooseHero(theConsole);
-        }
-    }
-
-    /**
-     * This method selects the chosen enemy.
-     *
-     * @return the enemy chosen by the user.
-     */
-    public static MazeCharacter chooseEnemy() {
-        Random rand = new Random();
-        int choice = rand.nextInt(4);
-        EnemyFactory.Enemy enemyType = EnemyFactory.Enemy.values()[choice];
-        return EnemyFactory.chosenEnemy(enemyType);
     }
 
     /**
@@ -158,11 +87,21 @@ public class Battle {
         System.out.println("o. Use power power fruit");
         System.out.println("l. Use speed speed fruit");
         char choice = theConsole.next().charAt(0);
-        if (choice != 'j' && choice != 'k' && choice != 'p' && choice != 'o' && choice != 'l') {
-            System.out.println("Invalid choice!" + "\n");
-            getChoice(theConsole);
+        switch (choice) {
+            case 'j':
+                return 'j';
+            case 'k':
+                return 'k';
+            case 'p':
+                return 'p';
+            case 'o':
+                return 'o';
+            case 'l':
+                return 'l';
+            default:
+                System.out.println("Invalid choice. Please try again.");
+                return getChoice(theConsole);
         }
-        return choice;
     }
 
     /**
@@ -204,11 +143,10 @@ public class Battle {
      * @param theEnemy the enemy.
      */
     public static void winner(final Hero theHero, final MazeCharacter theEnemy) {
-        if (theEnemy.getHealthPoints() <= 0) {
-            System.out.println("Victory");
-        }
-        if (theHero.getHealthPoints() <= 0) {
-            System.out.println("Game Over");
+        if (theHero.isAlive()) {
+            System.out.println("You have defeated " + theEnemy.getName() + "!");
+        } else {
+            System.out.println("You have been defeated by " + theEnemy.getName() + "!");
         }
     }
 }

@@ -3,8 +3,6 @@ package View;
 import Controller.GameManager;
 import Controller.InputControls;
 import Model.Hero.*;
-import Model.MazeCharacter;
-import View.GameView;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
