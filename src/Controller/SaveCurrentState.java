@@ -24,20 +24,31 @@ public class SaveCurrentState implements Serializable {
     public GameView myGameView;
 
     /**
-     * This method is used to save the current state of the hero.
+     * This method is used to save the current state of the hero and game view.
      *
      * @param theHero is the hero object.
+     * @param theGameView is the game view object.
      */
-    public SaveCurrentState(final Hero theHero) {
+    public SaveCurrentState(final Hero theHero, final GameView theGameView) {
         myHero = theHero;
+        myGameView = theGameView;
     }
 
     /**
-     * This method is used to save the current state of the game view.
+     * This method is used to get the hero object.
      *
-     * @param theGameView is the game view object.
+     * @return the hero object.
      */
-    public SaveCurrentState(final GameView theGameView) {
-        myGameView = theGameView;
+    public Hero getHero() {
+        return myHero;
+    }
+
+    /**
+     * This method is used to get the game view object.
+     *
+     * @return the game view object.
+     */
+    public GameView getGameView() {
+        return myGameView;
     }
 }

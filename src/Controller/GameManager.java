@@ -23,26 +23,32 @@ public class GameManager {
      * The hero object.
      */
     private static Hero myHero;
+
     /**
      * The GameView object.
      */
     private static GameView myGameView;
+
     /**
      * The SoundPlaying object.
      */
     private static SoundsPlay mySoundsPlay;
+
     /**
      * The SaveCurrentGame object.
      */
     private static SaveCurrentState mySaveCurrentState;
+
     /**
      * The SaveManger object.
      */
     private static SaveManager mySaveManager;
+
     /**
      * The InputControls object.
      */
     private static InputControls myInputControls;
+    
     /**
      * The Maze object.
      */

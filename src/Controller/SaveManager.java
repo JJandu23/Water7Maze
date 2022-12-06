@@ -8,7 +8,6 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 
 import Model.Hero.Hero;
-import View.GameView;
 
 /**
  * This class is used to save the game.
@@ -23,14 +22,14 @@ public class SaveManager {
      *
      * @throws IOException
      */
-    public static void saveGame() throws IOException, ClassNotFoundException {
-        File file = new File("save.ser");
-        FileOutputStream fileOutputStream = new FileOutputStream(file);
-        ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream);
-        objectOutputStream.writeObject(GameManager.getGameView());
-        objectOutputStream.writeObject(GameManager.getHero());
-        objectOutputStream.close();
-        fileOutputStream.close();
+    public static void getSaveGame() throws IOException, ClassNotFoundException {
+        SaveCurrentState mySaveCurrentState = new SaveCurrentState((Hero) GameManager.getHero(), GameManager.getGameView());
+        File myFile = new File("save.ser");
+        FileOutputStream myFileOutputStream = new FileOutputStream(myFile);
+        ObjectOutputStream myObjectOutputStream = new ObjectOutputStream(myFileOutputStream);
+        myObjectOutputStream.writeObject(mySaveCurrentState);
+        myObjectOutputStream.close();
+        myFileOutputStream.close();
     }
 
     /**
@@ -41,15 +40,16 @@ public class SaveManager {
      */
     public static void getLoadGame() throws ClassNotFoundException, IOException {
         try {
-            File file = new File("save.ser");
-            FileInputStream fileInputStream = new FileInputStream(file);
-            ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream);
-            GameManager.setGameView((GameView) objectInputStream.readObject());
-            GameManager.setHero((Hero) objectInputStream.readObject());
-            objectInputStream.close();
-            fileInputStream.close();
+            File myFile = new File("save.ser");
+            FileInputStream myFileInputStream = new FileInputStream(myFile);
+            ObjectInputStream myObjectInputStream = new ObjectInputStream(myFileInputStream);
+            SaveCurrentState mySaveCurrentState = (SaveCurrentState) myObjectInputStream.readObject();
+            GameManager.setGameView(mySaveCurrentState.getGameView());
+            GameManager.setHero(mySaveCurrentState.getHero());
+            myObjectInputStream.close();
+            myFileInputStream.close();
         } catch (IOException e) {
-            System.out.println("No save file found.");
+            System.out.println("No Save File Found");
             e.printStackTrace();
         }
     }

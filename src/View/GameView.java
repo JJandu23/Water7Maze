@@ -2,15 +2,10 @@ package View;
 
 import Controller.GameManager;
 import Controller.InputControls;
-import Model.Hero.Luffy;
-import Model.Hero.Zoro;
-import Model.MazeGenerator.Maze;
 
-import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.image.BufferedImage;
-import java.io.IOException;
 
 /**
  * This class is used to create the game view.

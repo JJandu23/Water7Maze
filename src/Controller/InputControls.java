@@ -10,7 +10,6 @@ import java.awt.event.KeyListener;
  * @version 1.0
  */
 public class InputControls implements KeyListener {
-
     private static boolean upPressed, downPressed, leftPressed, rightPressed, enterPressed;
     private static final int[] mouseClickedCoords = new int[2];
 
@@ -54,11 +53,11 @@ public class InputControls implements KeyListener {
         return 'p';
     }
 
-    public char getSave() {
+    public char getPowerFruit() {
         return 'o';
     }
 
-    public char getLoad() {
+    public char getSpeedFruit() {
         return 'i';
     }
 
@@ -80,6 +79,8 @@ public class InputControls implements KeyListener {
             case 'p' -> KeyEvent.VK_P;
             case 'o' -> KeyEvent.VK_O;
             case 'i' -> KeyEvent.VK_I;
+            case 'u' -> KeyEvent.VK_U;
+            case 'y' -> KeyEvent.VK_Y;
             default -> KeyEvent.VK_UNDEFINED;
         };
     }
@@ -102,12 +103,15 @@ public class InputControls implements KeyListener {
             case 'p' -> "Senzu Bean";
             case 'o' -> "Power Fruit";
             case 'i' -> "Speed Fruit";
+            case 'u' -> "Save";
+            case 'y' -> "Load";
             default -> "Undefined";
         };
     }
 
     @Override
     public void keyTyped(final KeyEvent theEvent) {
+        // this method is set to be empty
     }
 
     /**
@@ -118,6 +122,7 @@ public class InputControls implements KeyListener {
     @Override
     public void keyPressed(final KeyEvent theEvent) {
         int code = theEvent.getKeyCode();
+
         if (code == KeyEvent.VK_W) {
             upPressed = true;
         }
@@ -143,6 +148,7 @@ public class InputControls implements KeyListener {
     @Override
     public void keyReleased(KeyEvent theEvent) {
         int code = theEvent.getKeyCode();
+
         if (code == KeyEvent.VK_W) {
             upPressed = false;
         }

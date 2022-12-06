@@ -1,7 +1,6 @@
 package View;
 
 import Controller.GameManager;
-import Model.Hero.Luffy;
 import Model.MazeGenerator.Maze;
 
 import javax.swing.*;
