@@ -3,34 +3,21 @@
   <component name="AnalysisUIOptions">
     <option name="SCOPE_TYPE" value="3" />
   </component>
-  <component name="AutoImportSettings">
-    <option name="autoReloadType" value="SELECTIVE" />
-  </component>
   <component name="ChangeListManager">
-    <list default="true" id="e4fa422e-bbf5-4b7a-ad89-3212284be1af" name="Changes" comment="Started menus, fixed lag">
-      <change afterPath="$PROJECT_DIR$/src/Model/BattleTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Model/Enemy/BoatKevinTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Model/Enemy/EliTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Model/Enemy/EnemyFactoryTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Model/Enemy/NikolaiTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Model/Enemy/SadBoySeaTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Model/Hero/ChopperTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Model/Hero/HeroTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Model/Hero/LuffyTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Model/Hero/NamiTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Model/Hero/ZoroTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Model/MazeCharaterTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Music/TheOnePieceIsReal.wav" afterDir="false" />
+    <list default="true" id="e4fa422e-bbf5-4b7a-ad89-3212284be1af" name="Changes" comment="added images">
+      <change afterPath="$PROJECT_DIR$/src/View/Sprites/EnemySprites/Boat Kevin.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/View/Sprites/EnemySprites/Eli.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/View/Sprites/EnemySprites/Nikolai.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/View/Sprites/EnemySprites/SadBoySea.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/GameManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/GameManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Model/Battle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Battle.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Model/Enemy/Eli.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Enemy/Eli.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Model/Enemy/SadBoySea.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Enemy/SadBoySea.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Model/Hero/Hero.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Hero/Hero.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Model/Hero/Luffy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Hero/Luffy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Model/Hero/Nami.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Hero/Nami.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Model/MazeCharacter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/MazeCharacter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Music/SoundsPlay.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Music/SoundsPlay.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/View/Intro.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/Intro.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Model/MazeGenerator/FloorGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/MazeGenerator/FloorGenerator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Model/MazeGenerator/Maze.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/MazeGenerator/Maze.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Model/MazeGenerator/Room.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/MazeGenerator/Room.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/View/BattleView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/BattleView.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,7 +30,6 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="JUnit5 Test Class" />
         <option value="Class" />
       </list>
     </option>
@@ -56,18 +42,6 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory">{
-  &quot;history&quot;: [
-    {
-      &quot;state&quot;: &quot;MERGED&quot;,
-      &quot;author&quot;: &quot;Jashaja18&quot;
-    }
-  ],
-  &quot;lastFilter&quot;: {
-    &quot;state&quot;: &quot;MERGED&quot;,
-    &quot;author&quot;: &quot;Jashaja18&quot;
-  }
-}</component>
   <component name="GitSEFilterConfiguration">
     <file-type-list>
       <filtered-out-file-type name="LOCAL_BRANCH" />
@@ -75,14 +49,6 @@
       <filtered-out-file-type name="TAG" />
       <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
     </file-type-list>
-  </component>
-  <component name="GithubPullRequestsUISettings">
-    <option name="selectedUrlAndAccountId">
-      <UrlAndAccount>
-        <option name="accountId" value="91978816-58ba-476d-ab7d-c70fa788de30" />
-        <option name="url" value="https://github.com/Jashaja18/Water7Maze.git" />
-      </UrlAndAccount>
-    </option>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -92,27 +58,12 @@
   </component>
   <component name="ProjectId" id="2Gy4MZ6o4ITOQnDJbnGqEnU9zzO" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
-    <OptionsSetting value="false" id="Update" />
     <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
-    &quot;create.test.in.the.same.root&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
-  }
-}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\Documents\Water7Maze\src\Music" />
@@ -122,30 +73,10 @@
       <recent name="C:\Users\shepo\IdeaProjects\Water7Maze" />
       <recent name="D:\Documents\Water7Maze" />
     </key>
-    <key name="CreateTestDialog.Recents.Supers">
-      <recent name="" />
-    </key>
-    <key name="CreateTestDialog.RecentsKey">
-      <recent name="Controller" />
-    </key>
   </component>
-  <component name="RunManager" selected="JUnit.MazeCharaterTest.isAlive2">
-    <configuration name="LuffyTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Water7Maze" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="Model.Hero.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="Model.Hero" />
-      <option name="MAIN_CLASS_NAME" value="Model.Hero.LuffyTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="MazeCharaterTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Application.Main">
+    <configuration name="Battle" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Model.Battle" />
       <module name="Water7Maze" />
       <extension name="coverage">
         <pattern>
@@ -153,55 +84,59 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="Model" />
-      <option name="MAIN_CLASS_NAME" value="Model.MazeCharaterTest" />
-      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MazeCharaterTest.isAlive2" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="GameManager" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Controller.GameManager" />
       <module name="Water7Maze" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="Model.*" />
+          <option name="PATTERN" value="Controller.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="Model" />
-      <option name="MAIN_CLASS_NAME" value="Model.MazeCharaterTest" />
-      <option name="METHOD_NAME" value="isAlive2" />
-      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MazeCharaterTest.specialAttack" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="View.Main" />
       <module name="Water7Maze" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="Model.*" />
+          <option name="PATTERN" value="View.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="Model" />
-      <option name="MAIN_CLASS_NAME" value="Model.MazeCharaterTest" />
-      <option name="METHOD_NAME" value="specialAttack" />
-      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="NamiTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="MazeTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Model.MazeGenerator.MazeTest" />
       <module name="Water7Maze" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="Model.Hero.*" />
+          <option name="PATTERN" value="Model.MazeGenerator.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="Model.Hero" />
-      <option name="MAIN_CLASS_NAME" value="Model.Hero.NamiTest" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SQLTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Water7Maze" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="SQL.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="SQL" />
+      <option name="MAIN_CLASS_NAME" value="SQL.SQLTests" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -209,11 +144,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.MazeCharaterTest.isAlive2" />
-        <item itemvalue="JUnit.LuffyTest" />
-        <item itemvalue="JUnit.MazeCharaterTest.specialAttack" />
-        <item itemvalue="JUnit.MazeCharaterTest" />
-        <item itemvalue="JUnit.NamiTest" />
+        <item itemvalue="Application.Main" />
+        <item itemvalue="Application.Battle" />
+        <item itemvalue="Application.GameManager" />
+        <item itemvalue="Application.MazeTest" />
+        <item itemvalue="JUnit.SQLTests" />
       </list>
     </recent_temporary>
   </component>
@@ -240,14 +175,6 @@
       <workItem from="1669095558943" duration="1235000" />
       <workItem from="1669430819659" duration="1444000" />
       <workItem from="1669595754166" duration="3659000" />
-      <workItem from="1670096602252" duration="337000" />
-      <workItem from="1670096949177" duration="1127000" />
-      <workItem from="1670098099328" duration="4389000" />
-      <workItem from="1670129663058" duration="3224000" />
-      <workItem from="1670187473419" duration="617000" />
-      <workItem from="1670202182558" duration="37000" />
-      <workItem from="1670208910270" duration="600000" />
-      <workItem from="1670211766457" duration="7004000" />
     </task>
     <task id="LOCAL-00001" summary="New Project for TCSS 360">
       <created>1667347517038</created>
@@ -431,25 +358,24 @@
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Model/Hero/LuffyTest.java</url>
-          <line>5</line>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/Model/Battle.java</url>
+          <line>49</line>
+          <properties class="Model.Battle">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Model/Enemy/BoatKevinTest.java</url>
-          <line>5</line>
-          <option name="timeStamp" value="2" />
+          <url>file://$PROJECT_DIR$/src/SQL/SQLTables.java</url>
+          <line>158</line>
+          <option name="timeStamp" value="14" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Model/Enemy/NikolaiTest.java</url>
-          <line>6</line>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Model/Hero/NamiTest.java</url>
-          <line>5</line>
-          <option name="timeStamp" value="4" />
+          <url>file://$PROJECT_DIR$/src/View/GameView.java</url>
+          <line>85</line>
+          <option name="timeStamp" value="30" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

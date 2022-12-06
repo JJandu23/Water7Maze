@@ -7,6 +7,7 @@ import javax.swing.*;
 
 import javax.swing.JFrame;
 import java.awt.*;
+import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -33,6 +34,9 @@ public class Maze {
     private static int[] myCurrentRoom = new int[]{0, 0};
     private static HashMap<String, Entities> myEntityList = new HashMap<>();
 
+
+    private static int[] enemyCoords = {300,300,500,500};
+
     public Maze(int theNumOfFloors, int theRoomWidth, int theRoomLength) {
 
         //TEST ENTITY DELETE LATER
@@ -55,7 +59,6 @@ public class Maze {
         for (int i = 0; i < theNumOfFloors; i++) {
             myMaze[i] = new FloorGenerator(theRoomWidth, theRoomLength).getFloor();
         }
-        myMaze[0][0][1].setRoomType("L");
     }
 
     public Room[][] getFloor(int theFloorNum) {
@@ -121,7 +124,11 @@ public class Maze {
         if (!theRoom.isMyDoorWest()) {
             theRoom.westDoorEntity().draw(g);
         }
-        theRoom.drawHazards(g);
+        if(myEntityList.get("enemy") != null){
+
+            myEntityList.get("enemy").draw(g);
+        }
+
     }
 
     public static void addEntity(String name, Entities entity, int RoomX, int RoomY) {
@@ -131,6 +138,30 @@ public class Maze {
 
     public static void createRoom() {
         Room theRoom = myMaze[myCurrentFloor][myCurrentRoom[0]][myCurrentRoom[1]];
+
+        if(theRoom.getEnemy() != null){
+            String name = theRoom.getEnemy().getName();
+            Entities theEnemy = new Entities(enemyCoords[0], enemyCoords[1], enemyCoords[2], enemyCoords[3], true);
+            String path = "../../View/Sprites/EnemySprites/"+name+".png";
+
+            BufferedImage img = null;
+            System.out.println(name);
+            try{
+
+                img = ImageIO.read(Maze.class.getResourceAsStream(path));
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+            theEnemy.setSprite(img);
+            addEntity("enemy",theEnemy , myCurrentRoom[0], myCurrentRoom[1]);
+
+        } else{
+            myEntityList.remove("enemy");
+        }
+
+
         if (!theRoom.isMyDoorNorth()) {
             theRoom.setDoors("North", "../../View/Sprites/wall.png");
             Entities northDoor = theRoom.northDoorEntity();

@@ -1,7 +1,9 @@
 package Model.MazeGenerator;
 
 import Controller.InputControls;
+import Model.Enemy.EnemyFactory;
 import Model.Entities;
+import Model.MazeCharacter;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
@@ -32,8 +34,8 @@ public class Room {
     private final int[] eastDoorCoords = new int[]{1000, -50, 1150, 1050};
     private final int[] westDoorCoords = new int[]{-50, -50, 100, 1050};
     private final Color background;
-    private Entities[][] myRoomHazard = new Entities[10][10];
-    private BufferedImage mySpikeImage;
+    private MazeCharacter myEnemy = null;
+
 
     public Room(boolean doorNorth, boolean doorWest, boolean doorSouth, boolean doorEast) {
         double hue = Math.random();
@@ -43,51 +45,27 @@ public class Room {
         this.myDoorSouth = doorSouth;
         this.myDoorWest = doorWest;
         this.myDoorEast = doorEast;
-        try {
-            mySpikeImage = ImageIO.read(Maze.class.getResourceAsStream("../../View/Sprites/WallText.png"));
 
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+
+
     }
 
     public void setRoomItems(String roomItems) {
         myRoomItems = roomItems;
     }
 
-    public void setRoomType(String theRoomType) {
-        String[][] StringRoomHazard = new String[myRoomHazard.length][myRoomHazard[0].length];
-        if (theRoomType.equals("L")) {
-            for (int i = 0; i < myRoomHazard[0].length; i++) {
-                StringRoomHazard[0][i] = "X";
-            }
-            for (int i = 1; i < myRoomHazard.length; i++) {
-                StringRoomHazard[i][myRoomHazard[0].length - 1] = "X";
-            }
-        }
-        System.out.println("Created hazard room");
-        setRoomHazard(StringRoomHazard);
+    public void setRoomEnemy(MazeCharacter theEnemy){
+        myEnemy = theEnemy;
     }
 
-    private void setRoomHazard(String[][] theRoomHazard) {
-        int startX = 250;
-        int startY = 50;
-        int spriteSize = 64;
-
-        for (int i = 0; i < myRoomHazard.length; i++) {
-            for (int j = 0; j < myRoomHazard[i].length; j++) {
-                int x1 = startX + (i * spriteSize);
-                int y1 = startY + (j * spriteSize);
-                int x2 = x1 + spriteSize;
-                int y2 = y1 + spriteSize;
-                if (theRoomHazard[i][j] != null) {
-                    myRoomHazard[i][j] = new Entities(x1, y1, x2, y2, false);
-                    myRoomHazard[i][j].setSprite(mySpikeImage);
-                }
-
-            }
-        }
+    public MazeCharacter getEnemy(){
+        return myEnemy;
     }
+
+
+
+
+
 
     public void openDoor(String direction) {
         switch (direction) {
@@ -148,7 +126,7 @@ public class Room {
         return eastDoorEnt;
     }
 
-    public void setDoors(String doorDirection, String path) {
+    public void setDoors(String doorDirection, String path){
         BufferedImage img = null;
         try {
             img = ImageIO.read(Maze.class.getResourceAsStream(path));
@@ -172,20 +150,15 @@ public class Room {
         }
     }
 
-    public void drawHazards(Graphics2D g) {
-        for (int i = 0; i < myRoomHazard.length; i++) {
-            for (int j = 0; j < myRoomHazard[i].length; j++) {
-                if (myRoomHazard[i][j] != null) {
-                    myRoomHazard[i][j].draw(g);
-                }
-            }
-        }
+
+
+    public void update(){
+
     }
 
-    public void update() {
-    }
 
-    public Color getBackground() {
+
+    public Color getBackground(){
         return background;
     }
 }

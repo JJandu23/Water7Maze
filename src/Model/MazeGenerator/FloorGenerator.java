@@ -1,5 +1,8 @@
 package Model.MazeGenerator;
 
+import Model.Enemy.EnemyFactory;
+import Model.MazeCharacter;
+
 import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
@@ -26,11 +29,20 @@ public class FloorGenerator {
     }
 
     private void createFloor() {
+        EnemyFactory ef = EnemyFactory.getInstance();
+
+
+
+
+
+
         Stack<int[]> stack = new Stack<>();
         stack.push(new int[]{0, 0});
         floor[0][0] = new Room(false, false, false, false);
         floor[0][0].setRoomItems("START");
         for (int i = 0; i < myWidth * myLength; i++) {
+            int rand  = (int) (Math.random()*20);
+
             if (stack.isEmpty()) {
                 System.out.println("Something Went Wrong");
             }
@@ -62,6 +74,12 @@ public class FloorGenerator {
                     floor[x][y].openDoor("South");
                     floor[x][++y] = new Room(true, false, false, false);
                 }
+            }
+            switch (rand) {
+                case 0 -> floor[x][y].setRoomEnemy(EnemyFactory.chosenEnemy(EnemyFactory.Enemy.BOATKEVIN));
+                case 1 -> floor[x][y].setRoomEnemy(EnemyFactory.chosenEnemy(EnemyFactory.Enemy.SADBOYSEA));
+                case 2 -> floor[x][y].setRoomEnemy(EnemyFactory.chosenEnemy(EnemyFactory.Enemy.NIKOLAI));
+                case 3 -> floor[x][y].setRoomEnemy(EnemyFactory.chosenEnemy(EnemyFactory.Enemy.ELI));
             }
             stack.push(new int[]{x, y});
         }
