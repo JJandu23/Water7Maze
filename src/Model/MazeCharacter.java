@@ -43,12 +43,12 @@ public abstract class MazeCharacter {
     /**
      * The dodge chance of the character.
      */
-    private double myDodgeChance;
+    private static double myDodgeChance;
 
     /**
      * The special chance of the character.
      */
-    private double mySpecialChance;
+    private static double mySpecialChance;
 
     /**
      * Constructor for MazeCharacter.
@@ -134,7 +134,7 @@ public abstract class MazeCharacter {
      *
      * @param theDodgeChance the dodge chance of the character
      */
-    protected void setDodgeChance(final double theDodgeChance) {
+    public static void setDodgeChance(final double theDodgeChance) {
         myDodgeChance = theDodgeChance;
     }
 
@@ -143,7 +143,7 @@ public abstract class MazeCharacter {
      *
      * @param theSpecialChance the special chance of the character
      */
-    protected void setSpecialChance(final double theSpecialChance) {
+    public static void setSpecialChance(final double theSpecialChance) {
         mySpecialChance = theSpecialChance;
     }
 
@@ -182,6 +182,10 @@ public abstract class MazeCharacter {
         return myMaxDamage;
     }
 
+    public double getHitChance() {
+        return myHitChance;
+    }
+
     /**
      * This method returns the hit chance of the character.
      */
@@ -192,7 +196,7 @@ public abstract class MazeCharacter {
     /**
      * This method returns the special chance of the character.
      */
-    protected double getSpecialChance() {
+    public double getSpecialChance() {
         return mySpecialChance;
     }
 
@@ -256,5 +260,8 @@ public abstract class MazeCharacter {
             theEnemy.subtractHealth(damageDealt);
             System.out.println(myName + " attacks " + theEnemy.getName() + " for " + damageDealt + " damage.");
         }
+    }
+    public Boolean isAlive() {
+        return myHealthPoints > 0;
     }
 }
