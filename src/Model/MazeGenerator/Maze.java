@@ -108,10 +108,14 @@ public class Maze {
             System.out.println("Something wrong");
         }
         Room theRoom = myMaze[myCurrentFloor][myCurrentRoom[0]][myCurrentRoom[1]];
+        int tilesize = 400;
+        for (int i = 0; i < 5; i++) {
+            for (int j = 0; j < 5; j++) {
+                g.drawImage(theRoom.getBackground(), j*tilesize, i*tilesize,tilesize,tilesize,  null);
 
-        g.setColor(theRoom.getBackground());
-        g.fillRect(-50, -50, 2000, 2000);
-        g.setColor(Color.lightGray);
+            }
+        }
+
         if (!theRoom.isMyDoorNorth()) {
             theRoom.northDoorEntity().draw(g);
         }
@@ -163,7 +167,7 @@ public class Maze {
 
 
         if (!theRoom.isMyDoorNorth()) {
-            theRoom.setDoors("North", "../../View/Sprites/wall.png");
+            theRoom.setDoors("North", "../../View/Sprites/northwall.png");
             Entities northDoor = theRoom.northDoorEntity();
 
             addEntity("NorthDoor", northDoor, myCurrentRoom[0], myCurrentRoom[1]);
@@ -172,7 +176,7 @@ public class Maze {
             myEntityList.remove("NorthDoor");
         }
         if (!theRoom.isMyDoorSouth()) {
-            theRoom.setDoors("South", "../../View/Sprites/wall.png");
+            theRoom.setDoors("South", "../../View/Sprites/southwall.png");
             Entities southDoor = theRoom.southDoorEntity();
 
             addEntity("SouthDoor", southDoor, myCurrentRoom[0], myCurrentRoom[1]);
@@ -180,7 +184,7 @@ public class Maze {
             myEntityList.remove("SouthDoor");
         }
         if (!theRoom.isMyDoorEast()) {
-            theRoom.setDoors("East", "../../View/Sprites/WallText.png");
+            theRoom.setDoors("East", "../../View/Sprites/eastwall.png");
             Entities eastDoor = theRoom.eastDoorEntity();
 
             addEntity("EastDoor", eastDoor, myCurrentRoom[0], myCurrentRoom[1]);
@@ -188,7 +192,7 @@ public class Maze {
             myEntityList.remove("EastDoor");
         }
         if (!theRoom.isMyDoorWest()) {
-            theRoom.setDoors("West", "../../View/Sprites/WallText.png");
+            theRoom.setDoors("West", "../../View/Sprites/westwall.png");
             Entities westDoor = theRoom.westDoorEntity();
 
             addEntity("WestDoor", westDoor, myCurrentRoom[0], myCurrentRoom[1]);
@@ -197,22 +201,22 @@ public class Maze {
         }
     }
 
-    public static void switchRoom(String direction) {
+    public static void switchRoom(Direction direction) {
 
         switch (direction) {
-            case "North" -> {
+            case NORTH -> {
                 myCurrentRoom[1]--;
                 System.out.println("Went North");
             }
-            case "South" -> {
+            case SOUTH -> {
                 myCurrentRoom[1]++;
                 System.out.println("Went South");
             }
-            case "West" -> {
+            case WEST -> {
                 myCurrentRoom[0]--;
                 System.out.println("Went West");
             }
-            case "East" -> {
+            case EAST -> {
                 System.out.println("Went East");
                 myCurrentRoom[0]++;
             }
@@ -228,4 +232,23 @@ public class Maze {
     public static void update() {
         myMaze[myCurrentFloor][myCurrentRoom[0]][myCurrentRoom[1]].update();
     }
+
+    public enum Wall{
+        NORTHWALL,
+        SOUTHWALL,
+        WESTWALL,
+        EASTWALL
+
+
+    }
+    public enum Direction{
+        NORTH,
+        SOUTH,
+        WEST,
+        EAST
+
+
+    }
+
+
 }

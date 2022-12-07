@@ -3,6 +3,7 @@ package Model.Hero;
 import Model.MazeCharacter;
 
 import javax.imageio.ImageIO;
+import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.util.Random;
 
@@ -11,10 +12,23 @@ public class Nami extends Hero {
         super("Nami", 90, 10, 10,
                 20, 0.5, 0.4, 0.20, 3);
         try {
-            setMyDownIm1(ImageIO.read(getClass().getResourceAsStream("../../View/Sprites/Nami/down1.png")));
-            setMyUpIm1(ImageIO.read(getClass().getResourceAsStream("../../View/Sprites/Nami/up1.png")));
-            setMyLeftIm1(ImageIO.read(getClass().getResourceAsStream("../../View/Sprites/Nami/left1.png")));
-            setMyRightIm1(ImageIO.read(getClass().getResourceAsStream("../../View/Sprites/Nami/right1.png")));
+            BufferedImage downIm1 = (ImageIO.read(getClass().getResourceAsStream("../../View/Sprites/Nami/down1.png")));
+/*            BufferedImage downIm2 = (ImageIO.read(getClass().getResourceAsStream("../../View/Sprites/Nami/down2.png")));
+            BufferedImage downIm3 = (ImageIO.read(getClass().getResourceAsStream("../../View/Sprites/Nami/down3.png")));*/
+
+            BufferedImage leftIm1 = (ImageIO.read(getClass().getResourceAsStream("../../View/Sprites/Nami/left1.png")));
+/*            BufferedImage leftIm2 = (ImageIO.read(getClass().getResourceAsStream("../../View/Sprites/Nami/left2.png")));
+            BufferedImage leftIm3 = (ImageIO.read(getClass().getResourceAsStream("../../View/Sprites/Nami/left3.png")));*/
+
+            BufferedImage rightIm1 = (ImageIO.read(getClass().getResourceAsStream("../../View/Sprites/Nami/right1.png")));
+/*            BufferedImage rightIm2 = (ImageIO.read(getClass().getResourceAsStream("../../View/Sprites/Nami/right2.png")));
+            BufferedImage rightIm3 = (ImageIO.read(getClass().getResourceAsStream("../../View/Sprites/Nami/right3.png")));*/
+
+            BufferedImage upIm1 = (ImageIO.read(getClass().getResourceAsStream("../../View/Sprites/Nami/up1.png")));
+/*            BufferedImage upIm2 = (ImageIO.read(getClass().getResourceAsStream("../../View/Sprites/Nami/up2.png")));
+            BufferedImage upIm3 = (ImageIO.read(getClass().getResourceAsStream("../../View/Sprites/Nami/up3.png")));*/
+
+            setImages(downIm1,  leftIm1,  rightIm1,   upIm1);
         } catch (IOException e) {
             e.printStackTrace();
         }

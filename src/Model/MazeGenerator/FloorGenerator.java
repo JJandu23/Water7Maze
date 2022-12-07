@@ -7,6 +7,10 @@ import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.Stack;
+import Model.MazeGenerator.Maze.Direction;
+
+import static Model.MazeGenerator.Maze.Direction.*;
+
 
 /**
  * @author Jashanpreet Jandu, Kevin Nguyen, Nicholas Zhuk
@@ -51,27 +55,27 @@ public class FloorGenerator {
             if (i == (myWidth * myLength - 1)) {
                 floor[x][y].setRoomItems("FINAL");
             }
-            while (findRandEmptyRoom(stack.peek()[0], stack.peek()[1]).equals("None")) {
+            while (findRandEmptyRoom(stack.peek()[0], stack.peek()[1]) == null) {
                 stack.pop();
                 if (stack.isEmpty()) return;
             }
             x = stack.peek()[0];
             y = stack.peek()[1];
             switch (findRandEmptyRoom(x, y)) {
-                case "West" -> {
-                    floor[x][y].openDoor("West");
+                case WEST -> {
+                    floor[x][y].openDoor(WEST);
                     floor[--x][y] = new Room(false, false, false, true);
                 }
-                case "East" -> {
-                    floor[x][y].openDoor("East");
+                case EAST -> {
+                    floor[x][y].openDoor(EAST);
                     floor[++x][y] = new Room(false, true, false, false);
                 }
-                case "North" -> {
-                    floor[x][y].openDoor("North");
+                case NORTH -> {
+                    floor[x][y].openDoor(NORTH);
                     floor[x][--y] = new Room(false, false, true, false);
                 }
-                case "South" -> {
-                    floor[x][y].openDoor("South");
+                case SOUTH -> {
+                    floor[x][y].openDoor(SOUTH);
                     floor[x][++y] = new Room(true, false, false, false);
                 }
             }
@@ -85,23 +89,23 @@ public class FloorGenerator {
         }
     }
 
-    private String findRandEmptyRoom(int x, int y) {
-        ArrayList<String> cardinalRooms = new ArrayList<>();
+    private Direction findRandEmptyRoom(int x, int y) {
+        ArrayList<Direction> cardinalRooms = new ArrayList<>();
 
         if (x != 0 && floor[x - 1][y] == null) {
-            cardinalRooms.add("West");
+            cardinalRooms.add(WEST);
         }
         if (x != floor.length - 1 && floor[x + 1][y] == null) {
-            cardinalRooms.add("East");
+            cardinalRooms.add(EAST);
         }
         if (y != 0 && floor[x][y - 1] == null) {
-            cardinalRooms.add("North");
+            cardinalRooms.add(NORTH);
         }
         if (y != floor[0].length - 1 && floor[x][y + 1] == null) {
-            cardinalRooms.add("South");
+            cardinalRooms.add(SOUTH);
         }
         if (cardinalRooms.isEmpty()) {
-            return "None";
+            return null;
         }
         int rand = (int) ((Math.random() * (cardinalRooms.size())));
         return cardinalRooms.get(rand);

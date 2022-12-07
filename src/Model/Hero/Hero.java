@@ -10,6 +10,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.awt.*;
 import java.awt.image.BufferedImage;
+import Model.MazeGenerator.Maze.Direction;
+
+import static Model.MazeGenerator.Maze.Direction.*;
 
 /**
  * This class represents a hero in the game.
@@ -330,50 +333,50 @@ public abstract class Hero extends MazeCharacter {
      */
     public void update() {
         List<Entities> potentialCollisionList = isTouchingAny(Maze.getEntityList());
-        List<String> sides = new ArrayList<>();
+        List<Direction> sides = new ArrayList<>();
         for (Entities potentialCollision : potentialCollisionList) {
             sides.add(sideTouching(potentialCollision));
         }
         if (myY > 900) {
-            Maze.switchRoom("South");
+            Maze.switchRoom(SOUTH);
             myX = 300;
             myY = 50;
         }
         if (myY < -50) {
-            Maze.switchRoom("North");
+            Maze.switchRoom(NORTH);
             myX = 300;
             myY = 900;
         }
         if (myX > 1150) {
-            Maze.switchRoom("East");
+            Maze.switchRoom(EAST);
             myX = 0;
             myY = 400;
         }
         if (myX < -50) {
-            Maze.switchRoom("West");
+            Maze.switchRoom(WEST);
             myX = 1150;
             myY = 400;
         }
         if (inputCon.getDown() || InputControls.getLeft() || inputCon.getUp() || InputControls.getRight()) {
             if (inputCon.getUp()) {
                 myDirection = "up";
-                if (!sides.contains("South")) {
+                if (!sides.contains(SOUTH)) {
                     moveY(-myMoveSpeed);
                 }
             } else if (inputCon.getDown()) {
                 myDirection = "down";
-                if (!sides.contains("North")) {
+                if (!sides.contains(NORTH)) {
                     moveY(myMoveSpeed);
                 }
             }
             if (InputControls.getLeft()) {
                 myDirection = "left";
-                if (!sides.contains("East")) {
+                if (!sides.contains(EAST)) {
                     moveX(-myMoveSpeed);
                 }
             } else if (InputControls.getRight()) {
                 myDirection = "right";
-                if (!sides.contains("West")) {
+                if (!sides.contains(WEST)) {
                     moveX(myMoveSpeed);
                 }
 
@@ -462,9 +465,7 @@ public abstract class Hero extends MazeCharacter {
             default:
                 image = null;
         }
-        /*System.out.println("My X "+myCenterX+ " My Y: " + myCenterY);*/
 
-        /*theGraphics.drawPolygon(new int[]{myX, myX + 128, myX + 128, myX}, new int[]{myY, myY, myY + 128, myY + 128}, 4);*/
         theGraphics.drawImage(image, myX, myY, 128, 128, null);
     }
 
@@ -490,97 +491,40 @@ public abstract class Hero extends MazeCharacter {
      * This method sets the hero's down image 1.
      * @param theDownIm1
      */
-    public void setMyDownIm1(final BufferedImage theDownIm1) {
+    public void setImages(final BufferedImage theDownIm1, final BufferedImage theDownIm2, final BufferedImage theDownIm3,
+                          final BufferedImage theLeftIm1, final BufferedImage theLeftIm2, final BufferedImage theLeftIm3,
+                          final BufferedImage theRightIm1, final BufferedImage theRightIm2, final BufferedImage theRightIm3,
+                          final BufferedImage theUpIm1, final BufferedImage theUpIm2, final BufferedImage theUpIm3){
+
         myDownIm1 = theDownIm1;
-    }
-
-    /**
-     * This method sets the hero's down image 2.
-     * @param theDownIm2 is the down image 2.
-     */
-    public void setMyDownIm2(final BufferedImage theDownIm2) {
         myDownIm2 = theDownIm2;
-    }
-
-    /**
-     * This method sets the hero's down image 3.
-     * @param theDownIm3 is the down image 3.
-     */
-    public void setMyDownIm3(final BufferedImage theDownIm3) {
         myDownIm3 = theDownIm3;
-    }
-
-    /**
-     * This method sets the hero's left image 1.
-     * @param theLeftIm1 is the left image 1.
-     */
-    public void setMyLeftIm1(final BufferedImage theLeftIm1) {
         myLeftIm1 = theLeftIm1;
-    }
-
-    /**
-     * This method sets the hero's left image 2.
-     * @param theLeftIm2 is the left image 2.
-     */
-    public void setMyLeftIm2(final BufferedImage theLeftIm2) {
         myLeftIm2 = theLeftIm2;
-    }
-
-    /**
-     * This method sets the hero's left image 3.
-     * @param theLeftIm3 is the left image 3.
-     */
-    public void setMyLeftIm3(final BufferedImage theLeftIm3) {
         myLeftIm3 = theLeftIm3;
-    }
-
-    /**
-     * This method sets the hero's right image 1.
-     * @param theRightIm1 is the right image 1.
-     */
-    public void setMyRightIm1(final BufferedImage theRightIm1) {
+        myUpIm1 = theUpIm1;
+        myUpIm2 = theUpIm2;
+        myUpIm3 = theUpIm3;
         myRightIm1 = theRightIm1;
-    }
-
-    /**
-     * This method sets the hero's right image 2.
-     * @param theRightIm2 is the right image 2.
-     */
-    public void setMyRightIm2(final BufferedImage theRightIm2) {
         myRightIm2 = theRightIm2;
-    }
-
-    /**
-     * This method sets the hero's right image 3.
-     * @param theRightIm3 is the right image 3.
-     */
-    public void setMyRightIm3(final BufferedImage theRightIm3) {
         myRightIm3 = theRightIm3;
     }
 
-    /**
-     * This method sets the hero's up image 1.
-     * @param theUpIm1 is the up image 1.
-     */
-    public void setMyUpIm1(final BufferedImage theUpIm1) {
+    public void setImages(final BufferedImage theDownIm1,
+                          final BufferedImage theLeftIm1,
+                          final BufferedImage theRightIm1,
+                          final BufferedImage theUpIm1){
+
+        myDownIm1 = theDownIm1;
+
+        myLeftIm1 = theLeftIm1;
+
         myUpIm1 = theUpIm1;
+
+        myRightIm1 = theRightIm1;
+
     }
 
-    /**
-     * This method sets the hero's up image 2.
-     * @param theUpIm2 is the up image 2.
-     */
-    public void setMyUpIm2(final BufferedImage theUpIm2) {
-        myUpIm2 = theUpIm2;
-    }
-
-    /**
-     * This method sets the hero's up image 3.
-     * @param theUpIm3 is the up image 3.
-     */
-    public void setMyUpIm3(final BufferedImage theUpIm3) {
-        myUpIm3 = theUpIm3;
-    }
 
 
     public BufferedImage getMyDefaultIm(){
@@ -626,9 +570,9 @@ public abstract class Hero extends MazeCharacter {
      * @param theEntity is the object the hero is touching.
      * @return the side the hero is touching.
      */
-    public static String sideTouching(final Entities theEntity) {
+    public static Direction sideTouching(final Entities theEntity) {
         int[] theCoords = theEntity.getCoords();
-        String side = "";
+        Direction side = null;
 
         int theX1 = theCoords[0];
         int theY1 = theCoords[1];
@@ -637,22 +581,22 @@ public abstract class Hero extends MazeCharacter {
 
         //touching south side of object
         if ((myCenterY > (theY2 - 15) && myCenterY < theY2) && myCenterX > theX1 && myCenterX < theX2) {
-            side = "South";
+            side = SOUTH;
         }
 
         //touching north side of object
         if ((myCenterY < (theY1 + 15) && myCenterY > theY1) && myCenterX > theX1 && myCenterX < theX2) {
-            side = "North";
+            side = NORTH;
         }
 
         //touching west side of object
         if ((myCenterX < (theX1 + 15) && myCenterX > theX1) && myCenterY > theY1 && myCenterY < theY2) {
-            side = "West";
+            side = WEST;
         }
 
         //touching east side of object
         if ((myCenterX > (theX2 - 15) && myCenterX < theX2) && myCenterY > theY1 && myCenterY < theY2) {
-            side = "East";
+            side = EAST;
         }
         return side;
     }

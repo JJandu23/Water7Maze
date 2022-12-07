@@ -10,6 +10,10 @@ import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.util.Objects;
+import Model.MazeGenerator.Maze.Direction;
+import View.GameView;
+
+import static Model.MazeGenerator.Maze.Direction.*;
 
 /**
  * This class is used to represent a room in the maze.
@@ -29,24 +33,26 @@ public class Room {
     private boolean myDoorWest;
     private String myRoomItems;
     private Entities northDoorEnt, southDoorEnt, westDoorEnt, eastDoorEnt;
-    private final int[] northDoorCoords = new int[]{0, 0, 1232, 148};
-    private final int[] southDoorCoords = new int[]{0, 812, 1232, 960};
-    private final int[] eastDoorCoords = new int[]{1000, -50, 1150, 1050};
-    private final int[] westDoorCoords = new int[]{-50, -50, 100, 1050};
-    private final Color background;
-    private MazeCharacter myEnemy = null;
+    private final int[] northDoorCoords = new int[]{0, 0, GameView.getScreenWidth(), 200};
+    private final int[] southDoorCoords = new int[]{0, GameView.getScreenHeight()-200, GameView.getScreenWidth(), GameView.getScreenHeight()};
+    private final int[] eastDoorCoords = new int[]{GameView.getScreenWidth()-200, 0, GameView.getScreenWidth(), GameView.getScreenHeight()};
+    private final int[] westDoorCoords = new int[]{0, 0, 200, GameView.getScreenHeight()};
+    private BufferedImage background;
+    private MazeCharacter myEnemy;
 
 
     public Room(boolean doorNorth, boolean doorWest, boolean doorSouth, boolean doorEast) {
-        double hue = Math.random();
-        int rgb = Color.HSBtoRGB((float) hue, 0.5F, 0.5F);
-        background = new Color(rgb);
+
+        try{
+            background = (ImageIO.read(getClass().getResourceAsStream("../../View/Sprites/floor.png")));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
         this.myDoorNorth = doorNorth;
         this.myDoorSouth = doorSouth;
         this.myDoorWest = doorWest;
         this.myDoorEast = doorEast;
-
-
 
     }
 
@@ -54,6 +60,9 @@ public class Room {
         myRoomItems = roomItems;
     }
 
+    public void setRoomType(String theRoomType) {
+
+    }
     public void setRoomEnemy(MazeCharacter theEnemy){
         myEnemy = theEnemy;
     }
@@ -66,13 +75,12 @@ public class Room {
 
 
 
-
-    public void openDoor(String direction) {
+    public void openDoor(Direction direction) {
         switch (direction) {
-            case "North" -> myDoorNorth = true;
-            case "South" -> myDoorSouth = true;
-            case "West" -> myDoorWest = true;
-            case "East" -> myDoorEast = true;
+            case NORTH -> myDoorNorth = true;
+            case SOUTH -> myDoorSouth = true;
+            case WEST -> myDoorWest = true;
+            case EAST -> myDoorEast = true;
         }
     }
 
@@ -126,7 +134,7 @@ public class Room {
         return eastDoorEnt;
     }
 
-    public void setDoors(String doorDirection, String path){
+    public void setDoors(String doorDirection, String path) {
         BufferedImage img = null;
         try {
             img = ImageIO.read(Maze.class.getResourceAsStream(path));
@@ -152,13 +160,10 @@ public class Room {
 
 
 
-    public void update(){
-
+    public void update() {
     }
 
-
-
-    public Color getBackground(){
+    public BufferedImage getBackground() {
         return background;
     }
 }

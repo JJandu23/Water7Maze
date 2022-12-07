@@ -3,6 +3,7 @@ package Model.Hero;
 import Model.MazeCharacter;
 
 import javax.imageio.ImageIO;
+import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.util.Random;
 
@@ -31,10 +32,23 @@ public class Chopper extends Hero {
         super("Chopper", 100, 10, 10,
                 20, 0.5, 0.3, 0.20, 3);
         try {
-            setMyDownIm1(ImageIO.read(getClass().getResourceAsStream("../../View/Sprites/Chopper/down1.png")));
-            setMyUpIm1(ImageIO.read(getClass().getResourceAsStream("../../View/Sprites/Chopper/up1.png")));
-            setMyLeftIm1(ImageIO.read(getClass().getResourceAsStream("../../View/Sprites/Chopper/left1.png")));
-            setMyRightIm1(ImageIO.read(getClass().getResourceAsStream("../../View/Sprites/Chopper/right1.png")));
+            BufferedImage downIm1 = (ImageIO.read(getClass().getResourceAsStream("../../View/Sprites/Chopper/down1.png")));
+/*            BufferedImage downIm2 = (ImageIO.read(getClass().getResourceAsStream("../../View/Sprites/Chopper/down2.png")));
+            BufferedImage downIm3 = (ImageIO.read(getClass().getResourceAsStream("../../View/Sprites/Chopper/down3.png")));*/
+
+            BufferedImage leftIm1 = (ImageIO.read(getClass().getResourceAsStream("../../View/Sprites/Chopper/left1.png")));
+/*            BufferedImage leftIm2 = (ImageIO.read(getClass().getResourceAsStream("../../View/Sprites/Chopper/left2.png")));
+            BufferedImage leftIm3 = (ImageIO.read(getClass().getResourceAsStream("../../View/Sprites/Chopper/left3.png")));*/
+
+            BufferedImage rightIm1 = (ImageIO.read(getClass().getResourceAsStream("../../View/Sprites/Chopper/right1.png")));
+/*            BufferedImage rightIm2 = (ImageIO.read(getClass().getResourceAsStream("../../View/Sprites/Chopper/right2.png")));
+            BufferedImage rightIm3 = (ImageIO.read(getClass().getResourceAsStream("../../View/Sprites/Chopper/right3.png")));*/
+
+            BufferedImage upIm1 = (ImageIO.read(getClass().getResourceAsStream("../../View/Sprites/Chopper/up1.png")));
+/*            BufferedImage upIm2 = (ImageIO.read(getClass().getResourceAsStream("../../View/Sprites/Chopper/up2.png")));
+            BufferedImage upIm3 = (ImageIO.read(getClass().getResourceAsStream("../../View/Sprites/Chopper/up3.png")));*/
+
+            setImages(downIm1,  leftIm1,  rightIm1,   upIm1);
         } catch (IOException e) {
             e.printStackTrace();
         }
