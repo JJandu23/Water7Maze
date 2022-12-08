@@ -36,13 +36,25 @@ public class SoundsPlay {
      * @throws LineUnavailableException
      */
     public static void playSongs(final Song theSong) throws UnsupportedAudioFileException, IOException, LineUnavailableException {
-        AudioInputStream audioInputStream = switch (theSong) {
-            case OPENING -> AudioSystem.getAudioInputStream(new File("src/Music/Opening.wav").getAbsoluteFile());
-            case IN_GAME -> AudioSystem.getAudioInputStream(new File("src/Music/In_Game.wav").getAbsoluteFile());
-            case DEATH -> AudioSystem.getAudioInputStream(new File("src/Music/Death.wav").getAbsoluteFile());
-            case THE_ONE_PIECE -> AudioSystem.getAudioInputStream(new File("src/Music/TheOnePiece.wav").getAbsoluteFile());
+        AudioInputStream audioInputStream = null;
+         switch (theSong) {
+            case OPENING:
+                audioInputStream = AudioSystem.getAudioInputStream(new File("src/Music/Opening.wav").getAbsoluteFile());
+                break;
+            case IN_GAME:
+               audioInputStream = AudioSystem.getAudioInputStream(new File("src/Music/In_Game.wav").getAbsoluteFile());
+                break;
+            case DEATH:
+                audioInputStream = AudioSystem.getAudioInputStream(new File("src/Music/Death.wav").getAbsoluteFile());
+                break;
+            case THE_ONE_PIECE:
+                audioInputStream = AudioSystem.getAudioInputStream(new File("src/Music/TheOnePiece.wav").getAbsoluteFile());
+                break;
         };
         if (audioInputStream != null) {
+            if (myClip != null) {
+                myClip.stop();
+            }
             myClip = AudioSystem.getClip();
             myClip.open(audioInputStream);
             myClip.start();

@@ -31,6 +31,8 @@ public class Main {
         window.setLocationRelativeTo(null);
         window.setVisible(true);
 
+        gameView.startGameThread();
+
         try {
             GameManager.music();
         } catch (UnsupportedAudioFileException e) {
@@ -40,6 +42,5 @@ public class Main {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-        gameView.startGameThread();
     }
 }
