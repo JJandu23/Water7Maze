@@ -57,6 +57,8 @@ public class SoundsPlay {
             }
             myClip = AudioSystem.getClip();
             myClip.open(audioInputStream);
+            FloatControl gainControl = (FloatControl) myClip.getControl(FloatControl.Type.MASTER_GAIN);
+            gainControl.setValue(-40.0f);
             myClip.start();
             myClip.loop(Clip.LOOP_CONTINUOUSLY);
         }
