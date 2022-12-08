@@ -2,8 +2,12 @@ package View;
 
 import Controller.GameManager;
 import Model.MazeGenerator.Maze;
+import Music.SoundsPlay;
 
+import javax.sound.sampled.LineUnavailableException;
+import javax.sound.sampled.UnsupportedAudioFileException;
 import javax.swing.*;
+import java.io.IOException;
 
 /**
  * This class is used to start the game.
@@ -12,13 +16,12 @@ import javax.swing.*;
  * @version 1.0
  */
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws UnsupportedAudioFileException, LineUnavailableException, IOException {
         JFrame window = new JFrame();
 
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         window.setResizable(false);
         window.setTitle("Water 7 Maze");
-
         GameManager.setMaze(new Maze(1, 10, 10));
         GameView gameView = new GameView();
         window.add(gameView);
@@ -28,6 +31,15 @@ public class Main {
         window.setLocationRelativeTo(null);
         window.setVisible(true);
 
+        try {
+            GameManager.music();
+        } catch (UnsupportedAudioFileException e) {
+            throw new RuntimeException(e);
+        } catch (LineUnavailableException e) {
+            throw new RuntimeException(e);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
         gameView.startGameThread();
     }
 }

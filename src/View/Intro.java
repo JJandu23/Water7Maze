@@ -5,6 +5,8 @@ import Controller.InputControls;
 import Model.Hero.*;
 
 import javax.imageio.ImageIO;
+import javax.sound.sampled.LineUnavailableException;
+import javax.sound.sampled.UnsupportedAudioFileException;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
@@ -44,7 +46,7 @@ public class Intro {
         }
     }
 
-    public static void update() {
+    public static void update() throws UnsupportedAudioFileException, LineUnavailableException, IOException {
         if (InputControls.getRight()) {
             sinX = 0;
             try {

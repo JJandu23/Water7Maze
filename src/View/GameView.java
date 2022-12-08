@@ -3,9 +3,12 @@ package View;
 import Controller.GameManager;
 import Controller.InputControls;
 
+import javax.sound.sampled.LineUnavailableException;
+import javax.sound.sampled.UnsupportedAudioFileException;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.image.BufferedImage;
+import java.io.IOException;
 
 /**
  * This class is used to create the game view.
@@ -54,7 +57,15 @@ public class GameView extends JPanel implements Runnable {
                 delta += (currentTime - lastTime) / drawInterval;
                 lastTime = currentTime;
                 if (delta >= 1) {
-                    update();
+                    try {
+                        update();
+                    } catch (UnsupportedAudioFileException e) {
+                        throw new RuntimeException(e);
+                    } catch (LineUnavailableException e) {
+                        throw new RuntimeException(e);
+                    } catch (IOException e) {
+                        throw new RuntimeException(e);
+                    }
                     repaint();
                     delta--;
                 }
@@ -62,7 +73,7 @@ public class GameView extends JPanel implements Runnable {
         }
     }
 
-    public void update() {
+    public void update() throws UnsupportedAudioFileException, LineUnavailableException, IOException {
         GameManager.update();
     }
 

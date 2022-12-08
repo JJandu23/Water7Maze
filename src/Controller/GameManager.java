@@ -1,6 +1,5 @@
 package Controller;
 
-import Model.Battle;
 import Model.Hero.Hero;
 import Model.MazeGenerator.Maze;
 import View.BattleView;
@@ -9,7 +8,10 @@ import Music.SoundsPlay;
 import View.Intro;
 import View.Menus;
 
+import javax.sound.sampled.LineUnavailableException;
+import javax.sound.sampled.UnsupportedAudioFileException;
 import java.awt.*;
+import java.io.IOException;
 
 /**
  * This class is used to control the input from the user.
@@ -187,7 +189,7 @@ public class GameManager {
     /**
      * This method is used to update the hero.
      */
-    public static void update() {
+    public static void update() throws UnsupportedAudioFileException, LineUnavailableException, IOException {
         switch (Menus.getGameState()) {
             case "Maze":
                 myHero.update();
@@ -226,5 +228,22 @@ public class GameManager {
      */
     public static Maze getMaze() {
         return myMaze;
+    }
+
+    public static void music() throws UnsupportedAudioFileException, LineUnavailableException, IOException {
+        switch (Menus.getGameState()) {
+            case "Intro":
+                SoundsPlay.playSongs(SoundsPlay.Song.OPENING);
+                break;
+            case "Maze":
+                SoundsPlay.playSongs(SoundsPlay.Song.IN_GAME);
+                break;
+            case "Battle":
+                SoundsPlay.playSongs(SoundsPlay.Song.IN_GAME);
+                break;
+            case "Dialogue", "Ending":
+                SoundsPlay.playSongs(SoundsPlay.Song.THE_ONE_PIECE);
+                break;
+        }
     }
 }
