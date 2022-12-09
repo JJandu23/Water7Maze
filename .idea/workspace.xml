@@ -10,7 +10,14 @@
     <list default="true" id="e4fa422e-bbf5-4b7a-ad89-3212284be1af" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Music/SoundsPlay.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Music/SoundsPlay.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/GameManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/GameManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/InputControls.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/InputControls.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Model/MazeGenerator/FloorGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/MazeGenerator/FloorGenerator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Model/MazeGenerator/Maze.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/MazeGenerator/Maze.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Model/MazeGenerator/Room.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/MazeGenerator/Room.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/View/BattleView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/BattleView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/View/GameView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/GameView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/View/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,6 +65,18 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\Documents\Water7Maze\src\Music" />
@@ -138,11 +157,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.MazeCharaterTest" />
-        <item itemvalue="Application.Battle" />
-        <item itemvalue="Application.GameManager" />
         <item itemvalue="Application.MazeTest" />
+        <item itemvalue="Application.Main" />
+        <item itemvalue="Application.GameManager" />
+        <item itemvalue="Application.Battle" />
       </list>
     </recent_temporary>
   </component>
@@ -171,6 +190,8 @@
       <workItem from="1669595754166" duration="3659000" />
       <workItem from="1670360928271" duration="1703000" />
       <workItem from="1670366088212" duration="336000" />
+      <workItem from="1670484950740" duration="10496000" />
+      <workItem from="1670617557295" duration="487000" />
     </task>
     <task id="LOCAL-00001" summary="New Project for TCSS 360">
       <created>1667347517038</created>

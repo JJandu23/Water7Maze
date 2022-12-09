@@ -34,8 +34,7 @@ public class Maze {
     private static int[] myCurrentRoom = new int[]{0, 0};
     private static HashMap<String, Entities> myEntityList = new HashMap<>();
 
-
-    private static int[] enemyCoords = {300,300,500,500};
+    private static int[] enemyCoords = {300, 300, 500, 500};
 
     public Maze(int theNumOfFloors, int theRoomWidth, int theRoomLength) {
 
@@ -103,7 +102,6 @@ public class Maze {
     }
 
     public static void drawRoom(Graphics2D g) {
-
         if (myCurrentRoom[0] < 0 || myCurrentRoom[1] < 0 || myCurrentRoom[1] > 9 || myCurrentRoom[0] > 9) {
             System.out.println("Something wrong");
         }
@@ -111,7 +109,7 @@ public class Maze {
         int tilesize = 400;
         for (int i = 0; i < 5; i++) {
             for (int j = 0; j < 5; j++) {
-                g.drawImage(theRoom.getBackground(), j*tilesize, i*tilesize,tilesize,tilesize,  null);
+                g.drawImage(theRoom.getBackground(), j * tilesize, i * tilesize, tilesize, tilesize, null);
 
             }
         }
@@ -128,11 +126,9 @@ public class Maze {
         if (!theRoom.isMyDoorWest()) {
             theRoom.westDoorEntity().draw(g);
         }
-        if(myEntityList.get("enemy") != null){
-
+        if (myEntityList.get("enemy") != null) {
             myEntityList.get("enemy").draw(g);
         }
-
     }
 
     public static void addEntity(String name, Entities entity, int RoomX, int RoomY) {
@@ -143,15 +139,14 @@ public class Maze {
     public static void createRoom() {
         Room theRoom = myMaze[myCurrentFloor][myCurrentRoom[0]][myCurrentRoom[1]];
 
-        if(theRoom.getEnemy() != null){
+        if (theRoom.getEnemy() != null) {
             String name = theRoom.getEnemy().getName();
             Entities theEnemy = new Entities(enemyCoords[0], enemyCoords[1], enemyCoords[2], enemyCoords[3], true);
-            String path = "../../View/Sprites/EnemySprites/"+name+".png";
+            String path = "../../View/Sprites/EnemySprites/" + name + ".png";
 
             BufferedImage img = null;
             System.out.println(name);
-            try{
-
+            try {
                 img = ImageIO.read(Maze.class.getResourceAsStream(path));
 
             } catch (IOException e) {
@@ -159,12 +154,11 @@ public class Maze {
             }
 
             theEnemy.setSprite(img);
-            addEntity("enemy",theEnemy , myCurrentRoom[0], myCurrentRoom[1]);
+            addEntity("enemy", theEnemy, myCurrentRoom[0], myCurrentRoom[1]);
 
-        } else{
+        } else {
             myEntityList.remove("enemy");
         }
-
 
         if (!theRoom.isMyDoorNorth()) {
             theRoom.setDoors("North", "../../View/Sprites/northwall.png");
@@ -233,22 +227,17 @@ public class Maze {
         myMaze[myCurrentFloor][myCurrentRoom[0]][myCurrentRoom[1]].update();
     }
 
-    public enum Wall{
+    public enum Wall {
         NORTHWALL,
         SOUTHWALL,
         WESTWALL,
         EASTWALL
-
-
     }
-    public enum Direction{
+
+    public enum Direction {
         NORTH,
         SOUTH,
         WEST,
         EAST
-
-
     }
-
-
 }

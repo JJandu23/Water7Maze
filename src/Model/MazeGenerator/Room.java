@@ -10,6 +10,7 @@ import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.util.Objects;
+
 import Model.MazeGenerator.Maze.Direction;
 import View.GameView;
 
@@ -34,8 +35,8 @@ public class Room {
     private String myRoomItems;
     private Entities northDoorEnt, southDoorEnt, westDoorEnt, eastDoorEnt;
     private final int[] northDoorCoords = new int[]{0, 0, GameView.getScreenWidth(), 200};
-    private final int[] southDoorCoords = new int[]{0, GameView.getScreenHeight()-200, GameView.getScreenWidth(), GameView.getScreenHeight()};
-    private final int[] eastDoorCoords = new int[]{GameView.getScreenWidth()-200, 0, GameView.getScreenWidth(), GameView.getScreenHeight()};
+    private final int[] southDoorCoords = new int[]{0, GameView.getScreenHeight() - 200, GameView.getScreenWidth(), GameView.getScreenHeight()};
+    private final int[] eastDoorCoords = new int[]{GameView.getScreenWidth() - 200, 0, GameView.getScreenWidth(), GameView.getScreenHeight()};
     private final int[] westDoorCoords = new int[]{0, 0, 200, GameView.getScreenHeight()};
     private BufferedImage background;
     private MazeCharacter myEnemy;
@@ -43,8 +44,8 @@ public class Room {
 
     public Room(boolean doorNorth, boolean doorWest, boolean doorSouth, boolean doorEast) {
 
-        try{
-            background = (ImageIO.read(getClass().getResourceAsStream("../../View/Sprites/floor.png")));
+        try {
+            background = (ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("../../View/Sprites/floor.png"))));
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -53,7 +54,6 @@ public class Room {
         this.myDoorSouth = doorSouth;
         this.myDoorWest = doorWest;
         this.myDoorEast = doorEast;
-
     }
 
     public void setRoomItems(String roomItems) {
@@ -61,19 +61,15 @@ public class Room {
     }
 
     public void setRoomType(String theRoomType) {
-
     }
-    public void setRoomEnemy(MazeCharacter theEnemy){
+
+    public void setRoomEnemy(MazeCharacter theEnemy) {
         myEnemy = theEnemy;
     }
 
-    public MazeCharacter getEnemy(){
+    public MazeCharacter getEnemy() {
         return myEnemy;
     }
-
-
-
-
 
     public void openDoor(Direction direction) {
         switch (direction) {
@@ -137,7 +133,7 @@ public class Room {
     public void setDoors(String doorDirection, String path) {
         BufferedImage img = null;
         try {
-            img = ImageIO.read(Maze.class.getResourceAsStream(path));
+            img = ImageIO.read(Objects.requireNonNull(Maze.class.getResourceAsStream(path)));
 
         } catch (IOException e) {
             e.printStackTrace();
@@ -157,8 +153,6 @@ public class Room {
                 eastDoorEnt.setSprite(img);
         }
     }
-
-
 
     public void update() {
     }

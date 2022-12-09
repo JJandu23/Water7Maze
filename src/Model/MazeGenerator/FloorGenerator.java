@@ -35,11 +35,6 @@ public class FloorGenerator {
     private void createFloor() {
         EnemyFactory ef = EnemyFactory.getInstance();
 
-
-
-
-
-
         Stack<int[]> stack = new Stack<>();
         stack.push(new int[]{0, 0});
         floor[0][0] = new Room(false, false, false, false);
@@ -111,4 +106,3 @@ public class FloorGenerator {
         return cardinalRooms.get(rand);
     }
 }
-

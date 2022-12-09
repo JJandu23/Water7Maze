@@ -32,11 +32,6 @@ public class GameManager {
     private static GameView myGameView;
 
     /**
-     * The SoundPlaying object.
-     */
-    private static SoundsPlay mySoundsPlay;
-
-    /**
      * The SaveCurrentGame object.
      */
     private static SaveCurrentState mySaveCurrentState;
@@ -72,24 +67,6 @@ public class GameManager {
      */
     public static GameView getGameView() {
         return myGameView;
-    }
-
-    /**
-     * This method is used to set the SoundsPlaying object.
-     *
-     * @param theSoundsPlay is the SoundPlaying object.
-     */
-    public static void setSoundsPlay(final SoundsPlay theSoundsPlay) {
-        mySoundsPlay = theSoundsPlay;
-    }
-
-    /**
-     * This method is used to get the SoundsPlaying object.
-     *
-     * @return the SoundsPlaying object.
-     */
-    public static SoundsPlay getSoundsPlay() {
-        return mySoundsPlay;
     }
 
     /**
@@ -205,8 +182,6 @@ public class GameManager {
                 break;
 
             case "Battle":
-
-
             case "Dialogue", "Ending":
                 break;
         }

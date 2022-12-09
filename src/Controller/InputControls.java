@@ -41,26 +41,6 @@ public class InputControls implements KeyListener {
         return 'k';
     }
 
-    public char getItem() {
-        return 'l';
-    }
-
-    public char getMenu() {
-        return 'm';
-    }
-
-    public char getSenzuBean() {
-        return 'p';
-    }
-
-    public char getPowerFruit() {
-        return 'o';
-    }
-
-    public char getSpeedFruit() {
-        return 'i';
-    }
-
     /**
      * This method is used to get the key pressed.
      *
@@ -74,11 +54,6 @@ public class InputControls implements KeyListener {
             case 'd' -> KeyEvent.VK_RIGHT;
             case 'j' -> KeyEvent.VK_J;
             case 'k' -> KeyEvent.VK_K;
-            case 'l' -> KeyEvent.VK_L;
-            case 'm' -> KeyEvent.VK_M;
-            case 'p' -> KeyEvent.VK_P;
-            case 'o' -> KeyEvent.VK_O;
-            case 'i' -> KeyEvent.VK_I;
             case 'u' -> KeyEvent.VK_U;
             case 'y' -> KeyEvent.VK_Y;
             default -> KeyEvent.VK_UNDEFINED;
@@ -98,11 +73,6 @@ public class InputControls implements KeyListener {
             case 'd' -> "Right";
             case 'j' -> "Attack";
             case 'k' -> "Special";
-            case 'l' -> "Item";
-            case 'm' -> "Menu";
-            case 'p' -> "Senzu Bean";
-            case 'o' -> "Power Fruit";
-            case 'i' -> "Speed Fruit";
             case 'u' -> "Save";
             case 'y' -> "Load";
             default -> "Undefined";
