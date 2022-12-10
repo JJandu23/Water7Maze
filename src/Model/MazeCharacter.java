@@ -261,6 +261,12 @@ public abstract class MazeCharacter {
             System.out.println(myName + " attacks " + theEnemy.getName() + " for " + damageDealt + " damage.");
         }
     }
+
+    /**
+     * This method is used to determine if the character is dead.
+     *
+     * @return whether the character is dead or not
+     */
     public Boolean isAlive() {
         return myHealthPoints > 0;
     }

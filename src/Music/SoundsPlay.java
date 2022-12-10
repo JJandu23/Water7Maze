@@ -19,12 +19,11 @@ public class SoundsPlay {
      */
     private static Clip myClip;
 
+    /**
+     * the instantiated class.
+     */
     private SoundsPlay() {
         // Exists only to defeat instantiation.
-    }
-
-    public enum Song {
-        OPENING, IN_GAME, DEATH, THE_ONE_PIECE
     }
 
     /**
@@ -41,16 +40,19 @@ public class SoundsPlay {
             case OPENING:
                 audioInputStream = AudioSystem.getAudioInputStream(new File("src/Music/Opening.wav").getAbsoluteFile());
                 break;
-            case IN_GAME:
-               audioInputStream = AudioSystem.getAudioInputStream(new File("src/Music/In_Game.wav").getAbsoluteFile());
-                break;
-            case DEATH:
-                audioInputStream = AudioSystem.getAudioInputStream(new File("src/Music/Death.wav").getAbsoluteFile());
-                break;
-            case THE_ONE_PIECE:
-                audioInputStream = AudioSystem.getAudioInputStream(new File("src/Music/TheOnePiece.wav").getAbsoluteFile());
-                break;
-        };
+             case IN_GAME:
+                 audioInputStream = AudioSystem.getAudioInputStream(new File("src/Music/In_Game.wav").getAbsoluteFile());
+                 break;
+             case DEATH:
+                 audioInputStream = AudioSystem.getAudioInputStream(new File("src/Music/Death.wav").getAbsoluteFile());
+                 break;
+             case THE_ONE_PIECE:
+                 audioInputStream = AudioSystem.getAudioInputStream(new File("src/Music/TheOnePiece.wav").getAbsoluteFile());
+                 break;
+             case SANS_NOISE:
+                 audioInputStream = AudioSystem.getAudioInputStream(new File("src/Music/SansNoise.wav").getAbsoluteFile());
+                 break;
+         };
         if (audioInputStream != null) {
             if (myClip != null) {
                 myClip.stop();
@@ -62,5 +64,15 @@ public class SoundsPlay {
             myClip.start();
             myClip.loop(Clip.LOOP_CONTINUOUSLY);
         }
+    }
+
+    /**
+     * The enum for the different sounds.
+     *
+     * @author Jashanpreet Jandu, Kevin Nguyen, Nicholas Zhuk
+     * @version 1.0
+     */
+    public enum Song {
+        OPENING, IN_GAME, DEATH, THE_ONE_PIECE, SANS_NOISE
     }
 }

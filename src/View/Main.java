@@ -2,7 +2,6 @@ package View;
 
 import Controller.GameManager;
 import Model.MazeGenerator.Maze;
-import Music.SoundsPlay;
 
 import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.UnsupportedAudioFileException;
@@ -16,7 +15,12 @@ import java.io.IOException;
  * @version 1.0
  */
 public class Main {
-    public static void main(String[] args) throws UnsupportedAudioFileException, LineUnavailableException, IOException {
+    /**
+     * The main driver method for running the program.
+     *
+     * @param theArgs is the arguments.
+     */
+    public static void main(String[] theArgs) throws UnsupportedAudioFileException, LineUnavailableException, IOException {
         JFrame window = new JFrame();
 
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

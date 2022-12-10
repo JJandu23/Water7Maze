@@ -1,11 +1,21 @@
 package Model.Hero;
 
-import Model.MazeCharacter;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-public class LuffyTest{
+
+/**
+ * This class is used to test the Luffy class.
+ *
+ * @author Kevin Nguyen Jashanpreet Jandu Nicholas Zhuk
+ * @version 1.0
+ */
+public class LuffyTest {
     LuffyTest() {
     }
+
+    /**
+     * This method is used to test the Luffy special attack.
+     */
     @Test
     void specialAttack() {
         Luffy luffy = new Luffy();

@@ -4,13 +4,13 @@ import Controller.InputControls;
 import Model.Entities;
 import Model.MazeCharacter;
 import Model.MazeGenerator.Maze;
+import Model.MazeGenerator.Maze.Direction;
 
+import java.awt.*;
+import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.awt.*;
-import java.awt.image.BufferedImage;
-import Model.MazeGenerator.Maze.Direction;
 
 import static Model.MazeGenerator.Maze.Direction.*;
 
@@ -324,6 +324,25 @@ public abstract class Hero extends MazeCharacter {
      * This method checks if there is a usable torch.
      */
     public void useTorch() {
+    }
+
+    public void randomItem() {
+        int random = (int) (Math.random() * 5);
+        if (random == 0) {
+            addSenzuBean();
+            System.out.println(getName() + " found a senzu bean!");
+        } else if (random == 1) {
+            addPowerPowerFruit();
+            System.out.println(getName() + " found a power power fruit!");
+        } else if (random == 2) {
+            addSpeedSpeedFruit();
+            System.out.println(getName() + " found a speed speed fruit!");
+        } else if (random == 3) {
+            addTorch();
+            System.out.println(getName() + " found a torch!");
+        } else {
+            System.out.println(getName() + " found nothing!");
+        }
     }
 
     //controls

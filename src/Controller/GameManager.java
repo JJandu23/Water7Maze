@@ -2,9 +2,9 @@ package Controller;
 
 import Model.Hero.Hero;
 import Model.MazeGenerator.Maze;
+import Music.SoundsPlay;
 import View.BattleView;
 import View.GameView;
-import Music.SoundsPlay;
 import View.Intro;
 import View.Menus;
 
@@ -170,7 +170,6 @@ public class GameManager {
         switch (Menus.getGameState()) {
             case "Maze":
                 myHero.update();
-                Maze.update();
                 break;
             case "Intro":
                 try {

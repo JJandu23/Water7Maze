@@ -2,6 +2,7 @@ package Model.Enemy;
 
 import Model.MazeCharacter;
 import SQL.SQLTables;
+
 import java.sql.SQLException;
 import java.util.Scanner;
 
@@ -107,6 +108,12 @@ public class EnemyFactory {
         }
     }
 
+    /**
+     * The enum for the enemies.
+     *
+     * @author Kevin Nguyen, Jashanpreet Jandu, Nicholas Zhuk
+     * @version 1.0
+     */
     public enum Enemy {
         // Enum for the enemies
         BOATKEVIN, ELI, NIKOLAI, SADBOYSEA

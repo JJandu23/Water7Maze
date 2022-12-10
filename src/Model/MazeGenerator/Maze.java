@@ -3,15 +3,10 @@ package Model.MazeGenerator;
 import Model.Entities;
 
 import javax.imageio.ImageIO;
-import javax.swing.*;
-
-import javax.swing.JFrame;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 
 /**
  * This class is used to generate a maze for the game.
@@ -36,7 +31,14 @@ public class Maze {
 
     private static int[] enemyCoords = {300, 300, 500, 500};
 
-    public Maze(int theNumOfFloors, int theRoomWidth, int theRoomLength) {
+    /**
+     * This constructor creates a maze.
+     *
+     * @param theNumOfFloors the number of floors in the maze
+     * @param theRoomWidth   the width of each room
+     * @param theRoomLength  the length of each room
+     */
+    public Maze(final int theNumOfFloors, final int theRoomWidth, final int theRoomLength) {
 
         //TEST ENTITY DELETE LATER
         /*Entities entity = new Entities(300,300,400,500);
@@ -54,54 +56,43 @@ public class Maze {
         createRoom();
     }
 
-    public void fillMaze(int theNumOfFloors, int theRoomWidth, int theRoomLength) {
-        for (int i = 0; i < theNumOfFloors; i++) {
-            myMaze[i] = new FloorGenerator(theRoomWidth, theRoomLength).getFloor();
-        }
-    }
-
-    public Room[][] getFloor(int theFloorNum) {
-        return myMaze[theFloorNum - 1];
-    }
-
-    public void goDownFloors() {
-        myCurrentFloor++;
-    }
-
-    public static void drawMiniMap(Graphics2D g) {
+    /**
+     * This method creates the mini map.
+     */
+    public static void drawMiniMap(final Graphics2D theG) {
         int mazeX = 900;
         int mazeY = 50;
         int scale = 20;
-        g.setColor(Color.black);
-        g.setComposite(AlphaComposite.getInstance(
+        theG.setColor(Color.black);
+        theG.setComposite(AlphaComposite.getInstance(
                 AlphaComposite.SRC_OVER, 0.5f));
-        g.fillRect(mazeX, mazeY, scale * myMaze[0].length, scale * myMaze[0].length);
-        g.setComposite(AlphaComposite.getInstance(
+        theG.fillRect(mazeX, mazeY, scale * myMaze[0].length, scale * myMaze[0].length);
+        theG.setComposite(AlphaComposite.getInstance(
                 AlphaComposite.SRC_OVER, 1.0f));
-        g.setColor(Color.red);
-        g.fillRect(mazeX + myCurrentRoom[0] * scale, mazeY + myCurrentRoom[1] * scale, scale, scale);
-        g.setColor(Color.lightGray);
-        g.setStroke(new BasicStroke(2));
+        theG.setColor(Color.red);
+        theG.fillRect(mazeX + myCurrentRoom[0] * scale, mazeY + myCurrentRoom[1] * scale, scale, scale);
+        theG.setColor(Color.lightGray);
+        theG.setStroke(new BasicStroke(2));
         for (int i = 0; i < myMaze[myCurrentFloor].length; i++) {
             for (int j = 0; j < myMaze[myCurrentFloor][i].length; j++) {
 
                 if (!myMaze[myCurrentFloor][j][i].isMyDoorNorth()) {
-                    g.drawLine(mazeX + j * scale, mazeY + i * scale, mazeX + j * scale + scale, mazeY + i * scale);
+                    theG.drawLine(mazeX + j * scale, mazeY + i * scale, mazeX + j * scale + scale, mazeY + i * scale);
                 }
                 if (!myMaze[myCurrentFloor][j][i].isMyDoorSouth()) {
-                    g.drawLine(mazeX + j * scale, mazeY + i * scale + scale, mazeX + j * scale + scale, mazeY + i * scale + scale);
+                    theG.drawLine(mazeX + j * scale, mazeY + i * scale + scale, mazeX + j * scale + scale, mazeY + i * scale + scale);
                 }
                 if (!myMaze[myCurrentFloor][j][i].isMyDoorEast()) {
-                    g.drawLine(mazeX + j * scale + scale, mazeY + i * scale, mazeX + j * scale + scale, mazeY + i * scale + scale);
+                    theG.drawLine(mazeX + j * scale + scale, mazeY + i * scale, mazeX + j * scale + scale, mazeY + i * scale + scale);
                 }
                 if (!myMaze[myCurrentFloor][j][i].isMyDoorWest()) {
-                    g.drawLine(mazeX + j * scale, mazeY + i * scale, mazeX + j * scale, mazeY + i * scale + scale);
+                    theG.drawLine(mazeX + j * scale, mazeY + i * scale, mazeX + j * scale, mazeY + i * scale + scale);
                 }
             }
         }
     }
 
-    public static void drawRoom(Graphics2D g) {
+    public static void drawRoom(final Graphics2D graphics2D) {
         if (myCurrentRoom[0] < 0 || myCurrentRoom[1] < 0 || myCurrentRoom[1] > 9 || myCurrentRoom[0] > 9) {
             System.out.println("Something wrong");
         }
@@ -109,33 +100,39 @@ public class Maze {
         int tilesize = 400;
         for (int i = 0; i < 5; i++) {
             for (int j = 0; j < 5; j++) {
-                g.drawImage(theRoom.getBackground(), j * tilesize, i * tilesize, tilesize, tilesize, null);
+                graphics2D.drawImage(theRoom.getBackground(), j * tilesize, i * tilesize, tilesize, tilesize, null);
 
             }
         }
 
         if (!theRoom.isMyDoorNorth()) {
-            theRoom.northDoorEntity().draw(g);
+            theRoom.northDoorEntity().draw(graphics2D);
         }
         if (!theRoom.isMyDoorSouth()) {
-            theRoom.southDoorEntity().draw(g);
+            theRoom.southDoorEntity().draw(graphics2D);
         }
         if (!theRoom.isMyDoorEast()) {
-            theRoom.eastDoorEntity().draw(g);
+            theRoom.eastDoorEntity().draw(graphics2D);
         }
         if (!theRoom.isMyDoorWest()) {
-            theRoom.westDoorEntity().draw(g);
+            theRoom.westDoorEntity().draw(graphics2D);
         }
         if (myEntityList.get("enemy") != null) {
-            myEntityList.get("enemy").draw(g);
+            myEntityList.get("enemy").draw(graphics2D);
         }
     }
 
-    public static void addEntity(String name, Entities entity, int RoomX, int RoomY) {
-        entity.setRoomLocation(RoomX, RoomY);
-        myEntityList.put(name, entity);
+    /**
+     * This method adds an entity to the maze.
+     */
+    public static void addEntity(final String theName, final Entities theEntity, final int theRoomX, final int theRoomY) {
+        theEntity.setRoomLocation(theRoomX, theRoomY);
+        myEntityList.put(theName, theEntity);
     }
 
+    /**
+     * This method creates the room.
+     */
     public static void createRoom() {
         Room theRoom = myMaze[myCurrentFloor][myCurrentRoom[0]][myCurrentRoom[1]];
 
@@ -195,9 +192,12 @@ public class Maze {
         }
     }
 
-    public static void switchRoom(Direction direction) {
+    /**
+     * This method changes the room.
+     */
+    public static void switchRoom(final Direction theDirection) {
 
-        switch (direction) {
+        switch (theDirection) {
             case NORTH -> {
                 myCurrentRoom[1]--;
                 System.out.println("Went North");
@@ -219,21 +219,51 @@ public class Maze {
         createRoom();
     }
 
+    /**
+     * This method gets the entity list.
+     *
+     * @return the entity list.
+     */
     public static HashMap<String, Entities> getEntityList() {
         return myEntityList;
     }
 
-    public static void update() {
-        myMaze[myCurrentFloor][myCurrentRoom[0]][myCurrentRoom[1]].update();
+    /**
+     * This method gets the maze.
+     *
+     * @param theNumOfFloors the number of floors in the maze
+     * @param theRoomWidth   the width of each room
+     * @param theRoomLength  the length of each room
+     */
+    public void fillMaze(final int theNumOfFloors, final int theRoomWidth, final int theRoomLength) {
+        for (int i = 0; i < theNumOfFloors; i++) {
+            myMaze[i] = new FloorGenerator(theRoomWidth, theRoomLength).getFloor();
+        }
     }
 
-    public enum Wall {
-        NORTHWALL,
-        SOUTHWALL,
-        WESTWALL,
-        EASTWALL
+    /**
+     * This method gets the current floor.
+     *
+     * @param theFloorNum the floor number
+     * @return the current floor
+     */
+    public Room[][] getFloor(final int theFloorNum) {
+        return myMaze[theFloorNum - 1];
     }
 
+    /**
+     * This method moves down one floor from the current floor.
+     */
+    public void goDownFloors() {
+        myCurrentFloor++;
+    }
+
+    /**
+     * The enum for the direction.
+     *
+     * @author Kevin Nguyen Jashanpreet Jandu Nicholas Zhuk
+     * @version 1.0
+     */
     public enum Direction {
         NORTH,
         SOUTH,

@@ -2,8 +2,6 @@ package Model.Enemy;
 
 import Model.MazeCharacter;
 
-import java.util.Random;
-
 /**
  * This class represents the Eli enemy in the game.
  *
@@ -33,13 +31,10 @@ public class  Eli extends MazeCharacter {
      */
     @Override
     public void specialAttack(final MazeCharacter theEnemy) {
-        System.out.println(getName() + " hit the nae nae!");
-        System.out.println(theEnemy.getName() + " has been stunned!");
-        Random chance = new Random();
-        if (chance.nextFloat() <= getSpecialChance()) {
-            specialAttack(theEnemy);
-        } else {
-            attack(theEnemy);
-        }
+        System.out.println("Eli used double attack!");
+        System.out.println("First attack!");
+        attack(theEnemy);
+        System.out.println("Second attack!");
+        attack(theEnemy);
     }
 }

@@ -1,20 +1,14 @@
 package Model.MazeGenerator;
 
-import Controller.InputControls;
-import Model.Enemy.EnemyFactory;
 import Model.Entities;
 import Model.MazeCharacter;
-
-import javax.imageio.ImageIO;
-import java.awt.*;
-import java.awt.image.BufferedImage;
-import java.io.IOException;
-import java.util.Objects;
-
 import Model.MazeGenerator.Maze.Direction;
 import View.GameView;
 
-import static Model.MazeGenerator.Maze.Direction.*;
+import javax.imageio.ImageIO;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
+import java.util.Objects;
 
 /**
  * This class is used to represent a room in the maze.
@@ -152,9 +146,6 @@ public class Room {
                 eastDoorEnt = new Entities(eastDoorCoords[0], eastDoorCoords[1], eastDoorCoords[2], eastDoorCoords[3], true);
                 eastDoorEnt.setSprite(img);
         }
-    }
-
-    public void update() {
     }
 
     public BufferedImage getBackground() {

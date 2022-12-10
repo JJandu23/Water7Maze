@@ -5,8 +5,6 @@ import Controller.InputControls;
 import Model.Hero.*;
 
 import javax.imageio.ImageIO;
-import javax.sound.sampled.LineUnavailableException;
-import javax.sound.sampled.UnsupportedAudioFileException;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
@@ -18,19 +16,61 @@ import java.io.IOException;
  * @version 1.0
  */
 public class Intro {
+    /**
+     * The hero object array for selecting the hero.
+     */
     private static final Hero[] myCharacterChoice = {new Luffy(), new Zoro(), new Nami(), new Chopper()};
-    private static int choice = 0;
-    private static double sinX = 0;
+    /**
+     * The default scale of Luffy.
+     */
     static double selectedScaleLuffy = 1;
+    /**
+     * The default scale of Zoro.
+     */
     static double selectedScaleZoro = 1;
+    /**
+     * The default scale of Nami.
+     */
     static double selectedScaleNami = 1;
+    /**
+     * The default scale of Chopper.
+     */
     static double selectedScaleChopper = 1;
+    /**
+     * The choice of hero.
+     */
+    private static int choice = 0;
+    /**
+     * The value for used for scaling the hero size.
+     */
+    private static double sinX = 0;
+    /**
+     * The x cordinate of the hero.
+     */
     private static int myX = 60;
+    /**
+     * The y cordinate of the hero.
+     */
     private static int myY = 200;
+    /**
+     * The image of Luffy.
+     */
     private static BufferedImage luffyTxt;
+    /**
+     * The image of Nami.
+     */
     private static BufferedImage namiTxt;
+    /**
+     * The image of Chopper.
+     */
     private static BufferedImage chopperTxt;
+    /**
+     * The image of the text box.
+     */
     private static BufferedImage boxTxt;
+    /**
+     * The image of Zoro.
+     */
     private static BufferedImage zoroTxt;
 
     static {
@@ -46,7 +86,10 @@ public class Intro {
         }
     }
 
-    public static void update() throws UnsupportedAudioFileException, LineUnavailableException, IOException {
+    /**
+     * This method updates the game view.
+     */
+    public static void update() {
         if (InputControls.getRight()) {
             sinX = 0;
             try {
@@ -80,7 +123,12 @@ public class Intro {
         }
     }
 
-    public static void draw(Graphics2D g) {
+    /**
+     * This method is used to draw the character selection screen.
+     *
+     * @param theG
+     */
+    public static void draw(final Graphics2D theG) {
         BufferedImage img = null;
 
         if (choice == 0) img = luffyTxt;
@@ -89,17 +137,20 @@ public class Intro {
         if (choice == 3) img = chopperTxt;
 
         bobCharacter();
-        g.setColor(Color.darkGray);
-        g.fillRect(0, 0, GameView.getScreenWidth(), GameView.getScreenHeight());
-        g.drawImage(boxTxt, 0, 0, null);
-        g.drawImage(img, 0, 0, null);
+        theG.setColor(Color.darkGray);
+        theG.fillRect(0, 0, GameView.getScreenWidth(), GameView.getScreenHeight());
+        theG.drawImage(boxTxt, 0, 0, null);
+        theG.drawImage(img, 0, 0, null);
 
-        g.drawImage(myCharacterChoice[0].getMyDefaultIm(), myX - ((int) (selectedScaleLuffy * 64) - 64), myY - ((int) (selectedScaleLuffy * 64) - 64), (int) (128 * selectedScaleLuffy), (int) (128 * selectedScaleLuffy), null);
-        g.drawImage(myCharacterChoice[1].getMyDefaultIm(), myX + 300 - ((int) (selectedScaleZoro * 64) - 64), myY - ((int) (selectedScaleZoro * 64) - 64), (int) (128 * selectedScaleZoro), (int) (128 * selectedScaleZoro), null);
-        g.drawImage(myCharacterChoice[2].getMyDefaultIm(), myX + 600 - ((int) (selectedScaleNami * 64) - 64), myY - ((int) (selectedScaleNami * 64) - 64), (int) (128 * selectedScaleNami), (int) (128 * selectedScaleNami), null);
-        g.drawImage(myCharacterChoice[3].getMyDefaultIm(), myX + 900 - ((int) (selectedScaleChopper * 64) - 64), myY - ((int) (selectedScaleChopper * 64) - 64), (int) (128 * selectedScaleChopper), (int) (128 * selectedScaleChopper), null);
+        theG.drawImage(myCharacterChoice[0].getMyDefaultIm(), myX - ((int) (selectedScaleLuffy * 64) - 64), myY - ((int) (selectedScaleLuffy * 64) - 64), (int) (128 * selectedScaleLuffy), (int) (128 * selectedScaleLuffy), null);
+        theG.drawImage(myCharacterChoice[1].getMyDefaultIm(), myX + 300 - ((int) (selectedScaleZoro * 64) - 64), myY - ((int) (selectedScaleZoro * 64) - 64), (int) (128 * selectedScaleZoro), (int) (128 * selectedScaleZoro), null);
+        theG.drawImage(myCharacterChoice[2].getMyDefaultIm(), myX + 600 - ((int) (selectedScaleNami * 64) - 64), myY - ((int) (selectedScaleNami * 64) - 64), (int) (128 * selectedScaleNami), (int) (128 * selectedScaleNami), null);
+        theG.drawImage(myCharacterChoice[3].getMyDefaultIm(), myX + 900 - ((int) (selectedScaleChopper * 64) - 64), myY - ((int) (selectedScaleChopper * 64) - 64), (int) (128 * selectedScaleChopper), (int) (128 * selectedScaleChopper), null);
     }
 
+    /**
+     * This method is used to make the character selection screen bob up and down.
+     */
     private static void bobCharacter() {
         int size = 6;
         if (choice == 0) {

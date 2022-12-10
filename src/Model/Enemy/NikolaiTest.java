@@ -4,11 +4,21 @@ import Model.MazeCharacter;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+/**
+ * This class is used to test the Nikolai class.
+ *
+ * @author Kevin Nguyen Jashanpreet Jandu Nicholas Zhuk
+ * @version 1.0
+ */
 public class NikolaiTest {
     NikolaiTest() {
     }
+
+    /**
+     * This method is used to tests the Nikolai stats from SQLite.
+     */
     @Test
-    void testBoatKevin(){
+    void testNikolai() {
         EnemyFactory enemyFactory = EnemyFactory.getInstance();
         Assertions.assertNotNull(enemyFactory);
         MazeCharacter testNikolai = enemyFactory.chosenEnemy(EnemyFactory.Enemy.NIKOLAI);
@@ -21,6 +31,7 @@ public class NikolaiTest {
         Assertions.assertEquals(0.20, testNikolai.getDodgeChance());
         Assertions.assertEquals(0.25, testNikolai.getSpecialChance());
     }
+
     @Test
     void testSpecialAttack(){
         EnemyFactory enemyFactory = EnemyFactory.getInstance();

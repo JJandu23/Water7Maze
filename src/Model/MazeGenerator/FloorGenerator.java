@@ -1,37 +1,57 @@
 package Model.MazeGenerator;
 
 import Model.Enemy.EnemyFactory;
-import Model.MazeCharacter;
+import Model.MazeGenerator.Maze.Direction;
 
-import javax.swing.*;
-import java.awt.*;
 import java.util.ArrayList;
 import java.util.Stack;
-import Model.MazeGenerator.Maze.Direction;
 
 import static Model.MazeGenerator.Maze.Direction.*;
 
 
 /**
+ * This class is used to generate a floor of the maze.
+ *
  * @author Jashanpreet Jandu, Kevin Nguyen, Nicholas Zhuk
  * @version 1.0
  */
 public class FloorGenerator {
+    /**
+     * The width of the floor.
+     */
     int myWidth = 10;
+    /**
+     * The length of the floor.
+     */
     int myLength = 10;
+    /**
+     * The 2D array of rooms that make up the floor.
+     */
     Room[][] floor;
 
-    public FloorGenerator(int theWidth, int theLength) {
+    /**
+     * This constructor creates a floor of the maze.
+     * @param theWidth the width of the floor
+     * @param theLength the length of the floor
+     */
+    public FloorGenerator(final int theWidth, final int theLength) {
         this.myWidth = theWidth;
         this.myLength = theLength;
         floor = new Room[theWidth][theLength];
         createFloor();
     }
 
+    /**
+     * This method gets the floor
+     * @return The floor.
+     */
     public Room[][] getFloor() {
         return floor;
     }
 
+    /**
+     * This method creates a floor of the maze.
+     */
     private void createFloor() {
         EnemyFactory ef = EnemyFactory.getInstance();
 
@@ -40,7 +60,7 @@ public class FloorGenerator {
         floor[0][0] = new Room(false, false, false, false);
         floor[0][0].setRoomItems("START");
         for (int i = 0; i < myWidth * myLength; i++) {
-            int rand  = (int) (Math.random()*20);
+            int rand = (int) (Math.random() * 20);
 
             if (stack.isEmpty()) {
                 System.out.println("Something Went Wrong");
@@ -84,19 +104,26 @@ public class FloorGenerator {
         }
     }
 
-    private Direction findRandEmptyRoom(int x, int y) {
+    /**
+     * This method finds a random empty room.
+     *
+     * @param theX the x coordinate of the room
+     * @param theY the y coordinate of the room
+     * @return The direction of the empty room.
+     */
+    private Direction findRandEmptyRoom(final int theX, final int theY) {
         ArrayList<Direction> cardinalRooms = new ArrayList<>();
 
-        if (x != 0 && floor[x - 1][y] == null) {
+        if (theX != 0 && floor[theX - 1][theY] == null) {
             cardinalRooms.add(WEST);
         }
-        if (x != floor.length - 1 && floor[x + 1][y] == null) {
+        if (theX != floor.length - 1 && floor[theX + 1][theY] == null) {
             cardinalRooms.add(EAST);
         }
-        if (y != 0 && floor[x][y - 1] == null) {
+        if (theY != 0 && floor[theX][theY - 1] == null) {
             cardinalRooms.add(NORTH);
         }
-        if (y != floor[0].length - 1 && floor[x][y + 1] == null) {
+        if (theY != floor[0].length - 1 && floor[theX][theY + 1] == null) {
             cardinalRooms.add(SOUTH);
         }
         if (cardinalRooms.isEmpty()) {

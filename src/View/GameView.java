@@ -7,7 +7,6 @@ import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.UnsupportedAudioFileException;
 import javax.swing.*;
 import java.awt.*;
-import java.awt.image.BufferedImage;
 import java.io.IOException;
 
 /**
@@ -19,19 +18,50 @@ import java.io.IOException;
 public class GameView extends JPanel implements Runnable {
 
     // Settings
+    /**
+     * The title size of the game.
+     */
     static final int originalTileSize = 32;
+    /**
+     * The scaling of the game.
+     */
     static final int scale = 3;
+    /**
+     * The max col for the screen
+     */
     static final int maxScreenCol = 12;
+    /**
+     * The max row for the screen
+     */
     static final int maxScreenRow = 10;
+    /**
+     * The title size of the game.
+     */
     static final int tileSize = originalTileSize * scale;
+    /**
+     * The width of the screen.
+     */
     static final int screenWidth = tileSize * maxScreenCol; //1152
+    /**
+     * The height of the screen.
+     */
     static final int screenHeight = tileSize * maxScreenRow; //960
-
+    /**
+     * The frame per second.
+     */
     int FPS = 60;
+    /**
+     * The input controls.
+     */
     InputControls inputCon = new InputControls();
+    /**
+     * The game thread.
+     */
     Thread gameThread;
-    BufferedImage img;
 
+    /**
+     * Constructor for game view.
+     */
     public GameView() {
         this.setPreferredSize(new Dimension(screenWidth, screenHeight));
         this.setBackground(Color.black);
@@ -40,11 +70,35 @@ public class GameView extends JPanel implements Runnable {
         this.setFocusable(true);
     }
 
+    /**
+     * This method gets the screen width.
+     *
+     * @return The screen width.
+     */
+    public static int getScreenWidth() {
+        return screenWidth;
+    }
+
+    /**
+     * This method gets the screen height.
+     *
+     * @return The screen height.
+     */
+    public static int getScreenHeight() {
+        return screenHeight;
+    }
+
+    /**
+     * This method is used to start the game thread.
+     */
     public void startGameThread() {
         gameThread = new Thread(this);
         gameThread.start();
     }
 
+    /**
+     * This method is used to run the game.
+     */
     @Override
     public void run() {
         while (gameThread != null) {
@@ -69,22 +123,26 @@ public class GameView extends JPanel implements Runnable {
         }
     }
 
+    /**
+     * This method is used to update the game.
+     *
+     * @throws UnsupportedAudioFileException
+     * @throws LineUnavailableException
+     * @throws IOException
+     */
     public void update() throws UnsupportedAudioFileException, LineUnavailableException, IOException {
         GameManager.update();
     }
 
-    public void paintComponent(Graphics g) {
-        super.paintComponent(g);
-        Graphics2D g2 = (Graphics2D) g;
+    /**
+     * This method is used to paint the game.
+     *
+     * @param theG The graphics.
+     */
+    public void paintComponent(final Graphics theG) {
+        super.paintComponent(theG);
+        Graphics2D g2 = (Graphics2D) theG;
         GameManager.draw(g2);
         g2.dispose();
-    }
-
-    public static int getScreenWidth() {
-        return screenWidth;
-    }
-
-    public static int getScreenHeight() {
-        return screenHeight;
     }
 }

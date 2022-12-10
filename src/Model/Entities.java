@@ -2,7 +2,12 @@ package Model;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
-
+/**
+ * This class is used to create entities.
+ *
+ * @author Jashanpreet Jandu, Kevin Nguyen, Nicholas Zhuk
+ * @version 1.0
+ */
 public class Entities {
 
     private int[] myCoords = new int[4];

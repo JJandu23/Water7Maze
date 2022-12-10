@@ -13,27 +13,36 @@ import java.io.IOException;
  * @version 1.0
  */
 public class Menus {
+    /**
+     * The gamestate of the view.
+     */
     private static String myGameState = "Intro";
 
-    public static void setGameState(String state){
-        if (state.equals("Intro") || state.equals("Maze") || state.equals("Battle") ||
-                state.equals("Dialogue") || state.equals("Ending")) {
-            myGameState = state;
+    /**
+     * This method is used to get the gamestate.
+     *
+     * @return The gamestate.
+     */
+    public static String getGameState() {
+        return myGameState;
+    }
+
+    /**
+     * This method is used to set the gamestate.
+     *
+     * @param theState The gamestate.
+     */
+    public static void setGameState(final String theState) {
+        if (theState.equals("Intro") || theState.equals("Maze") || theState.equals("Battle") ||
+                theState.equals("Dialogue") || theState.equals("Ending")) {
+            myGameState = theState;
             try {
                 GameManager.music();
-            } catch (UnsupportedAudioFileException e) {
-                throw new RuntimeException(e);
-            } catch (LineUnavailableException e) {
-                throw new RuntimeException(e);
-            } catch (IOException e) {
+            } catch (UnsupportedAudioFileException | LineUnavailableException | IOException e) {
                 throw new RuntimeException(e);
             }
         } else {
             System.out.println("Error!!!");
         }
-    }
-
-    public static String getGameState() {
-        return myGameState;
     }
 }

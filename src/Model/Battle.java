@@ -1,7 +1,8 @@
 package Model;
 
-import Model.Enemy.*;
-import Model.Hero.*;
+import Model.Enemy.EnemyFactory;
+import Model.Hero.Hero;
+import Model.Hero.Luffy;
 
 import java.util.Random;
 import java.util.Scanner;
@@ -24,6 +25,7 @@ public class Battle {
      */
     private static MazeCharacter myEnemy;
 
+
     /**
      * This method is used to control the battle.
      *
@@ -31,10 +33,18 @@ public class Battle {
      * @param theEnemy the enemy object.
      */
     public Battle(Hero theHero, MazeCharacter theEnemy) {
+        EnemyFactory enemyFactory = EnemyFactory.getInstance();
         myHero = theHero;
-        myEnemy = theEnemy;
+        myEnemy = enemyFactory.chosenEnemy(EnemyFactory.Enemy.ELI);
         Scanner console = new Scanner(System.in);
         gamePlay(myHero, myEnemy, console);
+    }
+
+    public static void main(String[] args) {
+        EnemyFactory enemyFactory = EnemyFactory.getInstance();
+        Hero hero = new Luffy();
+        MazeCharacter enemy = enemyFactory.chosenEnemy(EnemyFactory.Enemy.ELI);
+        new Battle(hero, enemy);
     }
 
     /**
@@ -145,6 +155,7 @@ public class Battle {
     public static void winner(final Hero theHero, final MazeCharacter theEnemy) {
         if (theHero.isAlive()) {
             System.out.println("You have defeated " + theEnemy.getName() + "!");
+            theHero.randomItem();
         } else {
             System.out.println("You have been defeated by " + theEnemy.getName() + "!");
         }
