@@ -10,7 +10,7 @@ import java.awt.event.KeyListener;
  * @version 1.0
  */
 public class InputControls implements KeyListener {
-    private static boolean upPressed, downPressed, leftPressed, rightPressed, enterPressed;
+    private static boolean upPressed, downPressed, leftPressed, rightPressed, enterPressed, jPressed, kPressed, pPressed, oPressed, lPressed;
     private static final int[] mouseClickedCoords = new int[2];
 
     public boolean getUp() {
@@ -33,50 +33,24 @@ public class InputControls implements KeyListener {
         return enterPressed;
     }
 
-    public char getAttack() {
-        return 'j';
+    public static boolean getJ() {
+        return jPressed;
     }
 
-    public char getSpecial() {
-        return 'k';
+    public static boolean getK() {
+        return kPressed;
     }
 
-    /**
-     * This method is used to get the key pressed.
-     *
-     * @param theKey is the key pressed.
-     */
-    public static int getKeyCode(final char theKey) {
-        return switch (theKey) {
-            case 'w' -> KeyEvent.VK_UP;
-            case 's' -> KeyEvent.VK_DOWN;
-            case 'a' -> KeyEvent.VK_LEFT;
-            case 'd' -> KeyEvent.VK_RIGHT;
-            case 'j' -> KeyEvent.VK_J;
-            case 'k' -> KeyEvent.VK_K;
-            case 'u' -> KeyEvent.VK_U;
-            case 'y' -> KeyEvent.VK_Y;
-            default -> KeyEvent.VK_UNDEFINED;
-        };
+    public static boolean getP() {
+        return pPressed;
     }
 
-    /**
-     * This method is used to get the key code.
-     *
-     * @param theKey is the key pressed.
-     */
-    public static String getKeyText(final char theKey) {
-        return switch (theKey) {
-            case 'w' -> "Up";
-            case 's' -> "Down";
-            case 'a' -> "Left";
-            case 'd' -> "Right";
-            case 'j' -> "Attack";
-            case 'k' -> "Special";
-            case 'u' -> "Save";
-            case 'y' -> "Load";
-            default -> "Undefined";
-        };
+    public static boolean getO() {
+        return oPressed;
+    }
+
+    public static boolean getL() {
+        return lPressed;
     }
 
     @Override
@@ -108,6 +82,21 @@ public class InputControls implements KeyListener {
         if (code == KeyEvent.VK_ENTER) {
             enterPressed = true;
         }
+        if (code == KeyEvent.VK_J) {
+            jPressed = true;
+        }
+        if (code == KeyEvent.VK_K) {
+            kPressed = true;
+        }
+        if (code == KeyEvent.VK_P) {
+            pPressed = true;
+        }
+        if (code == KeyEvent.VK_O) {
+            oPressed = true;
+        }
+        if (code == KeyEvent.VK_L) {
+            lPressed = true;
+        }
     }
 
     /**
@@ -133,6 +122,21 @@ public class InputControls implements KeyListener {
         }
         if (code == KeyEvent.VK_ENTER) {
             enterPressed = false;
+        }
+        if (code == KeyEvent.VK_J) {
+            jPressed = false;
+        }
+        if (code == KeyEvent.VK_K) {
+            kPressed = false;
+        }
+        if (code == KeyEvent.VK_P) {
+            pPressed = false;
+        }
+        if (code == KeyEvent.VK_O) {
+            oPressed = false;
+        }
+        if (code == KeyEvent.VK_L) {
+            lPressed = false;
         }
     }
 }
