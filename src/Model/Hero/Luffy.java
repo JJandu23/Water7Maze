@@ -18,19 +18,19 @@ public class Luffy extends Hero {
     /**
      * The minimum special attack damage.
      */
-    private final int myMinSpecialDamage = 35;
+    private final int myMinSpecialDamage = 45;
 
     /**
      * The maximum special attack damage.
      */
-    private final int myMaxSpecialDamage = 45;
+    private final int myMaxSpecialDamage = 55;
 
     /**
      * Luffy constructor
      */
     public Luffy() {
         super("Luffy", 1200, 10, 15,
-                25, 0.8, 0.2, 0.20, 10);
+                25, 0.8, 0.2, 0.40, 10);
 
 
 

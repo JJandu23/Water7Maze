@@ -24,8 +24,8 @@ public class LuffyTest {
         badLuffy.setDodgeChance(0.0);
         Assertions.assertEquals(120, badLuffy.getHealthPoints());
         luffy.specialAttack(badLuffy);
-        Assertions.assertEquals(true, badLuffy.getHealthPoints() >= 75);
-        Assertions.assertEquals(true, badLuffy.getHealthPoints() <= 85);
+        Assertions.assertEquals(true, badLuffy.getHealthPoints() >= 65);
+        Assertions.assertEquals(true, badLuffy.getHealthPoints() <= 75);
     }
 
 }

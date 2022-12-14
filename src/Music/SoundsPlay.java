@@ -49,9 +49,6 @@ public class SoundsPlay {
              case THE_ONE_PIECE:
                  audioInputStream = AudioSystem.getAudioInputStream(new File("src/Music/TheOnePieceIsReal.wav").getAbsoluteFile());
                  break;
-             case SANS_NOISE:
-                 audioInputStream = AudioSystem.getAudioInputStream(new File("src/Music/SansNoise.wav").getAbsoluteFile());
-                 break;
          };
         if (audioInputStream != null) {
             if (myClip != null) {
@@ -73,6 +70,6 @@ public class SoundsPlay {
      * @version 1.0
      */
     public enum Song {
-        OPENING, IN_GAME, DEATH, THE_ONE_PIECE, SANS_NOISE
+        OPENING, IN_GAME, DEATH, THE_ONE_PIECE
     }
 }

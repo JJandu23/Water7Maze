@@ -23,13 +23,13 @@ public class SadBoySeaTest {
         Assertions.assertNotNull(enemyFactory);
         MazeCharacter testSadBoySea = enemyFactory.chosenEnemy(EnemyFactory.Enemy.SADBOYSEA);
         Assertions.assertNotNull(testSadBoySea);
-        Assertions.assertEquals(250, testSadBoySea.getHealthPoints());
+        Assertions.assertEquals(150, testSadBoySea.getHealthPoints());
         Assertions.assertEquals(12, testSadBoySea.getAttackSpeed());
         Assertions.assertEquals(10, testSadBoySea.getMinDamage());
         Assertions.assertEquals(20, testSadBoySea.getMaxDamage());
         Assertions.assertEquals(0.80, testSadBoySea.getHitChance());
         Assertions.assertEquals(0.20, testSadBoySea.getDodgeChance());
-        Assertions.assertEquals(0.10, testSadBoySea.getSpecialChance());
+        Assertions.assertEquals(0.05, testSadBoySea.getSpecialChance());
     }
 
     /**
@@ -43,9 +43,10 @@ public class SadBoySeaTest {
         MazeCharacter GoodSadBoySea = enemyFactory.chosenEnemy(EnemyFactory.Enemy.SADBOYSEA);
         Assertions.assertNotNull(sadBoySea);
         Assertions.assertNotNull(GoodSadBoySea);
-        Assertions.assertEquals(250, GoodSadBoySea.getHealthPoints());
+        Assertions.assertEquals(150, GoodSadBoySea.getHealthPoints());
         sadBoySea.setSpecialChance(1.0);
+        GoodSadBoySea.setDodgeChance(0.0);
         sadBoySea.specialAttack(GoodSadBoySea);
-        Assertions.assertEquals(188, GoodSadBoySea.getHealthPoints());
+        Assertions.assertEquals(132, GoodSadBoySea.getHealthPoints());
     }
 }

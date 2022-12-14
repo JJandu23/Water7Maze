@@ -32,7 +32,7 @@ public class SadBoySea extends MazeCharacter {
     @Override
     public void specialAttack(final MazeCharacter theEnemy) {
         System.out.println(getName() + " used Santoryu Ougi: Ichidai Sanzen Daisen Sekai!");
-        int damageDealt = (theEnemy.getHealthPoints() / 4);
+        int damageDealt = (theEnemy.getHealthPoints() / 8);
         theEnemy.subtractHealth(damageDealt);
         System.out.println(theEnemy.getName() + " has " + theEnemy.getHealthPoints() + " health left!");
     }

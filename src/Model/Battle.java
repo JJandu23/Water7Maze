@@ -138,8 +138,8 @@ public class Battle {
             case 'j' -> theHero.attack(theEnemy);
             case 'k' -> theHero.specialAttack(theEnemy);
             case 'p' -> theHero.useSenzuBean();
-            case 'o' -> theHero.usePowerPowerFruit();
-            case 'l' -> theHero.useSpeedSpeedFruit();
+            case 'o' -> theHero.usePowerFruit();
+            case 'l' -> theHero.useSpeedFruit();
         }
     }
 

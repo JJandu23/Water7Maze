@@ -27,7 +27,7 @@ public class BoatKevinTest {
         Assertions.assertEquals(20, testBoatKevin.getMaxDamage());
         Assertions.assertEquals(0.80, testBoatKevin.getHitChance());
         Assertions.assertEquals(0.20, testBoatKevin.getDodgeChance());
-        Assertions.assertEquals(0.05, testBoatKevin.getSpecialChance());
+        Assertions.assertEquals(0.01, testBoatKevin.getSpecialChance());
     }
 
     /**

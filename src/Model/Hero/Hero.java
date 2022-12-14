@@ -28,14 +28,14 @@ public abstract class Hero extends MazeCharacter {
     private int mySenzuBean;
 
     /**
-     * The hero's number of power power fruit.
+     * The hero's number of power fruit.
      */
-    private int myPowerPowerFruit;
+    private int myPowerFruit;
 
     /**
-     * The hero's number of speed speed fruit.
+     * The hero's number of speed fruit.
      */
-    private int mySpeedSpeedFruit;
+    private int mySpeedFruit;
 
     /**
      * The hero's number of torch.
@@ -87,8 +87,6 @@ public abstract class Hero extends MazeCharacter {
      * The hero's current image.
      */
     private static int spriteCounter = 0;
-    private static int myRoomX = 0;
-    private static int myRoomY = 0;
     private static int myCenterX;
     private static int myCenterY;
     private boolean hasKey1 = false, hasKey2 = false, hasKey3 = false, hasKey4 = false;
@@ -106,8 +104,8 @@ public abstract class Hero extends MazeCharacter {
         super(theName, theHealthPoints, theAttackSpeed, theMinDamage, theMaxDamage,
                 theHitChance, theDodgeChance, theSpecialChance);
         setSenzuBean(0);
-        setPowerPowerFruit(0);
-        setSpeedSpeedFruit(0);
+        setPowerFruit(0);
+        setSpeedFruit(0);
         setTorch(0);
         setOriginalHealthPoints(theHealthPoints);
         setMoveSpeed(theMoveSpeed);
@@ -127,17 +125,17 @@ public abstract class Hero extends MazeCharacter {
      *
      * @return the hero's number of power power fruit.
      */
-    protected int getPowerPowerFruit() {
-        return myPowerPowerFruit;
+    protected int getPowerFruit() {
+        return myPowerFruit;
     }
 
     /**
-     * This method gets the hero's number of speed speed fruit.
+     * This method gets the hero's number of speed fruit.
      *
-     * @return the hero's number of speed speed fruit.
+     * @return the hero's number of speed fruit.
      */
-    protected int getSpeedSpeedFruit() {
-        return mySpeedSpeedFruit;
+    protected int getSpeedFruit() {
+        return mySpeedFruit;
     }
 
     /**
@@ -191,24 +189,24 @@ public abstract class Hero extends MazeCharacter {
     }
 
     /**
-     * This method sets the hero's number of power power fruit.
+     * This method sets the hero's number of power fruit.
      *
-     * @param thePowerPowerFruit the hero's number of power power fruit.
+     * @param thePowerFruit the hero's number of power fruit.
      */
-    protected void setPowerPowerFruit(final int thePowerPowerFruit) {
-        if (thePowerPowerFruit >= 0) {
-            myPowerPowerFruit = thePowerPowerFruit;
+    protected void setPowerFruit(final int thePowerFruit) {
+        if (thePowerFruit >= 0) {
+            myPowerFruit = thePowerFruit;
         }
     }
 
     /**
-     * This method sets the hero's number of speed speed fruit.
+     * This method sets the hero's number of speed fruit.
      *
-     * @param theSpeedSpeedFruit the hero's number of speed speed fruit.
+     * @param theSpeedFruit the hero's number of speed fruit.
      */
-    protected void setSpeedSpeedFruit(final int theSpeedSpeedFruit) {
-        if (theSpeedSpeedFruit >= 0) {
-            mySpeedSpeedFruit = theSpeedSpeedFruit;
+    protected void setSpeedFruit(final int theSpeedFruit) {
+        if (theSpeedFruit >= 0) {
+            mySpeedFruit = theSpeedFruit;
         }
     }
 
@@ -256,19 +254,19 @@ public abstract class Hero extends MazeCharacter {
     }
 
     /**
-     * This method increments the number of power power fruit.
+     * This method increments the number of power fruit.
      */
-    protected void addPowerPowerFruit() {
-        myPowerPowerFruit++;
-        setPowerPowerFruit(myPowerPowerFruit);
+    protected void addPowerFruit() {
+        myPowerFruit++;
+        setPowerFruit(myPowerFruit);
     }
 
     /**
-     * This method increments the number of speed speed fruit.
+     * This method increments the number of speed fruit.
      */
-    protected void addSpeedSpeedFruit() {
-        mySpeedSpeedFruit++;
-        setSpeedSpeedFruit(mySpeedSpeedFruit);
+    protected void addSpeedFruit() {
+        mySpeedFruit++;
+        setSpeedFruit(mySpeedFruit);
     }
 
     /**
@@ -305,32 +303,32 @@ public abstract class Hero extends MazeCharacter {
     /**
      * This method increases the hero's attack damage.
      */
-    public void usePowerPowerFruit() {
-        if (getPowerPowerFruit() > 0) {
-            myPowerPowerFruit--;
-            setPowerPowerFruit(myPowerPowerFruit);
+    public void usePowerFruit() {
+        if (getPowerFruit() > 0) {
+            myPowerFruit--;
+            setPowerFruit(myPowerFruit);
             setMinDamage(getMinDamage() + 10);
             setMaxDamage(getMaxDamage() + 10);
-            System.out.println(getName() + " used a power power fruit and gained 10 attack!");
+            System.out.println(getName() + " used a power fruit and gained 10 attack!");
             System.out.println(getName() + " now has " + getMinDamage() + " min damage and " + getMaxDamage() +
                     " max damage attack!");
         } else {
-            System.out.println(getName() + " has no power power fruits left!");
+            System.out.println(getName() + " has no power fruits left!");
         }
     }
 
     /**
      * This method increases the hero's attack speed.
      */
-    public void useSpeedSpeedFruit() {
-        if (getSpeedSpeedFruit() > 0) {
-            mySpeedSpeedFruit--;
-            setSpeedSpeedFruit(mySpeedSpeedFruit);
+    public void useSpeedFruit() {
+        if (getSpeedFruit() > 0) {
+            mySpeedFruit--;
+            setSpeedFruit(mySpeedFruit);
             setAttackSpeed(getAttackSpeed() + 1);
-            System.out.println(getName() + " used a speed speed fruit and gained 1 speed!");
+            System.out.println(getName() + " used a speed fruit and gained 1 speed!");
             System.out.println(getName() + " now has " + getAttackSpeed() + " speed!");
         } else {
-            System.out.println(getName() + " has no speed speed fruits left!");
+            System.out.println(getName() + " has no speed fruits left!");
         }
     }
 
@@ -347,11 +345,11 @@ public abstract class Hero extends MazeCharacter {
             addSenzuBean();
             System.out.println(getName() + " found a senzu bean!");
         } else if (random == 1) {
-            addPowerPowerFruit();
-            System.out.println(getName() + " found a power power fruit!");
+            addPowerFruit();
+            System.out.println(getName() + " found a power fruit!");
         } else if (random == 2) {
-            addSpeedSpeedFruit();
-            System.out.println(getName() + " found a speed speed fruit!");
+            addSpeedFruit();
+            System.out.println(getName() + " found a speed fruit!");
         } else if (random == 3) {
             addTorch();
             System.out.println(getName() + " found a torch!");

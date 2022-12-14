@@ -17,7 +17,7 @@ public class Zoro extends Hero {
     /**
      * The minimum special damage.
      */
-    private final int myMinSpecialDamage = 40;
+    private final int myMinSpecialDamage = 50;
 
     /**
      * The maximum special damage.
@@ -29,7 +29,7 @@ public class Zoro extends Hero {
      */
     public Zoro() {
         super("Zoro", 110, 8, 15, 25,
-                .6, .2, .4, 7);
+                .6, .2, .4, 9);
         try {
             BufferedImage downIm1 = (ImageIO.read(getClass().getResourceAsStream("../../View/Sprites/Zoro/down1.png")));
             BufferedImage downIm2 = (ImageIO.read(getClass().getResourceAsStream("../../View/Sprites/Zoro/down2.png")));

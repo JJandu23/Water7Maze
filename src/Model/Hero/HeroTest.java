@@ -32,9 +32,9 @@ public class HeroTest {
     void addPowerPowerFruit() {
         Luffy luffy = new Luffy();
         for (int i = 0; i < 5; ++i) {
-            luffy.addPowerPowerFruit();
+            luffy.addPowerFruit();
         }
-        Assertions.assertEquals(5, luffy.getPowerPowerFruit());
+        Assertions.assertEquals(5, luffy.getPowerFruit());
     }
 
     /**
@@ -44,9 +44,9 @@ public class HeroTest {
     void addSpeedSpeedFruit() {
         Luffy luffy = new Luffy();
         for (int i = 0; i < 5; ++i) {
-            luffy.addSpeedSpeedFruit();
+            luffy.addSpeedFruit();
         }
-        Assertions.assertEquals(5, luffy.getSpeedSpeedFruit());
+        Assertions.assertEquals(5, luffy.getSpeedFruit());
     }
 
     /**
@@ -101,13 +101,13 @@ public class HeroTest {
     void usePowerPowerFruit1() {
         Luffy luffy = new Luffy();
         for (int i = 0; i < 5; ++i) {
-            luffy.addPowerPowerFruit();
+            luffy.addPowerFruit();
         }
-        Assertions.assertEquals(5, luffy.getPowerPowerFruit());
+        Assertions.assertEquals(5, luffy.getPowerFruit());
         Assertions.assertEquals(15, luffy.getMinDamage());
         Assertions.assertEquals(25, luffy.getMaxDamage());
-        luffy.usePowerPowerFruit();
-        Assertions.assertEquals(4, luffy.getPowerPowerFruit());
+        luffy.usePowerFruit();
+        Assertions.assertEquals(4, luffy.getPowerFruit());
         Assertions.assertEquals(25, luffy.getMinDamage());
         Assertions.assertEquals(35, luffy.getMaxDamage());
     }
@@ -119,16 +119,16 @@ public class HeroTest {
     void usePowerPowerFruit2() {
         Luffy luffy = new Luffy();
         for (int i = 0; i < 5; ++i) {
-            luffy.addPowerPowerFruit();
+            luffy.addPowerFruit();
         }
-        Assertions.assertEquals(5, luffy.getPowerPowerFruit());
+        Assertions.assertEquals(5, luffy.getPowerFruit());
         Assertions.assertEquals(15, luffy.getMinDamage());
         Assertions.assertEquals(25, luffy.getMaxDamage());
-        luffy.usePowerPowerFruit();
-        luffy.usePowerPowerFruit();
-        luffy.usePowerPowerFruit();
-        luffy.usePowerPowerFruit();
-        Assertions.assertEquals(1, luffy.getPowerPowerFruit());
+        luffy.usePowerFruit();
+        luffy.usePowerFruit();
+        luffy.usePowerFruit();
+        luffy.usePowerFruit();
+        Assertions.assertEquals(1, luffy.getPowerFruit());
         Assertions.assertEquals(55, luffy.getMinDamage());
         Assertions.assertEquals(65, luffy.getMaxDamage());
     }
@@ -140,12 +140,12 @@ public class HeroTest {
     void useSpeedSpeedFruit1() {
         Luffy luffy = new Luffy();
         for (int i = 0; i < 5; ++i) {
-            luffy.addSpeedSpeedFruit();
+            luffy.addSpeedFruit();
         }
-        Assertions.assertEquals(5, luffy.getSpeedSpeedFruit());
+        Assertions.assertEquals(5, luffy.getSpeedFruit());
         Assertions.assertEquals(10, luffy.getAttackSpeed());
-        luffy.useSpeedSpeedFruit();
-        Assertions.assertEquals(4, luffy.getSpeedSpeedFruit());
+        luffy.useSpeedFruit();
+        Assertions.assertEquals(4, luffy.getSpeedFruit());
         Assertions.assertEquals(11, luffy.getAttackSpeed());
     }
 
@@ -156,15 +156,15 @@ public class HeroTest {
     void useSpeedSpeedFruit2() {
         Luffy luffy = new Luffy();
         for (int i = 0; i < 5; ++i) {
-            luffy.addSpeedSpeedFruit();
+            luffy.addSpeedFruit();
         }
-        Assertions.assertEquals(5, luffy.getSpeedSpeedFruit());
+        Assertions.assertEquals(5, luffy.getSpeedFruit());
         Assertions.assertEquals(10, luffy.getAttackSpeed());
-        luffy.useSpeedSpeedFruit();
-        luffy.useSpeedSpeedFruit();
-        luffy.useSpeedSpeedFruit();
-        luffy.useSpeedSpeedFruit();
-        Assertions.assertEquals(1, luffy.getSpeedSpeedFruit());
+        luffy.useSpeedFruit();
+        luffy.useSpeedFruit();
+        luffy.useSpeedFruit();
+        luffy.useSpeedFruit();
+        Assertions.assertEquals(1, luffy.getSpeedFruit());
         Assertions.assertEquals(14, luffy.getAttackSpeed());
     }
 

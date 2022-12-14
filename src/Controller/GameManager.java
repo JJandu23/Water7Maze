@@ -192,7 +192,7 @@ public class GameManager {
     /**
      * This method is used to update the hero.
      */
-    public static void update() throws UnsupportedAudioFileException, LineUnavailableException, IOException {
+    public static void update() {
         switch (Menus.getGameState()) {
             case "Maze":
                 if(InputControls.getK()){

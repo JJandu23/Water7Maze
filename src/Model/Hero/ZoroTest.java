@@ -24,7 +24,7 @@ public class ZoroTest {
         badZoro.setDodgeChance(0.0);
         Assertions.assertEquals(110, badZoro.getHealthPoints());
         zoro.specialAttack(badZoro);
-        Assertions.assertEquals(true, badZoro.getHealthPoints() >= 40);
+        Assertions.assertEquals(true, badZoro.getHealthPoints() >= 50);
         Assertions.assertEquals(true, badZoro.getHealthPoints() <= 60);
     }
 }
