@@ -4,10 +4,7 @@ import Model.Battle;
 import Model.Hero.Hero;
 import Model.MazeGenerator.Maze;
 import Music.SoundsPlay;
-import View.BattleView;
-import View.GameView;
-import View.Intro;
-import View.Menus;
+import View.*;
 
 import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.UnsupportedAudioFileException;
@@ -176,6 +173,7 @@ public class GameManager {
                     myHero.draw(theGraphics);
                     Maze.drawMiniMap(theGraphics);
                     isLastFrameDrawn = true;
+
                 }
                 break;
             case "Intro":
@@ -185,6 +183,7 @@ public class GameManager {
 
                 myCurrentBattleView.draw(theGraphics);
             case "Dialogue", "Ending":
+                Ending.draw(theGraphics);
                 break;
         }
     }
@@ -206,6 +205,12 @@ public class GameManager {
 
                 myHero.update();
                 if((Maze.getCurrentRoom().getEnemy() != null || Maze.getCurrentRoom().hasKey()) && isLastFrameDrawn){
+                    try {
+
+                        Thread.sleep(1000);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
 
                     if(Maze.getCurrentRoom().hasKey()){
                         Maze.getCurrentRoom().setRoomKey();
@@ -246,6 +251,7 @@ public class GameManager {
                 //myCurrentBattle = new Battle(myHero, Maze.getCurrentRoom().getEnemy(), new BattleView(getHero().getName(), Maze.getCurrentRoom().getEnemy().getName()));
 
             case "Dialogue", "Ending":
+
                 break;
         }
     }

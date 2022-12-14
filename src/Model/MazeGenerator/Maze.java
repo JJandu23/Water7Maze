@@ -2,6 +2,8 @@ package Model.MazeGenerator;
 
 import Model.Entities;
 import Model.Hero.Hero;
+import View.Ending;
+import View.GameView;
 import View.Menus;
 
 import javax.imageio.ImageIO;
@@ -32,6 +34,15 @@ public class Maze {
     private static HashMap<String, Entities> myEntityList = new HashMap<>();
     private static int[] myCurrentEndRoom = new int[2];
     private static int[] enemyCoords = {300, 300, 500, 500};
+    private static BufferedImage keytext;
+    static{
+
+        try {
+            keytext = ImageIO.read(Ending.class.getResourceAsStream("../View/Sprites/gotkey.png"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
 
     /**
@@ -115,6 +126,9 @@ public class Maze {
         }
         Room theRoom = myMaze[myCurrentFloor][myCurrentRoom[0]][myCurrentRoom[1]];
         int tilesize = 400;
+
+
+
         for (int i = 0; i < 5; i++) {
             for (int j = 0; j < 5; j++) {
                 graphics2D.drawImage(theRoom.getBackground(), j * tilesize, i * tilesize, tilesize, tilesize, null);
@@ -140,7 +154,11 @@ public class Maze {
 
         if(myMaze[myCurrentFloor][myCurrentRoom[0]][myCurrentRoom[1]].hasKey()){
             graphics2D.setColor(Color.yellow);
-            graphics2D.fillRect(300, 300, 100, 100);
+            graphics2D.fillRect(400, 300, 100, 100);
+        }
+        if(theRoom.hasKey()){
+            System.out.println("draw key text");
+            graphics2D.drawImage(keytext, 0,600, GameView.getScreenWidth(), 200, null);
         }
 
     }
