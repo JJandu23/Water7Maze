@@ -51,6 +51,8 @@ public class GameManager {
      */
     private static Maze myMaze;
 
+    private static boolean isLastFrameDrawn = false;
+
     /**
      * This is our constructor.
      *
@@ -149,9 +151,17 @@ public class GameManager {
     public static void draw(final Graphics2D theGraphics) {
         switch (Menus.getGameState()) {
             case "Maze":
+
                 Maze.drawRoom(theGraphics);
                 myHero.draw(theGraphics);
                 Maze.drawMiniMap(theGraphics);
+
+                if((Maze.getCurrentRoom().getEnemy() != null || Maze.getCurrentRoom().hasKey()) && !isLastFrameDrawn){
+                    Maze.drawRoom(theGraphics);
+                    myHero.draw(theGraphics);
+                    Maze.drawMiniMap(theGraphics);
+                    isLastFrameDrawn = true;
+                }
                 break;
             case "Intro":
                 Intro.draw(theGraphics);
@@ -170,6 +180,23 @@ public class GameManager {
         switch (Menus.getGameState()) {
             case "Maze":
                 myHero.update();
+                if((Maze.getCurrentRoom().getEnemy() != null || Maze.getCurrentRoom().hasKey()) && isLastFrameDrawn){
+                    try {
+
+                        Thread.sleep(1000);
+                    } catch (Exception e) {
+
+                        e.printStackTrace();
+                    }
+                    if(Maze.getCurrentRoom().hasKey()){
+                        Maze.getCurrentRoom().setRoomKey();
+                    } else{
+                        Maze.getCurrentRoom().setRoomEnemy(null);
+                        Maze.killEnemy();
+                    }
+
+                    isLastFrameDrawn = false;
+                }
                 break;
             case "Intro":
                 try {
@@ -181,6 +208,7 @@ public class GameManager {
                 break;
 
             case "Battle":
+                BattleView.update();
             case "Dialogue", "Ending":
                 break;
         }

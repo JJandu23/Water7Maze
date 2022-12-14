@@ -60,12 +60,12 @@ public abstract class Hero extends MazeCharacter {
     /**
      * The hero's x-coordinate.
      */
-    private static int myX = 100;
+    private static int myX = 400;
 
     /**
      * The hero's y-coordinate.
      */
-    private static int myY = 100;
+    private static int myY = 400;
 
     /**
      * The hero's images.
@@ -91,6 +91,7 @@ public abstract class Hero extends MazeCharacter {
     private static int myRoomY = 0;
     private static int myCenterX;
     private static int myCenterY;
+    private boolean hasKey1 = false, hasKey2 = false, hasKey3 = false, hasKey4 = false;
 
     /**
      * Constructor for the Hero class.
@@ -324,6 +325,7 @@ public abstract class Hero extends MazeCharacter {
      * This method checks if there is a usable torch.
      */
     public void useTorch() {
+
     }
 
     public void randomItem() {
@@ -360,6 +362,7 @@ public abstract class Hero extends MazeCharacter {
             Maze.switchRoom(SOUTH);
             myX = 300;
             myY = 50;
+
         }
         if (myY < -50) {
             Maze.switchRoom(NORTH);
@@ -619,4 +622,10 @@ public abstract class Hero extends MazeCharacter {
         }
         return side;
     }
+
+
+
+
+
+
 }

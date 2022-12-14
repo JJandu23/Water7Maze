@@ -58,7 +58,13 @@ public class FloorGenerator {
         Stack<int[]> stack = new Stack<>();
         stack.push(new int[]{0, 0});
         floor[0][0] = new Room(false, false, false, false);
-        floor[0][0].setRoomItems("START");
+        floor[0][0].setRoomType("START");
+
+        int theKey1Location = (int)(Math.random()*(myWidth*myLength-1))+1;
+        int theKey2Location = (int)(Math.random()*(myWidth*myLength-1))+1;
+        int theKey3Location = (int)(Math.random()*(myWidth*myLength-1))+1;
+        int theKey4Location = (int)(Math.random()*(myWidth*myLength-1))+1;
+
         for (int i = 0; i < myWidth * myLength; i++) {
             int rand = (int) (Math.random() * 20);
 
@@ -68,8 +74,15 @@ public class FloorGenerator {
             int x = stack.peek()[0];
             int y = stack.peek()[1];
             if (i == (myWidth * myLength - 1)) {
-                floor[x][y].setRoomItems("FINAL");
+                floor[x][y].setRoomType("FINAL");
             }
+
+
+
+            if(i == theKey1Location || i == theKey2Location ||i == theKey3Location ||i == theKey4Location){
+                floor[x][y].setRoomKey();
+            }
+
             while (findRandEmptyRoom(stack.peek()[0], stack.peek()[1]) == null) {
                 stack.pop();
                 if (stack.isEmpty()) return;

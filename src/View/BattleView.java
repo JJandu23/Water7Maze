@@ -11,5 +11,10 @@ import java.awt.*;
 public class BattleView {
 
     public static void draw(final Graphics2D theG) {
+
+    }
+
+    public static void update(){
+
     }
 }

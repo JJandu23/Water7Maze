@@ -26,7 +26,8 @@ public class Room {
     private boolean myDoorSouth;
     private boolean myDoorEast;
     private boolean myDoorWest;
-    private String myRoomItems;
+    private String myRoomType;
+    private boolean myRoomKey = false;
     private Entities northDoorEnt, southDoorEnt, westDoorEnt, eastDoorEnt;
     private final int[] northDoorCoords = new int[]{0, 0, GameView.getScreenWidth(), 200};
     private final int[] southDoorCoords = new int[]{0, GameView.getScreenHeight() - 200, GameView.getScreenWidth(), GameView.getScreenHeight()};
@@ -50,11 +51,16 @@ public class Room {
         this.myDoorEast = doorEast;
     }
 
-    public void setRoomItems(String roomItems) {
-        myRoomItems = roomItems;
+    public void setRoomKey() {
+        myRoomKey = !myRoomKey;
     }
 
-    public void setRoomType(String theRoomType) {
+    public boolean hasKey() {
+        return myRoomKey;
+    }
+
+    public void setRoomType(String theRoomType){
+        myRoomType = theRoomType;
     }
 
     public void setRoomEnemy(MazeCharacter theEnemy) {
@@ -78,14 +84,14 @@ public class Room {
     public String toString() {
         String str = "";
         str += "(";
-        if (myRoomItems != null && myRoomItems.equals("START")) {
+        if (myRoomKey && myRoomType.equals("START")) {
             str += "...";
         }
         if (myDoorNorth) str += " north ";
         if (myDoorWest) str += " west ";
         if (myDoorSouth) str += " south ";
         if (myDoorEast) str += " east ";
-        if (myRoomItems != null && myRoomItems.equals("FINAL")) {
+        if (myRoomKey  && myRoomType.equals("FINAL")) {
             str += "F";
         }
         str += ")";
@@ -134,16 +140,16 @@ public class Room {
         }
         switch (doorDirection) {
             case "North":
-                northDoorEnt = new Entities(northDoorCoords[0], northDoorCoords[1], northDoorCoords[2], northDoorCoords[3], true);
+                northDoorEnt = new Entities(northDoorCoords[0], northDoorCoords[1], northDoorCoords[2], northDoorCoords[3]);
                 northDoorEnt.setSprite(img);
             case "South":
-                southDoorEnt = new Entities(southDoorCoords[0], southDoorCoords[1], southDoorCoords[2], southDoorCoords[3], true);
+                southDoorEnt = new Entities(southDoorCoords[0], southDoorCoords[1], southDoorCoords[2], southDoorCoords[3]);
                 southDoorEnt.setSprite(img);
             case "West":
-                westDoorEnt = new Entities(westDoorCoords[0], westDoorCoords[1], westDoorCoords[2], westDoorCoords[3], true);
+                westDoorEnt = new Entities(westDoorCoords[0], westDoorCoords[1], westDoorCoords[2], westDoorCoords[3]);
                 westDoorEnt.setSprite(img);
             case "East":
-                eastDoorEnt = new Entities(eastDoorCoords[0], eastDoorCoords[1], eastDoorCoords[2], eastDoorCoords[3], true);
+                eastDoorEnt = new Entities(eastDoorCoords[0], eastDoorCoords[1], eastDoorCoords[2], eastDoorCoords[3]);
                 eastDoorEnt.setSprite(img);
         }
     }

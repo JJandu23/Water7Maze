@@ -8,10 +8,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e4fa422e-bbf5-4b7a-ad89-3212284be1af" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/InputControls.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/InputControls.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/GameManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/GameManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Model/Battle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Battle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Model/Entities.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Entities.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Model/Hero/Hero.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Hero/Hero.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Model/MazeGenerator/FloorGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/MazeGenerator/FloorGenerator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Model/MazeGenerator/Maze.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/MazeGenerator/Maze.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Model/MazeGenerator/Room.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/MazeGenerator/Room.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/View/BattleView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/BattleView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/View/Sprites/EnemySprites/Boat Kevin.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/Sprites/EnemySprites/Boat Kevin.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/View/Sprites/EnemySprites/Eli.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/Sprites/EnemySprites/Eli.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/View/Sprites/EnemySprites/SadBoySea.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/Sprites/EnemySprites/SadBoySea.png" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,18 +68,6 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
-  }
-}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\Documents\Water7Maze\src\Music" />

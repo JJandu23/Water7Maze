@@ -33,19 +33,13 @@ public class Battle {
      * @param theEnemy the enemy object.
      */
     public Battle(Hero theHero, MazeCharacter theEnemy) {
-        EnemyFactory enemyFactory = EnemyFactory.getInstance();
+
         myHero = theHero;
-        myEnemy = enemyFactory.chosenEnemy(EnemyFactory.Enemy.ELI);
+        myEnemy = theEnemy;
         Scanner console = new Scanner(System.in);
         gamePlay(myHero, myEnemy, console);
     }
 
-    public static void main(String[] args) {
-        EnemyFactory enemyFactory = EnemyFactory.getInstance();
-        Hero hero = new Luffy();
-        MazeCharacter enemy = enemyFactory.chosenEnemy(EnemyFactory.Enemy.ELI);
-        new Battle(hero, enemy);
-    }
 
     /**
      * This method controls the gameplay of the battle .

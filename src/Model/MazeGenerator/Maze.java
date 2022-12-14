@@ -1,6 +1,7 @@
 package Model.MazeGenerator;
 
 import Model.Entities;
+import View.Menus;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
@@ -28,7 +29,7 @@ public class Maze {
     private static int myCurrentFloor = 0;
     private static int[] myCurrentRoom = new int[]{0, 0};
     private static HashMap<String, Entities> myEntityList = new HashMap<>();
-
+    private int[] myEndRoom = new int[2];
     private static int[] enemyCoords = {300, 300, 500, 500};
 
     /**
@@ -69,13 +70,22 @@ public class Maze {
         theG.fillRect(mazeX, mazeY, scale * myMaze[0].length, scale * myMaze[0].length);
         theG.setComposite(AlphaComposite.getInstance(
                 AlphaComposite.SRC_OVER, 1.0f));
+        theG.setColor(Color.green);
+        theG.fillRect(mazeX , mazeY , scale, scale);
+
+
         theG.setColor(Color.red);
         theG.fillRect(mazeX + myCurrentRoom[0] * scale, mazeY + myCurrentRoom[1] * scale, scale, scale);
-        theG.setColor(Color.lightGray);
+
         theG.setStroke(new BasicStroke(2));
         for (int i = 0; i < myMaze[myCurrentFloor].length; i++) {
             for (int j = 0; j < myMaze[myCurrentFloor][i].length; j++) {
+                theG.setColor(Color.yellow);
+                if(myMaze[myCurrentFloor][j][i].hasKey()){
+                    theG.fillRect(mazeX + j * scale, mazeY + i * scale, scale, scale);
+                }
 
+                theG.setColor(Color.lightGray);
                 if (!myMaze[myCurrentFloor][j][i].isMyDoorNorth()) {
                     theG.drawLine(mazeX + j * scale, mazeY + i * scale, mazeX + j * scale + scale, mazeY + i * scale);
                 }
@@ -120,6 +130,12 @@ public class Maze {
         if (myEntityList.get("enemy") != null) {
             myEntityList.get("enemy").draw(graphics2D);
         }
+
+        if(myMaze[myCurrentFloor][myCurrentRoom[0]][myCurrentRoom[1]].hasKey()){
+            graphics2D.setColor(Color.yellow);
+            graphics2D.fillRect(300, 300, 100, 100);
+        }
+
     }
 
     /**
@@ -138,7 +154,7 @@ public class Maze {
 
         if (theRoom.getEnemy() != null) {
             String name = theRoom.getEnemy().getName();
-            Entities theEnemy = new Entities(enemyCoords[0], enemyCoords[1], enemyCoords[2], enemyCoords[3], true);
+            Entities theEnemy = new Entities(enemyCoords[0], enemyCoords[1], enemyCoords[2], enemyCoords[3]);
             String path = "../../View/Sprites/EnemySprites/" + name + ".png";
 
             BufferedImage img = null;
@@ -257,6 +273,16 @@ public class Maze {
     public void goDownFloors() {
         myCurrentFloor++;
     }
+
+
+    public static Room getCurrentRoom(){return myMaze[myCurrentFloor][myCurrentRoom[0]][myCurrentRoom[1]];}
+
+    public static void killEnemy(){
+        myEntityList.remove("enemy");
+    }
+
+
+
 
     /**
      * The enum for the direction.
