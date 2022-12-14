@@ -1,5 +1,6 @@
 package Controller;
 
+import Model.Battle;
 import Model.Hero.Hero;
 import Model.MazeGenerator.Maze;
 import Music.SoundsPlay;
@@ -53,6 +54,18 @@ public class GameManager {
 
     private static boolean isLastFrameDrawn = false;
 
+    private static Battle myCurrentBattle;
+    private static BattleView myCurrentBattleView;
+
+    public enum HeroName{
+        LUFFY,
+        NAMI,
+        CHOPPER,
+        ZORO
+    }
+
+
+
     /**
      * This is our constructor.
      *
@@ -76,7 +89,7 @@ public class GameManager {
      *
      * @return the Hero object.
      */
-    public static Object getHero() {
+    public static Hero getHero() {
         return myHero;
     }
 
@@ -167,7 +180,7 @@ public class GameManager {
                 Intro.draw(theGraphics);
                 break;
             case "Battle":
-                BattleView.draw(theGraphics);
+                myCurrentBattleView.draw(theGraphics);
             case "Dialogue", "Ending":
                 break;
         }
@@ -193,6 +206,9 @@ public class GameManager {
                     } else{
                         Maze.getCurrentRoom().setRoomEnemy(null);
                         Maze.killEnemy();
+                        myCurrentBattle = new Battle(myHero, Maze.getCurrentRoom().getEnemy());
+                        myCurrentBattleView = new BattleView(getHero().getName(), Maze.getCurrentRoom().getEnemy().getName());
+                        Menus.setGameState("Battle");
                     }
 
                     isLastFrameDrawn = false;
@@ -208,7 +224,7 @@ public class GameManager {
                 break;
 
             case "Battle":
-                BattleView.update();
+                myCurrentBattle.update();
             case "Dialogue", "Ending":
                 break;
         }

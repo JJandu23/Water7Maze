@@ -1,11 +1,13 @@
 package Model;
-
+import Controller.InputControls;
 import Model.Enemy.EnemyFactory;
 import Model.Hero.Hero;
 import Model.Hero.Luffy;
 
 import java.util.Random;
 import java.util.Scanner;
+
+import static Controller.InputControls.*;
 
 /**
  * This class is used to control the battle between the hero and the enemy.
@@ -36,19 +38,18 @@ public class Battle {
 
         myHero = theHero;
         myEnemy = theEnemy;
-        Scanner console = new Scanner(System.in);
-        gamePlay(myHero, myEnemy, console);
+
+        gamePlay(myHero, myEnemy);
     }
 
 
     /**
      * This method controls the gameplay of the battle .
      *
-     * @param theConsole the console to read from.
      */
-    public static void gamePlay(final Hero theHero, final MazeCharacter theEnemy, final Scanner theConsole) {
+    public static void gamePlay(final Hero theHero, final MazeCharacter theEnemy) {
         while (theHero.isAlive() && theEnemy.isAlive()) {
-            battlePhase(theHero, theEnemy, theConsole);
+            battlePhase(theHero, theEnemy);
         }
         winner(theHero, theEnemy);
     }
@@ -58,10 +59,12 @@ public class Battle {
      *
      * @param theHero    the hero in the battle.
      * @param theEnemy   the enemy in the battle.
-     * @param theConsole the console to read from.
      */
-    public static void battlePhase(final Hero theHero, final MazeCharacter theEnemy, final Scanner theConsole) {
-        char choice = getChoice(theConsole);
+    public static void battlePhase(final Hero theHero, final MazeCharacter theEnemy) {
+        char choice = '\0';
+        while(choice == '\0'){
+            choice = getChoice();
+        }
         if (theHero.getAttackSpeed() >= theEnemy.getAttackSpeed()) {
             heroTurn(choice, theHero, theEnemy);
             System.out.println();
@@ -80,32 +83,22 @@ public class Battle {
     /**
      * This method takes in the user's turn choice.
      *
-     * @param theConsole the console to read from.
+     *
      * @return the choice of the user.
      */
-    public static char getChoice(final Scanner theConsole) {
+    public static char getChoice() {
         System.out.println("What would you like to do?");
         System.out.println("j. Attack");
         System.out.println("k. Special Attack");
         System.out.println("p. Use Senzu Bean");
         System.out.println("o. Use power power fruit");
         System.out.println("l. Use speed speed fruit");
-        char choice = theConsole.next().charAt(0);
-        switch (choice) {
-            case 'j':
-                return 'j';
-            case 'k':
-                return 'k';
-            case 'p':
-                return 'p';
-            case 'o':
-                return 'o';
-            case 'l':
-                return 'l';
-            default:
-                System.out.println("Invalid choice. Please try again.");
-                return getChoice(theConsole);
-        }
+        if(getJ()){return 'j';}
+        if(getK()){return 'k';}
+        if(getP()){return 'p';}
+        if(getO()){return 'o';}
+        if(getL()){return 'l';}
+        return '\0';
     }
 
     /**
@@ -153,5 +146,11 @@ public class Battle {
         } else {
             System.out.println("You have been defeated by " + theEnemy.getName() + "!");
         }
+    }
+
+
+
+    public static void update(){
+
     }
 }

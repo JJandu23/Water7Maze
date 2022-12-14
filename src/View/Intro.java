@@ -75,10 +75,10 @@ public class Intro {
 
     static {
         try {
-            luffyTxt = ImageIO.read(Intro.class.getResourceAsStream("../View/Sprites/luffytext.png"));
-            zoroTxt = ImageIO.read(Intro.class.getResourceAsStream("../View/Sprites/zorotext.png"));
-            namiTxt = ImageIO.read(Intro.class.getResourceAsStream("../View/Sprites/namitext.png"));
-            chopperTxt = ImageIO.read(Intro.class.getResourceAsStream("../View/Sprites/choppertext.png"));
+            luffyTxt = ImageIO.read(Intro.class.getResourceAsStream("../View/Sprites/Luffy/luffytext.png"));
+            zoroTxt = ImageIO.read(Intro.class.getResourceAsStream("../View/Sprites/Zoro/zorotext.png"));
+            namiTxt = ImageIO.read(Intro.class.getResourceAsStream("../View/Sprites/Nami/namitext.png"));
+            chopperTxt = ImageIO.read(Intro.class.getResourceAsStream("../View/Sprites/Chopper/choppertext.png"));
             boxTxt = ImageIO.read(Intro.class.getResourceAsStream("../View/Sprites/textbox.png"));
 
         } catch (IOException e) {
