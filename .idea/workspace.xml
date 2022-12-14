@@ -8,38 +8,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e4fa422e-bbf5-4b7a-ad89-3212284be1af" name="Changes" comment="added start room and keys">
-      <change afterPath="$PROJECT_DIR$/src/View/Sprites/Chopper/down2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/View/Sprites/Chopper/down3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/View/Sprites/Chopper/left2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/View/Sprites/Chopper/left3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/View/Sprites/Chopper/right2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/View/Sprites/Chopper/right3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/View/Sprites/Chopper/up2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/View/Sprites/Chopper/up3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/View/Sprites/Nami/down2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/View/Sprites/Nami/down3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/View/Sprites/Nami/left2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/View/Sprites/Nami/left3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/View/Sprites/Nami/right2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/View/Sprites/Nami/right3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/View/Sprites/Nami/up2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/View/Sprites/Nami/up3.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/GameManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/GameManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/InputControls.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/InputControls.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Model/Battle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Battle.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Model/Hero/Chopper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Hero/Chopper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Model/Hero/Hero.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Hero/Hero.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Model/Hero/Nami.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Hero/Nami.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/View/BattleView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/BattleView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/View/Sprites/Chopper/down1.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/Sprites/Chopper/down1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/View/Sprites/Chopper/left1.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/Sprites/Chopper/left1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/View/Sprites/Chopper/right1.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/Sprites/Chopper/right1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/View/Sprites/Chopper/up1.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/Sprites/Chopper/up1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/View/Sprites/Nami/down1.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/Sprites/Nami/down1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/View/Sprites/Nami/left1.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/Sprites/Nami/left1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/View/Sprites/Nami/right1.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/Sprites/Nami/right1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/View/Sprites/Nami/up1.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/Sprites/Nami/up1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/View/Sprites/namitext.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/Sprites/Nami/namitext.png" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -87,6 +60,11 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "node.js.selected.package.tslint": "(autodetect)"
+  }
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\Documents\Water7Maze\src\Music" />
@@ -99,13 +77,13 @@
       <recent name="D:\Documents\Water7Maze\src\Music" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Main">
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="View.Main" />
+  <component name="RunManager" selected="Application.Battle">
+    <configuration name="Battle" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Model.Battle" />
       <module name="Water7Maze" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="View.*" />
+          <option name="PATTERN" value="Model.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -113,12 +91,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MazeTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Model.MazeGenerator.MazeTest" />
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="View.Main" />
       <module name="Water7Maze" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="Model.MazeGenerator.*" />
+          <option name="PATTERN" value="View.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -175,11 +153,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Battle" />
         <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.HeroTest.useSenzuBean" />
         <item itemvalue="JUnit.NamiTest.specialAttack2" />
         <item itemvalue="JUnit.MazeCharaterTest" />
-        <item itemvalue="Application.MazeTest" />
       </list>
     </recent_temporary>
   </component>

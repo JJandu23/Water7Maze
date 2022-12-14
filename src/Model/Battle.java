@@ -34,19 +34,27 @@ public class Battle {
     private BattleView myViewer;
 
     private static Graphics2D myGraphics;
+
+    public static void main(String[] args) {
+        EnemyFactory enemyFactory = EnemyFactory.getInstance();
+        Random rand = new Random();
+        EnemyFactory.Enemy enemyType = EnemyFactory.Enemy.values()[rand.nextInt(EnemyFactory.Enemy.values().length)];
+        System.out.println(enemyType);
+        MazeCharacter enemy = enemyFactory.chosenEnemy(enemyType);
+
+        Battle battle = new Battle(new Luffy(), enemy);
+    }
     /**
      * This method is used to control the battle.
      *
      * @param theHero  the hero object.
      * @param theEnemy the enemy object.
      */
-
-    public Battle(Hero theHero, MazeCharacter theEnemy, BattleView theViewer) {
-        myViewer = theViewer;
+    public Battle(Hero theHero, MazeCharacter theEnemy) {
         myHero = theHero;
         myEnemy = theEnemy;
-
-        gamePlay(myHero, myEnemy);
+        Scanner console = new Scanner(System.in);
+        gamePlay(myHero, myEnemy, console);
     }
 
 
@@ -54,10 +62,9 @@ public class Battle {
      * This method controls the gameplay of the battle .
      *
      */
-    public void gamePlay(final Hero theHero, final MazeCharacter theEnemy) {
+    public void gamePlay(final Hero theHero, final MazeCharacter theEnemy, final Scanner theConsole) {
         while (theHero.isAlive() && theEnemy.isAlive()) {
-            myViewer.draw(myGraphics);
-            battlePhase(theHero, theEnemy);
+            battlePhase(theHero, theEnemy, theConsole);
         }
         winner(theHero, theEnemy);
     }
@@ -68,21 +75,22 @@ public class Battle {
      * @param theHero    the hero in the battle.
      * @param theEnemy   the enemy in the battle.
      */
-    public void battlePhase(final Hero theHero, final MazeCharacter theEnemy) {
-        char choice = '\0';
-        while(choice == '\0'){
-            choice = getChoice();
-        }
+    public void battlePhase(final Hero theHero, final MazeCharacter theEnemy, final Scanner theConsole) {
+        char choice = getChoice(theConsole);
         if (theHero.getAttackSpeed() >= theEnemy.getAttackSpeed()) {
             heroTurn(choice, theHero, theEnemy);
             System.out.println();
-            enemyTurn(theHero, theEnemy);
-            System.out.println();
+            if (theEnemy.isAlive()) {
+                enemyTurn(theHero, theEnemy);
+                System.out.println();
+            }
         } else {
             enemyTurn(theHero, theEnemy);
             System.out.println();
-            heroTurn(choice, theHero, theEnemy);
-            System.out.println();
+            if (theHero.isAlive()) {
+                heroTurn(choice, theHero, theEnemy);
+                System.out.println();
+            }
         }
         System.out.println(theHero.getName() + " : " + theHero.getHealthPoints());
         System.out.println(theEnemy.getName() + " : " + theEnemy.getHealthPoints() + "\n");
@@ -94,19 +102,30 @@ public class Battle {
      *
      * @return the choice of the user.
      */
-    public char getChoice() {
+    public char getChoice(final Scanner theConsole) {
         System.out.println("What would you like to do?");
         System.out.println("j. Attack");
         System.out.println("k. Special Attack");
         System.out.println("p. Use Senzu Bean");
-        System.out.println("o. Use power power fruit");
-        System.out.println("l. Use speed speed fruit");
-        if(getJ()){return 'j';}
-        if(getK()){return 'k';}
-        if(getP()){return 'p';}
-        if(getO()){return 'o';}
-        if(getL()){return 'l';}
-        return '\0';
+        System.out.println("o. Use power fruit");
+        System.out.println("l. Use speed fruit");
+        char theChoice = theConsole.next().charAt(0);
+        switch (theChoice) {
+            case 'j':
+                return 'j';
+            case 'k':
+                return 'k';
+            case 'p':
+                return 'p';
+            case 'o':
+                return 'o';
+            case 'l':
+                return 'l';
+            default:
+                System.out.println("Invalid choice. Please try again.");
+                return getChoice(theConsole);
+        }
+
     }
 
     /**
@@ -151,20 +170,9 @@ public class Battle {
         if (theHero.isAlive()) {
             System.out.println("You have defeated " + theEnemy.getName() + "!");
             theHero.randomItem();
-            Maze.killEnemy();
-            Maze.getCurrentRoom().setRoomEnemy(null);
         } else {
             System.out.println("You have been defeated by " + theEnemy.getName() + "!");
         }
     }
-
-
-    public static void giveGraphics(Graphics2D theG){
-        myGraphics = theG;
-    }
-    public void update(){
-
-    }
-
 
 }

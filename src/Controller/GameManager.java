@@ -224,7 +224,7 @@ public class GameManager {
                 break;
 
             case "Battle":
-                myCurrentBattle = new Battle(myHero, Maze.getCurrentRoom().getEnemy(), new BattleView(getHero().getName(), Maze.getCurrentRoom().getEnemy().getName()));
+                //myCurrentBattle = new Battle(myHero, Maze.getCurrentRoom().getEnemy(), new BattleView(getHero().getName(), Maze.getCurrentRoom().getEnemy().getName()));
 
             case "Dialogue", "Ending":
                 break;
