@@ -30,7 +30,7 @@ public class Chopper extends Hero {
      */
     public Chopper() {
         super("Chopper", 100, 10, 10,
-                20, 0.5, 0.3, 0.20, 3);
+                20, 0.5, 0.3, 0.20, 8);
         try {
             BufferedImage downIm1 = (ImageIO.read(getClass().getResourceAsStream("../../View/Sprites/Chopper/down1.png")));
             BufferedImage downIm2 = (ImageIO.read(getClass().getResourceAsStream("../../View/Sprites/Chopper/down2.png")));

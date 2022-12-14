@@ -8,6 +8,7 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 
 import Model.Hero.Hero;
+import Model.MazeGenerator.Maze;
 
 /**
  * This class is used to save the game.
@@ -23,7 +24,7 @@ public class SaveManager {
      * @throws IOException
      */
     public static void getSaveGame() throws IOException, ClassNotFoundException {
-        SaveCurrentState mySaveCurrentState = new SaveCurrentState((Hero) GameManager.getHero(), GameManager.getGameView());
+        SaveCurrentState mySaveCurrentState = new SaveCurrentState((Hero) GameManager.getHero(), Maze.getMyMaze());
         File myFile = new File("save.ser");
         FileOutputStream myFileOutputStream = new FileOutputStream(myFile);
         ObjectOutputStream myObjectOutputStream = new ObjectOutputStream(myFileOutputStream);
@@ -44,7 +45,7 @@ public class SaveManager {
             FileInputStream myFileInputStream = new FileInputStream(myFile);
             ObjectInputStream myObjectInputStream = new ObjectInputStream(myFileInputStream);
             SaveCurrentState mySaveCurrentState = (SaveCurrentState) myObjectInputStream.readObject();
-            GameManager.setGameView(mySaveCurrentState.getGameView());
+
             GameManager.setHero(mySaveCurrentState.getHero());
             myObjectInputStream.close();
             myFileInputStream.close();

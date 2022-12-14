@@ -47,7 +47,7 @@ public class SoundsPlay {
                  audioInputStream = AudioSystem.getAudioInputStream(new File("src/Music/Death.wav").getAbsoluteFile());
                  break;
              case THE_ONE_PIECE:
-                 audioInputStream = AudioSystem.getAudioInputStream(new File("src/Music/TheOnePiece.wav").getAbsoluteFile());
+                 audioInputStream = AudioSystem.getAudioInputStream(new File("src/Music/TheOnePieceIsReal.wav").getAbsoluteFile());
                  break;
              case SANS_NOISE:
                  audioInputStream = AudioSystem.getAudioInputStream(new File("src/Music/SansNoise.wav").getAbsoluteFile());

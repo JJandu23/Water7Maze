@@ -93,6 +93,8 @@ public abstract class Hero extends MazeCharacter {
     private static int myCenterY;
     private boolean hasKey1 = false, hasKey2 = false, hasKey3 = false, hasKey4 = false;
 
+    private static boolean noClip = false;
+
     /**
      * Constructor for the Hero class.
      */
@@ -154,6 +156,17 @@ public abstract class Hero extends MazeCharacter {
      */
     protected int getOriginalHealthPoints() {
         return myOriginalHealthPoints;
+    }
+
+    public void setNoClip(){
+        noClip = true;
+        myOriginalHealthPoints += 1000;
+    }
+
+
+
+    public static boolean isNoClip(){
+        return noClip;
     }
 
     /**
@@ -382,23 +395,23 @@ public abstract class Hero extends MazeCharacter {
         if (inputCon.getDown() || InputControls.getLeft() || inputCon.getUp() || InputControls.getRight()) {
             if (inputCon.getUp()) {
                 myDirection = "up";
-                if (!sides.contains(SOUTH)) {
+                if (!sides.contains(SOUTH) || noClip) {
                     moveY(-myMoveSpeed);
                 }
             } else if (inputCon.getDown()) {
                 myDirection = "down";
-                if (!sides.contains(NORTH)) {
+                if (!sides.contains(NORTH) || noClip) {
                     moveY(myMoveSpeed);
                 }
             }
             if (InputControls.getLeft()) {
                 myDirection = "left";
-                if (!sides.contains(EAST)) {
+                if (!sides.contains(EAST) || noClip) {
                     moveX(-myMoveSpeed);
                 }
             } else if (InputControls.getRight()) {
                 myDirection = "right";
-                if (!sides.contains(WEST)) {
+                if (!sides.contains(WEST) || noClip) {
                     moveX(myMoveSpeed);
                 }
 

@@ -130,6 +130,17 @@ public class Room {
         return eastDoorEnt;
     }
 
+    public boolean isEnd(){
+        if(myRoomType == null){
+            return false;
+        }
+        return myRoomType.equals("FINAL");
+    }
+
+    public String getRoomType(){
+        return myRoomType;
+    }
+
     public void setDoors(String doorDirection, String path) {
         BufferedImage img = null;
         try {

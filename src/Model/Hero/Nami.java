@@ -10,7 +10,7 @@ import java.util.Random;
 public class Nami extends Hero {
     public Nami() {
         super("Nami", 90, 10, 10,
-                20, 0.5, 0.4, 0.20, 3);
+                20, 0.5, 0.4, 0.20, 6);
         try {
             BufferedImage downIm1 = (ImageIO.read(getClass().getResourceAsStream("../../View/Sprites/Nami/down1.png")));
             BufferedImage downIm2 = (ImageIO.read(getClass().getResourceAsStream("../../View/Sprites/Nami/down2.png")));

@@ -14,6 +14,8 @@ import javax.sound.sampled.UnsupportedAudioFileException;
 import java.awt.*;
 import java.io.IOException;
 
+import static Controller.SaveManager.getSaveGame;
+
 /**
  * This class is used to control the input from the user.
  *
@@ -193,25 +195,42 @@ public class GameManager {
     public static void update() throws UnsupportedAudioFileException, LineUnavailableException, IOException {
         switch (Menus.getGameState()) {
             case "Maze":
-                myHero.update();
-                if((Maze.getCurrentRoom().getEnemy() != null || Maze.getCurrentRoom().hasKey()) && isLastFrameDrawn){
+                if(InputControls.getK()){
                     try {
-
+                        getSaveGame();
                         Thread.sleep(1000);
                     } catch (Exception e) {
-
                         e.printStackTrace();
                     }
+                }
+
+                myHero.update();
+                if((Maze.getCurrentRoom().getEnemy() != null || Maze.getCurrentRoom().hasKey()) && isLastFrameDrawn){
+
                     if(Maze.getCurrentRoom().hasKey()){
                         Maze.getCurrentRoom().setRoomKey();
-                    } else{
+                    } else if(Maze.getCurrentRoom().getEnemy() != null) {
 
+                        new Battle(myHero, Maze.getCurrentRoom().getEnemy());
 
+                        Maze.killEnemy();
+                        Maze.getCurrentRoom().setRoomEnemy(null);
 
                         /*Menus.setGameState("Battle");*/
+                    } else if(Maze.getCurrentRoom().isEnd() && Maze.isFinished()){
+                        Menus.setGameState("Ending");
                     }
 
                     isLastFrameDrawn = false;
+                }
+                if(Maze.getCurrentRoom().isEnd() && Maze.isFinished()){
+                    Menus.setGameState("Ending");
+                }
+                if(Maze.getCurrentRoom().isEnd()){
+                    System.out.println("In end room: "  + Maze.getCurrentRoom().getRoomType());
+                }
+                if(!myHero.isAlive()){
+                    Menus.setGameState("Ending");
                 }
                 break;
             case "Intro":
@@ -268,6 +287,7 @@ public class GameManager {
             case "Dialogue", "Ending":
                 SoundsPlay.playSongs(SoundsPlay.Song.THE_ONE_PIECE);
                 break;
+
         }
     }
 

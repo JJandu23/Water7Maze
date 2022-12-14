@@ -31,9 +31,7 @@ public class Battle {
      */
     private MazeCharacter myEnemy;
 
-    private BattleView myViewer;
 
-    private static Graphics2D myGraphics;
 
     public static void main(String[] args) {
         EnemyFactory enemyFactory = EnemyFactory.getInstance();
@@ -170,9 +168,12 @@ public class Battle {
         if (theHero.isAlive()) {
             System.out.println("You have defeated " + theEnemy.getName() + "!");
             theHero.randomItem();
+
         } else {
             System.out.println("You have been defeated by " + theEnemy.getName() + "!");
         }
     }
+
+
 
 }

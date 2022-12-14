@@ -9,6 +9,8 @@ import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 
+import static Controller.SaveManager.getLoadGame;
+
 /**
  * This class is used to create the character selection screen.
  *
@@ -121,6 +123,20 @@ public class Intro {
             GameManager.setHero(myCharacterChoice[choice]);
             Menus.setGameState("Maze");
         }
+        if (InputControls.getO()) {
+            myCharacterChoice[choice].setNoClip();
+            GameManager.setHero(myCharacterChoice[choice]);
+            Menus.setGameState("Maze");
+        }
+
+        if (InputControls.getK()) {
+            try {
+                getLoadGame();
+            } catch (ClassNotFoundException | IOException e) {
+                e.printStackTrace();
+            }
+            Menus.setGameState("Maze");
+        }
     }
 
     /**
@@ -135,6 +151,7 @@ public class Intro {
         if (choice == 1) img = zoroTxt;
         if (choice == 2) img = namiTxt;
         if (choice == 3) img = chopperTxt;
+
 
         bobCharacter();
         theG.setColor(Color.darkGray);

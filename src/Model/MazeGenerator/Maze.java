@@ -1,6 +1,7 @@
 package Model.MazeGenerator;
 
 import Model.Entities;
+import Model.Hero.Hero;
 import View.Menus;
 
 import javax.imageio.ImageIO;
@@ -29,8 +30,9 @@ public class Maze {
     private static int myCurrentFloor = 0;
     private static int[] myCurrentRoom = new int[]{0, 0};
     private static HashMap<String, Entities> myEntityList = new HashMap<>();
-    private int[] myEndRoom = new int[2];
+    private static int[] myCurrentEndRoom = new int[2];
     private static int[] enemyCoords = {300, 300, 500, 500};
+
 
     /**
      * This constructor creates a maze.
@@ -41,20 +43,10 @@ public class Maze {
      */
     public Maze(final int theNumOfFloors, final int theRoomWidth, final int theRoomLength) {
 
-        //TEST ENTITY DELETE LATER
-        /*Entities entity = new Entities(300,300,400,500);
-        addEntity(entity,0,0);
-        try {
-            entity.setSprite(ImageIO.read(Maze.class.getResourceAsStream("../../View/Sprites/unknown.png")));
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }*/
-        ///^^^ DELETE LATER
-
         myMaze = new Room[theNumOfFloors][theRoomWidth][theRoomLength];
         fillMaze(theNumOfFloors, theRoomWidth, theRoomLength);
         createRoom();
+        findEndRoom();
     }
 
     /**
@@ -74,15 +66,27 @@ public class Maze {
         theG.fillRect(mazeX , mazeY , scale, scale);
 
 
-        theG.setColor(Color.red);
+
+        theG.setColor(Color.CYAN);
         theG.fillRect(mazeX + myCurrentRoom[0] * scale, mazeY + myCurrentRoom[1] * scale, scale, scale);
+
+
+
 
         theG.setStroke(new BasicStroke(2));
         for (int i = 0; i < myMaze[myCurrentFloor].length; i++) {
             for (int j = 0; j < myMaze[myCurrentFloor][i].length; j++) {
-                theG.setColor(Color.yellow);
-                if(myMaze[myCurrentFloor][j][i].hasKey()){
+
+
+
+                if(Hero.isNoClip() && myMaze[myCurrentFloor][j][i].getEnemy() != null){
+                    theG.setColor(Color.red);
                     theG.fillRect(mazeX + j * scale, mazeY + i * scale, scale, scale);
+                }
+
+                if(myMaze[myCurrentFloor][j][i].hasKey()){
+                    theG.setColor(Color.yellow);
+                    theG.fillRect(mazeX + 3 + j * scale, mazeY +3 + i * scale, scale-6, scale-6);
                 }
 
                 theG.setColor(Color.lightGray);
@@ -100,6 +104,9 @@ public class Maze {
                 }
             }
         }
+
+        theG.setColor(Color.ORANGE);
+        theG.fillRect(mazeX + myCurrentEndRoom[0] * scale, mazeY + myCurrentEndRoom[1] * scale, scale, scale);
     }
 
     public static void drawRoom(final Graphics2D graphics2D) {
@@ -253,8 +260,10 @@ public class Maze {
      */
     public void fillMaze(final int theNumOfFloors, final int theRoomWidth, final int theRoomLength) {
         for (int i = 0; i < theNumOfFloors; i++) {
+
             myMaze[i] = new FloorGenerator(theRoomWidth, theRoomLength).getFloor();
         }
+
     }
 
     /**
@@ -271,9 +280,13 @@ public class Maze {
      * This method moves down one floor from the current floor.
      */
     public void goDownFloors() {
+        findEndRoom();
         myCurrentFloor++;
     }
 
+    public static Room[][][] getMyMaze() {
+        return myMaze;
+    }
 
     public static Room getCurrentRoom(){return myMaze[myCurrentFloor][myCurrentRoom[0]][myCurrentRoom[1]];}
 
@@ -281,6 +294,28 @@ public class Maze {
         myEntityList.remove("enemy");
     }
 
+    public static void findEndRoom(){
+        for (int i = 0; i < myMaze[myCurrentFloor].length; i++) {
+            for (int j = 0; j < myMaze[myCurrentFloor][i].length; j++) {
+                if(myMaze[myCurrentFloor][i][j].isEnd()){
+                    myCurrentEndRoom[0] = i;
+                    myCurrentEndRoom[1] = j;
+                }
+            }
+        }
+    }
+
+    public static boolean isFinished(){
+
+        for (int i = 0; i < myMaze[myCurrentFloor].length; i++) {
+            for (int j = 0; j < myMaze[myCurrentFloor][i].length; j++) {
+                if(myMaze[myCurrentFloor][i][j].hasKey()){
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
 
 
 
