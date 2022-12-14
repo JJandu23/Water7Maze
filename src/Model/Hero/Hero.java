@@ -532,25 +532,9 @@ public abstract class Hero extends MazeCharacter {
         myRightIm3 = theRightIm3;
     }
 
-    public void setImages(final BufferedImage theDownIm1,
-                          final BufferedImage theLeftIm1,
-                          final BufferedImage theRightIm1,
-                          final BufferedImage theUpIm1){
-
-        myDownIm1 = theDownIm1;
-
-        myLeftIm1 = theLeftIm1;
-
-        myUpIm1 = theUpIm1;
-
-        myRightIm1 = theRightIm1;
-
-    }
-
-
 
     public BufferedImage getMyDefaultIm(){
-        return myDownIm1;
+        return myDownIm2;
     }
 
     /**

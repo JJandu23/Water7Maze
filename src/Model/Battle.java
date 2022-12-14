@@ -1,9 +1,13 @@
 package Model;
+import Controller.GameManager;
 import Controller.InputControls;
 import Model.Enemy.EnemyFactory;
 import Model.Hero.Hero;
 import Model.Hero.Luffy;
+import Model.MazeGenerator.Maze;
+import View.BattleView;
 
+import java.awt.*;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -20,22 +24,25 @@ public class Battle {
     /**
      * The hero object.
      */
-    private static Hero myHero;
+    private Hero myHero;
 
     /**
      * The enemy object.
      */
-    private static MazeCharacter myEnemy;
+    private MazeCharacter myEnemy;
 
+    private BattleView myViewer;
 
+    private static Graphics2D myGraphics;
     /**
      * This method is used to control the battle.
      *
      * @param theHero  the hero object.
      * @param theEnemy the enemy object.
      */
-    public Battle(Hero theHero, MazeCharacter theEnemy) {
 
+    public Battle(Hero theHero, MazeCharacter theEnemy, BattleView theViewer) {
+        myViewer = theViewer;
         myHero = theHero;
         myEnemy = theEnemy;
 
@@ -47,8 +54,9 @@ public class Battle {
      * This method controls the gameplay of the battle .
      *
      */
-    public static void gamePlay(final Hero theHero, final MazeCharacter theEnemy) {
+    public void gamePlay(final Hero theHero, final MazeCharacter theEnemy) {
         while (theHero.isAlive() && theEnemy.isAlive()) {
+            myViewer.draw(myGraphics);
             battlePhase(theHero, theEnemy);
         }
         winner(theHero, theEnemy);
@@ -60,7 +68,7 @@ public class Battle {
      * @param theHero    the hero in the battle.
      * @param theEnemy   the enemy in the battle.
      */
-    public static void battlePhase(final Hero theHero, final MazeCharacter theEnemy) {
+    public void battlePhase(final Hero theHero, final MazeCharacter theEnemy) {
         char choice = '\0';
         while(choice == '\0'){
             choice = getChoice();
@@ -86,7 +94,7 @@ public class Battle {
      *
      * @return the choice of the user.
      */
-    public static char getChoice() {
+    public char getChoice() {
         System.out.println("What would you like to do?");
         System.out.println("j. Attack");
         System.out.println("k. Special Attack");
@@ -108,7 +116,7 @@ public class Battle {
      * @param theHero   the hero in the battle.
      * @param theEnemy  the enemy in the battle.
      */
-    public static void heroTurn(final char theChoice, final Hero theHero, final MazeCharacter theEnemy) {
+    public void heroTurn(final char theChoice, final Hero theHero, final MazeCharacter theEnemy) {
         switch (theChoice) {
             case 'j' -> theHero.attack(theEnemy);
             case 'k' -> theHero.specialAttack(theEnemy);
@@ -124,7 +132,7 @@ public class Battle {
      * @param theHero  the hero in the battle.
      * @param theEnemy the enemy in the battle.
      */
-    public static void enemyTurn(final Hero theHero, final MazeCharacter theEnemy) {
+    public void enemyTurn(final Hero theHero, final MazeCharacter theEnemy) {
         Random chance = new Random();
         if (chance.nextFloat() <= theEnemy.getSpecialChance()) {
             theEnemy.specialAttack(theHero);
@@ -139,18 +147,24 @@ public class Battle {
      * @param theHero  the hero.
      * @param theEnemy the enemy.
      */
-    public static void winner(final Hero theHero, final MazeCharacter theEnemy) {
+    public void winner(final Hero theHero, final MazeCharacter theEnemy) {
         if (theHero.isAlive()) {
             System.out.println("You have defeated " + theEnemy.getName() + "!");
             theHero.randomItem();
+            Maze.killEnemy();
+            Maze.getCurrentRoom().setRoomEnemy(null);
         } else {
             System.out.println("You have been defeated by " + theEnemy.getName() + "!");
         }
     }
 
 
-
-    public static void update(){
+    public static void giveGraphics(Graphics2D theG){
+        myGraphics = theG;
+    }
+    public void update(){
 
     }
+
+
 }

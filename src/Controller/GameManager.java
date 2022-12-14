@@ -180,6 +180,7 @@ public class GameManager {
                 Intro.draw(theGraphics);
                 break;
             case "Battle":
+
                 myCurrentBattleView.draw(theGraphics);
             case "Dialogue", "Ending":
                 break;
@@ -204,11 +205,10 @@ public class GameManager {
                     if(Maze.getCurrentRoom().hasKey()){
                         Maze.getCurrentRoom().setRoomKey();
                     } else{
-                        Maze.getCurrentRoom().setRoomEnemy(null);
-                        Maze.killEnemy();
-                        myCurrentBattle = new Battle(myHero, Maze.getCurrentRoom().getEnemy());
-                        myCurrentBattleView = new BattleView(getHero().getName(), Maze.getCurrentRoom().getEnemy().getName());
-                        Menus.setGameState("Battle");
+
+
+
+                        /*Menus.setGameState("Battle");*/
                     }
 
                     isLastFrameDrawn = false;
@@ -224,7 +224,8 @@ public class GameManager {
                 break;
 
             case "Battle":
-                myCurrentBattle.update();
+                myCurrentBattle = new Battle(myHero, Maze.getCurrentRoom().getEnemy(), new BattleView(getHero().getName(), Maze.getCurrentRoom().getEnemy().getName()));
+
             case "Dialogue", "Ending":
                 break;
         }
@@ -248,6 +249,11 @@ public class GameManager {
         return myMaze;
     }
 
+
+    public static void drawBattle(final Graphics2D theGraphics){
+        myCurrentBattleView.draw(theGraphics);
+    }
+
     public static void music() throws UnsupportedAudioFileException, LineUnavailableException, IOException {
         switch (Menus.getGameState()) {
             case "Intro":
@@ -264,4 +270,5 @@ public class GameManager {
                 break;
         }
     }
+
 }

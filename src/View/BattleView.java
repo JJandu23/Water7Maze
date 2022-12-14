@@ -30,30 +30,30 @@ public class BattleView {
         try {
             switch (theHero) {
                 case "Luffy":
-                    myBattleImages.put("hero", ImageIO.read(getClass().getResourceAsStream("../../View/Sprites/Luffy/up1.png")));
-                    myBattleImages.put("moveset", ImageIO.read(getClass().getResourceAsStream("../../View/Sprites/Luffy/luffytext.png")));
+                    myBattleImages.put("hero", ImageIO.read(getClass().getResourceAsStream("../View/Sprites/Luffy/up1.png")));
+                    myBattleImages.put("moveset", ImageIO.read(getClass().getResourceAsStream("../View/Sprites/Luffy/luffytext.png")));
                     break;
                 case "Zoro":
-                    myBattleImages.put("hero", ImageIO.read(getClass().getResourceAsStream("../../View/Sprites/Zoro/up1.png")));
-                    myBattleImages.put("moveset", ImageIO.read(getClass().getResourceAsStream("../../View/Sprites/Zoro/zorotext.png")));
+                    myBattleImages.put("hero", ImageIO.read(getClass().getResourceAsStream("../View/Sprites/Zoro/up1.png")));
+                    myBattleImages.put("moveset", ImageIO.read(getClass().getResourceAsStream("../View/Sprites/Zoro/zorotext.png")));
                     break;
                 case "Nami":
-                    myBattleImages.put("hero", ImageIO.read(getClass().getResourceAsStream("../../View/Sprites/Nami/up1.png")));
-                    myBattleImages.put("moveset", ImageIO.read(getClass().getResourceAsStream("../../View/Sprites/Nami/namitext.png")));
+                    myBattleImages.put("hero", ImageIO.read(getClass().getResourceAsStream("../View/Sprites/Nami/up1.png")));
+                    myBattleImages.put("moveset", ImageIO.read(getClass().getResourceAsStream("../View/Sprites/Nami/namitext.png")));
                     break;
                 case "Chopper":
-                    myBattleImages.put("hero", ImageIO.read(getClass().getResourceAsStream("../../View/Sprites/Chopper/up1.png")));
-                    myBattleImages.put("moveset", ImageIO.read(getClass().getResourceAsStream("../../View/Sprites/Chopper/choppertext.png")));
+                    myBattleImages.put("hero", ImageIO.read(getClass().getResourceAsStream("../View/Sprites/Chopper/up1.png")));
+                    myBattleImages.put("moveset", ImageIO.read(getClass().getResourceAsStream("../View/Sprites/Chopper/choppertext.png")));
                     break;
             }
             switch (theEnemy) {
-                case "Boat Kevin" -> myBattleImages.put("enemy", ImageIO.read(getClass().getResourceAsStream("../../View/Sprites/EnemySprites/Boat Kevin.png")));
-                case "Nikolai" -> myBattleImages.put("enemy", ImageIO.read(getClass().getResourceAsStream("../../View/Sprites/EnemySprites/Nikolai.png")));
-                case "SadBoySea" -> myBattleImages.put("enemy", ImageIO.read(getClass().getResourceAsStream("../../View/Sprites/EnemySprites/SadBoySea.png")));
-                case "Eli" -> myBattleImages.put("enemy", ImageIO.read(getClass().getResourceAsStream("../../View/Sprites/EnemySprites/Eli.png")));
+                case "Boat Kevin" -> myBattleImages.put("enemy", ImageIO.read(getClass().getResourceAsStream("../View/Sprites/EnemySprites/Boat Kevin.png")));
+                case "Nikolai" -> myBattleImages.put("enemy", ImageIO.read(getClass().getResourceAsStream("../View/Sprites/EnemySprites/Nikolai.png")));
+                case "SadBoySea" -> myBattleImages.put("enemy", ImageIO.read(getClass().getResourceAsStream("../View/Sprites/EnemySprites/SadBoySea.png")));
+                case "Eli" -> myBattleImages.put("enemy", ImageIO.read(getClass().getResourceAsStream("../View/Sprites/EnemySprites/Eli.png")));
             }
 
-            myBattleImages.put("textbox", ImageIO.read(getClass().getResourceAsStream("../../View/Sprites/EnemySprites/Boat Kevin.png")));
+            myBattleImages.put("textbox", ImageIO.read(getClass().getResourceAsStream("../View/Sprites/EnemySprites/Boat Kevin.png")));
 
         } catch (IOException e) {
             e.printStackTrace();
