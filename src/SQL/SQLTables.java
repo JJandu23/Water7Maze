@@ -67,7 +67,7 @@ public class SQLTables {
 
         myQuery = "INSERT INTO enemyDB " +
                 "('NAME','HP','ATTACKSPEED','MINATTACK','MAXATTACK','HITCHANCE','DODGECHANCE','SPECIALCHANCE') VALUES" +
-                "('Boat Kevin', '40', '8', '10', '20', '0.80','0.20', '0.01')," +
+                "('Boat Kevin', '40', '8', '10', '20', '0.80','0.20', '0.00001')," +
                 "('Eli', '90', '12', '15', '20', '0.40','0.20', '0.20')," +
                 "('Nikolai', '110', '11', '20', '30', '0.40','0.20', '0.15')," +
                 "('SadBoySea', '150', '12', '10', '20', '0.8','0.2', '0.05');";

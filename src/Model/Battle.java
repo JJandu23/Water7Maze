@@ -31,16 +31,11 @@ public class Battle {
      */
     private MazeCharacter myEnemy;
 
-
-
     public static void main(String[] args) {
         EnemyFactory enemyFactory = EnemyFactory.getInstance();
-        Random rand = new Random();
-        EnemyFactory.Enemy enemyType = EnemyFactory.Enemy.values()[rand.nextInt(EnemyFactory.Enemy.values().length)];
-        System.out.println(enemyType);
-        MazeCharacter enemy = enemyFactory.chosenEnemy(enemyType);
-
-        Battle battle = new Battle(new Luffy(), enemy);
+        MazeCharacter enemy = enemyFactory.chosenEnemy(EnemyFactory.Enemy.BOATKEVIN);
+        Hero hero = new Luffy();
+        Battle battle = new Battle(hero, enemy);
     }
     /**
      * This method is used to control the battle.

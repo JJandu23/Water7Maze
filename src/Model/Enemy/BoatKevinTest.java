@@ -22,12 +22,12 @@ public class BoatKevinTest {
         MazeCharacter testBoatKevin = enemyFactory.chosenEnemy(EnemyFactory.Enemy.BOATKEVIN);
         Assertions.assertNotNull(testBoatKevin);
         Assertions.assertEquals(40, testBoatKevin.getHealthPoints());
-        Assertions.assertEquals(13, testBoatKevin.getAttackSpeed());
+        Assertions.assertEquals(8, testBoatKevin.getAttackSpeed());
         Assertions.assertEquals(10, testBoatKevin.getMinDamage());
         Assertions.assertEquals(20, testBoatKevin.getMaxDamage());
         Assertions.assertEquals(0.80, testBoatKevin.getHitChance());
         Assertions.assertEquals(0.20, testBoatKevin.getDodgeChance());
-        Assertions.assertEquals(0.01, testBoatKevin.getSpecialChance());
+        Assertions.assertEquals(0.00001, testBoatKevin.getSpecialChance());
     }
 
     /**

@@ -235,15 +235,10 @@ public abstract class MazeCharacter {
             System.out.println(theEnemy.getName() + " has blocked the attack!");
         } else {
             Random rand = new Random();
-            double chance = rand.nextDouble();
-            if (chance < myHitChance) {
                 int damage = rand.nextInt(myMaxDamage - myMinDamage + 1) + myMinDamage;
                 theEnemy.subtractHealth(damage);
                 System.out.println(myName + " hit " + theEnemy.getName() + " for " + damage + " damage!");
                 System.out.println(theEnemy.getName() + " has " + theEnemy.getHealthPoints() + " health left!");
-            } else {
-                System.out.println(myName + " missed!");
-            }
         }
     }
 
