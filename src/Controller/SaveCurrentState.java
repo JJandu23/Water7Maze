@@ -2,8 +2,6 @@ package Controller;
 
 import Model.Hero.Hero;
 import Model.MazeGenerator.Maze;
-import Model.MazeGenerator.Room;
-import View.GameView;
 
 import java.io.Serializable;
 
@@ -20,12 +18,10 @@ public class SaveCurrentState implements Serializable {
      */
     public Hero myHero;
 
-    /**
-     * The game view object.
-     */
-
-
-    private Room[][][] myMaze;
+     /**
+      * The Maze object.
+      */
+    public static Maze myMaze;
 
     /**
      * This method is used to save the current state of the hero and game view.
@@ -33,10 +29,9 @@ public class SaveCurrentState implements Serializable {
      * @param theHero is the hero object.
      *
      */
-    public SaveCurrentState(final Hero theHero, final Room[][][] theMaze) {
-        myMaze = theMaze;
+    public SaveCurrentState(Hero theHero, Maze theMaze) {
         myHero = theHero;
-
+        myMaze = theMaze;
     }
 
     /**
@@ -49,14 +44,11 @@ public class SaveCurrentState implements Serializable {
     }
 
     /**
-     * This method is used to get the game view object.
+     * This method is used to get the Maze view object.
      *
      * @return the game view object.
      */
-
-    public Room[][][] getMaze() {
+    public static Maze getMaze() {
         return myMaze;
     }
-
-
 }

@@ -8,10 +8,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e4fa422e-bbf5-4b7a-ad89-3212284be1af" name="Changes" comment="added start room and keys">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Model/Battle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Battle.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Model/MazeCharacter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/MazeCharacter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/SaveCurrentState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/SaveCurrentState.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/SaveManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/SaveManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/View/Intro.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/Intro.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,7 +61,11 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "node.js.selected.package.tslint": "(autodetect)"
+    "WebServerToolWindowFactoryState": "false",
+    "node.js.detected.package.eslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
   <component name="RecentsManager">
@@ -76,7 +80,7 @@
       <recent name="D:\Documents\Water7Maze\src\Music" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.BoatKevinTest.testBoatKevin">
+  <component name="RunManager" selected="Application.Main">
     <configuration name="Battle" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Model.Battle" />
       <module name="Water7Maze" />
@@ -153,10 +157,10 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.BoatKevinTest.testBoatKevin" />
         <item itemvalue="JUnit.BoatKevinTest.testSpecialAttack" />
         <item itemvalue="Application.Battle" />
-        <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.HeroTest.useSenzuBean" />
       </list>
     </recent_temporary>
@@ -188,6 +192,7 @@
       <workItem from="1670366088212" duration="336000" />
       <workItem from="1670484950740" duration="10496000" />
       <workItem from="1670617557295" duration="487000" />
+      <workItem from="1671078005520" duration="831000" />
     </task>
     <task id="LOCAL-00001" summary="New Project for TCSS 360">
       <created>1667347517038</created>
