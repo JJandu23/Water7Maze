@@ -1,17 +1,11 @@
 package Model;
-import Controller.GameManager;
-import Controller.InputControls;
+
 import Model.Enemy.EnemyFactory;
 import Model.Hero.Hero;
 import Model.Hero.Luffy;
-import Model.MazeGenerator.Maze;
-import View.BattleView;
 
-import java.awt.*;
 import java.util.Random;
 import java.util.Scanner;
-
-import static Controller.InputControls.*;
 
 /**
  * This class is used to control the battle between the hero and the enemy.
@@ -168,7 +162,4 @@ public class Battle {
             System.out.println("You have been defeated by " + theEnemy.getName() + "!");
         }
     }
-
-
-
 }

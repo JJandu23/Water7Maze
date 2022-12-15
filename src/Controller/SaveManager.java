@@ -16,12 +16,15 @@ public class SaveManager {
      * @throws IOException
      */
     public static void getSaveGame() throws IOException {
-        SaveCurrentState mySaveCurrentState = new SaveCurrentState(GameManager.getHero(), GameManager.getMaze());
-        FileOutputStream fileOut = new FileOutputStream("save.ser");
-        ObjectOutputStream out = new ObjectOutputStream(fileOut);
-        out.writeObject(mySaveCurrentState);
-        out.close();
-        fileOut.close();
+        try {
+            FileOutputStream fileOut = new FileOutputStream("save.ser");
+            ObjectOutputStream out = new ObjectOutputStream(fileOut);
+            out.writeObject(GameManager.getSaveCurrentState());
+            out.close();
+            fileOut.close();
+        } catch (IOException i) {
+            throw new RuntimeException(i);
+        }
     }
 
     /**
@@ -31,13 +34,14 @@ public class SaveManager {
      * @throws ClassNotFoundException
      */
     public static void getLoadGame() throws ClassNotFoundException, IOException {
-        SaveCurrentState mySaveCurrentState;
-        FileInputStream fileIn = new FileInputStream("save.ser");
-        ObjectInputStream in = new ObjectInputStream(fileIn);
-        mySaveCurrentState = (SaveCurrentState) in.readObject();
-        in.close();
-        fileIn.close();
-        GameManager.setHero(mySaveCurrentState.getHero());
-        GameManager.setMaze(mySaveCurrentState.getMaze());
+        try {
+            FileInputStream fileIn = new FileInputStream("save.ser");
+            ObjectInputStream in = new ObjectInputStream(fileIn);
+            GameManager.setSaveCurrentState((SaveCurrentState) in.readObject());
+            in.close();
+            fileIn.close();
+        } catch (IOException i) {
+            throw new RuntimeException(i);
+        }
     }
 }

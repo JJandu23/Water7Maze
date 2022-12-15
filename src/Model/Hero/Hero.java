@@ -8,9 +8,11 @@ import Model.MazeGenerator.Maze.Direction;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.io.Serializable;
 
 import static Model.MazeGenerator.Maze.Direction.*;
 
@@ -20,7 +22,7 @@ import static Model.MazeGenerator.Maze.Direction.*;
  * @author Kevin Nguyen, Nicholas Zhuk and Jashanpreet Jandu
  * @version 1.0
  */
-public abstract class Hero extends MazeCharacter {
+public abstract class Hero extends MazeCharacter implements Serializable {
 
     /**
      * The hero's number of senzu bean.
@@ -89,8 +91,6 @@ public abstract class Hero extends MazeCharacter {
     private static int spriteCounter = 0;
     private static int myCenterX;
     private static int myCenterY;
-    private boolean hasKey1 = false, hasKey2 = false, hasKey3 = false, hasKey4 = false;
-
     private static boolean noClip = false;
 
     /**
@@ -332,13 +332,6 @@ public abstract class Hero extends MazeCharacter {
         }
     }
 
-    /**
-     * This method checks if there is a usable torch.
-     */
-    public void useTorch() {
-
-    }
-
     public void randomItem() {
         int random = (int) (Math.random() * 5);
         if (random == 0) {
@@ -502,23 +495,6 @@ public abstract class Hero extends MazeCharacter {
         theGraphics.drawImage(image, myX, myY, 128, 128, null);
     }
 
-    /**
-     * This method returns the hero's x-coordinate.
-     *
-     * @return the hero's x-coordinate.
-     */
-    public int getX() {
-        return myX;
-    }
-
-    /**
-     * This method returns the hero's y-coordinate.
-     *
-     * @return the hero's y-coordinate.
-     */
-    public int getY() {
-        return myY;
-    }
 
     /**
      * This method sets the hero's down image 1.
@@ -542,7 +518,6 @@ public abstract class Hero extends MazeCharacter {
         myRightIm2 = theRightIm2;
         myRightIm3 = theRightIm3;
     }
-
 
     public BufferedImage getMyDefaultIm(){
         return myDownIm2;
@@ -617,10 +592,4 @@ public abstract class Hero extends MazeCharacter {
         }
         return side;
     }
-
-
-
-
-
-
 }
