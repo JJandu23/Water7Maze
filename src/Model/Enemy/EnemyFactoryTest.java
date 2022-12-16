@@ -94,5 +94,4 @@ public class EnemyFactoryTest {
         Assertions.assertEquals(0.20, SadBoySea.getDodgeChance());
         Assertions.assertEquals(0.10, SadBoySea.getSpecialChance());
     }
-
 }

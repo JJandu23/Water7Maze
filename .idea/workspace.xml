@@ -11,18 +11,26 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/GameManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/GameManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/InputControls.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/InputControls.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/SaveCurrentState.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/SaveManager.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/SaveManagerTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Model/Enemy/BoatKevin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Enemy/BoatKevin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Model/Enemy/BoatKevinTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Enemy/BoatKevinTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Model/Enemy/Eli.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Enemy/Eli.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Model/Enemy/EliTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Enemy/EliTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Model/Enemy/EnemyFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Enemy/EnemyFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Model/Enemy/EnemyFactoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Enemy/EnemyFactoryTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Model/Enemy/Nikolai.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Enemy/Nikolai.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Model/Enemy/NikolaiTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Enemy/NikolaiTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Model/Enemy/SadBoySea.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Enemy/SadBoySea.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Model/Enemy/SadBoySeaTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Enemy/SadBoySeaTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Model/Hero/Chopper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Hero/Chopper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Model/Hero/ChopperTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Hero/ChopperTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Model/Hero/Hero.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Hero/Hero.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Model/Hero/LuffyTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Hero/LuffyTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Model/MazeGenerator/Maze.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/MazeGenerator/Maze.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Music/SoundsPlay.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Music/SoundsPlay.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SQL/SQLTables.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SQL/SQLTables.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SQL/SQLTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SQL/SQLTests.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/View/BattleView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/BattleView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/View/Ending.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/Ending.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/View/GameView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/GameView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/View/Intro.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/Intro.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/View/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/View/Menus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/Menus.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,15 +78,15 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "WebServerToolWindowFactoryState": "false",
-    "node.js.detected.package.eslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\Documents\Water7Maze\src\Music" />
@@ -203,7 +211,8 @@
       <workItem from="1670366088212" duration="336000" />
       <workItem from="1670484950740" duration="10496000" />
       <workItem from="1670617557295" duration="487000" />
-      <workItem from="1671078005520" duration="12768000" />
+      <workItem from="1671078005520" duration="14800000" />
+      <workItem from="1671157836363" duration="1358000" />
     </task>
     <task id="LOCAL-00001" summary="New Project for TCSS 360">
       <created>1667347517038</created>
@@ -380,7 +389,14 @@
       <option name="project" value="LOCAL" />
       <updated>1671143764344</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="Save/load does not work">
+      <created>1671154285152</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1671154285152</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

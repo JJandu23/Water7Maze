@@ -8,7 +8,7 @@ import Model.MazeCharacter;
  * @author Kevin Nguyen, Jashanpreet Jandu, Nicholas Zhuk
  * @version 1.0
  */
-public class  Eli extends MazeCharacter {
+public class Eli extends MazeCharacter {
 
     /**
      * Constructor for the Eli class.

@@ -22,38 +22,47 @@ public class GameView extends JPanel implements Runnable {
      * The title size of the game.
      */
     static final int originalTileSize = 32;
+
     /**
      * The scaling of the game.
      */
     static final int scale = 3;
+
     /**
      * The max col for the screen
      */
     static final int maxScreenCol = 12;
+
     /**
      * The max row for the screen
      */
     static final int maxScreenRow = 10;
+
     /**
      * The title size of the game.
      */
     static final int tileSize = originalTileSize * scale;
+
     /**
      * The width of the screen.
      */
     static final int screenWidth = tileSize * maxScreenCol; //1152
+
     /**
      * The height of the screen.
      */
     static final int screenHeight = tileSize * maxScreenRow; //960
+
     /**
      * The frame per second.
      */
     int FPS = 60;
+
     /**
      * The input controls.
      */
     InputControls inputCon = new InputControls();
+
     /**
      * The game thread.
      */
@@ -98,6 +107,8 @@ public class GameView extends JPanel implements Runnable {
 
     /**
      * This method is used to run the game.
+     * It is used to update the game and render the game.
+     * It also sets the frame per second.
      */
     @Override
     public void run() {

@@ -13,6 +13,7 @@ import java.io.IOException;
  * @version 1.0
  */
 public class Menus {
+
     /**
      * The gamestate of the view.
      */

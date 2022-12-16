@@ -156,23 +156,15 @@ public abstract class Hero extends MazeCharacter {
         return myOriginalHealthPoints;
     }
 
-    public void setNoClip(){
+    public void setNoClip() {
         noClip = true;
         myOriginalHealthPoints += 1000;
     }
 
-    public static boolean isNoClip(){
+    public static boolean isNoClip() {
         return noClip;
     }
 
-    /**
-     * This method gets the hero's movement speed.
-     *
-     * @return the hero's movement speed.
-     */
-    public int getMoveSpeed() {
-        return myMoveSpeed;
-    }
 
     /**
      * This method sets the hero's number senzu bean.
@@ -181,7 +173,7 @@ public abstract class Hero extends MazeCharacter {
      * @return the hero's input control.
      */
     protected void setSenzuBean(final int theSenzuBean) {
-        if(theSenzuBean >= 0) {
+        if (theSenzuBean >= 0) {
             mySenzuBean = theSenzuBean;
         }
     }
@@ -214,7 +206,7 @@ public abstract class Hero extends MazeCharacter {
      * @param theTorch the hero's number of torch.
      */
     protected void setTorch(final int theTorch) {
-        if(theTorch >= 0) {
+        if (theTorch >= 0) {
             myTorch = theTorch;
         }
     }
@@ -225,7 +217,7 @@ public abstract class Hero extends MazeCharacter {
      * @param theHealthPoints the hero's original health points.
      */
     protected void setOriginalHealthPoints(final int theHealthPoints) {
-        if(theHealthPoints >= 0) {
+        if (theHealthPoints >= 0) {
             myOriginalHealthPoints = theHealthPoints;
         }
         myOriginalHealthPoints = theHealthPoints;
@@ -237,7 +229,7 @@ public abstract class Hero extends MazeCharacter {
      * @param theMoveSpeed the hero's movement speed.
      */
     protected void setMoveSpeed(final int theMoveSpeed) {
-        if(theMoveSpeed >= 0) {
+        if (theMoveSpeed >= 0) {
             myMoveSpeed = theMoveSpeed;
         }
         myMoveSpeed = theMoveSpeed;
@@ -423,6 +415,7 @@ public abstract class Hero extends MazeCharacter {
 
     /**
      * This method sets the change of the hero's x coordinate.
+     *
      * @param theDistance is the distance moved in the x coordinate.
      */
     private static void moveX(final int theDistance) {
@@ -432,6 +425,7 @@ public abstract class Hero extends MazeCharacter {
 
     /**
      * This method sets the change of the hero's y coordinate.
+     *
      * @param theDistance is the distance moved in the y coordinate.
      */
     private static void moveY(final int theDistance) {
@@ -495,12 +489,13 @@ public abstract class Hero extends MazeCharacter {
 
     /**
      * This method sets the hero's down image 1.
+     *
      * @param theDownIm1
      */
     public void setImages(final BufferedImage theDownIm1, final BufferedImage theDownIm2, final BufferedImage theDownIm3,
                           final BufferedImage theLeftIm1, final BufferedImage theLeftIm2, final BufferedImage theLeftIm3,
                           final BufferedImage theRightIm1, final BufferedImage theRightIm2, final BufferedImage theRightIm3,
-                          final BufferedImage theUpIm1, final BufferedImage theUpIm2, final BufferedImage theUpIm3){
+                          final BufferedImage theUpIm1, final BufferedImage theUpIm2, final BufferedImage theUpIm3) {
 
         myDownIm1 = theDownIm1;
         myDownIm2 = theDownIm2;
@@ -516,12 +511,13 @@ public abstract class Hero extends MazeCharacter {
         myRightIm3 = theRightIm3;
     }
 
-    public BufferedImage getMyDefaultIm(){
+    public BufferedImage getMyDefaultIm() {
         return myDownIm2;
     }
 
     /**
      * This method checks if the hero is touching an object.
+     *
      * @param theEntity is the object the hero is touching.
      * @return true if the hero is touching the object.
      */
@@ -541,6 +537,7 @@ public abstract class Hero extends MazeCharacter {
 
     /**
      * This method creates a list of objects the hero is touching.
+     *
      * @param theEntitiesList is the object the hero is touching.
      * @return the list of objects the hero is touching.
      */
@@ -556,6 +553,7 @@ public abstract class Hero extends MazeCharacter {
 
     /**
      * This method determines which side the hero is touching.
+     *
      * @param theEntity is the object the hero is touching.
      * @return the side the hero is touching.
      */

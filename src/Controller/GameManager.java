@@ -25,28 +25,13 @@ public class GameManager {
     public static Hero myHero;
 
     /**
-     * The GameView object.
-     */
-    private static GameView myGameView;
-
-    /**
-     * The InputControls object.
-     */
-    private static InputControls myInputControls;
-
-    /**
      * The Maze object.
      */
     private static Maze myMaze;
 
     private static boolean isLastFrameDrawn = false;
 
-    private static Battle myCurrentBattle;
     private static BattleView myCurrentBattleView;
-
-    public enum HeroName{
-        LUFFY, NAMI, CHOPPER, ZORO
-    }
 
     /**
      * This method is used to get the Hero object.
@@ -181,11 +166,6 @@ public class GameManager {
         return myMaze;
     }
 
-
-    public static void drawBattle(final Graphics2D theGraphics){
-        myCurrentBattleView.draw(theGraphics);
-    }
-
     public static void music() throws UnsupportedAudioFileException, LineUnavailableException, IOException {
         switch (Menus.getGameState()) {
             case "Intro":
@@ -200,8 +180,6 @@ public class GameManager {
             case "Dialogue", "Ending":
                 SoundsPlay.playSongs(SoundsPlay.Song.THE_ONE_PIECE);
                 break;
-
         }
     }
-
 }
