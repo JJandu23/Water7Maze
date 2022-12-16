@@ -21,13 +21,6 @@ public class SoundsPlay {
     private static Clip myClip;
 
     /**
-     * the instantiated class.
-     */
-    private SoundsPlay() {
-        // Exists only to defeat instantiation.
-    }
-
-    /**
      * This method is used to play the music.
      *
      * @param theSong the song to be played

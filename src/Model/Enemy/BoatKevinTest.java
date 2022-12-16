@@ -1,7 +1,9 @@
 package Model.Enemy;
+
 import Model.MazeCharacter;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+
 /**
  * This class is used to test the BoatKevin class.
  *
@@ -46,5 +48,4 @@ public class BoatKevinTest {
         BoatKevin.specialAttack(GoodBoatKevin);
         Assertions.assertEquals(0, GoodBoatKevin.getHealthPoints());
     }
-
 }

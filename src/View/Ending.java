@@ -7,7 +7,8 @@ import java.io.IOException;
 
 public class Ending {
     private static BufferedImage endscreen;
-    static{
+
+    static {
         try {
             endscreen = ImageIO.read(Ending.class.getResourceAsStream("../View/Sprites/ending.png"));
         } catch (IOException e) {
@@ -16,8 +17,6 @@ public class Ending {
     }
 
     public static void draw(final Graphics2D theG) {
-        theG.drawImage(endscreen, 0,0,GameView.getScreenWidth(), GameView.getScreenWidth(), null);
-
-
+        theG.drawImage(endscreen, 0, 0, GameView.getScreenWidth(), GameView.getScreenWidth(), null);
     }
 }

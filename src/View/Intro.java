@@ -16,58 +16,72 @@ import java.io.IOException;
  * @version 1.0
  */
 public class Intro {
+
     /**
      * The hero object array for selecting the hero.
      */
     private static final Hero[] myCharacterChoice = {new Luffy(), new Zoro(), new Nami(), new Chopper()};
+
     /**
      * The default scale of Luffy.
      */
     static double selectedScaleLuffy = 1;
+
     /**
      * The default scale of Zoro.
      */
     static double selectedScaleZoro = 1;
+
     /**
      * The default scale of Nami.
      */
     static double selectedScaleNami = 1;
+
     /**
      * The default scale of Chopper.
      */
     static double selectedScaleChopper = 1;
+
     /**
      * The choice of hero.
      */
     private static int choice = 0;
+
     /**
      * The value for used for scaling the hero size.
      */
     private static double sinX = 0;
+
     /**
      * The x cordinate of the hero.
      */
-    private static final int myX = 60;
+    private static int myX = 60;
+
     /**
      * The y cordinate of the hero.
      */
-    private static final int myY = 200;
+    private static int myY = 200;
+
     /**
      * The image of Luffy.
      */
     private static BufferedImage luffyTxt;
+
     /**
      * The image of Nami.
      */
     private static BufferedImage namiTxt;
+
     /**
      * The image of Chopper.
      */
     private static BufferedImage chopperTxt;
+
     /**
      * The image of the text box.
      */
     private static BufferedImage boxTxt;
+
     /**
      * The image of Zoro.
      */
@@ -122,7 +136,7 @@ public class Intro {
             Menus.setGameState("Maze");
         }
         if (InputControls.getO()) {
-            myCharacterChoice[choice].godMode();
+            myCharacterChoice[choice].setNoClip();
             GameManager.setHero(myCharacterChoice[choice]);
             Menus.setGameState("Maze");
         }

@@ -8,6 +8,7 @@ import java.util.Scanner;
 
 /**
  * This class is used to create the enemy.
+ *
  * @author Kevin Nguyen, Jashanpreet Jandu, Nicholas Zhuk
  * @version 1.0
  */
@@ -42,6 +43,7 @@ public class EnemyFactory {
      * String of the boss data
      */
     private static String mySadBoySeaData;
+
     /**
      * Constructor for the EnemyFactory class.
      *
@@ -55,6 +57,7 @@ public class EnemyFactory {
             myNikolaiData = myEnemyTable.extractNikolaiData();
             mySadBoySeaData = myEnemyTable.extractSadBoySeaData();
         } catch (SQLException e) {
+            e.printStackTrace();
         }
     }
 
@@ -64,7 +67,7 @@ public class EnemyFactory {
      * @return the instance of the EnemyFactory class.
      */
     public static EnemyFactory getInstance() {
-        if (myInstance == null){
+        if (myInstance == null) {
             myInstance = new EnemyFactory();
         }
         return myInstance;

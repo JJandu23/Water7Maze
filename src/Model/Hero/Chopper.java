@@ -48,7 +48,7 @@ public class Chopper extends Hero {
             BufferedImage upIm2 = (ImageIO.read(getClass().getResourceAsStream("../../View/Sprites/Chopper/up2.png")));
             BufferedImage upIm3 = (ImageIO.read(getClass().getResourceAsStream("../../View/Sprites/Chopper/up3.png")));
 
-            setImages(downIm1, downIm2, downIm3, leftIm1, leftIm2, leftIm3, rightIm1, rightIm2, rightIm3,  upIm1, upIm2, upIm3);
+            setImages(downIm1, downIm2, downIm3, leftIm1, leftIm2, leftIm3, rightIm1, rightIm2, rightIm3, upIm1, upIm2, upIm3);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -56,6 +56,7 @@ public class Chopper extends Hero {
 
     /**
      * This method represents the special attack of the hero.
+     *
      * @param theEnemy the enemy to attack
      * @Override the specialAttack method in the MazeCharacter class.
      */

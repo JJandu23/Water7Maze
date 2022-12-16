@@ -33,7 +33,7 @@ public class NikolaiTest {
     }
 
     @Test
-    void testSpecialAttack(){
+    void testSpecialAttack() {
         EnemyFactory enemyFactory = EnemyFactory.getInstance();
         Assertions.assertNotNull(enemyFactory);
         MazeCharacter nikolai = enemyFactory.chosenEnemy(EnemyFactory.Enemy.NIKOLAI);
