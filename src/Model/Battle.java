@@ -25,13 +25,6 @@ public class Battle {
      */
     private final MazeCharacter myEnemy;
 
-    public static void main(String[] args) {
-        EnemyFactory enemyFactory = EnemyFactory.getInstance();
-        int pick = new Random().nextInt(EnemyFactory.Enemy.values().length);
-        MazeCharacter enemy = EnemyFactory.chosenEnemy(EnemyFactory.Enemy.values()[pick]);
-        Hero hero = new Luffy();
-        Battle battle = new Battle(hero, enemy);
-    }
     /**
      * This method is used to control the battle.
      *

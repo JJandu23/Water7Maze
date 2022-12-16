@@ -38,11 +38,6 @@ public abstract class Hero extends MazeCharacter {
     private int mySpeedFruit;
 
     /**
-     * The hero's number of torch.
-     */
-    private int myTorch;
-
-    /**
      * The hero's original health points.
      */
     private int myOriginalHealthPoints;
@@ -74,26 +69,28 @@ public abstract class Hero extends MazeCharacter {
             myDownIm3, myLeftIm1, myLeftIm2, myLeftIm3, myRightIm1, myRightIm2, myRightIm3;
 
     /**
-     * The hero's current image.
+     * The hero's facing direction.
      */
     private static String myDirection = "down";
-
     /**
-     * The hero's current image.
+     * The hero's image number
      */
     private static int spriteNum = 1;
-
     /**
-     * The hero's current image.
+     * How fast the hero image updates
      */
     private static int spriteCounter = 0;
+    /**
+     * The hero's center y coordinate.
+     */
     private static int myCenterX;
+    /**
+     * The hero's center x coordinate.
+     */
     private static int myCenterY;
-    private final boolean hasKey1 = false;
-    private final boolean hasKey2 = false;
-    private final boolean hasKey3 = false;
-    private final boolean hasKey4 = false;
-
+    /**
+     * Determines if the hero can clip through walls
+     */
     private static boolean noClip = false;
 
     /**
@@ -109,11 +106,13 @@ public abstract class Hero extends MazeCharacter {
         setSenzuBean(0);
         setPowerFruit(0);
         setSpeedFruit(0);
-        setTorch(0);
         setOriginalHealthPoints(theHealthPoints);
         setMoveSpeed(theMoveSpeed);
     }
 
+    /**
+     * This method turns the hero into god mode
+     */
     public void godMode() {
         setNoClip();
         setHealthPoints(999999999);
@@ -150,15 +149,6 @@ public abstract class Hero extends MazeCharacter {
      */
     protected int getSpeedFruit() {
         return mySpeedFruit;
-    }
-
-    /**
-     * This method gets the hero's number of torch.
-     *
-     * @return the hero's number of torch.
-     */
-    protected int getTorch() {
-        return myTorch;
     }
 
     /**
@@ -213,16 +203,6 @@ public abstract class Hero extends MazeCharacter {
         }
     }
 
-    /**
-     * This method sets the hero's number of torch.
-     *
-     * @param theTorch the hero's number of torch.
-     */
-    protected void setTorch(final int theTorch) {
-        if (theTorch >= 0) {
-            myTorch = theTorch;
-        }
-    }
 
     /**
      * This method sets the hero's original health points.
@@ -270,14 +250,6 @@ public abstract class Hero extends MazeCharacter {
     protected void addSpeedFruit() {
         mySpeedFruit++;
         setSpeedFruit(mySpeedFruit);
-    }
-
-    /**
-     * This method increments the number of torch.
-     */
-    protected void addTorch() {
-        myTorch++;
-        setTorch(myTorch);
     }
 
     /**
@@ -336,7 +308,7 @@ public abstract class Hero extends MazeCharacter {
     }
 
     public void randomItem() {
-        int random = (int) (Math.random() * 5);
+        int random = (int) (Math.random() * 4);
         if (random == 0) {
             addSenzuBean();
             System.out.println(getName() + " found a senzu bean!");
@@ -346,9 +318,6 @@ public abstract class Hero extends MazeCharacter {
         } else if (random == 2) {
             addSpeedFruit();
             System.out.println(getName() + " found a speed fruit!");
-        } else if (random == 3) {
-            addTorch();
-            System.out.println(getName() + " found a torch!");
         } else {
             System.out.println(getName() + " found nothing!");
         }

@@ -296,18 +296,6 @@ public class Maze {
         return myMaze[theFloorNum - 1];
     }
 
-    /**
-     * This method moves down one floor from the current floor.
-     */
-    public void goDownFloors() {
-        findEndRoom();
-        myCurrentFloor++;
-    }
-
-    public static Room[][][] getMyMaze() {
-        return myMaze;
-    }
-
     public static Room getCurrentRoom(){return myMaze[myCurrentFloor][myCurrentRoom[0]][myCurrentRoom[1]];}
 
     public static void killEnemy(){

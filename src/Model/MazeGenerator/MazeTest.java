@@ -1,7 +1,5 @@
 package Model.MazeGenerator;
 
-import java.util.Scanner;
-
 /**
  * This class is used to test the maze.
  *

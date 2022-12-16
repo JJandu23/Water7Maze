@@ -22,22 +22,63 @@ import java.util.Objects;
  * @version 1.0
  */
 public class Room {
+    /**
+     * The room's north door
+     */
     private boolean myDoorNorth;
+    /**
+     * The door south.
+     */
     private boolean myDoorSouth;
+    /**
+     * The east door
+     */
     private boolean myDoorEast;
+    /**
+     * The west door
+     */
     private boolean myDoorWest;
+    /**
+     * The type of room.
+     */
     private String myRoomType;
+    /**
+     * Boolean to check if the room has a key
+     */
     private boolean myRoomKey = false;
+    /**
+     * Entities of doors in the room
+     */
     private Entities northDoorEnt, southDoorEnt, westDoorEnt, eastDoorEnt;
+    /**
+     * Coordinates of the north door
+     */
     private final int[] northDoorCoords = new int[]{0, 0, GameView.getScreenWidth(), 200};
+    /**
+     * Coordinates of the south door
+     */
     private final int[] southDoorCoords = new int[]{0, GameView.getScreenHeight() - 200, GameView.getScreenWidth(), GameView.getScreenHeight()};
+    /**
+     * Coordinates of the east door
+     */
     private final int[] eastDoorCoords = new int[]{GameView.getScreenWidth() - 200, 0, GameView.getScreenWidth(), GameView.getScreenHeight()};
+    /**
+     * Coordinates of the west door
+     */
     private final int[] westDoorCoords = new int[]{0, 0, 200, GameView.getScreenHeight()};
+    /**
+     * background image of the room
+     */
     private BufferedImage background;
+    /**
+     * The enemu in the room
+     */
     private MazeCharacter myEnemy;
 
-
-    public Room(boolean doorNorth, boolean doorWest, boolean doorSouth, boolean doorEast) {
+    /**
+     * Room constructor
+     */
+    public Room(final boolean theDoorNorth, final boolean theDoorWest, final boolean theDoorSouth, final boolean theDoorEast) {
 
         try {
             background = (ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("../../View/Sprites/floor.png"))));
@@ -45,91 +86,154 @@ public class Room {
             e.printStackTrace();
         }
 
-        this.myDoorNorth = doorNorth;
-        this.myDoorSouth = doorSouth;
-        this.myDoorWest = doorWest;
-        this.myDoorEast = doorEast;
+        this.myDoorNorth = theDoorNorth;
+        this.myDoorSouth = theDoorSouth;
+        this.myDoorWest = theDoorWest;
+        this.myDoorEast = theDoorEast;
     }
 
+    /**
+     * This method sets the room key
+     */
     public void setRoomKey() {
         myRoomKey = !myRoomKey;
     }
-
+    /**
+     * This method determines if the room has a key
+     * @return true if the room has a key
+     */
     public boolean hasKey() {
         return myRoomKey;
     }
 
-    public void setRoomType(String theRoomType){
+    /**
+     * This method sets the room type
+     * @param theRoomType the room type
+     */
+    public void setRoomType(final String theRoomType){
         myRoomType = theRoomType;
     }
 
-    public void setRoomEnemy(MazeCharacter theEnemy) {
+    /**
+     * This method sets the enemy in the room
+     * @param theEnemy the enemy
+     */
+    public void setRoomEnemy(final MazeCharacter theEnemy) {
         myEnemy = theEnemy;
     }
 
+    /**
+     * This method gets the enemy in the room
+     * @return the enemy
+     */
     public MazeCharacter getEnemy() {
         return myEnemy;
     }
-
-    public void openDoor(Direction direction) {
-        switch (direction) {
+    /**
+     * This method gets the room type
+     * @return the room type
+     */
+    public void openDoor(final Direction theDirection) {
+        switch (theDirection) {
             case NORTH -> myDoorNorth = true;
             case SOUTH -> myDoorSouth = true;
             case WEST -> myDoorWest = true;
             case EAST -> myDoorEast = true;
         }
     }
-
+    /**
+     * This method returns a string representation of the room
+     */
     @Override
     public String toString() {
         String str = "";
         str += "(";
-        if (myRoomKey && myRoomType.equals("START")) {
+        if (myRoomKey && myRoomType != null && myRoomType.equals("START")) {
             str += "...";
         }
         if (myDoorNorth) str += " north ";
         if (myDoorWest) str += " west ";
         if (myDoorSouth) str += " south ";
         if (myDoorEast) str += " east ";
-        if (myRoomKey  && myRoomType.equals("FINAL")) {
+        if (myRoomKey && myRoomType != null && myRoomType.equals("FINAL")) {
             str += "F";
         }
         str += ")";
         return str;
     }
-
+    /**
+     * This method returns the north door
+     * @return the north door
+     */
     public boolean isMyDoorNorth() {
         return myDoorNorth;
     }
-
+    /**
+     * This method returns the south door
+     * @return the south door
+     */
     public boolean isMyDoorEast() {
         return myDoorEast;
     }
-
+    /**
+     * This method returns the west door
+     * @return the west door
+     */
     public boolean isMyDoorSouth() {
         return myDoorSouth;
     }
-
+    /**
+     * This method returns the east door
+     * @return the east door
+     */
     public boolean isMyDoorWest() {
         return myDoorWest;
     }
-
+    /**
+     * This method returns the north door entity
+     * @return the north door entity
+     */
     public Entities northDoorEntity() {
+        if(northDoorEnt == null) {
+            northDoorEnt = new Entities(northDoorCoords[0], northDoorCoords[1], northDoorCoords[2], northDoorCoords[3]);
+        }
         return northDoorEnt;
     }
-
+    /**
+     * This method returns the south door entity
+     * @return the south door entity
+     */
     public Entities southDoorEntity() {
+        if(southDoorEnt == null) {
+            southDoorEnt = new Entities(southDoorCoords[0], southDoorCoords[1], southDoorCoords[2], southDoorCoords[3]);
+        }
         return southDoorEnt;
     }
-
+    /**
+     * This method returns the west door entity
+     * @return the west door entity
+     */
     public Entities westDoorEntity() {
+        if(westDoorEnt == null) {
+            westDoorEnt = new Entities(westDoorCoords[0], westDoorCoords[1], westDoorCoords[2], westDoorCoords[3]);
+        }
         return westDoorEnt;
     }
-
+    /**
+     * This method returns the east door entity
+     * @return the east door entity
+     */
     public Entities eastDoorEntity() {
+        if(eastDoorEnt == null) {
+            eastDoorEnt = new Entities(eastDoorCoords[0], eastDoorCoords[1], eastDoorCoords[2], eastDoorCoords[3]);
+        }
         return eastDoorEnt;
     }
 
+    /**
+     * This method is used to determine the final room
+     * @return true if the room is the final room, false otherwise
+     */
     public boolean isEnd(){
         if(myRoomType == null){
             return false;
@@ -137,19 +241,25 @@ public class Room {
         return myRoomType.equals("FINAL");
     }
 
+    /**
+     * This method is used to get the room type.
+     * @return the room type
+     */
     public String getRoomType(){
         return myRoomType;
     }
-
-    public void setDoors(String doorDirection, String path) {
+    /**
+     * This method is used to set the door entities for the room.
+     */
+    public void setDoors(final String theDoorDirection, final  String thePath) {
         BufferedImage img = null;
         try {
-            img = ImageIO.read(Objects.requireNonNull(Maze.class.getResourceAsStream(path)));
+            img = ImageIO.read(Objects.requireNonNull(Maze.class.getResourceAsStream(thePath)));
 
         } catch (IOException e) {
             e.printStackTrace();
         }
-        switch (doorDirection) {
+        switch (theDoorDirection) {
             case "North":
                 northDoorEnt = new Entities(northDoorCoords[0], northDoorCoords[1], northDoorCoords[2], northDoorCoords[3]);
                 northDoorEnt.setSprite(img);
@@ -165,6 +275,10 @@ public class Room {
         }
     }
 
+    /**
+     * This method is used to get the background image of the room.
+     * @return the background image of the room.
+     */
     public BufferedImage getBackground() {
         return background;
     }

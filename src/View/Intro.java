@@ -136,7 +136,7 @@ public class Intro {
             Menus.setGameState("Maze");
         }
         if (InputControls.getO()) {
-            myCharacterChoice[choice].setNoClip();
+            myCharacterChoice[choice].godMode();
             GameManager.setHero(myCharacterChoice[choice]);
             Menus.setGameState("Maze");
         }
