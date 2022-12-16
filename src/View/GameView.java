@@ -113,7 +113,8 @@ public class GameView extends JPanel implements Runnable {
                 if (delta >= 1) {
                     try {
                         update();
-                    } catch (UnsupportedAudioFileException | IOException | LineUnavailableException e) {
+                    } catch (UnsupportedAudioFileException | IOException | LineUnavailableException |
+                             ClassNotFoundException e) {
                         throw new RuntimeException(e);
                     }
                     repaint();
@@ -130,7 +131,7 @@ public class GameView extends JPanel implements Runnable {
      * @throws LineUnavailableException
      * @throws IOException
      */
-    public void update() throws UnsupportedAudioFileException, LineUnavailableException, IOException {
+    public void update() throws UnsupportedAudioFileException, LineUnavailableException, IOException, ClassNotFoundException {
         GameManager.update();
     }
 

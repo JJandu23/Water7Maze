@@ -8,11 +8,9 @@ import Model.MazeGenerator.Maze.Direction;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.io.Serializable;
 
 import static Model.MazeGenerator.Maze.Direction.*;
 
@@ -22,7 +20,7 @@ import static Model.MazeGenerator.Maze.Direction.*;
  * @author Kevin Nguyen, Nicholas Zhuk and Jashanpreet Jandu
  * @version 1.0
  */
-public abstract class Hero extends MazeCharacter implements Serializable {
+public abstract class Hero extends MazeCharacter {
 
     /**
      * The hero's number of senzu bean.
@@ -91,6 +89,8 @@ public abstract class Hero extends MazeCharacter implements Serializable {
     private static int spriteCounter = 0;
     private static int myCenterX;
     private static int myCenterY;
+    private boolean hasKey1 = false, hasKey2 = false, hasKey3 = false, hasKey4 = false;
+
     private static boolean noClip = false;
 
     /**
@@ -160,8 +160,6 @@ public abstract class Hero extends MazeCharacter implements Serializable {
         noClip = true;
         myOriginalHealthPoints += 1000;
     }
-
-
 
     public static boolean isNoClip(){
         return noClip;
@@ -494,7 +492,6 @@ public abstract class Hero extends MazeCharacter implements Serializable {
 
         theGraphics.drawImage(image, myX, myY, 128, 128, null);
     }
-
 
     /**
      * This method sets the hero's down image 1.

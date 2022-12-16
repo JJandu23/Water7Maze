@@ -12,6 +12,8 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.util.HashMap;
 
+import static Controller.GameManager.myHero;
+
 /**
  * This class is used to generate a maze for the game.
  * It uses a recursive backtracking algorithm to generate a maze.
@@ -335,6 +337,9 @@ public class Maze {
         return true;
     }
 
+    public Object getHero() {
+        return myHero;
+    }
 
 
     /**

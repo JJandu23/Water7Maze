@@ -9,8 +9,6 @@ import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 
-import static Controller.SaveManager.getLoadGame;
-
 /**
  * This class is used to create the character selection screen.
  *
@@ -91,7 +89,7 @@ public class Intro {
     /**
      * This method updates the game view.
      */
-    public static void update() {
+    public static void update() throws IOException, ClassNotFoundException {
         if (InputControls.getRight()) {
             sinX = 0;
             try {
@@ -129,14 +127,6 @@ public class Intro {
             Menus.setGameState("Maze");
         }
 
-        if (InputControls.getK()) {
-            try {
-                getLoadGame();
-            } catch (ClassNotFoundException | IOException e) {
-                e.printStackTrace();
-            }
-            Menus.setGameState("Maze");
-        }
     }
 
     /**

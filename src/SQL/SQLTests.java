@@ -13,6 +13,7 @@ import java.sql.SQLException;
 public class SQLTests {
     /**
      * This method is used to test if the sql can extract Boat Kevin data.
+     *
      * @throws SQLException if the Boat Kevin data is not found.
      */
     @Test
@@ -25,6 +26,7 @@ public class SQLTests {
 
     /**
      * This method is used to test if the sql can extract Eli data.
+     *
      * @throws SQLException if the Eli data is not found.
      */
     @Test
@@ -37,6 +39,7 @@ public class SQLTests {
 
     /**
      * This method is used to test if the sql can extract Nikolai data.
+     *
      * @throws SQLException if the Nikolai data is not found.
      */
     @Test
@@ -49,6 +52,7 @@ public class SQLTests {
 
     /**
      * This method is used to test if the sql can extract SadBoySea data.
+     *
      * @throws SQLException if the SadBoySea data is not found.
      */
     @Test

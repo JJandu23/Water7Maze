@@ -10,6 +10,7 @@ import org.junit.jupiter.api.Test;
  * @version 1.0
  */
 public class LuffyTest {
+
     LuffyTest() {
     }
 
@@ -27,5 +28,4 @@ public class LuffyTest {
         Assertions.assertEquals(true, badLuffy.getHealthPoints() >= 65);
         Assertions.assertEquals(true, badLuffy.getHealthPoints() <= 75);
     }
-
 }

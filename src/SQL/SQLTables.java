@@ -23,6 +23,7 @@ public class SQLTables {
 
     /**
      * SQLTables constructor
+     *
      * @throws SQLException
      */
     public SQLTables() throws SQLException {
@@ -85,6 +86,7 @@ public class SQLTables {
 
     /**
      * This method extracts Boat Kevin from the enemy table.
+     *
      * @return the Boat Kevin data
      */
     public String extractBoatKevinData() {
@@ -112,6 +114,7 @@ public class SQLTables {
 
     /**
      * This method extracts Eli from the enemy table.
+     *
      * @return the Eli data
      */
     public String extractEliData() {
@@ -139,6 +142,7 @@ public class SQLTables {
 
     /**
      * This method extracts Nikolai from the enemy table.
+     *
      * @return the Nikolai data
      */
     public String extractNikolaiData() {
@@ -166,6 +170,7 @@ public class SQLTables {
 
     /**
      * This method extracts SadBoySea from the enemy table.
+     *
      * @return the SadBoySea data
      */
     public String extractSadBoySeaData() {

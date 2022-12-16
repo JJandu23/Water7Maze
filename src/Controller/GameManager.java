@@ -11,8 +11,6 @@ import javax.sound.sampled.UnsupportedAudioFileException;
 import java.awt.*;
 import java.io.IOException;
 
-import static Controller.SaveManager.getSaveGame;
-
 /**
  * This class is used to control the input from the user.
  *
@@ -24,7 +22,7 @@ public class GameManager {
     /**
      * The hero object.
      */
-    private static Hero myHero;
+    public static Hero myHero;
 
     /**
      * The GameView object.
@@ -32,20 +30,10 @@ public class GameManager {
     private static GameView myGameView;
 
     /**
-     * The SaveCurrentGame object.
-     */
-    private static SaveCurrentState mySaveCurrentState;
-
-    /**
-     * The SaveManger object.
-     */
-    private static SaveManager mySaveManager;
-
-    /**
      * The InputControls object.
      */
     private static InputControls myInputControls;
-    
+
     /**
      * The Maze object.
      */
@@ -57,30 +45,7 @@ public class GameManager {
     private static BattleView myCurrentBattleView;
 
     public enum HeroName{
-        LUFFY,
-        NAMI,
-        CHOPPER,
-        ZORO
-    }
-
-
-
-    /**
-     * This is our constructor.
-     *
-     * @param theGameView is the GameView object.
-     */
-    public static void setGameView(final GameView theGameView) {
-        myGameView = theGameView;
-    }
-
-    /**
-     * This method is used to get the GameView object.
-     *
-     * @return the GameView object.
-     */
-    public static GameView getGameView() {
-        return myGameView;
+        LUFFY, NAMI, CHOPPER, ZORO
     }
 
     /**
@@ -99,60 +64,6 @@ public class GameManager {
      */
     public static void setHero(final Hero theHero) {
         myHero = theHero;
-    }
-
-    /**
-     * This method is used to set the save current state.
-     *
-     * @param theSaveCurrentState is the current state of the game.
-     */
-    public static void setSaveCurrentState(final SaveCurrentState theSaveCurrentState) {
-        mySaveCurrentState = theSaveCurrentState;
-    }
-
-    /**
-     * This method is used to get the save current state.
-     *
-     * @return the current state of the game.
-     */
-    public static SaveCurrentState getSaveCurrentState() {
-        return mySaveCurrentState;
-    }
-
-    /**
-     * This method is used to set the save manager.
-     *
-     * @param theSaveManager is the save manager.
-     */
-    public static void setSaveManager(final SaveManager theSaveManager) {
-        mySaveManager = theSaveManager;
-    }
-
-    /**
-     * This method is used to get the save manager.
-     *
-     * @return the save manager.
-     */
-    public static SaveManager getSaveManager() {
-        return mySaveManager;
-    }
-
-    /**
-     * This method is used to set the input controls.
-     *
-     * @param theInputControls is the input controls.
-     */
-    public static void setInputControls(final InputControls theInputControls) {
-        myInputControls = theInputControls;
-    }
-
-    /**
-     * This method is used to get the input controls.
-     *
-     * @return the input controls.
-     */
-    public static InputControls getInputControls() {
-        return myInputControls;
     }
 
     /**
@@ -185,23 +96,19 @@ public class GameManager {
             case "Dialogue", "Ending":
                 Ending.draw(theGraphics);
                 break;
+                case "Save", "Load":
+                    GameManager Save = new GameManager();
+                    Save.draw(theGraphics);
+                break;
         }
     }
 
     /**
      * This method is used to update the hero.
      */
-    public static void update() {
+    public static void update() throws IOException, ClassNotFoundException {
         switch (Menus.getGameState()) {
             case "Maze":
-                if(InputControls.getK()){
-                    try {
-                        getSaveGame();
-                        Thread.sleep(1000);
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
-                }
 
                 myHero.update();
                 if((Maze.getCurrentRoom().getEnemy() != null || Maze.getCurrentRoom().hasKey()) && isLastFrameDrawn){

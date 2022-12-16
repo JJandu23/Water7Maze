@@ -14,6 +14,7 @@ import java.io.IOException;
  * @version 1.0
  */
 public class SoundsPlay {
+
     /**
      * The audio file to be played.
      */
@@ -36,20 +37,21 @@ public class SoundsPlay {
      */
     public static void playSongs(final Song theSong) throws UnsupportedAudioFileException, IOException, LineUnavailableException {
         AudioInputStream audioInputStream = null;
-         switch (theSong) {
+        switch (theSong) {
             case OPENING:
                 audioInputStream = AudioSystem.getAudioInputStream(new File("src/Music/Opening.wav").getAbsoluteFile());
                 break;
-             case IN_GAME:
-                 audioInputStream = AudioSystem.getAudioInputStream(new File("src/Music/In_Game.wav").getAbsoluteFile());
-                 break;
-             case DEATH:
-                 audioInputStream = AudioSystem.getAudioInputStream(new File("src/Music/Death.wav").getAbsoluteFile());
-                 break;
-             case THE_ONE_PIECE:
-                 audioInputStream = AudioSystem.getAudioInputStream(new File("src/Music/TheOnePieceIsReal.wav").getAbsoluteFile());
-                 break;
-         };
+            case IN_GAME:
+                audioInputStream = AudioSystem.getAudioInputStream(new File("src/Music/In_Game.wav").getAbsoluteFile());
+                break;
+            case DEATH:
+                audioInputStream = AudioSystem.getAudioInputStream(new File("src/Music/Death.wav").getAbsoluteFile());
+                break;
+            case THE_ONE_PIECE:
+                audioInputStream = AudioSystem.getAudioInputStream(new File("src/Music/TheOnePieceIsReal.wav").getAbsoluteFile());
+                break;
+        }
+        ;
         if (audioInputStream != null) {
             if (myClip != null) {
                 myClip.stop();
