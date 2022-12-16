@@ -29,10 +29,8 @@ public class Luffy extends Hero {
      * Luffy constructor
      */
     public Luffy() {
-        super("Luffy", 1200, 10, 15,
+        super("Luffy", 120, 10, 15,
                 25, 0.8, 0.2, 0.40, 10);
-
-
 
         try {
 

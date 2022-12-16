@@ -89,7 +89,10 @@ public abstract class Hero extends MazeCharacter {
     private static int spriteCounter = 0;
     private static int myCenterX;
     private static int myCenterY;
-    private boolean hasKey1 = false, hasKey2 = false, hasKey3 = false, hasKey4 = false;
+    private final boolean hasKey1 = false;
+    private final boolean hasKey2 = false;
+    private final boolean hasKey3 = false;
+    private final boolean hasKey4 = false;
 
     private static boolean noClip = false;
 
@@ -109,6 +112,17 @@ public abstract class Hero extends MazeCharacter {
         setTorch(0);
         setOriginalHealthPoints(theHealthPoints);
         setMoveSpeed(theMoveSpeed);
+    }
+
+    public void godMode() {
+        setNoClip();
+        setHealthPoints(999999999);
+        setOriginalHealthPoints(999999999);
+        setAttackSpeed(999999999);
+        setMinDamage(999999999);
+        setMaxDamage(999999999);
+        setHitChance(999999999);
+        setMoveSpeed(999999999);
     }
 
     /**
@@ -158,7 +172,6 @@ public abstract class Hero extends MazeCharacter {
 
     public void setNoClip(){
         noClip = true;
-        myOriginalHealthPoints += 1000;
     }
 
     public static boolean isNoClip(){

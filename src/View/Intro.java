@@ -47,11 +47,11 @@ public class Intro {
     /**
      * The x cordinate of the hero.
      */
-    private static int myX = 60;
+    private static final int myX = 60;
     /**
      * The y cordinate of the hero.
      */
-    private static int myY = 200;
+    private static final int myY = 200;
     /**
      * The image of Luffy.
      */
@@ -122,7 +122,7 @@ public class Intro {
             Menus.setGameState("Maze");
         }
         if (InputControls.getO()) {
-            myCharacterChoice[choice].setNoClip();
+            myCharacterChoice[choice].godMode();
             GameManager.setHero(myCharacterChoice[choice]);
             Menus.setGameState("Maze");
         }

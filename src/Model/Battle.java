@@ -18,16 +18,17 @@ public class Battle {
     /**
      * The hero object.
      */
-    private Hero myHero;
+    private final Hero myHero;
 
     /**
      * The enemy object.
      */
-    private MazeCharacter myEnemy;
+    private final MazeCharacter myEnemy;
 
     public static void main(String[] args) {
         EnemyFactory enemyFactory = EnemyFactory.getInstance();
-        MazeCharacter enemy = enemyFactory.chosenEnemy(EnemyFactory.Enemy.BOATKEVIN);
+        int pick = new Random().nextInt(EnemyFactory.Enemy.values().length);
+        MazeCharacter enemy = EnemyFactory.chosenEnemy(EnemyFactory.Enemy.values()[pick]);
         Hero hero = new Luffy();
         Battle battle = new Battle(hero, enemy);
     }

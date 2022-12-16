@@ -50,18 +50,6 @@ public class HeroTest {
     }
 
     /**
-     * This method is used to test for adding torches.
-     */
-    @Test
-    void addTorch() {
-        Luffy luffy = new Luffy();
-        for (int i = 0; i < 5; ++i) {
-            luffy.addTorch();
-        }
-        Assertions.assertEquals(5, luffy.getTorch());
-    }
-
-    /**
      * This method is used to test for adding the health points.
      */
     @Test
@@ -166,6 +154,21 @@ public class HeroTest {
         luffy.useSpeedFruit();
         Assertions.assertEquals(1, luffy.getSpeedFruit());
         Assertions.assertEquals(14, luffy.getAttackSpeed());
+    }
+
+    /**
+     * This tests that hero goes into god mode
+     */
+    @Test
+    void godMode() {
+        Luffy luffy = new Luffy();
+        luffy.godMode();
+        Assertions.assertTrue(Hero.isNoClip());
+        Assertions.assertEquals(999999999, luffy.getHealthPoints());
+        Assertions.assertEquals(999999999, luffy.getOriginalHealthPoints());
+        Assertions.assertEquals(999999999, luffy.getMinDamage());
+        Assertions.assertEquals(999999999, luffy.getMaxDamage());
+        Assertions.assertEquals(999999999, luffy.getAttackSpeed());
     }
 
 }
