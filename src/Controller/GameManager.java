@@ -4,7 +4,10 @@ import Model.Battle;
 import Model.Hero.Hero;
 import Model.MazeGenerator.Maze;
 import Music.SoundsPlay;
-import View.*;
+import View.BattleView;
+import View.Ending;
+import View.Intro;
+import View.Menus;
 
 import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.UnsupportedAudioFileException;
@@ -28,9 +31,13 @@ public class GameManager {
      * The Maze object.
      */
     private static Maze myMaze;
-
+    /**
+     * Checks if the last frame is drawn
+     */
     private static boolean isLastFrameDrawn = false;
-
+    /**
+     * The battle view object.
+     */
     private static BattleView myCurrentBattleView;
 
     /**
@@ -166,6 +173,13 @@ public class GameManager {
         return myMaze;
     }
 
+    /**
+     * This method is used to set the audio for the game state
+     *
+     * @throws UnsupportedAudioFileException
+     * @throws LineUnavailableException
+     * @throws IOException
+     */
     public static void music() throws UnsupportedAudioFileException, LineUnavailableException, IOException {
         switch (Menus.getGameState()) {
             case "Intro":

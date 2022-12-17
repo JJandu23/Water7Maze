@@ -146,7 +146,7 @@ public class Intro {
     /**
      * This method is used to draw the character selection screen.
      *
-     * @param theG
+     * @param theG the graphics object.
      */
     public static void draw(final Graphics2D theG) {
         BufferedImage img = null;

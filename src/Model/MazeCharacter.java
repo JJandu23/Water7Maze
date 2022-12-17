@@ -248,13 +248,7 @@ public abstract class MazeCharacter {
      * @param theEnemy the enemy that is being attacked
      */
     public void specialAttack(final MazeCharacter theEnemy) {
-        Random rand = new Random();
-        double chance = rand.nextDouble();
-        if (chance <= mySpecialChance) {
-            int damageDealt = rand.nextInt(myMaxDamage - myMinDamage + 1) + myMinDamage;
-            theEnemy.subtractHealth(damageDealt);
-            System.out.println(myName + " attacks " + theEnemy.getName() + " for " + damageDealt + " damage.");
-        }
+        // empty method for subclasses to override
     }
 
     /**

@@ -14,11 +14,29 @@ import java.sql.Statement;
  * @version 1.0
  */
 public class SQLTables {
+    /**
+     * The database source.
+     */
     private SQLiteDataSource myEnemyTable;
+    /**
+     * The database connection.
+     */
     private Connection myConnection;
+    /**
+     * The database statement.
+     */
     private Statement myStatement;
+    /**
+     * The database query.
+     */
     private String myQuery;
+    /**
+     * The database return value.
+     */
     private int myReturnValue;
+    /**
+     * The database results.
+     */
     private ResultSet myResultSet;
 
     /**

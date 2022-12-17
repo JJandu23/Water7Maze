@@ -4,7 +4,6 @@ import Model.Entities;
 import Model.Hero.Hero;
 import View.Ending;
 import View.GameView;
-import View.Menus;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
@@ -12,7 +11,6 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.util.HashMap;
 
-import static Controller.GameManager.myHero;
 
 /**
  * This class is used to generate a maze for the game.
@@ -30,14 +28,36 @@ import static Controller.GameManager.myHero;
  * @version 1.0
  */
 public class Maze {
+    /**
+     * The maze's 2D array of rooms.
+     */
     static Room[][][] myMaze;
+    /**
+     * The current floor.
+     */
     private static int myCurrentFloor = 0;
+    /**
+     * The current room.
+     */
     private static int[] myCurrentRoom = new int[]{0, 0};
+    /**
+     * HashMap of entities in a room
+     */
     private static HashMap<String, Entities> myEntityList = new HashMap<>();
+    /**
+     * The ending room of the maze.
+     */
     private static int[] myCurrentEndRoom = new int[2];
+    /**
+     * The coordinates of the enemy in the maze.
+     */
     private static int[] enemyCoords = {300, 300, 500, 500};
+    /**
+     * Text for the key in the maze.
+     */
     private static BufferedImage keytext;
-    static{
+
+    static {
 
         try {
             keytext = ImageIO.read(Ending.class.getResourceAsStream("../View/Sprites/gotkey.png"));
@@ -122,14 +142,25 @@ public class Maze {
         theG.fillRect(mazeX + myCurrentEndRoom[0] * scale, mazeY + myCurrentEndRoom[1] * scale, scale, scale);
     }
 
+    /**
+     * This method draws the room
+     *
+     * @param graphics2D the graphics object
+     */
     public static void drawRoom(final Graphics2D graphics2D) {
         if (myCurrentRoom[0] < 0 || myCurrentRoom[1] < 0 || myCurrentRoom[1] > 9 || myCurrentRoom[0] > 9) {
-            System.out.println("Something wrong");
+            if (myCurrentRoom[0] < 0) {
+                myCurrentRoom[0]++;
+            } else if (myCurrentRoom[0] > 9) {
+                myCurrentRoom[0]--;
+            } else if (myCurrentRoom[1] < 0) {
+                myCurrentRoom[1]++;
+            } else if (myCurrentRoom[1] > 9) {
+                myCurrentRoom[1]--;
+            }
         }
         Room theRoom = myMaze[myCurrentFloor][myCurrentRoom[0]][myCurrentRoom[1]];
         int tilesize = 400;
-
-
 
         for (int i = 0; i < 5; i++) {
             for (int j = 0; j < 5; j++) {
@@ -243,19 +274,40 @@ public class Maze {
         switch (theDirection) {
             case NORTH -> {
                 myCurrentRoom[1]--;
-                System.out.println("Went North");
+                if (myCurrentRoom[1] < 0) {
+                    myCurrentRoom[1]++;
+                    System.out.println("You can't go that way");
+                } else {
+                    System.out.println("Went North");
+                }
             }
             case SOUTH -> {
                 myCurrentRoom[1]++;
-                System.out.println("Went South");
+                if (myCurrentRoom[1] > 9) {
+                    myCurrentRoom[1]--;
+                    System.out.println("You can't go that way");
+                } else {
+                    System.out.println("Went South");
+                }
             }
             case WEST -> {
                 myCurrentRoom[0]--;
-                System.out.println("Went West");
+                if (myCurrentRoom[0] < 0) {
+                    myCurrentRoom[0]++;
+                    System.out.println("You can't go that way");
+                } else {
+                    System.out.println("Went West");
+                }
             }
             case EAST -> {
                 System.out.println("Went East");
                 myCurrentRoom[0]++;
+                if (myCurrentRoom[0] > 9) {
+                    myCurrentRoom[0]--;
+                    System.out.println("You can't go that way");
+                } else {
+                    System.out.println("Went East");
+                }
             }
         }
         System.out.println("My Room: " + myCurrentRoom[0] + " - " + myCurrentRoom[1]);
@@ -296,16 +348,29 @@ public class Maze {
         return myMaze[theFloorNum - 1];
     }
 
-    public static Room getCurrentRoom(){return myMaze[myCurrentFloor][myCurrentRoom[0]][myCurrentRoom[1]];}
+    /**
+     * This method gets the current room.
+     *
+     * @return the current room
+     */
+    public static Room getCurrentRoom() {
+        return myMaze[myCurrentFloor][myCurrentRoom[0]][myCurrentRoom[1]];
+    }
 
-    public static void killEnemy(){
+    /**
+     * This method removes an enemy entity from the maze.
+     */
+    public static void killEnemy() {
         myEntityList.remove("enemy");
     }
 
-    public static void findEndRoom(){
+    /**
+     * This method finds the end room
+     */
+    public static void findEndRoom() {
         for (int i = 0; i < myMaze[myCurrentFloor].length; i++) {
             for (int j = 0; j < myMaze[myCurrentFloor][i].length; j++) {
-                if(myMaze[myCurrentFloor][i][j].isEnd()){
+                if (myMaze[myCurrentFloor][i][j].isEnd()) {
                     myCurrentEndRoom[0] = i;
                     myCurrentEndRoom[1] = j;
                 }
@@ -313,22 +378,22 @@ public class Maze {
         }
     }
 
-    public static boolean isFinished(){
+    /**
+     * Checks if the has ended
+     *
+     * @return true if the game has ended
+     */
+    public static boolean isFinished() {
 
         for (int i = 0; i < myMaze[myCurrentFloor].length; i++) {
             for (int j = 0; j < myMaze[myCurrentFloor][i].length; j++) {
-                if(myMaze[myCurrentFloor][i][j].hasKey()){
+                if (myMaze[myCurrentFloor][i][j].hasKey()) {
                     return false;
                 }
             }
         }
         return true;
     }
-
-    public Object getHero() {
-        return myHero;
-    }
-
 
     /**
      * The enum for the direction.

@@ -64,7 +64,7 @@ public class Chopper extends Hero {
     public void specialAttack(final MazeCharacter theEnemy) {
         Random chance = new Random();
         Random heal = new Random();
-        if (chance.nextFloat() <= getSpecialChance()) {
+        if (chance.nextDouble() <= getSpecialChance()) {
             int healthGained = heal.nextInt(myMaxSpecialHeal + 1 - myMinSpecialHeal) + myMinSpecialHeal;
             if (getHealthPoints() + healthGained > getOriginalHealthPoints()) {
                 healthGained = getOriginalHealthPoints() - getHealthPoints();

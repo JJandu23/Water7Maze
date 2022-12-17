@@ -21,7 +21,7 @@ public class Main {
      *
      * @param theArgs is the arguments.
      */
-    public static void main(String[] theArgs) {
+    public static void main(final String[] theArgs) {
         JFrame window = new JFrame();
 
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

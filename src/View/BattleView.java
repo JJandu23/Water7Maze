@@ -11,9 +11,17 @@ import java.util.HashMap;
  * @version 1.0
  */
 public class BattleView {
-
+    /**
+     * HashMap of the images
+     */
     private HashMap<String, BufferedImage> myBattleImages = new HashMap<>();
+    /**
+     * The hero's image dimensions
+     */
     private int myHeroX1 = 200, myHeroY1 = 500, myHeroX2 = myHeroX1 + 100, myHeroY2 = myHeroY1 + 100;
+    /**
+     * The enemy's image dimensions
+     */
     private int myEnemyX1 = 500, myEnemyY1 = 200, myEnemyX2 = myEnemyX1 + 100, myEnemyY2 = myEnemyY1 + 100;
 
     /**

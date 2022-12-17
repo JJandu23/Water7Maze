@@ -42,7 +42,7 @@ public class Nami extends Hero {
     @Override
     public void specialAttack(final MazeCharacter theEnemy) {
         Random chance = new Random();
-        if (chance.nextFloat() <= getSpecialChance()) {
+        if (chance.nextDouble() <= getSpecialChance()) {
             System.out.println(getName() + " used mirage tempo!");
             if (getDodgeChance() < 1.0) {
                 setDodgeChance(getDodgeChance() + 0.1);

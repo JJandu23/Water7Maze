@@ -62,7 +62,7 @@ public class Zoro extends Hero {
     public void specialAttack(final MazeCharacter theEnemy) {
         Random chance = new Random();
         Random damage = new Random();
-        if (chance.nextFloat() <= getSpecialChance()) {
+        if (chance.nextDouble() <= getSpecialChance()) {
             int damageDealt = damage.nextInt(myMaxSpecialDamage + 1 - myMinSpecialDamage) + myMinSpecialDamage;
             theEnemy.subtractHealth(damageDealt);
             System.out.println(getName() + " used purgatory onigiri and dealt " + damageDealt + " damage!");

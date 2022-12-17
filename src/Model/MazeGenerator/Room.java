@@ -47,9 +47,21 @@ public class Room {
      */
     private boolean myRoomKey = false;
     /**
-     * Entities of doors in the room
+     * North door entity
      */
-    private Entities northDoorEnt, southDoorEnt, westDoorEnt, eastDoorEnt;
+    private Entities northDoorEnt;
+    /**
+     * South door entity
+     */
+    private Entities southDoorEnt;
+    /**
+     * East door entity
+     */
+    private Entities westDoorEnt;
+    /**
+     * West door entity
+     */
+    private Entities eastDoorEnt;
     /**
      * Coordinates of the north door
      */
@@ -194,9 +206,6 @@ public class Room {
      * @return the north door entity
      */
     public Entities northDoorEntity() {
-        if(northDoorEnt == null) {
-            northDoorEnt = new Entities(northDoorCoords[0], northDoorCoords[1], northDoorCoords[2], northDoorCoords[3]);
-        }
         return northDoorEnt;
     }
     /**
@@ -204,9 +213,6 @@ public class Room {
      * @return the south door entity
      */
     public Entities southDoorEntity() {
-        if(southDoorEnt == null) {
-            southDoorEnt = new Entities(southDoorCoords[0], southDoorCoords[1], southDoorCoords[2], southDoorCoords[3]);
-        }
         return southDoorEnt;
     }
     /**
@@ -214,9 +220,6 @@ public class Room {
      * @return the west door entity
      */
     public Entities westDoorEntity() {
-        if(westDoorEnt == null) {
-            westDoorEnt = new Entities(westDoorCoords[0], westDoorCoords[1], westDoorCoords[2], westDoorCoords[3]);
-        }
         return westDoorEnt;
     }
     /**
@@ -224,9 +227,6 @@ public class Room {
      * @return the east door entity
      */
     public Entities eastDoorEntity() {
-        if(eastDoorEnt == null) {
-            eastDoorEnt = new Entities(eastDoorCoords[0], eastDoorCoords[1], eastDoorCoords[2], eastDoorCoords[3]);
-        }
         return eastDoorEnt;
     }
 

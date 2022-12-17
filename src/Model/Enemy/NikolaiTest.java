@@ -32,6 +32,9 @@ public class NikolaiTest {
         Assertions.assertEquals(0.25, testNikolai.getSpecialChance());
     }
 
+    /**
+     * This method is used to test the Nikolai special attack.
+     */
     @Test
     void testSpecialAttack() {
         EnemyFactory enemyFactory = EnemyFactory.getInstance();

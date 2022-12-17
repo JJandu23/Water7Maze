@@ -67,9 +67,10 @@ public class Luffy extends Hero {
      */
     @Override
     public void specialAttack(final MazeCharacter theEnemy) {
-        Random chance = new Random();
+        double chance = Math.random();
         Random damage = new Random();
-        if (chance.nextFloat() <= getSpecialChance()) {
+        System.out.println(chance);
+        if (chance <= getSpecialChance()) {
             int damageDealt = damage.nextInt(myMaxSpecialDamage + 1 - myMinSpecialDamage) + myMinSpecialDamage;
             theEnemy.subtractHealth(damageDealt);
             System.out.println(getName() + " used Gum Gum Pistol and dealt " + damageDealt + " damage!");

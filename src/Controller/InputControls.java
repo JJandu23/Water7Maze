@@ -115,7 +115,7 @@ public class InputControls implements KeyListener {
      * @param theEvent KeyEvent
      */
     @Override
-    public void keyReleased(KeyEvent theEvent) {
+    public void keyReleased(final KeyEvent theEvent) {
         int code = theEvent.getKeyCode();
 
         if (code == KeyEvent.VK_W) {

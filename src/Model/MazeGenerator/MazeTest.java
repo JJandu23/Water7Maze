@@ -7,7 +7,12 @@ package Model.MazeGenerator;
  * @version 1.0
  */
 public class MazeTest {
-    public static void main(String[] args) {
+    /**
+     * This method is used to test the maze.
+     *
+     * @param theArgs The arguments.
+     */
+    public static void main(final String[] theArgs) {
         Maze maze = new Maze(1, 3, 3);
         Room[][] currFloor = maze.getFloor(1);
         for (int i = 0; i < currFloor.length; i++) {

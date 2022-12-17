@@ -160,12 +160,20 @@ public abstract class Hero extends MazeCharacter {
         return myOriginalHealthPoints;
     }
 
-    public void setNoClip() {
-        noClip = true;
-    }
-
+    /**
+     * Determines if the hero can clip through walls
+     *
+     * @return true if the hero can clip through walls
+     */
     public static boolean isNoClip() {
         return noClip;
+    }
+
+    /**
+     * This method sets no clip to true.
+     */
+    public void setNoClip() {
+        noClip = true;
     }
 
 
@@ -307,6 +315,9 @@ public abstract class Hero extends MazeCharacter {
         }
     }
 
+    /**
+     * This method randomly adds an item to the hero's inventory.
+     */
     public void randomItem() {
         int random = (int) (Math.random() * 4);
         if (random == 0) {
@@ -493,6 +504,11 @@ public abstract class Hero extends MazeCharacter {
         myRightIm3 = theRightIm3;
     }
 
+    /**
+     * This method gets the hero's default image
+     *
+     * @return the default image
+     */
     public BufferedImage getMyDefaultIm() {
         return myDownIm2;
     }
